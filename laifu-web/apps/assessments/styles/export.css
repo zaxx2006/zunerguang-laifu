@@ -1,0 +1,119 @@
+@layer components {
+.result-export-actions,
+.intro-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.result-export-actions {
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.export-hidden-wrap {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: -10000px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.export-capture-target {
+  width: 1080px;
+}
+
+.export-card {
+  width: 1080px;
+  padding: 56px;
+  border: 1px solid var(--color-hairline-strong);
+  background: var(--color-canvas);
+  color: var(--color-ink);
+}
+
+.export-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--color-hairline);
+}
+
+.export-title,
+.export-head h3 {
+  margin: 0;
+}
+
+.export-title {
+  color: var(--color-primary-ink);
+  font-weight: 700;
+  line-height: var(--leading-heading);
+}
+
+.export-bridge {
+  max-width: 58ch;
+  color: var(--color-mute);
+}
+
+.export-metrics {
+  display: grid;
+  margin: 32px 0;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  border: 1px solid var(--color-hairline);
+  background: var(--color-hairline);
+}
+
+.export-metric-item,
+.export-weakness-item {
+  padding: 18px;
+  background: var(--color-canvas);
+}
+
+.export-metric-item span,
+.export-metric-item strong {
+  display: block;
+}
+
+.export-radar-block,
+.export-weakness-block {
+  margin-top: 28px;
+  padding: 28px;
+  border: 1px solid var(--color-hairline);
+}
+
+.export-weakness-list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  border: 1px solid var(--color-hairline);
+  background: var(--color-hairline);
+}
+
+.export-weakness-item span,
+.export-weakness-item strong {
+  display: block;
+}
+
+.export-weakness-item:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 640px) {
+
+  .result-export-actions,
+  .intro-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .result-export-actions button,
+  .intro-actions button {
+    width: 100%;
+  }
+}
+}

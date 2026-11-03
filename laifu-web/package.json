@@ -1,0 +1,40 @@
+{
+  "name": "laifu-platform",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@12.3.4",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "dev:website": "pnpm --filter @laifu/website dev",
+    "dev:assessments": "pnpm --filter @laifu/assessments dev",
+    "dev:admin": "pnpm --filter @laifu/admin dev",
+    "dev:api": "pnpm --filter @laifu/assessment-api dev",
+    "build:website": "pnpm --filter @laifu/website build",
+    "build:production": "node scripts/build-production.mjs",
+    "build:assessments": "pnpm --filter @laifu/assessments build",
+    "build:admin": "pnpm --filter @laifu/admin build",
+    "check:api": "pnpm --filter @laifu/assessment-api check",
+    "build": "pnpm build:website && pnpm build:assessments && pnpm build:admin && pnpm check:api",
+    "lint": "oxlint apps workers scripts tests playwright.config.ts",
+    "typecheck": "pnpm --filter @laifu/website typecheck",
+    "test": "pnpm --filter @laifu/website test",
+    "pretest:e2e": "pnpm build:website && pnpm build:assessments && pnpm build:admin",
+    "test:e2e": "playwright test",
+    "audit:output": "pnpm --filter @laifu/website audit:output",
+    "audit:performance": "pnpm --filter @laifu/website audit:performance",
+    "audit:dependencies": "pnpm audit --prod",
+    "check:content": "pnpm --filter @laifu/website audit:content",
+    "check:docs": "node scripts/check-docs.mjs",
+    "check": "pnpm lint && pnpm audit:css && pnpm typecheck && pnpm test && pnpm check:content && pnpm check:docs && pnpm build && pnpm exec playwright test && pnpm audit:output && pnpm audit:performance && pnpm audit:dependencies",
+    "audit:css": "node scripts/check-css.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.63.0",
+    "oxlint": "1.81.0",
+    "serve": "14.2.6",
+    "postcss": "8.5.28"
+  }
+}

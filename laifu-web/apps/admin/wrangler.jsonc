@@ -1,0 +1,23 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "laifu-admin",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-07-26",
+  "compatibility_flags": [
+    "nodejs_compat",
+    "global_fetch_strictly_public"
+  ],
+  "workers_dev": true,
+  "preview_urls": false,
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    "ASSESSMENT_API_URL": "https://laifu-assessment-database.laifu-hubeitongren.workers.dev",
+    "ADMIN_ALLOWED_ORIGINS": "laifu-admin.laifu-hubeitongren.workers.dev"
+  },
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  }
+}

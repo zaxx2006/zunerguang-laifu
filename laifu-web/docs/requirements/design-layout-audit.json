@@ -1,0 +1,78 @@
+{
+  "date": "2026-09-03",
+  "scope": "Website layout and courses/offline-activity hierarchy",
+  "sourceWorkbookSha256": "ef5c8a1d411e96f612cb0e2d84fc69ca1076570c1b1257292833a41ce4ee35d7",
+  "preview": "http://localhost:4173/",
+  "layout": {
+    "columns": 12,
+    "styleModules": 9,
+    "entry": "apps/website/src/app/globals.css",
+    "tokenSource": "docs/design/system.md",
+    "cascade": [
+      "tokens",
+      "base",
+      "layout",
+      "components"
+    ]
+  },
+  "browser": {
+    "engine": "Codex in-app browser",
+    "routes": 30,
+    "widths": [
+      320,
+      390,
+      600,
+      601,
+      768,
+      960,
+      961,
+      1024,
+      1172,
+      1200,
+      1201,
+      1440,
+      1920
+    ],
+    "checks": 390,
+    "failures": [],
+    "minimumLongChineseParagraphCapacity": 12.25,
+    "containedClosingPunctuationObservations": 6,
+    "punctuationRule": "Only half-glyph overhang inside component padding, with visible overflow and no boundary crossing, is allowed.",
+    "expandedDisclosuresAt320": 141,
+    "expandedPages": 13,
+    "expandedFailures": [],
+    "interactions": [
+      "Desktop offline activity → courses",
+      "Mobile offline activity → courses",
+      "Course parent breadcrumb",
+      "Exclusive desktop menus",
+      "Resource format + stage filter",
+      "Resource reset to 24 items",
+      "Two selfchecks, 7 selections each"
+    ]
+  },
+  "content": {
+    "checked": 3652,
+    "missing": 0,
+    "brokenLinks": 0,
+    "deletedRemainders": 0
+  },
+  "executed": [
+    "production build + TypeScript",
+    "10 content/registry tests",
+    "5 style-validator positive/negative tests",
+    "lint",
+    "documentation audit",
+    "design token/style ownership audit",
+    "shared structure audit",
+    "assessment structure audit",
+    "static route/link audit",
+    "output performance budgets",
+    "independent workbook output audit",
+    "in-app browser rendered DOM and interaction checks"
+  ],
+  "notExecuted": [
+    "Full multi-application Playwright suite and Axe runtime scan; website regression specifications updated for future runs."
+  ],
+  "availability": "Booking/payment/download publication states unchanged. No production deployment performed."
+}

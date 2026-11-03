@@ -1,0 +1,466 @@
+{
+  "internalTitle": "AceVec 首页",
+  "key": "home",
+  "hero": {
+    "eyebrowIndex": "01",
+    "eyebrowLabel": "AI DECISION GROWTH",
+    "titleLead": "让品牌成为",
+    "titleEmphasis": "正确答案",
+    "titleTail": "的一部分。",
+    "description": "AceVec 把买方问题、品牌资格、独立证据、引用来源和合格行动连接成一套可经营的增长系统。",
+    "primaryAction": {
+      "href": "/method",
+      "label": "查看方法"
+    },
+    "secondaryAction": {
+      "href": "/contact",
+      "label": "讨论你的问题"
+    },
+    "proofPoints": [
+      {
+        "value": "NO RANKING PROMISES"
+      },
+      {
+        "value": "EVIDENCE FIRST"
+      },
+      {
+        "value": "COMPATIBLE MEASUREMENT"
+      }
+    ],
+    "rail": [
+      {
+        "label": "对象",
+        "value": "AI 决策任务"
+      },
+      {
+        "label": "判断",
+        "value": "资格与证据"
+      },
+      {
+        "label": "结果",
+        "value": "正确引用与合格行动"
+      }
+    ]
+  },
+  "opening": {
+    "eyebrowIndex": "02",
+    "eyebrowLabel": "THE SHIFT",
+    "titleLines": [
+      {
+        "value": "传统搜索争夺一次点击。"
+      },
+      {
+        "value": "AI 决策增长经营一次选择。"
+      }
+    ],
+    "description": "当买方直接向 AI 询问“该选谁、为什么、风险是什么”，品牌需要的不只是更多页面，而是一套能被理解、被核验、被引用、被正确行动的事实系统。",
+    "action": {
+      "href": "/insights/what-is-ai-decision-growth",
+      "label": "理解市场变化"
+    }
+  },
+  "sections": [
+    {
+      "key": "failure",
+      "eyebrowIndex": "03",
+      "eyebrowLabel": "FAILURE CHAIN",
+      "titleLines": [
+        {
+          "value": "品牌没有输在内容数量。"
+        },
+        {
+          "value": "而是输在答案链条断裂。"
+        }
+      ],
+      "description": "从需求、资格、证据到引用和行动，只要一环不可核验，曝光就很难变成正确选择。",
+      "markers": [],
+      "items": [
+        {
+          "sourceId": "01",
+          "kicker": "",
+          "title": "需求盲区",
+          "description": "只追已有关键词，没有覆盖买方真正交给 AI 的比较、验证与风险问题。",
+          "detail": "",
+          "points": []
+        },
+        {
+          "sourceId": "02",
+          "kicker": "",
+          "title": "资格模糊",
+          "description": "品牌描述很强，却没有稳定地说明适合谁、不适合谁、在什么条件下成立。",
+          "detail": "",
+          "points": []
+        },
+        {
+          "sourceId": "03",
+          "kicker": "",
+          "title": "证据断裂",
+          "description": "结论、数据与来源彼此分离，AI 和采购团队都无法低成本核验。",
+          "detail": "",
+          "points": []
+        },
+        {
+          "sourceId": "04",
+          "kicker": "",
+          "title": "引用失配",
+          "description": "持续生产 Owned 内容，却没有研究答案真正引用哪些域和页面类型。",
+          "detail": "",
+          "points": []
+        },
+        {
+          "sourceId": "05",
+          "kicker": "",
+          "title": "行动失真",
+          "description": "把出现、点击和单次回答当成增长，没有连接到资格、机会与销售反馈。",
+          "detail": "",
+          "points": []
+        }
+      ]
+    },
+    {
+      "key": "services",
+      "eyebrowIndex": "04",
+      "eyebrowLabel": "THREE SERVICES",
+      "titleLines": [
+        {
+          "value": "从一个清楚的问题开始，"
+        },
+        {
+          "value": "建立一套可经营的答案系统。"
+        }
+      ],
+      "description": "每项服务都有触发条件、所需输入、明确交付、验收标准和不能保证的结果。",
+      "markers": [],
+      "items": [
+        {
+          "sourceId": "S-01",
+          "kicker": "OUTPUT",
+          "title": "AI 决策需求地图",
+          "description": "冻结买方角色、任务、约束与 Prompt 组合，建立品牌资格、竞争与引用基线。",
+          "detail": "决策任务表 / Prompt Portfolio / 证据缺口队列",
+          "href": "/services/decision-demand-map",
+          "points": []
+        },
+        {
+          "sourceId": "S-02",
+          "kicker": "OUTPUT",
+          "title": "品牌答案资产战役",
+          "description": "把经过批准的主张和证据编译成可理解、可核验、可引用、可行动的答案资产。",
+          "detail": "Claim Ledger / Answer Units / 发布与分发清单",
+          "href": "/services/answer-asset-campaign",
+          "points": []
+        },
+        {
+          "sourceId": "S-03",
+          "kicker": "OUTPUT",
+          "title": "AI 决策份额经营",
+          "description": "在可比条件下观察出现、引用、主张吸收、推荐适配与合格行动的变化。",
+          "detail": "Observation Set / Citation Graph / 经营优先队列",
+          "href": "/services/decision-share-operations",
+          "points": []
+        }
+      ]
+    },
+    {
+      "key": "method",
+      "eyebrowIndex": "05",
+      "eyebrowLabel": "OPERATING METHOD",
+      "titleLines": [
+        {
+          "value": "不是问“有没有被提到”，"
+        },
+        {
+          "value": "而是追踪一次决策怎样形成。"
+        }
+      ],
+      "description": "冻结条件，记录对象，区分证据强度，再把观察连接到业务结果。每个结论都能回到来源、分母与限制。",
+      "markers": [
+        {
+          "value": "DECISION TASK"
+        },
+        {
+          "value": "ENTITY"
+        },
+        {
+          "value": "CLAIM"
+        },
+        {
+          "value": "EVIDENCE"
+        },
+        {
+          "value": "CONTENT UNIT"
+        },
+        {
+          "value": "OBSERVATION"
+        },
+        {
+          "value": "OUTCOME"
+        }
+      ],
+      "items": [
+        {
+          "sourceId": "INPUT",
+          "kicker": "输入",
+          "title": "",
+          "description": "买方角色、场景、约束、平台与观察条件",
+          "detail": "",
+          "points": []
+        },
+        {
+          "sourceId": "COMPILE",
+          "kicker": "编译",
+          "title": "",
+          "description": "稳定事实、批准主张、独立证据与答案资产",
+          "detail": "",
+          "points": []
+        },
+        {
+          "sourceId": "DECIDE",
+          "kicker": "判断",
+          "title": "",
+          "description": "出现、引用、正确吸收、适配推荐与行动",
+          "detail": "",
+          "points": []
+        }
+      ],
+      "action": {
+        "href": "/method",
+        "label": "查看完整方法",
+        "title": ""
+      }
+    },
+    {
+      "key": "evidence",
+      "eyebrowIndex": "06",
+      "eyebrowLabel": "EVIDENCE SYSTEM",
+      "titleLines": [
+        {
+          "value": "每个重要主张，"
+        },
+        {
+          "value": "都应带着自己的使用说明。"
+        }
+      ],
+      "description": "证据不是一句“有数据支持”。AceVec 固定记录适用范围、分母、来源、独立性、反证和限制。",
+      "markers": [],
+      "items": [
+        {
+          "sourceId": "E-01",
+          "kicker": "",
+          "title": "范围",
+          "description": "市场、语言、场景、角色和适用条件。",
+          "detail": "",
+          "points": []
+        },
+        {
+          "sourceId": "E-02",
+          "kicker": "",
+          "title": "分母",
+          "description": "样本、基线、比较组和独立运行次数。",
+          "detail": "",
+          "points": []
+        },
+        {
+          "sourceId": "E-03",
+          "kicker": "",
+          "title": "来源",
+          "description": "方法、采集时间、内容哈希和独立性。",
+          "detail": "",
+          "points": []
+        },
+        {
+          "sourceId": "E-04",
+          "kicker": "",
+          "title": "限制",
+          "description": "反证、随机性、缺失数据和不可保证结果。",
+          "detail": "",
+          "points": []
+        }
+      ],
+      "quote": {
+        "text": "当证据不能说明自己在什么条件下成立，它就不应该被编译成无条件事实。",
+        "attribution": "ACEVEC / CLAIM GOVERNANCE PRINCIPLE"
+      }
+    },
+    {
+      "key": "fit",
+      "eyebrowIndex": "07",
+      "eyebrowLabel": "QUALIFICATION",
+      "titleLines": [
+        {
+          "value": "先判断是不是正确问题，"
+        },
+        {
+          "value": "再决定是否扩大投入。"
+        }
+      ],
+      "description": "我们更适合愿意开放真实销售问题、业务证据和能力边界的团队，而不是追求短期“霸榜”承诺的品牌。",
+      "markers": [],
+      "items": [
+        {
+          "sourceId": "FIT",
+          "kicker": "FIT / 适合",
+          "title": "复杂购买、长决策链、证据要求高",
+          "description": "",
+          "detail": "",
+          "points": [
+            {
+              "value": "B2B SaaS 与专业服务"
+            },
+            {
+              "value": "有明确 ICP 与购买委员会"
+            },
+            {
+              "value": "愿意让销售反馈进入内容决策"
+            },
+            {
+              "value": "接受兼容测量与不确定性"
+            }
+          ]
+        },
+        {
+          "sourceId": "NON_FIT",
+          "kicker": "NON-FIT / 不适合",
+          "title": "只需要批量内容或结果保证",
+          "description": "",
+          "detail": "",
+          "points": [
+            {
+              "value": "要求承诺排名、引用或收入"
+            },
+            {
+              "value": "无法提供真实能力与证据边界"
+            },
+            {
+              "value": "把 sponsored 包装为 earned"
+            },
+            {
+              "value": "希望无审核地全自动发布"
+            }
+          ]
+        }
+      ],
+      "action": {
+        "href": "/contact",
+        "label": "开始资格判断",
+        "title": "把你正在面对的决策问题交给我们。"
+      }
+    },
+    {
+      "key": "outcomes",
+      "eyebrowIndex": "08",
+      "eyebrowLabel": "OUTCOME LADDER",
+      "titleLines": [
+        {
+          "value": "从可访问，走到被正确选择。"
+        }
+      ],
+      "description": "每一层使用不同指标和证据。出现不是引用，引用不是推荐，推荐也不自动等于机会。",
+      "markers": [],
+      "items": [
+        {
+          "sourceId": "G0–G2",
+          "kicker": "",
+          "title": "可访问与可理解",
+          "description": "crawler 是否获得完整首包，实体与主张是否稳定。",
+          "detail": "",
+          "points": []
+        },
+        {
+          "sourceId": "G3–G5",
+          "kicker": "",
+          "title": "被提及与被引用",
+          "description": "品牌是否出现、引用了什么、吸收的主张是否正确。",
+          "detail": "",
+          "points": []
+        },
+        {
+          "sourceId": "G6–G8",
+          "kicker": "",
+          "title": "被正确选择",
+          "description": "推荐是否适配、限制是否被保留、下一步是否成立。",
+          "detail": "",
+          "points": []
+        },
+        {
+          "sourceId": "G9–G10",
+          "kicker": "",
+          "title": "影响业务结果",
+          "description": "从合格行动连接到机会、提案和可解释归因。",
+          "detail": "",
+          "points": []
+        }
+      ],
+      "action": {
+        "href": "/outcomes",
+        "label": "查看成效定义",
+        "title": ""
+      }
+    },
+    {
+      "key": "insights",
+      "eyebrowIndex": "09",
+      "eyebrowLabel": "FIELD NOTES",
+      "titleLines": [
+        {
+          "value": "先把判断方法公开，"
+        },
+        {
+          "value": "再讨论是否合作。"
+        }
+      ],
+      "description": "这些内容不是为填充博客，而是让采购、增长、内容和数据团队能独立判断问题。",
+      "markers": [],
+      "items": [
+        {
+          "sourceId": "I-01",
+          "kicker": "CATEGORY",
+          "title": "什么是 AI 决策增长？",
+          "description": "它不是新的内容缩写，而是一套围绕买方答案、品牌资格与业务行动的经营系统。",
+          "detail": "READ FIELD NOTE",
+          "href": "/insights/what-is-ai-decision-growth",
+          "points": []
+        },
+        {
+          "sourceId": "I-02",
+          "kicker": "MEASUREMENT",
+          "title": "如何测量 AI 搜索，而不被随机性误导？",
+          "description": "冻结查询、平台、界面、地区和判定条件，用兼容观察形成方向性结论。",
+          "detail": "READ FIELD NOTE",
+          "href": "/insights/how-to-measure-ai-search",
+          "points": []
+        },
+        {
+          "sourceId": "I-03",
+          "kicker": "OPERATING MODEL",
+          "title": "GEO 与 SEO：不是替代关系。",
+          "description": "SEO 解决发现与页面基础，GEO 进一步管理实体、证据、引用与推荐资格。",
+          "detail": "READ FIELD NOTE",
+          "href": "/insights/geo-vs-seo",
+          "points": []
+        }
+      ]
+    },
+    {
+      "key": "closing",
+      "eyebrowIndex": "10",
+      "eyebrowLabel": "START WITH THE DECISION",
+      "titleLines": [
+        {
+          "value": "你不需要先买一套服务。"
+        },
+        {
+          "value": "先把真正的问题说清楚。"
+        }
+      ],
+      "description": "告诉我们市场、买方角色和正在失去的决策场景。我们会先判断问题是否适合进入需求地图。",
+      "markers": [],
+      "items": [],
+      "action": {
+        "href": "/contact",
+        "label": "讨论你的问题",
+        "title": ""
+      }
+    }
+  ]
+}

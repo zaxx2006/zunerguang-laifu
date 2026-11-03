@@ -1,0 +1,1857 @@
+{
+  "created_at": "2026-10-09T15:02:00.855610+08:00",
+  "base_commit": "ea68f05d7d8b9a77283f96c5bed7cbe8e157bf2a",
+  "source_files": 368,
+  "files": [
+    {
+      "path": ".gitattributes",
+      "size": 194,
+      "sha256": "89a6a984f795a181fff727cd401e2683e847bbd90e3c58c167a7cb7b678aed31"
+    },
+    {
+      "path": ".gitignore",
+      "size": 1764,
+      "sha256": "ca48566091d8d587daeca4cfd30108095ceb05b36457f8424cf0b6196252da28"
+    },
+    {
+      "path": ".npmrc",
+      "size": 35,
+      "sha256": "cde76ca04e048c3eba070a2c0dfcf5b723cf6014eab177157096b924f24ec4ca"
+    },
+    {
+      "path": "HANDOFF-GIT-STATUS.txt",
+      "size": 7790,
+      "sha256": "97fd36ff668d3505c8ab4d3418d93005ce956647337fefbf63ef8589c19513d5"
+    },
+    {
+      "path": "HANDOFF.txt",
+      "size": 5656,
+      "sha256": "f632e2ee63a15344e617d6de87984279df94be0c256b0c9cf7bafc990a089d4f"
+    },
+    {
+      "path": "README.md",
+      "size": 1461,
+      "sha256": "72a5aa420ab1d2781d57e0f9228a2ee7d8ab1bcc2634b4ba769a2c5a90885b92"
+    },
+    {
+      "path": "apps/admin/.env.example",
+      "size": 137,
+      "sha256": "ec075eb42102fea2ec31494c48c351bdd1a30d84bffb2a831e78de82648639bd"
+    },
+    {
+      "path": "apps/admin/app/api/auth/login/route.js",
+      "size": 1114,
+      "sha256": "9bbbeaf2fb89bee415394a7bf52cde48d12d4754082fb780baa60ce320505271"
+    },
+    {
+      "path": "apps/admin/app/api/auth/logout/route.js",
+      "size": 381,
+      "sha256": "f2b48287c800044e08e1459bdb0ad7d9f36aa4817557c8dee29b819cd1495265"
+    },
+    {
+      "path": "apps/admin/app/api/leads/export/route.js",
+      "size": 4384,
+      "sha256": "040fbb2c871a58d5fd667acc830821a6eda68462f48997292e6fc409ca1cb311"
+    },
+    {
+      "path": "apps/admin/app/globals.css",
+      "size": 181,
+      "sha256": "590527f6f7a4a5b36c28d5556290ef6b196b6055b3d8232b05a784b10f36e36f"
+    },
+    {
+      "path": "apps/admin/app/layout.js",
+      "size": 282,
+      "sha256": "778d534dbb733906d75f0ef50401f0321dc87857ceeb374f1211d154f18a347d"
+    },
+    {
+      "path": "apps/admin/app/leads/[id]/page.js",
+      "size": 16950,
+      "sha256": "921281ef3be44a402b8e9e7c58eb656067ade8778c868afde72bf14128a03078"
+    },
+    {
+      "path": "apps/admin/app/leads/[id]/report/layout.js",
+      "size": 253,
+      "sha256": "64a69adf6f50aba46320d8e54d1c47f3c4b5ddf610527141df2c3d083b38d9fb"
+    },
+    {
+      "path": "apps/admin/app/leads/[id]/report/page.js",
+      "size": 9925,
+      "sha256": "5df6134675664f636ba24877c2b150ace79244dbe6fe4d155cb39797ad8470d2"
+    },
+    {
+      "path": "apps/admin/app/leads/actions.js",
+      "size": 2029,
+      "sha256": "f6b17b25c25c8eadb18870bf93f281741e3f949cea0bb63019a681ff56a42739"
+    },
+    {
+      "path": "apps/admin/app/leads/page.js",
+      "size": 3200,
+      "sha256": "311f6aae7ed8ef0cd13b6e83a036b6743dd45cc617ffb8f5a4d26b90b69afc55"
+    },
+    {
+      "path": "apps/admin/app/login/page.js",
+      "size": 670,
+      "sha256": "21fa70d35d31362da42add1405f9636e452eee7254525b585c6771fb65a1f826"
+    },
+    {
+      "path": "apps/admin/app/page.js",
+      "size": 106,
+      "sha256": "d3404d2283a41278c41d9c41357feedbcafaeff30cc55c5ceb50cdb2feacfc8f"
+    },
+    {
+      "path": "apps/admin/components/AdminDimensionRadarChart.js",
+      "size": 4005,
+      "sha256": "b11b552ed31974d2cc08fdbfb51e2f7773d23953a064c0421c9fe931dbb1ba6b"
+    },
+    {
+      "path": "apps/admin/components/LeadDetailForm.js",
+      "size": 15274,
+      "sha256": "2e3abd6b276d745b7230b89e5a083630d50fa248e84a69b5c56ff674f0de26e6"
+    },
+    {
+      "path": "apps/admin/components/LeadReportPage.js",
+      "size": 44963,
+      "sha256": "d2e15bb3f67a34140cf79176cf926493f8bfebed256a8b9deaa068c5e532798d"
+    },
+    {
+      "path": "apps/admin/components/LeadsFilters.js",
+      "size": 3954,
+      "sha256": "24f61e4495a27d20194aab7d5ba40b01436e6e245c36fe39b70c23f808250134"
+    },
+    {
+      "path": "apps/admin/components/LeadsPagination.js",
+      "size": 1301,
+      "sha256": "b8ef1f055ebd925f7216d1c00eab02ccefcc8565f46add623a4a8d60d6edb4b0"
+    },
+    {
+      "path": "apps/admin/components/LeadsTable.js",
+      "size": 7168,
+      "sha256": "2346d0519a3f5cda569e7f1f4574b8260cec95b16ebc3fb256c731fd67bbc9d8"
+    },
+    {
+      "path": "apps/admin/components/LoginForm.js",
+      "size": 1901,
+      "sha256": "7df4583e3991b11463bc366fbc3175835f49b2538954cf7f72303d7ed25a2e46"
+    },
+    {
+      "path": "apps/admin/components/narcissism-risk/NarcissismRiskReportPage.js",
+      "size": 48267,
+      "sha256": "08f673111f8c25e6bab38502525442419fcef2076ea5ded2d0433b52f8aa1efb"
+    },
+    {
+      "path": "apps/admin/lib/assessmentDisplay.js",
+      "size": 7651,
+      "sha256": "7626bac3ba10d63b2a2ec9b5f35b88cd30d48e50e67bf540aafbdf1f5b12d0a8"
+    },
+    {
+      "path": "apps/admin/lib/auth.js",
+      "size": 614,
+      "sha256": "1816ea04eefdc3d394019e734aa6bd8860160ecf2668c811ee8642db0829f5bb"
+    },
+    {
+      "path": "apps/admin/lib/cloudflareDatabaseServer.js",
+      "size": 976,
+      "sha256": "f7b4caebdc32ad210f0f0e94253b1d8baca28d227f3fcb2f567138ba7be2302f"
+    },
+    {
+      "path": "apps/admin/lib/constants.js",
+      "size": 3452,
+      "sha256": "9fb561facc06efa21f2e3d033fd61016876676916ca898585e8f188de314133e"
+    },
+    {
+      "path": "apps/admin/lib/format.js",
+      "size": 1902,
+      "sha256": "7f41645b0fad0e68031117b24b2b257eedc2bb2dc56e90d8b9756adec43a666e"
+    },
+    {
+      "path": "apps/admin/lib/leadAssessment.js",
+      "size": 32144,
+      "sha256": "81d529fd8e2ece15e021cf7c95219ac4dd8efef22e3cfb9f821d708249b17de1"
+    },
+    {
+      "path": "apps/admin/lib/leadDetail.js",
+      "size": 3722,
+      "sha256": "d2d96b59cedfae44978d0baf8f463a18db23a75f43fa32b7493f1930e8dc80fe"
+    },
+    {
+      "path": "apps/admin/lib/leadsQuery.js",
+      "size": 3979,
+      "sha256": "9e232b6d7029af5028b5edcb08247f1fc02c838925f776b30e0fe787193d02a1"
+    },
+    {
+      "path": "apps/admin/lib/narcissismRiskReportAdapter.js",
+      "size": 18771,
+      "sha256": "347caf6d955d7dcf8531ba68d073a2131e81b87d5dbac881987841f55e46a75f"
+    },
+    {
+      "path": "apps/admin/lib/narcissismRiskReportCopy.js",
+      "size": 35679,
+      "sha256": "f95e2c95b65a167fa5c4b3ff0dd199a1c22b3eea9156e5a79d9bc958e5e680f1"
+    },
+    {
+      "path": "apps/admin/lib/reportContent.js",
+      "size": 14130,
+      "sha256": "e7e38b17d05542cca79cb5b4bbe5b57dd9f83a498d284125252dcd6aaef0d9cd"
+    },
+    {
+      "path": "apps/admin/lib/teamIntroContent.js",
+      "size": 10382,
+      "sha256": "a61117eca82c2fcb6e1976e206d1abca5987a42efed9d4f3a096fc48c8125df2"
+    },
+    {
+      "path": "apps/admin/next.config.mjs",
+      "size": 571,
+      "sha256": "f064184a70f495c20ba5a8b0f6d6a18ae94d35fcffc9e8edf692e8dee415a6ff"
+    },
+    {
+      "path": "apps/admin/open-next.config.ts",
+      "size": 107,
+      "sha256": "8e02c850592160eb80d1aed908789f317babcb76985792a86bb79e7c0dd4b1d9"
+    },
+    {
+      "path": "apps/admin/package.json",
+      "size": 809,
+      "sha256": "fd3f3b940c5b86f2996705a1a6fd053a074c41a6a33f7f98de5e26e012e58972"
+    },
+    {
+      "path": "apps/admin/public/_headers",
+      "size": 67,
+      "sha256": "90137f0fac2f988faf25c5910b0cfa1b6df9d31596a6b21f4ce4bba6ede5b569"
+    },
+    {
+      "path": "apps/admin/public/assets/ZUNERGUANGLOGO01.png",
+      "size": 577265,
+      "sha256": "0d6e10eaccd19b70950d33f73fc58057b9517b7d7cb4fa578d7a198aec2b7135"
+    },
+    {
+      "path": "apps/admin/public/assets/report-watermark-boundary.png",
+      "size": 965696,
+      "sha256": "d5f0e342c13d0de40049f024f58c58b82c88c244678143c4b1b736f2fd083cc0"
+    },
+    {
+      "path": "apps/admin/public/assets/report-watermark-hero.png",
+      "size": 890342,
+      "sha256": "c5a89e0918ae90d273c4172349ebcdbaadeb42493d6ca88bc6b3fde606fa2763"
+    },
+    {
+      "path": "apps/admin/scripts/run-opennext.mjs",
+      "size": 926,
+      "sha256": "4351c590c9281648f440859b67ae5922bab830aa7760366a149098a4953f0171"
+    },
+    {
+      "path": "apps/admin/styles/foundation.css",
+      "size": 2082,
+      "sha256": "b154cc12782ebb3f27501cf7c3ccae7fd1960e1c58f79362e2a418b76adc616a"
+    },
+    {
+      "path": "apps/admin/styles/management.css",
+      "size": 12978,
+      "sha256": "118b55b6a50a53c9d468445e6c576b054ac3ab3d51a79c619527a9d3c77ba1cd"
+    },
+    {
+      "path": "apps/admin/styles/mobile-report.css",
+      "size": 10819,
+      "sha256": "732a7b01f53203ff13aa865c56cbdc7b2887e81ae7be95727af0df1ddddde1d4"
+    },
+    {
+      "path": "apps/admin/styles/print-report.css",
+      "size": 18347,
+      "sha256": "203b445bf484b37abaa52d8592eaf0488e6dd83342760104e5ac9f2aeb2a53a4"
+    },
+    {
+      "path": "apps/admin/styles/report.css",
+      "size": 15448,
+      "sha256": "d91be5263692cdeab739ab9d2f9b16f693383bf310bf1bfee46141ece257c180"
+    },
+    {
+      "path": "apps/admin/styles/risk-report.css",
+      "size": 6528,
+      "sha256": "66a2278f03a26382632cba04efc282fc723cc938500c3928a53ec6c8e9d9a766"
+    },
+    {
+      "path": "apps/admin/styles/tokens.css",
+      "size": 521,
+      "sha256": "5242e6ab9db34e63f06fd22d635c2c78d566af228ac2afeb601ccbd7ca080633"
+    },
+    {
+      "path": "apps/admin/wrangler.jsonc",
+      "size": 607,
+      "sha256": "e628ee895d2ac161e060c7f7de5ab75894c84344452eff7c5d283312b63a4ec7"
+    },
+    {
+      "path": "apps/assessments/.env.example",
+      "size": 124,
+      "sha256": "6dbbd68fdfaec6cc2fe2facaf69b7bbfd8db9b5291ef37c92355a4d8e6793b0a"
+    },
+    {
+      "path": "apps/assessments/app/globals.css",
+      "size": 311,
+      "sha256": "ec908d9ce4b952e1e14765829dfa040faa928ca412020e2b431c00ec7e5dc451"
+    },
+    {
+      "path": "apps/assessments/app/layout.js",
+      "size": 811,
+      "sha256": "9fc7dacd923235dbe75494bc82f3ffedb0369ceb9c52d03632ff3600f8b54dc6"
+    },
+    {
+      "path": "apps/assessments/app/narcissism-risk/page.js",
+      "size": 6022,
+      "sha256": "b25c7dc2aaa6549c38fe5371f6d5de17a3cd210834c7f1faa08a942509536aea"
+    },
+    {
+      "path": "apps/assessments/app/page.js",
+      "size": 19906,
+      "sha256": "56f4f7322fadbd56883be5c399fa69fa2aa015c4b31776d3492e45b8b30f3cf5"
+    },
+    {
+      "path": "apps/assessments/assets/font-common.json",
+      "size": 2629,
+      "sha256": "e65f0964be31c358720215a032457eb659650bc2335f54d7f38822ccebc44940"
+    },
+    {
+      "path": "apps/assessments/assets/fonts/OFL.txt",
+      "size": 4388,
+      "sha256": "1c05c68c34f9708415aada51f17e1b0092d2cea709bf4a94cd38114f9e73d7d9"
+    },
+    {
+      "path": "apps/assessments/assets/fonts/sans-0a4c6344e439.woff2",
+      "size": 117952,
+      "sha256": "0a4c6344e4395831a203215f348111b0f274bffbe203875a0971a1bb06eaba87"
+    },
+    {
+      "path": "apps/assessments/assets/fonts/sans-4adec1305898.woff2",
+      "size": 36252,
+      "sha256": "4adec13058986764eebd5cbf733a182894bb567f1741ffa58f9ef7ae7620f815"
+    },
+    {
+      "path": "apps/assessments/assets/fonts/sans-66f25e79e927.woff2",
+      "size": 26436,
+      "sha256": "66f25e79e927c15899ec1c37c66990b0881f46a9076bfe2175fecb095e4171db"
+    },
+    {
+      "path": "apps/assessments/assets/fonts/sans-a818b15b46ad.woff2",
+      "size": 37128,
+      "sha256": "a818b15b46ad1b8b7054adeefa7f98ef76ee8869b8834dc0b091f371d21e4925"
+    },
+    {
+      "path": "apps/assessments/assets/fonts/sans-b85477d9c927.woff2",
+      "size": 41548,
+      "sha256": "b85477d9c9270cbbb54fc3968ddef5bbcadfd966cd2024e49fc11c30811e90b4"
+    },
+    {
+      "path": "apps/assessments/assets/fonts/source.json",
+      "size": 10471,
+      "sha256": "2e9485bb1c7473d34a4f10402934bd9208907fba970123a720bcedf4b4eb0b8e"
+    },
+    {
+      "path": "apps/assessments/components/DimensionRadarChart.js",
+      "size": 5125,
+      "sha256": "7424c4db7ab8318cb7fd5b44587f9568a75b35840265e30a8ff399a07db4fa3c"
+    },
+    {
+      "path": "apps/assessments/components/IntroScreen.js",
+      "size": 1271,
+      "sha256": "056ca26c3921639df7527e0c5eb7fd56e5e0f77d58221b601ac0bfaf4ef35d9e"
+    },
+    {
+      "path": "apps/assessments/components/QuestionScreen.js",
+      "size": 2494,
+      "sha256": "a63c08acc26db80b272f9358d0556420aa8f224971c135db05dc813ce0ed6335"
+    },
+    {
+      "path": "apps/assessments/components/QuestionnaireChrome.js",
+      "size": 5582,
+      "sha256": "d0b060304faef190fa7c52a3586bbd9ffa39e5fa3f3e1944ab348f79a7e2eb48"
+    },
+    {
+      "path": "apps/assessments/components/ResultScreen.js",
+      "size": 15695,
+      "sha256": "3674d41456be024a8e3471220231f2f6803dc08a574abcd486025c04066add7c"
+    },
+    {
+      "path": "apps/assessments/components/SimpleResultExportCard.js",
+      "size": 2266,
+      "sha256": "666937039ad09cad782577f801c6f059dfb58def4361a21ab26e42e8ff37f7bb"
+    },
+    {
+      "path": "apps/assessments/components/narcissism-risk/NarcissismRiskIntroScreen.js",
+      "size": 6102,
+      "sha256": "aff0ed1dbbad06a963b019eb5502fb6160a4fbafb658522f6dabc273ba1ddac1"
+    },
+    {
+      "path": "apps/assessments/components/narcissism-risk/NarcissismRiskLeadCapturePanel.js",
+      "size": 6289,
+      "sha256": "1ddcb811ad2abd5890e3647a719aab67750ae7b0c988530be05391572158f9bf"
+    },
+    {
+      "path": "apps/assessments/components/narcissism-risk/NarcissismRiskQuestionScreen.js",
+      "size": 3004,
+      "sha256": "67f819ccab797ef9ef3ddf73e918172406a5f7504808aa8c76cd069b20e23cfb"
+    },
+    {
+      "path": "apps/assessments/components/narcissism-risk/NarcissismRiskRadarChart.js",
+      "size": 4646,
+      "sha256": "7e163fbd8fb4d9efbeceb491956097f2b9ecd6d1b301ee07f1336117038ce2a2"
+    },
+    {
+      "path": "apps/assessments/components/narcissism-risk/NarcissismRiskResultScreen.js",
+      "size": 19163,
+      "sha256": "b9939505601d75571854b9b10107eee9838b5570d5fd8a5f410be6483ac7d840"
+    },
+    {
+      "path": "apps/assessments/components/narcissism-risk/NarcissismRiskSimpleResultExportCard.js",
+      "size": 8911,
+      "sha256": "41db7aaf35258a134e7030bcbd700df24bf23b9554885dd0d46f2419e91cd3a2"
+    },
+    {
+      "path": "apps/assessments/components/narcissism-risk/narcissismRisk.module.css",
+      "size": 24403,
+      "sha256": "7ad588bb95225301f5e6ea0a89203ec42ace6762ce2aa989298cc1dcf4be969c"
+    },
+    {
+      "path": "apps/assessments/data/narcissismRiskQuestions.js",
+      "size": 14925,
+      "sha256": "46e0d9d91a230d65ff0cbc8e9a743a3b7840401780d57401bbc87d67eae46236"
+    },
+    {
+      "path": "apps/assessments/data/narcissismRiskResultCopy.js",
+      "size": 5153,
+      "sha256": "78b7d4af6e4ca01f508effa163885f8e3e871b3481214bc9b9030eabff22b58c"
+    },
+    {
+      "path": "apps/assessments/data/questions.js",
+      "size": 10219,
+      "sha256": "f7f36b93fc663448d11f64b3cdeb8d8fe0d1317d76acb17f4fa99f7a5ded8e8e"
+    },
+    {
+      "path": "apps/assessments/data/resultCopy.js",
+      "size": 5555,
+      "sha256": "2c21a66cb97d53ab6beb8bc55fd79b74708ff187eb459d08d4f173a794240349"
+    },
+    {
+      "path": "apps/assessments/data/resultPageConfig.js",
+      "size": 155,
+      "sha256": "67f94903dc137f5524b0f335bd0e2f8be6bc202869481861cc28dd1ec055c6ab"
+    },
+    {
+      "path": "apps/assessments/lib/assessmentDatabaseClient.js",
+      "size": 893,
+      "sha256": "a2d936227db76ade7cd1f2756b802103298dde68525a6e31c045813e9b629946"
+    },
+    {
+      "path": "apps/assessments/lib/buildNarcissismRiskSubmissionPayload.js",
+      "size": 4798,
+      "sha256": "07b03611cb55f6b2de694edb37b6fc831e46066d618838a70b721b9db5d67c06"
+    },
+    {
+      "path": "apps/assessments/lib/buildSubmissionPayload.js",
+      "size": 2542,
+      "sha256": "11d562cc94fee67fa491e56e4f1006a6dced15d929b6893da871440a2f286b64"
+    },
+    {
+      "path": "apps/assessments/lib/narcissismRiskScoring.js",
+      "size": 10293,
+      "sha256": "ff8427002bce4e3976932a07352495737931a23726eb2351e54d9a56b4ceee0d"
+    },
+    {
+      "path": "apps/assessments/lib/scoring.js",
+      "size": 476,
+      "sha256": "97308e212f9de1c910d8c5ab42477eda17348d4677fe1366c68d3b46b838dd0d"
+    },
+    {
+      "path": "apps/assessments/next.config.mjs",
+      "size": 605,
+      "sha256": "6d24b9b265b4552377b1cdc0ce372b65dddf7a7a6999e01e15d9b01fed62384a"
+    },
+    {
+      "path": "apps/assessments/package.json",
+      "size": 516,
+      "sha256": "a4958eddae62609db4cf6ebda5f2b02d2b58979d7b77632160f88ab9e02eab05"
+    },
+    {
+      "path": "apps/assessments/public/_headers",
+      "size": 242,
+      "sha256": "2b41cffba90271c44d6b018b98a47728a9663d67ce31db5efe3347058dd0d283"
+    },
+    {
+      "path": "apps/assessments/public/assets/illustration/undraw_person-search_wuzp.svg",
+      "size": 18747,
+      "sha256": "3039584eaf0884ffa8ac97b77520de90803f70ad8184caebcb95325d06775dec"
+    },
+    {
+      "path": "apps/assessments/public/assets/illustration/undraw_questions_52ic.svg",
+      "size": 12298,
+      "sha256": "ad2b7c0fc4821a3e5226493904140c7dbdb14f4d8ae82ef40781a98f6143136b"
+    },
+    {
+      "path": "apps/assessments/public/assets/wecom-assistant-qr.jpg",
+      "size": 33437,
+      "sha256": "b4fb4e6e5a8463e909d8dd5a0e0398a2bb85e0d9ee3ed220a4b1fd719228f960"
+    },
+    {
+      "path": "apps/assessments/public/generated/logo/original.svg",
+      "size": 2477,
+      "sha256": "686b97ad571bf03e9dbe2076a66b9808be5ebff7508f06cad8c4e80df0f3b41b"
+    },
+    {
+      "path": "apps/assessments/public/generated/patterns/diagonal-hatch.svg",
+      "size": 178,
+      "sha256": "31bb741e9e1cf591eeefebff7d57eb1f66266cc4e46dedb072e1797dc0ebdfce"
+    },
+    {
+      "path": "apps/assessments/scripts/check-structure.mjs",
+      "size": 5054,
+      "sha256": "afbec407a0ff92648dda6ff6c327404bf304411f5cc71809fac20850f12c5467"
+    },
+    {
+      "path": "apps/assessments/scripts/prepare-fonts.py",
+      "size": 2369,
+      "sha256": "82432737aa0464e5d42ca6f8c413270a0c95a1db449803d3b28ba33c3bb3c4da"
+    },
+    {
+      "path": "apps/assessments/styles/chrome.css",
+      "size": 11010,
+      "sha256": "fbd83326ddb3889114f4f07302ca1f981a15560d414446e05fbc173f75eb0e5d"
+    },
+    {
+      "path": "apps/assessments/styles/export.css",
+      "size": 2001,
+      "sha256": "ce05fdaa37e85d1656e14e90bc83bca5054501d8b4ea0960df6212de9ea88c67"
+    },
+    {
+      "path": "apps/assessments/styles/fonts.css",
+      "size": 7493,
+      "sha256": "ebbfd4cfc8547898c95c51c0e0e375ffefce6206ab5cf3c8bfd18e4a5162143e"
+    },
+    {
+      "path": "apps/assessments/styles/foundation.css",
+      "size": 1530,
+      "sha256": "40e3eb6d1f7709b7b7fa36a78435e84bf1d739658c2b4fdd7fdb3fd8c3de3cbb"
+    },
+    {
+      "path": "apps/assessments/styles/questionnaire.css",
+      "size": 8867,
+      "sha256": "51a8546191df1da82f35d3e68e4863b16d5b2fe412e92e6c5ad58c5b1ddd14e0"
+    },
+    {
+      "path": "apps/assessments/styles/result.css",
+      "size": 5756,
+      "sha256": "0f0efd7dd38ad8cc5f55ed0d20935337a66773e87468b403f25d9dfc9ec64b7f"
+    },
+    {
+      "path": "apps/assessments/styles/tokens.css",
+      "size": 272,
+      "sha256": "f9711e89b11e925f652bda119a00f3645308e72ff71f1af02566a16e69ab9a45"
+    },
+    {
+      "path": "apps/website/AGENTS.md",
+      "size": 678,
+      "sha256": "63f2c50380ed6303237cce215ce27af1d620d094c215e28d1b1538a3c070e3bb"
+    },
+    {
+      "path": "apps/website/CLAUDE.md",
+      "size": 11,
+      "sha256": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49"
+    },
+    {
+      "path": "apps/website/assets/font-subsets.json",
+      "size": 7340,
+      "sha256": "5feade7647b8f0589a92c4565d85c37f60546f4ce91772383a9826e4a9a962c5"
+    },
+    {
+      "path": "apps/website/assets/illustration/undraw_faq_pgxi.svg",
+      "size": 4764,
+      "sha256": "8d93dee22a8dba7de3af0be09e48485e03e5fc7ba54e070ce7e4b7d3142818a2"
+    },
+    {
+      "path": "apps/website/assets/illustration/undraw_key-points_iiic.svg",
+      "size": 8181,
+      "sha256": "0ba0ee0684787f8d18363cec233aaf7f58109ca9832f06d1c27bb6fd68310501"
+    },
+    {
+      "path": "apps/website/assets/illustration/undraw_team_mmq0.svg",
+      "size": 9874,
+      "sha256": "b3c8d8a094fae9922d9ffdcce39b040cbc33b57931f7b7b4b3db2378f12b6bdd"
+    },
+    {
+      "path": "apps/website/assets/images/logo.svg",
+      "size": 2477,
+      "sha256": "a4d923f8f997bc26482393a9138a222497c96ff5ebf6be9e8f24133f7984233e"
+    },
+    {
+      "path": "apps/website/assets/photos/about-meeting-room.source.json",
+      "size": 1732,
+      "sha256": "80c05649af2ae3dca7ab5a5dad8e7639ea9ec0dcbc7b83c0cb0c46458ddfc525"
+    },
+    {
+      "path": "apps/website/assets/photos/about-meeting-room.webp",
+      "size": 101198,
+      "sha256": "3315a0f1f23535d1947c03d124501c54ad564abbe4a4d1e68f931283f718282d"
+    },
+    {
+      "path": "apps/website/assets/photos/academy-large-meeting-room.source.json",
+      "size": 1742,
+      "sha256": "ce10a65daa87a6ddb612408c8a7b6202d55f8aa17526d621fe4140c8d1ba1d24"
+    },
+    {
+      "path": "apps/website/assets/photos/academy-large-meeting-room.webp",
+      "size": 96580,
+      "sha256": "ed45deb20cd618959cca6e87701622edbde8decaeff0606b844801d0c6c5e01e"
+    },
+    {
+      "path": "apps/website/assets/photos/blog-open-book.source.json",
+      "size": 1625,
+      "sha256": "bef47adf9689a8358cc0a371945ed4a8cc35e78a5d85a334df3d86cb364c8eeb"
+    },
+    {
+      "path": "apps/website/assets/photos/blog-open-book.webp",
+      "size": 59456,
+      "sha256": "f72535bd9a7e6bc4152b4c98328659a57908b6f72ba47e66d27919b2a019cf56"
+    },
+    {
+      "path": "apps/website/assets/photos/booking-conversation-chairs.source.json",
+      "size": 1851,
+      "sha256": "871e283b379d9bda8472b87252ff43cead9b4aa7259977ae78d1365051e1e42f"
+    },
+    {
+      "path": "apps/website/assets/photos/booking-conversation-chairs.webp",
+      "size": 81050,
+      "sha256": "71e885d1c9bf4ea751e42bde269c4e95a3e7f2b5cbdc820946f995c2d82ed6ef"
+    },
+    {
+      "path": "apps/website/assets/photos/co-parenting-family-sunset.source.json",
+      "size": 1829,
+      "sha256": "22e6adf34ddbc35e3ff4c3f46f344bff34d31687749b8b70a770fa5e4318a56d"
+    },
+    {
+      "path": "apps/website/assets/photos/co-parenting-family-sunset.webp",
+      "size": 45070,
+      "sha256": "879a01cba3c825d9f1742be93635ad938ba38d2fd55932a415652a586d01107c"
+    },
+    {
+      "path": "apps/website/assets/photos/collaboration-office-entry.source.json",
+      "size": 1816,
+      "sha256": "714b3f4c1621a6e0e02a3a93a68c8a844c9b90bb84d6ffaa11e0995c2ee83620"
+    },
+    {
+      "path": "apps/website/assets/photos/collaboration-office-entry.webp",
+      "size": 145740,
+      "sha256": "f2bf5a67fa3083e7796bc0566ae4f211072cc69d9eef48bff7b393a8e8fa7c0b"
+    },
+    {
+      "path": "apps/website/assets/photos/courses-books-meeting-space.source.json",
+      "size": 1806,
+      "sha256": "92307b8db8ac21ea517b703ca0abf7126e551ec1cd3698a252ee4f3685b6a288"
+    },
+    {
+      "path": "apps/website/assets/photos/courses-books-meeting-space.webp",
+      "size": 36350,
+      "sha256": "37afb4d6259ccf1c0239ccb721ed4c0380f1589c7805691af97a6444af2d6707"
+    },
+    {
+      "path": "apps/website/assets/photos/decision-road-arrow.source.json",
+      "size": 1710,
+      "sha256": "9f6eb8b9f5627b97273f8c3b332cc2f93ea88cf9832f51f5994ef641de1f2b58"
+    },
+    {
+      "path": "apps/website/assets/photos/decision-road-arrow.webp",
+      "size": 736194,
+      "sha256": "418ca01b19a70fb7cff9ba7e867a83cec2ed2432b7a3e0c2f3c62f865c70cfd0"
+    },
+    {
+      "path": "apps/website/assets/photos/divorce-coaching-conversation.source.json",
+      "size": 1938,
+      "sha256": "dcdf984becf41ca94b063b939a5bcffa5b832248867fbdfe9b21fa2f07b0522f"
+    },
+    {
+      "path": "apps/website/assets/photos/divorce-coaching-conversation.webp",
+      "size": 54202,
+      "sha256": "620eda9af7fed57f6e569b0897453226e4f0d9f3a09890a6773d83baf6bd64e9"
+    },
+    {
+      "path": "apps/website/assets/photos/forest-path.source.json",
+      "size": 1826,
+      "sha256": "bbda1fc8df7db87ba9caece08d10fb41bedb44c9108d0025c97e5068dfd5cd08"
+    },
+    {
+      "path": "apps/website/assets/photos/forest-path.webp",
+      "size": 88906,
+      "sha256": "5ccb22f554e7f995168810163c5d7b422caae7adb8ea2a64aa761fa9c7f3eee4"
+    },
+    {
+      "path": "apps/website/assets/photos/hero-walk.source.json",
+      "size": 1677,
+      "sha256": "f6147cdb43eb5992d954ca7556de704d399ca4429ff3c95d793150c9b85f19ca"
+    },
+    {
+      "path": "apps/website/assets/photos/hero-walk.webp",
+      "size": 459908,
+      "sha256": "e398eb8aa2bcf7d7ebe70271f54004cc0a4a37310b8f67a0a440814d37b20950"
+    },
+    {
+      "path": "apps/website/assets/photos/high-conflict-rain-window.source.json",
+      "size": 1689,
+      "sha256": "c6023a7c9bd7e52cbd0713e0e21224e4bbb1efd2660b4046637a1ad6f06bab0c"
+    },
+    {
+      "path": "apps/website/assets/photos/high-conflict-rain-window.webp",
+      "size": 490342,
+      "sha256": "b7e126831a8d71ef029140703257e2a1d0397e9b1cf4de7b5d49190fe0483acd"
+    },
+    {
+      "path": "apps/website/assets/photos/journal.source.json",
+      "size": 1642,
+      "sha256": "0de1c55be1871c65149084a5cc7a4422882012ad8aad471ea5ea5cedb79e81ee"
+    },
+    {
+      "path": "apps/website/assets/photos/journal.webp",
+      "size": 238280,
+      "sha256": "cca1ecde1b9700f4f57b2d336497dbec4aea94f4f8b554b427b234e91cd9f3d1"
+    },
+    {
+      "path": "apps/website/assets/photos/lawyers-clean-office.source.json",
+      "size": 1761,
+      "sha256": "34c3f9d5c84619320aa13d3b24cc550e6858c79483eab8e0451b2ef3e2f69a7d"
+    },
+    {
+      "path": "apps/website/assets/photos/lawyers-clean-office.webp",
+      "size": 56738,
+      "sha256": "724405461de4adc1be98a1220799c6b4f665e6ff30f0090c063c2f76b6b9fc66"
+    },
+    {
+      "path": "apps/website/assets/photos/media-blue-microphone.source.json",
+      "size": 1778,
+      "sha256": "55ff493dd49fd437210847b198a737ea98c08a2fdfb5b553f98c5c277d6245ac"
+    },
+    {
+      "path": "apps/website/assets/photos/media-blue-microphone.webp",
+      "size": 44608,
+      "sha256": "ec3de188acad2d4d684de91bdc3b37982579ce6ffbb60a61b6b2bf14b3c45509"
+    },
+    {
+      "path": "apps/website/assets/photos/mediation-room.source.json",
+      "size": 1767,
+      "sha256": "7b2609af1912060196d565430abfecb07276f39d8bfa6628656808db5d2c34e7"
+    },
+    {
+      "path": "apps/website/assets/photos/mediation-room.webp",
+      "size": 67320,
+      "sha256": "cec7b3bc0e70d62c2614be807c0a576eac02d3c0ac4633831141f24768e999cb"
+    },
+    {
+      "path": "apps/website/assets/photos/nuptial-finance-desk.source.json",
+      "size": 1850,
+      "sha256": "55989ff69156adc10f883e704b9fb77c9d378a5425e243df6bd6e1162fbe141c"
+    },
+    {
+      "path": "apps/website/assets/photos/nuptial-finance-desk.webp",
+      "size": 38292,
+      "sha256": "509e81be04d5806ba0fc883aab54488f3a4169f334dfea3d8befd84f9c421caf"
+    },
+    {
+      "path": "apps/website/assets/photos/pre-legal-documents.source.json",
+      "size": 1760,
+      "sha256": "e53879efa87610c6d40bb5fdac8dc95d5990e9eab8b336a03e80a90a4203789d"
+    },
+    {
+      "path": "apps/website/assets/photos/pre-legal-documents.webp",
+      "size": 44528,
+      "sha256": "29d6a4b93d99c46b689bfe0f8cdc3441122e64cee719d83d16cedfafb57a5d23"
+    },
+    {
+      "path": "apps/website/assets/photos/recovery-sunset.source.json",
+      "size": 1772,
+      "sha256": "eee1c4c5907a65178bea96d8eecc666a9993b443e69cc45d90bd3684102f09cb"
+    },
+    {
+      "path": "apps/website/assets/photos/recovery-sunset.webp",
+      "size": 24700,
+      "sha256": "c751323c6e28489b1e6fa8e337d570f031928724cf97e4b25f516b2461aa65ee"
+    },
+    {
+      "path": "apps/website/assets/photos/remarriage-hands.source.json",
+      "size": 1788,
+      "sha256": "6376be4843a2dfc8908be0ef2ae9572a1a06783c8d6e62026a2106b24a9b4d39"
+    },
+    {
+      "path": "apps/website/assets/photos/remarriage-hands.webp",
+      "size": 42260,
+      "sha256": "66cefa62122aaf94c2a84f3105448975005bf5a4e47b4cb55bbdefc8571a8601"
+    },
+    {
+      "path": "apps/website/assets/photos/retreat-wilderness.source.json",
+      "size": 1846,
+      "sha256": "41a2ef032db278199657abf2b783d2f739e40ed26bfc3511509c11cd44a0c7ce"
+    },
+    {
+      "path": "apps/website/assets/photos/retreat-wilderness.webp",
+      "size": 99554,
+      "sha256": "3499f0e088a267afe986a52b7a2c004ab3c270867f33d9f89cc90c0096b6bcfc"
+    },
+    {
+      "path": "apps/website/assets/photos/section-about-home.source.json",
+      "size": 1773,
+      "sha256": "b1246fd8f1c3226fc81edd518542f17dfcb52929f3d05766453359dfcfe862a7"
+    },
+    {
+      "path": "apps/website/assets/photos/section-about-home.webp",
+      "size": 91670,
+      "sha256": "61b10318062108c37f9d41032cc762d7c8fc533dc22a6b740fac38e176f56d0b"
+    },
+    {
+      "path": "apps/website/assets/photos/section-about-window.source.json",
+      "size": 1774,
+      "sha256": "77a178a629b82479145957fbf25a9ad05180df5032f2d3f2ce04896e9dc12e4b"
+    },
+    {
+      "path": "apps/website/assets/photos/section-about-window.webp",
+      "size": 44212,
+      "sha256": "8ee9a5447d93cdd9a73b215186a66efa76f508d4bbe5ebecf8be6be1682b21a5"
+    },
+    {
+      "path": "apps/website/assets/photos/section-articles-reading.source.json",
+      "size": 1746,
+      "sha256": "952d769cf4890bd719087f148ef27d99c309cab56742dea811ee2c5223b52bd9"
+    },
+    {
+      "path": "apps/website/assets/photos/section-articles-reading.webp",
+      "size": 38972,
+      "sha256": "36ee0a4f44cbfdc32ac00d488fb2d1610aff924921a60f4381ea09504d0c56f8"
+    },
+    {
+      "path": "apps/website/assets/photos/section-collaboration-cafe.source.json",
+      "size": 1737,
+      "sha256": "0d939272499978a63b7522bfedbbe84288c794c17c02b75fa84d2d2e41c46bd2"
+    },
+    {
+      "path": "apps/website/assets/photos/section-collaboration-cafe.webp",
+      "size": 38810,
+      "sha256": "ca177e0b40ac10f65fc301d1dc723df30b4216d8ede09dd7fd8697ffe75c5300"
+    },
+    {
+      "path": "apps/website/assets/photos/section-media-recording.source.json",
+      "size": 1672,
+      "sha256": "a8134f6319fa264530a494ed115744deb2987158dce900ebf793f2e190bf4a9e"
+    },
+    {
+      "path": "apps/website/assets/photos/section-media-recording.webp",
+      "size": 48652,
+      "sha256": "74a4db3308d3e95970619c1e25cc03e2dfcf41a4b2f64c26ec5c6c36e8ef1e25"
+    },
+    {
+      "path": "apps/website/assets/photos/section-media-reflection.source.json",
+      "size": 1734,
+      "sha256": "327d4325125127f9ca783ba5c1001a761b73397e514aacac4a3fb3a72d1224f7"
+    },
+    {
+      "path": "apps/website/assets/photos/section-media-reflection.webp",
+      "size": 48462,
+      "sha256": "bdfec36ae883f2da55304dd09c441924d8450cab4fd94a1cdc876d7ce19aa68d"
+    },
+    {
+      "path": "apps/website/assets/photos/section-remarriage-rings.source.json",
+      "size": 1772,
+      "sha256": "61da71d0485d352bb87ac4d9d0fe4919ec3dfa001991ae77302e59efa7bb8883"
+    },
+    {
+      "path": "apps/website/assets/photos/section-remarriage-rings.webp",
+      "size": 25438,
+      "sha256": "05d3ca8b4597d58a78f4ddb5fe8d475e10cf8560a030996126bd554fdeafce87"
+    },
+    {
+      "path": "apps/website/assets/photos/section-resources-notes.source.json",
+      "size": 1845,
+      "sha256": "e5f536964e7c73c7bb42d5c05534091617d0392d18c4b75aa194e468b3c9a739"
+    },
+    {
+      "path": "apps/website/assets/photos/section-resources-notes.webp",
+      "size": 237282,
+      "sha256": "60dc20a7333b606238db7b3533b9085caecd8a3f79ad836b226ed4599cf8e872"
+    },
+    {
+      "path": "apps/website/assets/photos/section-services-office.source.json",
+      "size": 1611,
+      "sha256": "f57fcdd64066c908d389b2c163df38d880aaf3d1990f9ac6e2b53ba769916343"
+    },
+    {
+      "path": "apps/website/assets/photos/section-services-office.webp",
+      "size": 62260,
+      "sha256": "69937b07c7d632e281a66d696c42899ea4037ab55582a545ea2372d8ec8d4a1b"
+    },
+    {
+      "path": "apps/website/assets/photos/section-services-shanghai-road.source.json",
+      "size": 2089,
+      "sha256": "4872f556cdecbd65ed46d8b0320df176ddc3e48ae4d0e77eb91ebc2ea1335b77"
+    },
+    {
+      "path": "apps/website/assets/photos/section-services-shanghai-road.webp",
+      "size": 644778,
+      "sha256": "307a00c3eae792bc2775e9e8cdc726967115f278bb37c47d3c3530228edcea8b"
+    },
+    {
+      "path": "apps/website/assets/photos/self-reflection.source.json",
+      "size": 1784,
+      "sha256": "53373ad24ace7e3574828f0b3fac598859eacffba301fb4a8c0dfa0c0e5ae99a"
+    },
+    {
+      "path": "apps/website/assets/photos/self-reflection.webp",
+      "size": 58026,
+      "sha256": "d53abbca62d4310a471f7e2fec289f582440490ebeb988771602116de33c9f2e"
+    },
+    {
+      "path": "apps/website/assets/photos/services-workspace.source.json",
+      "size": 1709,
+      "sha256": "e5a98c418637956f03b12e0845045f5c66ad72660957ec44904e6249b8096fe7"
+    },
+    {
+      "path": "apps/website/assets/photos/services-workspace.webp",
+      "size": 34422,
+      "sha256": "337b1bf8128dad82e77f37920ade220073cbc9fe6c401d5f9b0a536258214140"
+    },
+    {
+      "path": "apps/website/assets/photos/signature-road-forward.source.json",
+      "size": 1698,
+      "sha256": "d44baf7ba2a722699375517ee9c1cc9a0f9fcae317e40ee9c4cb98f1e60f45c7"
+    },
+    {
+      "path": "apps/website/assets/photos/signature-road-forward.webp",
+      "size": 235202,
+      "sha256": "00a8ad353b089fbea65ce11a5bb59263279a51d373945e215746100ef874693e"
+    },
+    {
+      "path": "apps/website/assets/photos/sunlit-room.source.json",
+      "size": 1794,
+      "sha256": "5f9aa85e514c78988bda888315cb00cf568d1ebbde87a248dabb14ed5e8d7bbb"
+    },
+    {
+      "path": "apps/website/assets/photos/sunlit-room.webp",
+      "size": 104734,
+      "sha256": "cb8160b5959909fea757b3d99e40c8681dd48c2ccce2c01ff4366f73ebdecea2"
+    },
+    {
+      "path": "apps/website/assets/photos/topic-co-parenting-child.source.json",
+      "size": 1660,
+      "sha256": "2bd567abba346c36bdb2f11bc01e0a76084b263854618c630c89314e1d90624f"
+    },
+    {
+      "path": "apps/website/assets/photos/topic-co-parenting-child.webp",
+      "size": 56522,
+      "sha256": "9388024b785c908d7eea7a627dcc3b8da24c6af8ae3a0a66d714089ebbbbfcbc"
+    },
+    {
+      "path": "apps/website/assets/photos/topic-decision-winding-road.source.json",
+      "size": 1685,
+      "sha256": "0bf6b066eff382659af78e90de22b95d3611e97b10d16899a2a2ed25df98e497"
+    },
+    {
+      "path": "apps/website/assets/photos/topic-decision-winding-road.webp",
+      "size": 122246,
+      "sha256": "08537048767747d911d644e75f24de4ea142504f352eaef5ca2f163b8c9c4d20"
+    },
+    {
+      "path": "apps/website/assets/photos/topic-finances-office-district.source.json",
+      "size": 1683,
+      "sha256": "503ec4ddc426d28628ed8428daa5abc73601c8de178cf8143792c88d73a4b573"
+    },
+    {
+      "path": "apps/website/assets/photos/topic-finances-office-district.webp",
+      "size": 219440,
+      "sha256": "1b49a39fd26fa2fb1643fff72089fb119c54aaf1007bc891f25eeda40b3f6196"
+    },
+    {
+      "path": "apps/website/assets/photos/topic-high-conflict-fog-road.source.json",
+      "size": 1681,
+      "sha256": "ca113ae8f9e78a3f839384d8792ed65d7ee2f4415ddd0d9c3c0a4a89bf227a61"
+    },
+    {
+      "path": "apps/website/assets/photos/topic-high-conflict-fog-road.webp",
+      "size": 251920,
+      "sha256": "d0222408fa6e5d251cb41f4f384e0db9046d088ab821985165cdbcfc99484ac3"
+    },
+    {
+      "path": "apps/website/assets/photos/topic-rebuilding-sunny-road.source.json",
+      "size": 1804,
+      "sha256": "031e6c17283bd7b3fdffbca5b6281fca177454c6b4c3fe9dd45ea5eeb370d980"
+    },
+    {
+      "path": "apps/website/assets/photos/topic-rebuilding-sunny-road.webp",
+      "size": 147700,
+      "sha256": "224cf5c696c71489a09d0dfe2160cc7660f84866ae627d194b66b1fd2ee35601"
+    },
+    {
+      "path": "apps/website/assets/photos/topic-separation-beach-walk.source.json",
+      "size": 1820,
+      "sha256": "8152dda4463d67683ff339dc6bfdc2e94cbcf4305d0966d25a677f3a9d2820f2"
+    },
+    {
+      "path": "apps/website/assets/photos/topic-separation-beach-walk.webp",
+      "size": 55976,
+      "sha256": "0c23ccea1e233febc353b1b0d41794ff341372ef99c3a8f421a1b0378f99a297"
+    },
+    {
+      "path": "apps/website/next.config.ts",
+      "size": 317,
+      "sha256": "cac250d28dc20bd542f56495b55f5d335d765180ae3cb686a97c05c1b05abdc2"
+    },
+    {
+      "path": "apps/website/package.json",
+      "size": 1650,
+      "sha256": "b2b67b4085360b55a7f33a8b5982ad9b56fc9a0ecb5276843073bb9a46d0c216"
+    },
+    {
+      "path": "apps/website/public/_headers",
+      "size": 422,
+      "sha256": "b9cc75934c51b0b45dafc2827c8e480308c2129baba5c95100912205a71c6ea8"
+    },
+    {
+      "path": "apps/website/public/fonts/sans-15f665b09dcc.woff2",
+      "size": 44160,
+      "sha256": "15f665b09dccd95bef4818a6b073c6718703349c1ccace84b1fda727d2e8fc25"
+    },
+    {
+      "path": "apps/website/public/fonts/sans-1d900cddc166.woff2",
+      "size": 5828,
+      "sha256": "1d900cddc166485ebf9a08980f84092efe7c0ca734cfb76f9971c2b9f89d85f5"
+    },
+    {
+      "path": "apps/website/public/fonts/sans-41300517733b.woff2",
+      "size": 127400,
+      "sha256": "41300517733b2c78392ddd621fcc32383f9627283b06de47007e695221b6def4"
+    },
+    {
+      "path": "apps/website/public/fonts/sans-57295b4ae4bb.woff2",
+      "size": 42320,
+      "sha256": "57295b4ae4bb1ac3497cd239a6a3d68331ada89ef83cc93202d9740490491d19"
+    },
+    {
+      "path": "apps/website/public/fonts/sans-5b47867ff360.woff2",
+      "size": 35452,
+      "sha256": "5b47867ff360eee5c81bda3fee3207e31ca09cbc3ea58e0286d3d446bfb85299"
+    },
+    {
+      "path": "apps/website/public/fonts/sans-9012e227003b.woff2",
+      "size": 45980,
+      "sha256": "9012e227003bdc4d5d511b5d94be11f3e5375c0523e6f1e324333a5cce69a76a"
+    },
+    {
+      "path": "apps/website/public/fonts/sans-b02f4c5cc29f.woff2",
+      "size": 20196,
+      "sha256": "b02f4c5cc29f23f0b0405d1b961708be21285e2b34bac30d3c5508eb75d4ca99"
+    },
+    {
+      "path": "apps/website/public/fonts/sans-bb5bc306e6c1.woff2",
+      "size": 39792,
+      "sha256": "bb5bc306e6c1a9320e285d744e06c1e6decdbcf0dad6ffe1551bd13189c9fe44"
+    },
+    {
+      "path": "apps/website/public/fonts/sans-d8a2c40d2c20.woff2",
+      "size": 32788,
+      "sha256": "d8a2c40d2c20237b41ad6a5daa912ff29393f162f6157f839ec9053199739590"
+    },
+    {
+      "path": "apps/website/public/fonts/serif-06dc3286bc05.woff2",
+      "size": 64944,
+      "sha256": "06dc3286bc05f73b2cd434cdd20938db8f9d0cc760b5506713695f79bcbe04e0"
+    },
+    {
+      "path": "apps/website/public/fonts/serif-2d20e8b5b3a7.woff2",
+      "size": 25392,
+      "sha256": "2d20e8b5b3a760ffb6f1aba342facacc20dc0b9963809edefe1387f149293340"
+    },
+    {
+      "path": "apps/website/public/fonts/serif-34e9df5a2be0.woff2",
+      "size": 53036,
+      "sha256": "34e9df5a2be081fdf5476ec0597e1fe102420107ac20e8b2eeb8781d5be54434"
+    },
+    {
+      "path": "apps/website/public/fonts/serif-5e01162e01b8.woff2",
+      "size": 46536,
+      "sha256": "5e01162e01b81da7d6ee88ec8800e1154287d597c23396f68829381ec87f299e"
+    },
+    {
+      "path": "apps/website/public/fonts/serif-66ab592107a1.woff2",
+      "size": 54840,
+      "sha256": "66ab592107a1ac558f579962d37f0a3a9363f844a9f2fa20715b5a96a496565c"
+    },
+    {
+      "path": "apps/website/public/fonts/serif-6a1bf45149b4.woff2",
+      "size": 24528,
+      "sha256": "6a1bf45149b45bdc470646ebbd4476387eb1b8c64f98940407a0d2d7fb813c01"
+    },
+    {
+      "path": "apps/website/public/fonts/serif-9cab74feb7b3.woff2",
+      "size": 51164,
+      "sha256": "9cab74feb7b3feb9d879525d595745ca37c8f4308df70d495ac587396fe9135a"
+    },
+    {
+      "path": "apps/website/public/fonts/serif-a386d8fb41ca.woff2",
+      "size": 53876,
+      "sha256": "a386d8fb41ca20b92184f95729a8ee6e2673ca86ab79bc92695d954b58bc58e6"
+    },
+    {
+      "path": "apps/website/public/fonts/serif-d18cbf12050b.woff2",
+      "size": 53456,
+      "sha256": "d18cbf12050b76d56026c808e0bbc8a76b255ed6ff688c017e6b7035da2e1987"
+    },
+    {
+      "path": "apps/website/public/fonts/serif-df1a682eb606.woff2",
+      "size": 40912,
+      "sha256": "df1a682eb60686129381f6e5aff228fa2591a99e128988aa6628aabf06065e7b"
+    },
+    {
+      "path": "apps/website/public/fonts/serif-f1f34f26ed3e.woff2",
+      "size": 41644,
+      "sha256": "f1f34f26ed3eacd1cab40adfa9631f3d144acd2a064d9bde92fb012400ece273"
+    },
+    {
+      "path": "apps/website/scripts/check-content.mjs",
+      "size": 4474,
+      "sha256": "30a653362beb3c6575f1213c63848f0cca854bcc7c34eab74eee4ec4b7624a8e"
+    },
+    {
+      "path": "apps/website/scripts/check-design.mjs",
+      "size": 7262,
+      "sha256": "cceaee6782188911e1220cd733b2a449f46b053374025e2423d1a5ea161025fa"
+    },
+    {
+      "path": "apps/website/scripts/check-output.mjs",
+      "size": 3578,
+      "sha256": "0e5e69758b95796f915a99d73f4aedef0628c7c04e3dd165a25af674780f3b16"
+    },
+    {
+      "path": "apps/website/scripts/check-performance.mjs",
+      "size": 2313,
+      "sha256": "56d5e6b9f2884511a9c55f40e532dec0da698199d98601a53fe25e208a2e9d79"
+    },
+    {
+      "path": "apps/website/scripts/check-section-design.mjs",
+      "size": 13294,
+      "sha256": "a041494c3992fab9a6c8be827812d767072ac4112a1f87c88c8cccd2ecdff00f"
+    },
+    {
+      "path": "apps/website/scripts/check-structure.mjs",
+      "size": 3181,
+      "sha256": "279151b05316eace66c73cdc212b8f8b1c368f264a9ad6308eae75fabb5a0ce3"
+    },
+    {
+      "path": "apps/website/scripts/generate-design-tokens.mjs",
+      "size": 672,
+      "sha256": "5c8dd0adb9193a4247642c4485d76d0b23ac4e34627e34cc25e711792f8b9783"
+    },
+    {
+      "path": "apps/website/scripts/lib/assets.mjs",
+      "size": 528,
+      "sha256": "010540197205b430334c3b79eb58a30710ae5d3435318ca82c51892d4d35afae"
+    },
+    {
+      "path": "apps/website/scripts/lib/design.mjs",
+      "size": 2645,
+      "sha256": "caab666b17643bcf1b0b3bea307e13b15a4191557f2c7e7f02bac8d8c7cf1854"
+    },
+    {
+      "path": "apps/website/scripts/lib/style-contract.mjs",
+      "size": 4371,
+      "sha256": "2c52c78f02f1e7254d22dd900022266642f720467a821f1927a9983ee3e0f7a8"
+    },
+    {
+      "path": "apps/website/scripts/prepare-assets.mjs",
+      "size": 2285,
+      "sha256": "7ce23fbd978288edc3cf5efd329d2be136b5203637245a2711fda238d38f6adb"
+    },
+    {
+      "path": "apps/website/scripts/prepare-fonts.py",
+      "size": 2472,
+      "sha256": "ac1ed886ecd8ec0f978086e44e5f3197f0c0d8e38895ff2fdcf79311f2209cd5"
+    },
+    {
+      "path": "apps/website/scripts/prepare-photos.mjs",
+      "size": 1693,
+      "sha256": "85f28238de4729f5dd480620ecbb04fc38f3a950bb010986b36414d8352a0c17"
+    },
+    {
+      "path": "apps/website/scripts/strip-next-runtime.mjs",
+      "size": 1194,
+      "sha256": "3caa9d0d2c745bea58892af0bafec2205203835b2a33830113d5d3b2439073a7"
+    },
+    {
+      "path": "apps/website/scripts/style-contract.test.mjs",
+      "size": 7014,
+      "sha256": "af4d9ecfb06a8546e4220207df687cfee00789204f0815484a4416841bca0635"
+    },
+    {
+      "path": "apps/website/src/app/[...slug]/page.tsx",
+      "size": 800,
+      "sha256": "1a86790bd24311c82d48f16ba5a78cf83b04965105893d18adb231647eda84ba"
+    },
+    {
+      "path": "apps/website/src/app/fonts.css",
+      "size": 22809,
+      "sha256": "300690aca7f533cfb47387d8038821b079869ecf988d1b75fae32a37ee561efc"
+    },
+    {
+      "path": "apps/website/src/app/fonts/noto-sans-sc-site.woff2",
+      "size": 401140,
+      "sha256": "374a3d034ec808b630d67851e2bd338a24bbd502dbd264c681b486940d8ea72f"
+    },
+    {
+      "path": "apps/website/src/app/fonts/noto-serif-sc-headings.woff2",
+      "size": 518320,
+      "sha256": "9934906a840b9f37286f40a87bf644fd0da9bd438e87a1c4bb94ce12253dd47a"
+    },
+    {
+      "path": "apps/website/src/app/globals.css",
+      "size": 469,
+      "sha256": "84ce962313649c4579bf143bae3556c6dd08846ad082593f5d15355299a5116d"
+    },
+    {
+      "path": "apps/website/src/app/layout.tsx",
+      "size": 1102,
+      "sha256": "5e0a11d7c674e4440d296ea63209598255ec3f6cafef471c8136a0ebba1b0d37"
+    },
+    {
+      "path": "apps/website/src/app/not-found.tsx",
+      "size": 631,
+      "sha256": "7befba88a668f43010cc11cfbdcbcd64dac90b801673807c6fd0e3c463e9d3d8"
+    },
+    {
+      "path": "apps/website/src/app/page.tsx",
+      "size": 406,
+      "sha256": "eb8fd6803a5b869ec389586363966ed2262efd555c825a0c680c83ce06d0b228"
+    },
+    {
+      "path": "apps/website/src/app/robots.ts",
+      "size": 333,
+      "sha256": "80069d8f8a14660080a729972af0526ba95e6ea300e8681605da39d4f539dcad"
+    },
+    {
+      "path": "apps/website/src/app/sitemap.ts",
+      "size": 590,
+      "sha256": "7107ce193729865402543fed4f7ccd90dd9f86103db249f67918347828644fd7"
+    },
+    {
+      "path": "apps/website/src/components/content/ContentBlock.tsx",
+      "size": 10320,
+      "sha256": "8ca6b8bb17442ba0439a47b80a94c8e53409fa1d23b19a7cc42beac6b6cf8bea"
+    },
+    {
+      "path": "apps/website/src/components/content/ContentPrimitives.tsx",
+      "size": 4539,
+      "sha256": "bb6a34c9b35e3c86f1f7216ff3f172e9acc0f1e2544c56f0f2da47a90adea114"
+    },
+    {
+      "path": "apps/website/src/components/content/EditorialSpread.tsx",
+      "size": 1630,
+      "sha256": "cdd83b71f19735780b5f13931169214e9fd548e61cadc3fc5169ca2c7ca4d4cc"
+    },
+    {
+      "path": "apps/website/src/components/content/MdxComponents.tsx",
+      "size": 2758,
+      "sha256": "f4acc4ef7a978860e1f8caf28f5ff910de1a2cda129b779e758ffc1f59a51521"
+    },
+    {
+      "path": "apps/website/src/components/content/ResourceCatalog.tsx",
+      "size": 3510,
+      "sha256": "f63d5df4868f25763bcee26b6d67d883cecf1165ee0712c933cfbccc5f535684"
+    },
+    {
+      "path": "apps/website/src/components/content/ResourceCategories.tsx",
+      "size": 2671,
+      "sha256": "de72ef47d9302547beda2eec538a7e69231e40223bbcd479e8abf0b33128fc9a"
+    },
+    {
+      "path": "apps/website/src/components/content/RichText.tsx",
+      "size": 9364,
+      "sha256": "13db2ff4c9e993c4edb59315ee2cc3e37cb672603d65cd90b931ee2124ddd7d5"
+    },
+    {
+      "path": "apps/website/src/components/content/StructuredContent.tsx",
+      "size": 9030,
+      "sha256": "d2e87a5f87dd95c2e602e5ec674bbccafcdeab8fcebc56f3392b9791fe053cda"
+    },
+    {
+      "path": "apps/website/src/components/content/Testimonials.test.ts",
+      "size": 595,
+      "sha256": "e666a2911fab44bf7d64a7630b6cee105ac31ecf6f1b90dd6ae8c7b1f6bd9e51"
+    },
+    {
+      "path": "apps/website/src/components/content/Testimonials.tsx",
+      "size": 2517,
+      "sha256": "6afdd1130eceab19b8f738792e317b5e9ae5f1422542c06f1feb8e0dae3c6d8c"
+    },
+    {
+      "path": "apps/website/src/components/content/content-types.ts",
+      "size": 1753,
+      "sha256": "f91d28178f63d5344d4d826fb987b63dd4f092fa81bb425f2e9232165a68e846"
+    },
+    {
+      "path": "apps/website/src/components/site/Footer.tsx",
+      "size": 2358,
+      "sha256": "90c2b71147f1f470d248d7eab38dec0bbb781163b8d3012a375ae8e8a18b298b"
+    },
+    {
+      "path": "apps/website/src/components/site/Header.tsx",
+      "size": 2754,
+      "sha256": "afb40a9937cacaca37bde356a7876b82bc47b872bedf59d22404fe792141abf5"
+    },
+    {
+      "path": "apps/website/src/components/site/PageView.tsx",
+      "size": 5266,
+      "sha256": "7f339d3909f3d621abd21353212df2a776463cabfe1d1911554f16a27c46603b"
+    },
+    {
+      "path": "apps/website/src/components/site/SkipLink.tsx",
+      "size": 110,
+      "sha256": "efa222f040a70d416b15d1517734ce97801834f25a8e5bbebacbcb6b3cdd04d6"
+    },
+    {
+      "path": "apps/website/src/content/font-preloads.json",
+      "size": 76,
+      "sha256": "c021cffaa7e607e3ae5adc67205089bf1d4e7ba5f88530a45d0dacd74547c36a"
+    },
+    {
+      "path": "apps/website/src/content/photo-manifest.json",
+      "size": 11195,
+      "sha256": "dea09f1043e7e72110b600addad24b79d2de07a2b9d1bdbb096f97dda4c7ce24"
+    },
+    {
+      "path": "apps/website/src/content/published/about.mdx",
+      "size": 38,
+      "sha256": "011881f8b02f9c467639ba10af42a3438941cf7a5cad063ea62bf53e8eb81bd8"
+    },
+    {
+      "path": "apps/website/src/content/published/academy.mdx",
+      "size": 40,
+      "sha256": "cc248491806e863e3205122ff0c3ef3ff7e4425646ee63601456facf4c1a6cbc"
+    },
+    {
+      "path": "apps/website/src/content/published/blog.mdx",
+      "size": 41,
+      "sha256": "7bf98e76e41354f73aea594c385f6fa242b7dc4641ebbe5174f2b175765b37df"
+    },
+    {
+      "path": "apps/website/src/content/published/book-consultation.mdx",
+      "size": 40,
+      "sha256": "f05366faf17a43385caa6e62ca50ad85e88ba2120e054b02425fbd5a1e109aaf"
+    },
+    {
+      "path": "apps/website/src/content/published/co-parenting.mdx",
+      "size": 44,
+      "sha256": "d0daaec9c17b5887c8366bdcb737adc73579cc19bf5669f67f481e469d51de9a"
+    },
+    {
+      "path": "apps/website/src/content/published/collaborative-law.mdx",
+      "size": 46,
+      "sha256": "71708cbd3b62cd4bb2282a9782f759e8a1693d05532d03bbfbbdb7b105ad05a7"
+    },
+    {
+      "path": "apps/website/src/content/published/courses-workshops.mdx",
+      "size": 40,
+      "sha256": "943ace8c9804565af13d7e54e2250b0ff5152102403e6c0c53468e28740a6122"
+    },
+    {
+      "path": "apps/website/src/content/published/decision-support.mdx",
+      "size": 46,
+      "sha256": "cf755ad16bfe92a9fed4eb091d32c90b235c87c7f00c7b3d09d50021f6d109d4"
+    },
+    {
+      "path": "apps/website/src/content/published/divorce-coaching.mdx",
+      "size": 48,
+      "sha256": "93dd80a412373ebac8b60919f36e0aafd36b26f38fe1769b9572e47e3656aa1a"
+    },
+    {
+      "path": "apps/website/src/content/published/faq.mdx",
+      "size": 36,
+      "sha256": "a19bca7c58d0c8e4801a4da2e26c3b60483228c484b436a39f6b6e291e0a2cdf"
+    },
+    {
+      "path": "apps/website/src/content/published/for-lawyers.mdx",
+      "size": 2846,
+      "sha256": "adbbaed7473146a8eee7abc2456869737f4e822bc0f1d52168b7ce72265e76aa"
+    },
+    {
+      "path": "apps/website/src/content/published/founder.mdx",
+      "size": 40,
+      "sha256": "dc4911e77d5a4a2ba2c49ea94543577d2eac7cc1d2ab3955aab14600238dcb5e"
+    },
+    {
+      "path": "apps/website/src/content/published/high-conflict-divorce.mdx",
+      "size": 45,
+      "sha256": "cd3d945ca3b6aec67f2319bd508ec824776a99f6e59a306636cebdb83cac1ac6"
+    },
+    {
+      "path": "apps/website/src/content/published/home.mdx",
+      "size": 37,
+      "sha256": "85f9907052dd8b6764c621c2fc02839d1acf42879d2d6be5ec9a536a903da976"
+    },
+    {
+      "path": "apps/website/src/content/published/media.mdx",
+      "size": 38,
+      "sha256": "8adef052d77af6aa53739cfb02c8a78c53ef9d77ee31dc4b340cf19778a48d69"
+    },
+    {
+      "path": "apps/website/src/content/published/mediation-preparation.mdx",
+      "size": 42,
+      "sha256": "19855a3dd359c325b8e3af3cc7a352f7a3526147edd6987613743bb0d9b635b9"
+    },
+    {
+      "path": "apps/website/src/content/published/nuptial-agreements.mdx",
+      "size": 45,
+      "sha256": "d6ca586991c775a1102b65c17684422cf3358e01b930b106705d8b785ed4ce6d"
+    },
+    {
+      "path": "apps/website/src/content/published/post-divorce-recovery.mdx",
+      "size": 41,
+      "sha256": "827c81a31d6d5109bdd8feb104ef4db1b134c38f033732c0bf9d7a2adb5fc72c"
+    },
+    {
+      "path": "apps/website/src/content/published/pre-legal-clarity.mdx",
+      "size": 2706,
+      "sha256": "40f9b043b34679b44faa23a41fda0d571a1a3c7f7a1ecaa34fb984835cdcd4cb"
+    },
+    {
+      "path": "apps/website/src/content/published/remarriage.mdx",
+      "size": 43,
+      "sha256": "2b149ae139783f7304bb56c426ee303be2a26616ef7305fe3d9ad60fc40e5de5"
+    },
+    {
+      "path": "apps/website/src/content/published/resources.mdx",
+      "size": 42,
+      "sha256": "d644693b82f44b131144460ada4c4ac2e15105561b8b849a1f76b4cffd467082"
+    },
+    {
+      "path": "apps/website/src/content/published/retreats-workshops.mdx",
+      "size": 42,
+      "sha256": "a56e0f5533dbcd510ab4ceb85a9d349de2fc5234d894defc3b91c2dde8bf9b7a"
+    },
+    {
+      "path": "apps/website/src/content/published/services.mdx",
+      "size": 41,
+      "sha256": "5b1ff639296320aeed8cf7b8ad903dfab1e895bfd79c7d783de1c3c53f96ee7c"
+    },
+    {
+      "path": "apps/website/src/content/published/signature-program.mdx",
+      "size": 47,
+      "sha256": "31576f89618aec408a9f4479dd359a58b55365c3bbe9c73fc157082e88cfc883"
+    },
+    {
+      "path": "apps/website/src/content/published/topic0.mdx",
+      "size": 39,
+      "sha256": "3afaca2a248fb8028da2d76e6bf97df0ab69b259a6122fa65611200eec36a088"
+    },
+    {
+      "path": "apps/website/src/content/published/topic1.mdx",
+      "size": 39,
+      "sha256": "97d74576a5c5c69e3fba01a2ec963158f08977414df11d4e426c091fe5c4e7ec"
+    },
+    {
+      "path": "apps/website/src/content/published/topic2.mdx",
+      "size": 39,
+      "sha256": "739628d00338e29ae2946b604622fd1c82b7c738c4bb24137b56a0a6ca63ebdd"
+    },
+    {
+      "path": "apps/website/src/content/published/topic3.mdx",
+      "size": 39,
+      "sha256": "1a1d8550bc44c33bd4bedb933d2ef317f6514f5a3c402c09f7f782198b520be0"
+    },
+    {
+      "path": "apps/website/src/content/published/topic4.mdx",
+      "size": 39,
+      "sha256": "e8d2fea16fb9fddca3eca07123dc6cbf9701dcf3ed97b39cc620738bedb894b4"
+    },
+    {
+      "path": "apps/website/src/content/published/topic5.mdx",
+      "size": 39,
+      "sha256": "f78bd0144fba9f1923ac9db5dce12e130f1ff6b760a4815b8e6b4d46adbfa276"
+    },
+    {
+      "path": "apps/website/src/content/section-design.json",
+      "size": 40090,
+      "sha256": "b1df373dc99d78bc99629b6789d9e94f966895d77904f43a2e89d0867350e877"
+    },
+    {
+      "path": "apps/website/src/content/structured-pages.json",
+      "size": 388410,
+      "sha256": "222b092b7e7b8772d90cf08255f9c14f4c9ca566cdf5c916add6d9aa8e2c409d"
+    },
+    {
+      "path": "apps/website/src/lib/bilingual.ts",
+      "size": 184,
+      "sha256": "8cd12a9282bf82c09015461f788cf3f92b16ff381dae8cec85038752abbd080f"
+    },
+    {
+      "path": "apps/website/src/lib/content-layout.test.ts",
+      "size": 4336,
+      "sha256": "dd9c10a79fd8d9420ab6ea50a4bd87084069a884b8ec7c300443fc493fe2b4cd"
+    },
+    {
+      "path": "apps/website/src/lib/content-layout.ts",
+      "size": 4054,
+      "sha256": "d6af94a6f1964ccd6422f1f823890a016b632ba03aa91b8818525a5374ddf5f9"
+    },
+    {
+      "path": "apps/website/src/lib/content-update.test.ts",
+      "size": 5819,
+      "sha256": "8dee1ca2ceb6233a973efe61f6417afa3e5e38001c28c2a1eda048937c4cb406"
+    },
+    {
+      "path": "apps/website/src/lib/content.tsx",
+      "size": 1382,
+      "sha256": "96ff213439cb99a9793b0c77596ccb58eadeaa84c984dfc2451b18de49743ec4"
+    },
+    {
+      "path": "apps/website/src/lib/editorial-composition.test.ts",
+      "size": 2609,
+      "sha256": "23f920a06d301aea40b8fa0b963c0f811d1a03acc89d4d9cfa933c4868cc002b"
+    },
+    {
+      "path": "apps/website/src/lib/editorial-composition.ts",
+      "size": 1444,
+      "sha256": "ab73b954e93e642245e9972566e66913ef8979465e015505a3e92d29d284b9c0"
+    },
+    {
+      "path": "apps/website/src/lib/editorial-lists.test.ts",
+      "size": 4945,
+      "sha256": "ac1bdab94a8a6266d6ee072d97818b2d2a7ace3f985e48e27559f9752e467476"
+    },
+    {
+      "path": "apps/website/src/lib/editorial-text.test.ts",
+      "size": 15066,
+      "sha256": "5e4b64393e400e44053fe81171b8490147ced7cb26d1e117fd653b53ececa16a"
+    },
+    {
+      "path": "apps/website/src/lib/editorial-text.ts",
+      "size": 4463,
+      "sha256": "31abebaf7cef6d9423826d81e19f7b2299b750fdd93d37d7b9563347365738f6"
+    },
+    {
+      "path": "apps/website/src/lib/navigation.ts",
+      "size": 1259,
+      "sha256": "08ea12f98733baac519a18a0a1a1c82f91d8cb9fee7218194c3bf8c776c1df7d"
+    },
+    {
+      "path": "apps/website/src/lib/page-composition.test.ts",
+      "size": 1086,
+      "sha256": "076d897e5c4965cf5c73d8013d1333e85b989a921a5f657dc47b796cd0311868"
+    },
+    {
+      "path": "apps/website/src/lib/page-composition.ts",
+      "size": 693,
+      "sha256": "211b0782fd3bf33bd705577f7c8b73854b002dcc6200257307910a0391560299"
+    },
+    {
+      "path": "apps/website/src/lib/page-introduction.test.ts",
+      "size": 4083,
+      "sha256": "9b049822646866c0e6ca5f39bf3056cf948f34e9f4d871315b693c25dd9aa192"
+    },
+    {
+      "path": "apps/website/src/lib/page-introduction.ts",
+      "size": 879,
+      "sha256": "3a66ccd88e5bd145082982127653949c8e36abcf47e92f0385baf82cad4e2b18"
+    },
+    {
+      "path": "apps/website/src/lib/page-registry.test.ts",
+      "size": 1338,
+      "sha256": "43c6ee61e4fe285e4414c705073c82b3e8142b9e07cb55aeff9d741fccc02fe7"
+    },
+    {
+      "path": "apps/website/src/lib/page-registry.ts",
+      "size": 26302,
+      "sha256": "cdcb5610b5142ce7caacc499fe0223b958526231f25de7d672c71ad0717aead5"
+    },
+    {
+      "path": "apps/website/src/lib/page-schema.ts",
+      "size": 883,
+      "sha256": "288f3de43bea7bd48dd85b5a3a8f2940ce7922067d1be4a4706f9ea6ed1ab97a"
+    },
+    {
+      "path": "apps/website/src/lib/photo.ts",
+      "size": 213,
+      "sha256": "f77705627991460b6e88597f373df4660501329764095ba14b68dc1976a8c2ce"
+    },
+    {
+      "path": "apps/website/src/lib/section-design.test.ts",
+      "size": 5244,
+      "sha256": "b76ab76663788cf31b4f87d1debe81c39f0c2c3762d0e579f1b4c5437be38987"
+    },
+    {
+      "path": "apps/website/src/lib/section-design.ts",
+      "size": 6396,
+      "sha256": "7a19c4706f00b09beec439ecab126823d64cdafd7654c84660db62173fca1921"
+    },
+    {
+      "path": "apps/website/src/lib/seo.ts",
+      "size": 809,
+      "sha256": "307af93094cbd02fde04fd693b7f859caddf8304b217b13013be6394618d4545"
+    },
+    {
+      "path": "apps/website/src/lib/site-config.ts",
+      "size": 666,
+      "sha256": "1ad1e297c1e12febf6b160a98095c2e514fee120d947cc76acfbaebb997d0146"
+    },
+    {
+      "path": "apps/website/src/styles/collections.css",
+      "size": 37511,
+      "sha256": "b04a8c141508f05ad7112116e002ec6d2993a3bfb5c51e96b79152312d50d711"
+    },
+    {
+      "path": "apps/website/src/styles/content.css",
+      "size": 15309,
+      "sha256": "3745074ada63926225370ff41833d48f86b8cdab8c4cb17c3d595288010e06ad"
+    },
+    {
+      "path": "apps/website/src/styles/controls.css",
+      "size": 5997,
+      "sha256": "a4193a2e2eaab3a3493980ace265f4eeb4dc73b4c9900c91f48ecd3a1ead6e0e"
+    },
+    {
+      "path": "apps/website/src/styles/editorial.css",
+      "size": 2946,
+      "sha256": "0bd4935aa8cf6a773bfb9d8f2f1bd6d0e38bb99c451c8929920bbc5a10c97eee"
+    },
+    {
+      "path": "apps/website/src/styles/footer.css",
+      "size": 3273,
+      "sha256": "2e9fe1a900b0f09dc748f5234794dfd042770d3f2348181f6f80d49a2ee6d60d"
+    },
+    {
+      "path": "apps/website/src/styles/forms.css",
+      "size": 3921,
+      "sha256": "4853bdd827060544c5da5e31020c895cc55069587d8c5000b31d3f5d1cdcf33d"
+    },
+    {
+      "path": "apps/website/src/styles/foundation.css",
+      "size": 3028,
+      "sha256": "8ebec793da640f3711ae05cd99527ba116b9382ec000cf1e85e4505286171874"
+    },
+    {
+      "path": "apps/website/src/styles/hero.css",
+      "size": 10192,
+      "sha256": "70ab283e4871a4094ed8d2b60dd99fbd75c64953b595a827ec581247d8f92b8c"
+    },
+    {
+      "path": "apps/website/src/styles/layout.css",
+      "size": 14292,
+      "sha256": "86ab65be4c9efa12bb1ee8d9a6d64521beefbfe1dbbd2a43f1dc612d69b591a1"
+    },
+    {
+      "path": "apps/website/src/styles/navigation.css",
+      "size": 5266,
+      "sha256": "841b8d6af4d56d7fc38955b378a2ea1f3397e3777540515a7252484a7c0fa1eb"
+    },
+    {
+      "path": "apps/website/src/styles/testimonials.css",
+      "size": 5807,
+      "sha256": "1fe7bcc2f4271a7fa51eddd0a3afa68486f5b2d0258709f95fcb4d3a14f334d2"
+    },
+    {
+      "path": "apps/website/tsconfig.json",
+      "size": 783,
+      "sha256": "d26978fba5692138b4a60d456c17abded0cbb06de71d9fee766184d6546ebfd9"
+    },
+    {
+      "path": "apps/website/vitest.config.ts",
+      "size": 249,
+      "sha256": "0e0c737d6df98a39e9835a4fa77b096b26dc6925af2c1107c67d13bc32134b8f"
+    },
+    {
+      "path": "apps/website/wrangler.toml",
+      "size": 50,
+      "sha256": "43c5b962a510fa620789e6530faad3f0dff3c62d01f41d06574ceefb36230d5d"
+    },
+    {
+      "path": "docs/architecture.md",
+      "size": 7729,
+      "sha256": "00771892ea0aa72f62d50b3d9cf818fcd95e1bc351846fb9ff600576a87b1d9c"
+    },
+    {
+      "path": "docs/checklists/website-update-2026-08-05.md",
+      "size": 19050,
+      "sha256": "311906bc90f75914726a98dcfd07572d01ed10522a0ef76b9756c841ca715e90"
+    },
+    {
+      "path": "docs/design/compliance.md",
+      "size": 17819,
+      "sha256": "8ef6bda7eb85f2fe25357079162820757174114b3fb0b61610a2190c622df4b4"
+    },
+    {
+      "path": "docs/design/section-plan.md",
+      "size": 28557,
+      "sha256": "fe0fa9f466dd81a1259d2212e10a20d877cbc72817bffd248513dd48cf7d8d2f"
+    },
+    {
+      "path": "docs/design/system.md",
+      "size": 20870,
+      "sha256": "f9436932d06d46b46cebd11e331d4a9deaa9d75e7bad488c75ec1c7278602d17"
+    },
+    {
+      "path": "docs/requirements/design-layout-audit.json",
+      "size": 2206,
+      "sha256": "792237a83eb0cefb7d380904267503d150367173184f2ed0605500224d2c3e0e"
+    },
+    {
+      "path": "docs/requirements/output-audit.json",
+      "size": 940,
+      "sha256": "bf18a8e0d6e3ef296b3732ba2504be49dcc0b626b377fe90c5975c5d2cd2e980"
+    },
+    {
+      "path": "docs/requirements/selected-content.json",
+      "size": 378042,
+      "sha256": "5befd6ee2fab3736358fd273897d54040124b4afb236af16644b69af0b7285a7"
+    },
+    {
+      "path": "docs/requirements/update-2026-09-03.md",
+      "size": 7628,
+      "sha256": "2c262ddf82a0d0ea1d0f33970f1930f9dccb7a16de0ee6946c53b5f2b5ca2f1c"
+    },
+    {
+      "path": "docs/requirements/workbook-2026-09-03.json",
+      "size": 701654,
+      "sha256": "04cf3c323790637705c74dcca582a7320aaafb7a51c69656b32cfe855b319a3d"
+    },
+    {
+      "path": "package.json",
+      "size": 1853,
+      "sha256": "c833fedfb62f84aa9f98a4bfe5a705d3a01ad539b3678a98b53aca43f87983d1"
+    },
+    {
+      "path": "playwright.config.ts",
+      "size": 1892,
+      "sha256": "a973e40a7a480f74722064d187534c4d050acea39dfaea0b965e418481646713"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "size": 229780,
+      "sha256": "8500fe2d1a20acf772bbe3d878c4c9fa9192c6e78d3e6df08bb52befd61f54e1"
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "size": 263,
+      "sha256": "ea5ec709aa335ed8c8114f71e2d8a16d2dc08fb0d1fa1b6855d9a29cef485822"
+    },
+    {
+      "path": "scripts/audit-workbook-output.py",
+      "size": 9529,
+      "sha256": "8c411c7ab6e8d240cc622de8ec8547487f9337a578d6e9265c7a65fdef5e65aa"
+    },
+    {
+      "path": "scripts/build-production.mjs",
+      "size": 711,
+      "sha256": "69c71dff61d478af030518f1dbccfe1735e958bdd6e5d82e7237cb1ed6065e69"
+    },
+    {
+      "path": "scripts/check-css.mjs",
+      "size": 3446,
+      "sha256": "587f558a2235915ac4568f0b300a91a958dcb088b8c5906061424a6360be1409"
+    },
+    {
+      "path": "scripts/check-docs.mjs",
+      "size": 6068,
+      "sha256": "74c05e52743b4484a738135c9c2283c74a2996792c9f3eb39a96b2414581aff2"
+    },
+    {
+      "path": "scripts/extract-requirements.py",
+      "size": 2301,
+      "sha256": "6018f52aea0df2685346be1af01c7797697391ee79e8b4e06a8a4c6aa2908a97"
+    },
+    {
+      "path": "scripts/sync-requirements.mjs",
+      "size": 36089,
+      "sha256": "a06d270cc3b3894f67a3974158a5c8ed9ec0cb65e6370994fd046a46fb396a9b"
+    },
+    {
+      "path": "styles/brand-tokens.css",
+      "size": 1618,
+      "sha256": "cedf3197cb9ef14cd7bbb5273dda1a84ca16b55143558bb944935f548ffda74b"
+    },
+    {
+      "path": "tests/e2e/admin.spec.ts",
+      "size": 3918,
+      "sha256": "e3f3fa1f2f738b567bfcd9c86b220fc77c2b9c2c651acde57b231c169ea4e455"
+    },
+    {
+      "path": "tests/e2e/api.spec.ts",
+      "size": 3260,
+      "sha256": "be5c35d8ef4108a4b7818718d0f160305fc74cfb39d152c5af29e9fee3dad888"
+    },
+    {
+      "path": "tests/e2e/assessments.spec.ts",
+      "size": 3976,
+      "sha256": "63dcf0d965c6b81fd8538b3e57e2cb32efc7b799eed7b1a8c6a604660f2fcb1d"
+    },
+    {
+      "path": "tests/e2e/color-contrast.spec.ts",
+      "size": 1609,
+      "sha256": "25e76ee094d21dec271c181abc44c9918a73f8aab14e225374bd9c610ae369b6"
+    },
+    {
+      "path": "tests/e2e/content-modules.spec.ts",
+      "size": 11593,
+      "sha256": "eecb0512dfcda9c349f767a7030a86b0350eb1b9e80f1efe41fa6ed4062299ac"
+    },
+    {
+      "path": "tests/e2e/content-refinement.spec.ts",
+      "size": 8598,
+      "sha256": "308f4f1e8bc0a611632cc6e6238438ca547fdd495256fa34428713c15b38bd6a"
+    },
+    {
+      "path": "tests/e2e/directory-alignment.spec.ts",
+      "size": 9205,
+      "sha256": "8c5122b936d669874ef0569f31de02448cd0e772f54e095bab0aaa23e8bc360c"
+    },
+    {
+      "path": "tests/e2e/editorial-lists.spec.ts",
+      "size": 5955,
+      "sha256": "0374e37f5361c6665d2aed6c42e678ac40291555a8b49cd0710be68ec4e39b6e"
+    },
+    {
+      "path": "tests/e2e/footer-design.spec.ts",
+      "size": 5953,
+      "sha256": "e1ea814160d8989a25b819b973379d1575b30a694bd239fbd1763987b1dbc14b"
+    },
+    {
+      "path": "tests/e2e/home-navigation.spec.ts",
+      "size": 4171,
+      "sha256": "e0bc5a017ef0ccafac7175bd25f195f9a1d5688679ca40e050a2b8f1e49e561b"
+    },
+    {
+      "path": "tests/e2e/site.spec.ts",
+      "size": 57258,
+      "sha256": "d83435539f4cc3f2780a6b185098ccd1dd37a389224b5ddfe9631862e67d5878"
+    },
+    {
+      "path": "tests/e2e/subpage-opening.spec.ts",
+      "size": 6464,
+      "sha256": "55597da621274e0dacf1685f3fa829111258f360e25200faaabd71641882d7bf"
+    },
+    {
+      "path": "tests/helpers/design.ts",
+      "size": 389,
+      "sha256": "430778d02d42e828967ddc937ba02a1349f737418952bfeacdd77b651639af20"
+    },
+    {
+      "path": "workers/assessment-api/.dev.vars.example",
+      "size": 86,
+      "sha256": "730119dcc176f9c03d7e4ed726f6ce896e5acf066437354c6c85bb13d31247d8"
+    },
+    {
+      "path": "workers/assessment-api/migrations/0001_initial_schema.sql",
+      "size": 2067,
+      "sha256": "b65c8db8828c4e75b0649c9da65f8c4f94beffed6867b8b13e325c9ae1a7a1f3"
+    },
+    {
+      "path": "workers/assessment-api/package.json",
+      "size": 549,
+      "sha256": "315afef5c65782591865a4503c9f43dc61db9442915718da57a72dec11a65418"
+    },
+    {
+      "path": "workers/assessment-api/src/index.ts",
+      "size": 18643,
+      "sha256": "5114a1bda46ade777b93dcdd394ad88ce96d6638bd18e672363dac39518f9e2e"
+    },
+    {
+      "path": "workers/assessment-api/wrangler.jsonc",
+      "size": 538,
+      "sha256": "07c4a047b24ad36f3f445e50cdf12f5499c8f2ce3227f70f1cf763f9fb41959f"
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+ADMIN_API_TOKEN=replace-with-a-long-random-token
+PUBLIC_ORIGINS=http://localhost:3002

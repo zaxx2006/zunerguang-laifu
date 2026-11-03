@@ -1,0 +1,22 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "laifu-assessment-database",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-07-26",
+  "workers_dev": true,
+  "preview_urls": false,
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    "PUBLIC_ORIGINS": "https://laifu-assessments.pages.dev"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "laifu-assessments",
+      "migrations_dir": "migrations",
+      "database_id": "adcbffb8-0194-4eb8-9fb1-034df6c42870"
+    }
+  ]
+}

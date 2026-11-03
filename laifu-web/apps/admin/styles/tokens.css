@@ -1,0 +1,3 @@
+@layer tokens {
+  :root { --bg: var(--color-canvas); --panel: var(--color-canvas); --line: var(--color-hairline); --line-strong: var(--color-hairline-strong); --text: var(--color-ink); --body: var(--color-body); --muted: var(--color-mute); --brand: var(--color-primary); --brand-dark: var(--color-primary-ink); --brand-weak: var(--color-surface-soft); --danger: var(--color-error); --surface-soft: var(--color-surface-soft); --surface-dark: var(--color-surface-dark); --radius: var(--radius-sm); --container: 1280px; }
+}

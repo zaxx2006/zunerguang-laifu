@@ -1,0 +1,77 @@
+LAIFU 开发交接说明
+打包日期：2026-10-09（北京时间）
+
+一、交付内容
+这是当前工作目录的源码快照，包含已修改和未提交的新文件；已删除的旧文件不恢复。
+包含主站、测评站、管理后台、Worker/D1 接口、迁移 SQL、测试、素材、字体、依赖锁文件和有效需求文档。
+不包含 Git 历史、node_modules、构建产物、缓存、测试截图、真实环境配置、Cloudflare 凭证和本地/线上数据库。
+Git 基准提交：ea68f05d7d8b9a77283f96c5bed7cbe8e157bf2a
+交付时的改动清单：HANDOFF-GIT-STATUS.txt。该清单是原工作目录状态，解压目录不带 .git；接手者可自行 git init 建立新仓库。
+SOURCE-MANIFEST.json 记录包内其余文件的 SHA-256，便于核对源码；包外 .sha256 文件用于核对 ZIP。
+
+二、首次启动
+以下命令在解压后的 laifu-web 根目录运行，使用 macOS/Linux shell；Windows 可使用 WSL 或将环境变量语法替换为 PowerShell 写法。
+按 package.json 使用 Node.js >=22、pnpm 12.3.4，然后执行：
+  pnpm install --frozen-lockfile
+  cp apps/assessments/.env.example apps/assessments/.env.local
+  cp apps/admin/.env.example apps/admin/.env.local
+  cp workers/assessment-api/.dev.vars.example workers/assessment-api/.dev.vars
+
+编辑本地配置：
+  测评站默认 API 为 http://localhost:8787，主站为 http://localhost:3001。
+  Worker 的 ADMIN_API_TOKEN 请替换成至少 32 字符的随机令牌；PUBLIC_ORIGINS 设为 http://localhost:3002。
+  后台 ASSESSMENT_API_URL=http://localhost:8787。
+  后台 ASSESSMENT_API_ADMIN_TOKEN 与 Worker 的 ADMIN_API_TOKEN 必须相同。
+  后台 ADMIN_MVP_USERNAME、ADMIN_MVP_PASSWORD、ADMIN_MVP_SESSION_SECRET 填入自行生成的本地值。
+  后台 ADMIN_ALLOWED_ORIGINS 可设为 localhost:3003。
+  生成随机令牌可用：node -e "console.log(require('node:crypto').randomBytes(32).toString('hex'))"
+
+初始化本地数据库：
+  pnpm --filter @laifu/assessment-api db:migrate:local
+
+分别在四个终端运行：
+  PORT=3001 pnpm dev:website
+  PORT=3002 pnpm dev:assessments
+  PORT=3003 pnpm dev:admin
+  pnpm dev:api
+
+只开发主站时，仅安装依赖并启动 dev:website 即可，不必配置其他应用。
+主站 http://localhost:3001；测评站 http://localhost:3002；后台 http://localhost:3003；API http://localhost:8787/health。
+
+三、构建与验收
+  pnpm build                 构建三个前端，并检查 Worker
+  pnpm exec playwright install chromium
+  pnpm check                 完整工程验收（含构建、端到端、产物与依赖审计）
+
+主站和测评站输出各自 out/ 静态目录；后台是服务端应用，不能作为静态目录交付。
+后台 Cloudflare 构建：pnpm --filter @laifu/admin build:cf。
+生产构建：pnpm build:production；该脚本固定了当前 Pages/Worker 域名。换账号或域名前先修改 scripts/build-production.mjs 和对应 Wrangler 配置。
+workers/assessment-api/wrangler.jsonc 中的 D1 database_id 属于当前部署环境；新账号需要自行创建 D1 并替换绑定。
+生产账号权限、域名权限、Worker Secrets 和真实数据库须由项目负责人另外移交。
+部署步骤见 docs/architecture.md；本交付没有执行部署或线上数据库操作。
+
+四、接手阅读顺序与维护要点
+  README.md：命令和目录。
+  docs/architecture.md：环境变量、数据流、部署与维护顺序。
+  docs/requirements/update-2026-09-03.md：需求冲突、内容缺口与原有验收记录。
+  docs/design/system.md、compliance.md、section-plan.md：设计规范与组件约束。
+
+主站内容位于 apps/website/src/content/published/；结构化内容、页面注册表及需求映射也需同步维护。
+需求原始 Excel 不在本项目内；docs/requirements/workbook-2026-09-03.json 保留完整文字快照。需要原工作簿图片等材料时向项目负责人索取。
+当前已知待办包括：预约渠道/二维码确认、资源下载文件、文章全文与媒体链接、课程活动日期/场地/价格，以及需求核对文档中列出的文本冲突。
+部分预约、下载及报名入口是明确的预览或未开放状态，不能当成已接通业务。
+现有照片、字体及来源许可记录已包含；日常构建不需要 Python。重新制作字体子集时按架构文档准备 Python/fonttools。
+原机器 .workspace/source 中的历史草稿与 .workspace/package-docs 未打入包，原目录仍保留；当前有效要求以 docs 和发布内容为准。
+
+五、开发约定
+复用现有前端组件，不重复实现已有组件。
+代码注释尽量单行；函数 docstring 简短单行；函数内部不留空行；类说明可多行但不留空行。
+下拉箭头垂直居中，与控件内侧右边缘保持 12–16px，并预留文字空间；检查窄屏和长文本。
+交付前核对进程和未提交文件，清理本轮临时产物；保留独有未提交代码和数据。
+apps/website/AGENTS.md 和 CLAUDE.md 仍随源码交付。
+
+六、本次交付检查（2026-10-09）
+已通过：Oxlint；文档审计；全项目 CSS 审计；30 个 MDX 内容检查；Vitest 10 个文件/65 项测试；Node 样式合约 11 项测试。
+本机 pnpm --version 未返回，已停止该进程；以上检查使用现有本地依赖直接运行。
+本次未验证全新安装、类型检查、完整构建、完整 Playwright、生产依赖审计或线上功能；不要把历史报告视为本次复测结果。
+ZIP 已执行完整性检查，并逐文件比对当前源码的 SHA-256。已排除本机密钥配置和构建缓存。

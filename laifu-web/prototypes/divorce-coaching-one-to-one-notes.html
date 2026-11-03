@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="来福一对一离婚陪伴辅导服务介绍">
+  <title>一对一离婚陪伴辅导｜来福</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f7f4;
+      --white: #fff;
+      --ink: #171a18;
+      --graphite: #595e5a;
+      --line: #d7dad6;
+      --soft: #eceeea;
+      --serif: SimSun, "Songti SC", STSong, serif;
+      --sans: "Microsoft YaHei", "PingFang SC", sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-width: 1180px;
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--sans);
+      letter-spacing: 0;
+    }
+    button, a { color: inherit; font: inherit; }
+    a { text-decoration: none; }
+    ::selection { color: var(--white); background: var(--ink); }
+    :focus-visible { outline: 2px solid var(--ink); outline-offset: 5px; }
+
+    .site-header {
+      position: absolute;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      width: 100%;
+      padding: 28px 42px;
+    }
+    .brand { display: flex; align-items: baseline; gap: 11px; }
+    .brand strong { font-family: var(--serif); font-size: 25px; font-weight: 400; }
+    .brand span { color: var(--graphite); font-size: 11px; }
+    .header-link { padding-bottom: 7px; border-bottom: 1px solid var(--ink); font-size: 12px; }
+
+    .hero {
+      position: relative;
+      height: min(850px, 92vh);
+      min-height: 720px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      background: var(--white);
+    }
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .82;
+    }
+    .hero-copy {
+      position: absolute;
+      z-index: 2;
+      left: 50%;
+      top: 112px;
+      width: 900px;
+      text-align: center;
+      transform: translateX(-50%);
+    }
+    .hero h1 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 54px;
+      font-weight: 400;
+      line-height: 1.35;
+    }
+    .hero-copy > p {
+      max-width: 650px;
+      margin: 17px auto 0;
+      color: var(--graphite);
+      font-size: 14px;
+      line-height: 2;
+    }
+    .hero-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 26px;
+      padding: 10px 0 8px;
+      border-bottom: 1px solid var(--ink);
+      font-size: 13px;
+    }
+    .hero-action svg { width: 17px; }
+
+    .seat-note {
+      position: absolute;
+      z-index: 2;
+      bottom: 10.5%;
+      color: var(--graphite);
+      font-size: 12px;
+    }
+    .seat-note::after,
+    .seat-note::before { display: inline-block; width: 42px; height: 1px; content: ""; background: currentColor; vertical-align: middle; }
+    .seat-note.left { left: 21%; }
+    .seat-note.left::after { margin-left: 10px; }
+    .seat-note.left::before { display: none; }
+    .seat-note.right { right: 19%; }
+    .seat-note.right::before { margin-right: 10px; }
+    .seat-note.right::after { display: none; }
+    .shared-table {
+      position: absolute;
+      z-index: 2;
+      left: 50%;
+      bottom: 9.4%;
+      color: var(--graphite);
+      font-family: var(--serif);
+      font-size: 12px;
+      transform: translateX(-50%);
+    }
+
+    .notes-section { padding: 118px 7vw 130px; }
+    .section-heading {
+      display: grid;
+      grid-template-columns: 36% 1fr;
+      gap: 7vw;
+      align-items: end;
+      max-width: 1380px;
+      margin: 0 auto 58px;
+    }
+    .section-heading h2 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 42px;
+      font-weight: 400;
+      line-height: 1.45;
+    }
+    .section-heading p { max-width: 660px; margin: 0; color: var(--graphite); font-size: 14px; line-height: 2; }
+
+    .notes-layout {
+      display: grid;
+      grid-template-columns: 36% 1fr;
+      gap: 7vw;
+      align-items: start;
+      max-width: 1380px;
+      margin: 0 auto;
+    }
+    .question-list { border-bottom: 1px solid var(--line); }
+    .question-button {
+      display: grid;
+      grid-template-columns: 34px 1fr auto;
+      align-items: center;
+      width: 100%;
+      min-height: 67px;
+      padding: 0 4px;
+      border: 0;
+      border-top: 1px solid var(--line);
+      background: transparent;
+      text-align: left;
+      cursor: pointer;
+    }
+    .question-button span { color: var(--graphite); font-family: var(--serif); font-size: 12px; }
+    .question-button strong { font-size: 14px; font-weight: 400; line-height: 1.6; }
+    .question-button svg { width: 15px; opacity: .55; }
+    .question-button[aria-selected="true"] { padding-inline: 16px; color: var(--white); background: var(--ink); }
+    .question-button[aria-selected="true"] span { color: #d7dad6; }
+    .question-button[aria-selected="true"] svg { opacity: 1; }
+
+    .record-paper {
+      position: relative;
+      min-height: 570px;
+      padding: 48px 58px 44px;
+      border: 1px solid var(--ink);
+      background: var(--white);
+      box-shadow: 18px 25px 48px rgba(23,26,24,.07);
+    }
+    .record-paper::before {
+      position: absolute;
+      left: 46px;
+      top: -27px;
+      width: 164px;
+      height: 27px;
+      border: 1px solid var(--ink);
+      border-bottom: 0;
+      background: var(--white);
+      content: "你的会谈纪要";
+      font-family: var(--serif);
+      font-size: 12px;
+      line-height: 27px;
+      text-align: center;
+    }
+    .relationship-line {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 18px;
+      padding-bottom: 30px;
+    }
+    .relationship-line span { font-family: var(--serif); font-size: 18px; }
+    .relationship-line div { position: relative; height: 1px; background: var(--ink); }
+    .relationship-line div::after {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      padding: 3px 12px;
+      background: var(--white);
+      content: "一对一";
+      color: var(--graphite);
+      font-family: var(--sans);
+      font-size: 10px;
+      transform: translate(-50%,-50%);
+    }
+    .record-title { margin: 2px 0 20px; font-family: var(--serif); font-size: 30px; font-weight: 400; }
+    .record-content { transition: opacity 120ms ease; }
+    .record-content.is-changing { opacity: .18; }
+    .record-row {
+      display: grid;
+      grid-template-columns: 145px 1fr;
+      gap: 25px;
+      padding: 23px 0;
+      border-top: 1px solid var(--line);
+    }
+    .record-row:last-child { border-bottom: 1px solid var(--line); }
+    .record-row dt { color: var(--graphite); font-size: 12px; line-height: 1.8; }
+    .record-row dd { margin: 0; font-family: var(--serif); font-size: 17px; line-height: 1.8; }
+    .record-boundary { margin: 26px 0 0; color: var(--graphite); font-size: 12px; line-height: 1.8; }
+
+    .session-band { color: var(--white); background: var(--ink); }
+    .session-inner { max-width: 1380px; margin: 0 auto; padding: 88px 7vw 92px; }
+    .session-inner h2 { margin: 0 0 48px; font-family: var(--serif); font-size: 36px; font-weight: 400; }
+    .session-steps { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .session-step { position: relative; min-height: 112px; padding: 0 44px 0 0; border-top: 1px solid #555a56; }
+    .session-step:not(:last-child)::after { position: absolute; right: 20px; top: -4px; width: 7px; height: 7px; border-top: 1px solid var(--white); border-right: 1px solid var(--white); content: ""; transform: rotate(45deg); }
+    .session-step span { display: block; margin: 19px 0 9px; color: #b8bcb8; font-family: var(--serif); font-size: 12px; }
+    .session-step strong { font-family: var(--serif); font-size: 20px; font-weight: 400; }
+    .session-step p { margin: 8px 0 0; color: #c7cac7; font-size: 12px; line-height: 1.8; }
+
+    .final-section {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      min-height: 410px;
+      padding: 80px 8vw;
+      background: var(--white);
+    }
+    .final-section h2 { max-width: 750px; margin: 0; font-family: var(--serif); font-size: 43px; font-weight: 400; line-height: 1.5; }
+    .final-section p { max-width: 650px; margin: 20px 0 0; color: var(--graphite); font-size: 14px; line-height: 2; }
+    .final-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      min-width: 230px;
+      justify-content: center;
+      padding: 16px 22px;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: var(--white);
+      cursor: pointer;
+    }
+    .final-action svg { width: 18px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .record-content { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><strong>来福</strong><span>婚姻困境辅导</span></div>
+    <a class="header-link" href="#notes">了解服务内容</a>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <img class="hero-image" src="assets/divorce-coaching-room.png" alt="安静的一对一会谈室，两把椅子围绕同一张桌子">
+      <div class="hero-copy">
+        <h1 id="page-title">一对一离婚陪伴辅导</h1>
+        <p>一位辅导师，一段完整留给你的时间。会谈只围绕你的处境、选择和下一步展开。</p>
+        <a class="hero-action" href="#notes">了解一次会谈如何进行<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M14 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a>
+      </div>
+      <p class="seat-note left">辅导师的位置</p>
+      <p class="seat-note right">你的位置</p>
+      <p class="shared-table">共同梳理的问题</p>
+    </section>
+
+    <section class="notes-section" id="notes" aria-labelledby="notes-title">
+      <div class="section-heading">
+        <h2 id="notes-title">不是给你一套答案，<br>而是把你的问题说清楚。</h2>
+        <p>你带来的可能只是一个反复出现的念头。辅导师会陪你把感受、事实、选择和现实安排分开，形成一份真正属于你的会谈纪要。</p>
+      </div>
+
+      <div class="notes-layout">
+        <div class="question-list" role="tablist" aria-label="选择你关心的问题">
+          <button class="question-button" type="button" role="tab" aria-selected="true" data-topic="emotion"><span>01</span><strong>我现在适合做决定吗？</strong><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 12h10M13 8l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+          <button class="question-button" type="button" role="tab" aria-selected="false" data-topic="decision"><span>02</span><strong>我到底要不要离婚？</strong><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 12h10M13 8l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+          <button class="question-button" type="button" role="tab" aria-selected="false" data-topic="boundary"><span>03</span><strong>怎样沟通才不会再次失控？</strong><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 12h10M13 8l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+          <button class="question-button" type="button" role="tab" aria-selected="false" data-topic="children"><span>04</span><strong>孩子和家庭该怎么安排？</strong><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 12h10M13 8l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+          <button class="question-button" type="button" role="tab" aria-selected="false" data-topic="life"><span>05</span><strong>财务和生活从哪里开始？</strong><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 12h10M13 8l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+          <button class="question-button" type="button" role="tab" aria-selected="false" data-topic="legal"><span>06</span><strong>见律师前需要准备什么？</strong><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 12h10M13 8l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        </div>
+
+          <div class="record-paper" role="tabpanel" aria-live="polite">
+          <div class="relationship-line"><span>你</span><div aria-hidden="true"></div><span>辅导师</span></div>
+          <div class="record-content" id="record-content">
+            <h3 class="record-title" id="record-title">情绪与判断</h3>
+            <dl>
+              <div class="record-row"><dt>你正在面对的</dt><dd id="record-facing">反复争吵、失眠、愤怒或内疚，让你很难看清真正需要处理的事。</dd></div>
+              <div class="record-row"><dt>辅导师陪你梳理的</dt><dd id="record-doing">把情绪、事实和猜测分开，找到此刻最需要保护、最先需要处理的部分。</dd></div>
+              <div class="record-row"><dt>你能够带走的</dt><dd id="record-result">一份清楚的现状梳理，以及接下来几天可以立即执行的行动顺序。</dd></div>
+            </dl>
+          </div>
+          <p class="record-boundary">辅导不替你决定，也不替代心理治疗或法律服务。它帮助你更清楚地使用这些专业支持。</p>
+          </div>
+      </div>
+    </section>
+
+    <section class="session-band" aria-labelledby="session-title">
+      <div class="session-inner">
+        <h2 id="session-title">一次90分钟初始会谈，会完成什么</h2>
+        <div class="session-steps">
+          <div class="session-step"><span>01</span><strong>说出现在的处境</strong><p>不要求完整，也不要求从头讲起。</p></div>
+          <div class="session-step"><span>02</span><strong>分开事实与情绪</strong><p>看清哪些已经发生，哪些仍需要确认。</p></div>
+          <div class="session-step"><span>03</span><strong>找到优先问题</strong><p>从所有纠缠中确定最需要先处理的事。</p></div>
+          <div class="session-step"><span>04</span><strong>形成下一步行动</strong><p>把想法变成现实可执行的准备与安排。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-section">
+      <div>
+        <h2>你不需要一次想清所有事，<br>先从最困扰你的那一件开始。</h2>
+        <p>初始咨询用于了解你的处境、当前目标和需要的支持，再共同确定合适的陪伴方式。</p>
+      </div>
+      <button class="final-action" type="button">预约我的一对一初始咨询<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M14 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+    </section>
+  </main>
+
+  <script>
+    const content = {
+      emotion: ["情绪与判断", "反复争吵、失眠、愤怒或内疚，让你很难看清真正需要处理的事。", "把情绪、事实和猜测分开，找到此刻最需要保护、最先需要处理的部分。", "一份清楚的现状梳理，以及接下来几天可以立即执行的行动顺序。"],
+      decision: ["是否离婚", "你在留下与离开之间反复摇摆，任何人的一句话都可能让判断再次动摇。", "看清关系现状、真实需求、不同选择的现实影响，以及你能够承受的代价。", "一张属于你的决策梳理，不再只由某一刻的情绪推动选择。"],
+      boundary: ["沟通与边界", "谈话容易失控。面对指责、纠缠或控制时，你很难坚持原本想表达的内容。", "辨认冲突模式，准备沟通重点、个人底线和必要时结束谈话的方式。", "可以直接使用的沟通提纲，以及更明确的边界方案。"],
+      children: ["孩子与家庭安排", "你担心孩子受伤，也不知道如何解释变化、协商照顾安排或面对双方长辈。", "从孩子的年龄和现实生活出发，梳理告知方式、共同养育议题和家庭支持资源。", "一份以孩子稳定为核心的沟通清单和家庭过渡安排。"],
+      life: ["财务与生活", "住房、工作、账户和日常开支交织在一起，让离开或留下都显得寸步难行。", "盘点已有资源、必须确认的信息，以及需要优先建立的现实生活支点。", "一张可以执行的生活准备清单，知道先确认什么、再处理什么。"],
+      legal: ["律师咨询准备", "你知道可能需要律师，却不知道该问什么，也担心在有限时间里遗漏重要信息。", "整理时间线、事实、已有材料和咨询问题，帮助你更有效地使用法律服务。", "一份结构化律师咨询提纲。辅导不提供法律意见，但让专业咨询更充分。"]
+    };
+
+    const buttons = [...document.querySelectorAll(".question-button")];
+    const recordContent = document.getElementById("record-content");
+    const fields = [
+      document.getElementById("record-title"),
+      document.getElementById("record-facing"),
+      document.getElementById("record-doing"),
+      document.getElementById("record-result")
+    ];
+
+    buttons.forEach(button => button.addEventListener("click", () => {
+      if (button.getAttribute("aria-selected") === "true") return;
+      buttons.forEach(item => item.setAttribute("aria-selected", String(item === button)));
+      recordContent.classList.add("is-changing");
+      window.setTimeout(() => {
+        content[button.dataset.topic].forEach((value, index) => { fields[index].textContent = value; });
+        recordContent.classList.remove("is-changing");
+      }, 120);
+    }));
+  </script>
+</body>
+</html>

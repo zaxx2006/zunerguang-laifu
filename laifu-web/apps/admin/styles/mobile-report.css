@@ -1,0 +1,82 @@
+@layer components {
+  .mobile-report-hero { position: relative; overflow: hidden; display: grid; gap: 28px; padding: 28px 28px 30px; border: 1px solid var(--color-surface-elevated); border-radius: var(--radius); background: color-mix(in srgb, var(--color-canvas) 96%, transparent); }
+  .mobile-report-hero-brand { position: relative; z-index: 1; display: grid; gap: 16px; }
+  .mobile-report-sheet .report-logo-lockup.compact .report-logo-image { width: 220px; height: 56px; }
+  .mobile-report-hero-tags { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .mobile-report-hero-tags span { display: inline-flex; align-items: center; justify-content: center; min-height: 34px; padding: 0 14px; border-radius: var(--radius); background: var(--color-link-blue); color: var(--color-canvas); font-size: 18px; font-weight: 700; }
+  .mobile-report-hero-tags span + span { background: var(--color-canvas); color: var(--color-link-blue); }
+  .mobile-report-hero-watermark { position: absolute; right: -18px; top: 22px; width: 430px; height: auto; opacity: 0.08; pointer-events: none; object-fit: contain; mix-blend-mode: multiply; z-index: 0; }
+  .mobile-report-hero-main { position: relative; z-index: 1; display: grid; gap: 10px; }
+  .mobile-report-hero-main h1 { margin: 0; color: var(--color-link-blue); font-size: 48px; line-height: var(--leading-heading); letter-spacing: 0; }
+  .mobile-report-subtitle { margin: 0; color: var(--color-link-blue); font-size: 26px; line-height: 1.35; font-weight: 700; }
+  .mobile-report-generated { margin: 0; color: var(--color-stone); font-size: 19px; line-height: 1.5; font-weight: 600; }
+  .mobile-report-intro { margin: 10px 0 0; color: var(--color-link-blue); font-size: 21px; line-height: 1.82; }
+  .mobile-report-result-panel { border: 1px solid var(--color-surface-elevated); border-radius: var(--radius); display: grid; gap: 18px; padding: 28px; background: var(--panel); }
+  .mobile-report-title-row, .mobile-report-section-title { display: flex; align-items: center; gap: 12px; }
+  .mobile-report-title-row .report-mini-icon { width: 34px; height: 34px; color: var(--color-link-blue); }
+  .mobile-report-title-row span, .mobile-report-title-row h2 { margin: 0; color: var(--color-link-blue); font-size: 26px; line-height: var(--leading-heading); font-weight: 800; }
+  .mobile-report-result-label { color: var(--color-link-blue); font-size: 44px; line-height: 1.24; }
+  .mobile-report-rate-lockup { display: flex; align-items: baseline; gap: 16px; }
+  .mobile-report-rate-lockup strong { font-size: 84px; line-height: 1; letter-spacing: 0; }
+  .mobile-report-rate-lockup span { color: var(--color-stone); font-size: 21px; font-weight: 700; }
+  .mobile-report-progress span { display: block; height: 100%; border-radius: var(--radius); }
+  .mobile-report-status { margin: 0; font-size: 21px; line-height: 1.75; font-weight: 800; }
+  .mobile-report-result-summary { margin: 0; font-size: 21px; line-height: 1.75; color: var(--color-link-blue); }
+  .mobile-report-section-title i { width: 5px; height: 32px; border-radius: var(--radius); background: var(--panel); }
+  .mobile-report-section-title h2 { margin: 0; color: var(--color-link-blue); font-size: 30px; line-height: var(--leading-heading); }
+  .mobile-report-metrics-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .mobile-report-metric-card { display: grid; gap: 10px; align-content: start; min-width: 0; min-height: 142px; padding: 22px; border: 1px solid var(--color-surface-soft); border-radius: var(--radius); background: var(--color-canvas); }
+  .mobile-report-metric-card .report-mini-icon { width: 34px; height: 34px; color: var(--color-link-blue); }
+  .mobile-report-metric-card span { color: var(--color-stone); font-size: 19px; line-height: 1.4; font-weight: 700; }
+  .mobile-report-metric-card strong { color: var(--color-link-blue); font-size: 27px; line-height: 1.35; word-break: break-word; }
+  .mobile-report-overall-card { background: var(--panel); }
+  .mobile-report-overall-card p { margin: 0; color: var(--color-link-blue); font-size: 22px; line-height: 1.82; }
+  .mobile-report-radar-panel { padding: 18px 12px 8px; border: 1px solid var(--color-surface-soft); border-radius: var(--radius); background: var(--panel); }
+  .mobile-report-radar-panel .radar-chart-wrap { justify-items: center; gap: 16px; }
+  .mobile-report-radar-panel .radar-canvas { width: 100%; padding: 8px; background: transparent; }
+  .mobile-report-radar-panel .radar-canvas svg { width: 450px; }
+  .mobile-report-radar-panel .radar-label { font-size: 15px; }
+  .mobile-report-radar-panel .radar-legend-inline { justify-content: center; font-size: 18px; }
+  .mobile-report-dimension-score-list { display: grid; gap: 12px; }
+  .mobile-report-dimension-score-row { display: grid; gap: 12px; padding: 20px; border: 1px solid var(--color-surface-soft); border-radius: var(--radius); background: var(--color-canvas); }
+  .mobile-report-dimension-score-name { display: flex; align-items: center; gap: 14px; }
+  .mobile-report-dimension-score-name .dimension-icon-badge, .mobile-report-dimension-detail-title .dimension-icon-badge { width: 46px; height: 46px; }
+  .mobile-report-dimension-score-name h3 { margin: 0; color: var(--color-link-blue); font-size: 23px; line-height: var(--leading-heading); }
+  .mobile-report-dimension-score-meta { display: flex; justify-content: space-between; align-items: center; gap: 18px; padding-left: 60px; color: var(--color-link-blue); font-size: 21px; line-height: 1.45; font-weight: 700; }
+  .mobile-report-dimension-score-meta strong { font-size: 28px; line-height: 1; }
+  .mobile-report-score-tag { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 0 15px; border: 1px solid transparent; border-radius: var(--radius); font-size: 19px; line-height: 1; font-weight: 800; white-space: nowrap; }
+  .mobile-report-detail-section, .mobile-report-dimension-detail-list { display: grid; gap: 18px; }
+  .mobile-report-dimension-detail-card { border: 1px solid var(--color-surface-elevated); border-radius: var(--radius); background: color-mix(in srgb, var(--color-canvas) 96%, transparent); display: grid; gap: 22px; padding: 26px; }
+  .mobile-report-dimension-detail-head { display: grid; gap: 16px; padding-bottom: 18px; border-bottom: 1px solid var(--color-surface-soft); }
+  .mobile-report-dimension-detail-title { display: flex; align-items: center; gap: 13px; min-width: 0; }
+  .mobile-report-dimension-detail-title h3 { margin: 0; color: var(--color-link-blue); font-size: 27px; line-height: var(--leading-heading); }
+  .mobile-report-dimension-detail-score { display: flex; align-items: baseline; gap: 8px; color: var(--color-stone); }
+  .mobile-report-dimension-detail-score strong { font-size: 38px; line-height: 1; }
+  .mobile-report-dimension-detail-score > span { font-size: 20px; font-weight: 700; }
+  .mobile-report-dimension-detail-score .mobile-report-score-tag { margin-left: 8px; align-self: center; }
+  .mobile-report-dimension-copy-block { display: grid; gap: 10px; }
+  .mobile-report-dimension-copy-block h4 { margin: 0; color: var(--color-link-blue); font-size: 22px; line-height: var(--leading-heading); }
+  .mobile-report-dimension-copy-block p { margin: 0; color: var(--color-link-blue); font-size: 21px; line-height: 1.82; }
+  .mobile-report-boundary-card { border: 1px solid var(--color-surface-elevated); border-radius: var(--radius); display: grid; gap: 20px; padding: 26px; position: relative; overflow: hidden; background: var(--panel); }
+  .mobile-report-boundary-head { position: relative; z-index: 1; display: flex; align-items: center; gap: 14px; }
+  .mobile-report-boundary-icon { width: 54px; height: 54px; flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; border-radius: var(--radius); background: color-mix(in srgb, var(--color-link-blue) 10%, transparent); color: var(--color-link-blue); }
+  .mobile-report-boundary-icon svg { width: 30px; height: 30px; }
+  .mobile-report-boundary-head h2 { margin: 0; color: var(--color-link-blue); font-size: 30px; line-height: var(--leading-heading); }
+  .mobile-report-boundary-list { position: relative; z-index: 1; margin: 0; padding-left: 24px; color: var(--color-link-blue); font-size: 20px; line-height: 1.85; }
+  .mobile-report-boundary-list li + li { margin-top: 8px; }
+  .mobile-report-boundary-watermark { position: absolute; right: 12px; bottom: 0; width: 330px; height: auto; opacity: 0.08; pointer-events: none; object-fit: contain; mix-blend-mode: multiply; z-index: 0; }
+  .mobile-report-team-card { background: var(--panel); }
+  .mobile-report-team-copy { display: grid; gap: 13px; }
+  .mobile-report-team-copy p { margin: 0; color: var(--color-link-blue); font-size: 20px; line-height: 1.86; }
+  .mobile-report-team-card strong { color: var(--color-link-blue); font-weight: 800; }
+  .mobile-report-brand-footer { display: flex; justify-content: space-between; align-items: center; gap: 28px; padding: 28px 30px; border-radius: var(--radius); background: var(--panel); color: var(--color-canvas); }
+  .mobile-report-brand-footer .report-footer-brand { flex: 0 0 auto; }
+  .mobile-report-brand-footer .report-footer-brand-en { font-size: 23px; }
+  .mobile-report-brand-footer .report-footer-brand-cn { font-size: 19px; }
+  .mobile-report-brand-footer p { margin: 0; margin-left: auto; color: color-mix(in srgb, var(--color-canvas) 96%, transparent); font-family: var(--font-noto-sans-sc), sans-serif; font-size: 17.5px; font-weight: 400; line-height: 1.4; letter-spacing: 0.06em; text-align: right; white-space: nowrap; }
+  .mobile-report-sheet { width: 750px; margin: 0 auto; display: grid; gap: 24px; padding: 32px; border: 1px solid var(--color-surface-elevated); border-radius: var(--radius); background: var(--panel); color: var(--color-body); border-color: var(--line-strong); background-color: var(--bg); }
+  .mobile-report-card { border: 1px solid var(--color-surface-elevated); border-radius: var(--radius); background: color-mix(in srgb, var(--color-canvas) 96%, transparent); display: grid; gap: 20px; padding: 26px; border-color: var(--line-strong); background-color: var(--bg); }
+  .mobile-report-dimension-code { display: inline-flex; align-items: center; justify-content: center; min-width: 48px; min-height: 34px; padding: 0 10px; border: 1px solid transparent; border-radius: var(--radius); font-size: 18px; line-height: 1; font-weight: 800; letter-spacing: 0; background-color: var(--brand); color: var(--color-on-primary); }
+  .mobile-report-progress { overflow: hidden; height: 16px; border-radius: var(--radius); background-color: var(--line); }
+  .mobile-report-progress > span { background-color: var(--brand); }
+}

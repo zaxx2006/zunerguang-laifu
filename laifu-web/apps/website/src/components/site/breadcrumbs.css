@@ -1,0 +1,91 @@
+.home-preview header[data-has-breadcrumbs] {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: var(--home-navigation-height) var(--home-breadcrumb-height);
+  column-gap: 32px;
+}
+.home-preview header[data-has-breadcrumbs] > .logo {
+  grid-area: 1 / 1;
+  justify-self: start;
+}
+.home-preview header[data-has-breadcrumbs] > nav,
+.home-preview header[data-has-breadcrumbs] > .mobile-menu {
+  grid-area: 1 / 2;
+  justify-self: end;
+}
+.header-breadcrumbs {
+  grid-area: 2 / 1 / 3 / -1;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  overflow-x: auto;
+}
+.header-breadcrumbs .site-breadcrumbs {
+  display: block;
+  margin: 0;
+  color: #526453;
+  font: 13px/20px var(--font-noto-sans-sc), sans-serif;
+  text-align: left;
+}
+.header-breadcrumbs .site-breadcrumbs ol {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  white-space: nowrap;
+}
+.header-breadcrumbs .site-breadcrumbs li {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  min-width: 0;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  line-height: 20px;
+}
+.header-breadcrumbs .site-breadcrumbs li > svg {
+  flex: 0 0 12px;
+  width: 12px;
+  height: 12px;
+  margin-inline: 8px;
+}
+.header-breadcrumbs .site-breadcrumbs a,
+.header-breadcrumbs .site-breadcrumbs [aria-current] {
+  display: block;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  line-height: 20px;
+}
+.header-breadcrumbs .site-breadcrumbs a {
+  color: inherit;
+  text-decoration: none;
+  text-underline-offset: 4px;
+}
+.header-breadcrumbs .site-breadcrumbs a:hover {
+  text-decoration: underline;
+}
+.header-breadcrumbs .site-breadcrumbs a:focus-visible {
+  outline: 2px solid #294b3d;
+  outline-offset: 4px;
+}
+.header-breadcrumbs .site-breadcrumbs [aria-current] {
+  color: #243d35;
+}
+@media (max-width: 1200px) {
+  .home-preview header[data-has-breadcrumbs] > .logo small {
+    display: none;
+  }
+  .home-preview header[data-has-breadcrumbs] > nav {
+    gap: 14px;
+  }
+}
+@media (max-width: 900px) {
+  .header-breadcrumbs .site-breadcrumbs {
+    font-size: 12px;
+  }
+}

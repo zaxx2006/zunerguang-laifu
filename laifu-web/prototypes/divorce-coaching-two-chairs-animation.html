@@ -1,0 +1,1155 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="来福离婚陪伴服务两把椅子动画原型">
+  <title>离婚陪伴服务｜两把椅子</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f7f4;
+      --ink: #171a18;
+      --graphite: #595e5a;
+      --line: #d7dad6;
+      --white: #fff;
+      --serif: SimSun, "Songti SC", STSong, serif;
+      --sans: "Microsoft YaHei", "PingFang SC", sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; }
+    body {
+      margin: 0;
+      overflow: hidden;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--sans);
+      letter-spacing: 0;
+    }
+    button { color: inherit; font: inherit; }
+    :focus-visible { outline: 2px solid var(--ink); outline-offset: 6px; }
+
+    .experience {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-width: 1024px;
+      min-height: 680px;
+      isolation: isolate;
+      background: var(--paper);
+    }
+
+    .brand {
+      position: fixed;
+      z-index: 20;
+      left: 42px;
+      top: 30px;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .brand strong { font-family: var(--serif); font-size: 24px; font-weight: 400; }
+    .brand span { color: var(--graphite); font-size: 11px; }
+
+    .entry-scene,
+    .room-scene {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+    }
+
+    .entry-scene {
+      z-index: 6;
+      background:
+        linear-gradient(var(--line), var(--line)) center calc(50% + 300px) / 100% 1px no-repeat,
+        var(--paper);
+      transform-origin: 50% 54%;
+      transition: opacity 850ms ease 800ms, transform 1450ms cubic-bezier(.62,.03,.2,1) 480ms;
+    }
+
+    .entry-copy {
+      position: absolute;
+      left: 7vw;
+      top: 50%;
+      width: 290px;
+      transform: translateY(-50%);
+      transition: opacity 360ms ease, transform 500ms ease;
+    }
+    .entry-copy p { margin: 0; color: var(--graphite); font-size: 13px; line-height: 1.9; }
+    .entry-copy .entry-title {
+      margin-bottom: 16px;
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 30px;
+      line-height: 1.55;
+    }
+
+    .door-assembly {
+      position: relative;
+      width: 372px;
+      height: 590px;
+      perspective: 1500px;
+    }
+    .plaque {
+      position: absolute;
+      left: 50%;
+      top: -76px;
+      width: 246px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border: 1.5px solid var(--ink);
+      background: var(--paper);
+      font-family: var(--serif);
+      font-size: 20px;
+      transform: translateX(-50%);
+    }
+    .plaque::before,
+    .plaque::after {
+      position: absolute;
+      top: 50%;
+      width: 32px;
+      height: 1px;
+      content: "";
+      background: var(--ink);
+    }
+    .plaque::before { left: -33px; }
+    .plaque::after { right: -33px; }
+
+    .door-frame {
+      position: absolute;
+      inset: 0;
+      border: 3px solid var(--ink);
+      background: var(--white);
+    }
+    .door-frame::before {
+      position: absolute;
+      inset: 12px;
+      content: "";
+      border: 1px solid var(--line);
+    }
+    .room-glimpse {
+      position: absolute;
+      inset: 15px;
+      overflow: hidden;
+      background: #f0f1ee;
+    }
+    .room-glimpse::before {
+      position: absolute;
+      left: 50%;
+      bottom: 74px;
+      width: 128px;
+      height: 82px;
+      content: "";
+      border: 2px solid var(--ink);
+      border-radius: 50% 50% 12px 12px;
+      transform: translateX(-50%);
+    }
+    .room-glimpse::after {
+      position: absolute;
+      left: 50%;
+      bottom: -20px;
+      width: 1px;
+      height: 320px;
+      content: "";
+      background: var(--line);
+      box-shadow: -120px -40px 0 var(--line), 120px -40px 0 var(--line);
+      transform: translateX(-50%);
+    }
+
+    .door {
+      position: absolute;
+      z-index: 2;
+      inset: 15px;
+      border: 2px solid var(--ink);
+      background: var(--paper);
+      transform-origin: left center;
+      transform-style: preserve-3d;
+      transition: transform 1250ms cubic-bezier(.68,.02,.22,1);
+    }
+    .door::before,
+    .door::after {
+      position: absolute;
+      left: 42px;
+      right: 42px;
+      content: "";
+      border: 1px solid var(--ink);
+    }
+    .door::before { top: 56px; height: 198px; }
+    .door::after { bottom: 56px; height: 198px; }
+    .door-handle {
+      position: absolute;
+      right: 34px;
+      top: 50%;
+      width: 17px;
+      height: 17px;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      background: var(--paper);
+      transform: translateY(-50%);
+      transition: transform 220ms ease;
+    }
+    .door-handle::after {
+      position: absolute;
+      left: -22px;
+      top: 6px;
+      width: 23px;
+      height: 2px;
+      content: "";
+      background: var(--ink);
+    }
+
+    .door-button {
+      position: absolute;
+      z-index: 4;
+      inset: 15px;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+    .door-button:hover + .door .door-handle { transform: translateY(-50%) rotate(-12deg); }
+    .door-button[disabled] { cursor: default; }
+
+    .entry-prompt {
+      position: absolute;
+      left: 50%;
+      bottom: -56px;
+      margin: 0;
+      color: var(--graphite);
+      font-size: 12px;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      animation: breathe 2200ms ease-in-out infinite;
+      transition: opacity 260ms ease;
+    }
+    .entry-prompt::before {
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      margin: 0 9px 4px 0;
+      content: "";
+      background: currentColor;
+    }
+
+    .opening .entry-copy,
+    .opening .entry-prompt { opacity: 0; transform: translateY(-50%) translateX(-16px); }
+    .opening .entry-prompt { transform: translateX(-50%) translateY(8px); }
+    .opening .door { transform: rotateY(-112deg); }
+    .inside .entry-scene { opacity: 0; pointer-events: none; transform: scale(1.72); }
+
+    .room-scene {
+      z-index: 2;
+      overflow: hidden;
+      opacity: 0;
+      background: var(--paper);
+      transform: scale(.82);
+      transform-origin: center;
+      transition: opacity 1000ms ease 760ms, transform 1600ms cubic-bezier(.2,.76,.18,1) 650ms;
+    }
+    .inside .room-scene { opacity: 1; transform: scale(1); }
+    .exploring .room-scene { transform: scale(1.08); }
+    .desk-view .room-scene {
+      opacity: .08;
+      transform: scale(2.7);
+      transform-origin: 50% 63%;
+      transition: opacity 650ms ease 420ms, transform 1050ms cubic-bezier(.16,1,.3,1);
+    }
+
+    .room-illustration {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+    }
+    .inside .room-illustration { animation: drawIn 1000ms ease 1300ms forwards; }
+
+    .room-copy {
+      position: absolute;
+      z-index: 4;
+      left: 50%;
+      top: 12.5%;
+      width: 760px;
+      text-align: center;
+      opacity: 0;
+      transform: translate(-50%, 14px);
+    }
+    .room-copy h1 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 42px;
+      font-weight: 400;
+      line-height: 1.55;
+    }
+    .room-copy p { margin: 12px 0 0; color: var(--graphite); font-size: 14px; line-height: 1.8; }
+    .inside .room-copy { animation: copyIn 900ms ease 2950ms forwards; }
+
+    .seat-label {
+      position: absolute;
+      z-index: 5;
+      left: calc(50% + 218px);
+      bottom: 12%;
+      margin: 0;
+      color: var(--graphite);
+      font-size: 12px;
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    .seat-label::before {
+      display: inline-block;
+      width: 46px;
+      height: 1px;
+      margin: 0 10px 4px 0;
+      content: "";
+      background: var(--graphite);
+    }
+    .inside .seat-label { animation: copyInSimple 700ms ease 3250ms forwards; }
+
+    .table-hotspot {
+      position: absolute;
+      z-index: 7;
+      left: 34.5%;
+      top: 67.5%;
+      width: 27%;
+      height: 7%;
+      border: 0;
+      border-radius: 50%;
+      background: transparent;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .table-hotspot::after {
+      position: absolute;
+      inset: 4px;
+      border: 1px solid transparent;
+      border-radius: 50%;
+      content: "";
+      transition: border-color 180ms ease, transform 220ms ease;
+    }
+    .table-hotspot:hover::after,
+    .table-hotspot:focus-visible::after { border-color: var(--graphite); transform: scale(1.035); }
+    .inside .table-hotspot { opacity: 1; pointer-events: auto; }
+
+    .counselor-label {
+      position: absolute;
+      z-index: 5;
+      right: calc(50% + 188px);
+      bottom: 12%;
+      margin: 0;
+      color: var(--graphite);
+      font-size: 12px;
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    .counselor-label::after {
+      display: inline-block;
+      width: 46px;
+      height: 1px;
+      margin: 0 0 4px 10px;
+      content: "";
+      background: var(--graphite);
+    }
+    .inside .counselor-label { animation: copyInSimple 700ms ease 3120ms forwards; }
+
+    .open-service {
+      position: absolute;
+      z-index: 6;
+      left: 50%;
+      bottom: 6.5%;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0 9px;
+      border: 0;
+      border-bottom: 1px solid var(--ink);
+      background: transparent;
+      font-size: 13px;
+      opacity: 0;
+      pointer-events: none;
+      cursor: pointer;
+      transform: translate(-50%, 8px);
+    }
+    .open-service svg { width: 17px; transition: transform 220ms ease; }
+    .open-service:hover svg { transform: translateX(5px); }
+    .inside .open-service { animation: serviceButtonIn 600ms ease 3500ms forwards; pointer-events: auto; }
+    .exploring .room-copy,
+    .desk-view .room-copy,
+    .exploring .seat-label,
+    .desk-view .seat-label,
+    .exploring .counselor-label,
+    .desk-view .counselor-label,
+    .desk-view .table-hotspot,
+    .exploring .open-service { opacity: 0 !important; pointer-events: none; transition: opacity 260ms ease; }
+    .desk-view .open-service { opacity: 0 !important; pointer-events: none; transition: opacity 260ms ease; }
+
+    .room-vignette {
+      position: absolute;
+      z-index: 3;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0;
+      box-shadow: inset 0 0 220px rgba(23,26,24,.15);
+      transition: opacity 900ms ease 2900ms;
+    }
+    .inside .room-vignette { opacity: 1; }
+
+    .desk-scene {
+      position: absolute;
+      z-index: 11;
+      inset: 0;
+      cursor: pointer;
+      visibility: hidden;
+      opacity: 0;
+      background: var(--paper);
+      transition: opacity 420ms ease, visibility 0s linear 420ms;
+    }
+    .desk-view .desk-scene {
+      visibility: visible;
+      opacity: 1;
+      transition: opacity 520ms ease 560ms, visibility 0s linear;
+    }
+    .desk-surface {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: #f1f1ee;
+    }
+    .desk-surface::before {
+      position: absolute;
+      left: -4%;
+      top: 8%;
+      width: 210px;
+      height: 210px;
+      border: 1.5px solid var(--ink);
+      border-radius: 50%;
+      background: var(--paper);
+      content: "";
+      box-shadow: inset 0 0 0 18px #f1f1ee;
+    }
+    .desk-surface::after {
+      position: absolute;
+      right: 5%;
+      bottom: 7%;
+      width: 150px;
+      height: 14px;
+      border: 1.5px solid var(--ink);
+      background: var(--paper);
+      content: "";
+      transform: rotate(-32deg);
+    }
+    .blank-checklist {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 2;
+      width: 500px;
+      height: 660px;
+      padding: 76px 48px 48px;
+      border: 1.5px solid var(--ink);
+      background: var(--white);
+      box-shadow: 22px 30px 55px rgba(23,26,24,.09);
+      transform: translate(-50%,-50%) rotate(-1.6deg);
+    }
+    .blank-checklist::before {
+      position: absolute;
+      left: 50%;
+      top: -13px;
+      width: 92px;
+      height: 28px;
+      border: 1.5px solid var(--ink);
+      background: var(--paper);
+      content: "";
+      transform: translateX(-50%);
+    }
+    .empty-lines { display: grid; gap: 24px; margin: 0; padding: 0; list-style: none; }
+    .empty-lines li {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      align-items: start;
+      gap: 16px;
+      min-height: 66px;
+      opacity: 1;
+    }
+    .empty-lines i {
+      position: relative;
+      width: 17px;
+      height: 17px;
+      margin-top: 3px;
+      border: 1px solid var(--ink);
+      transition: background 260ms ease;
+    }
+    .empty-lines i::after {
+      position: absolute;
+      left: 3px;
+      top: 1px;
+      width: 9px;
+      height: 5px;
+      border-left: 1.5px solid var(--white);
+      border-bottom: 1.5px solid var(--white);
+      content: "";
+      opacity: 0;
+      transform: rotate(-45deg) scale(.6);
+      transition: opacity 200ms ease, transform 300ms cubic-bezier(.16,1,.3,1);
+    }
+    .empty-lines span {
+      min-height: 31px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+      font-family: var(--serif);
+      font-size: 14px;
+      line-height: 1.55;
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path 700ms cubic-bezier(.16,1,.3,1);
+    }
+    .empty-lines li.recorded i { background: var(--ink); }
+    .empty-lines li.recorded i::after { opacity: 1; transform: rotate(-45deg) scale(1); }
+    .empty-lines li.recorded span { clip-path: inset(0 0 0 0); }
+
+    .dialogue-bubble {
+      position: absolute;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 0;
+      background-color: transparent;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      opacity: 0;
+      filter: blur(4px);
+      pointer-events: none;
+      transition: opacity 360ms ease, transform 520ms cubic-bezier(.16,1,.3,1), filter 420ms ease;
+    }
+    .dialogue-bubble small {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--graphite);
+      font-size: 11px;
+    }
+    .dialogue-bubble p { margin: 0; font-family: var(--serif); font-size: 18px; line-height: 1.75; }
+    .counselor-bubble {
+      right: 3.5vw;
+      top: 9vh;
+      width: 430px;
+      height: 242px;
+      padding: 38px 52px 54px;
+      background-image: url("assets/dialogue-bubble-counselor.png");
+      transform: translate(34px,-18px) scale(.9);
+    }
+    .visitor-bubble {
+      left: 3.5vw;
+      bottom: 8vh;
+      width: 410px;
+      height: 210px;
+      padding: 34px 48px 48px;
+      background-image: url("assets/dialogue-bubble-user.png");
+      transform: translate(-34px,18px) scale(.9);
+    }
+    .dialogue-bubble.is-visible { opacity: 1; filter: blur(0); transform: translate(0,0) scale(1); }
+
+    .scroll-status {
+      position: absolute;
+      z-index: 6;
+      left: 50%;
+      bottom: 25px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      color: var(--graphite);
+      font-size: 11px;
+      transform: translateX(-50%);
+    }
+    .scroll-status::before { width: 30px; height: 1px; content: ""; background: currentColor; }
+    .scroll-status strong { color: var(--ink); font-family: var(--serif); font-size: 13px; font-weight: 400; }
+    .begin-service {
+      position: absolute;
+      z-index: 7;
+      right: 5.5vw;
+      bottom: 8vh;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 0 9px;
+      border: 0;
+      border-bottom: 1px solid var(--ink);
+      background: transparent;
+      cursor: pointer;
+      font-size: 13px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity 360ms ease, transform 360ms ease;
+    }
+    .desk-scene.is-complete .begin-service { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .desk-scene.is-complete { cursor: default; }
+    .begin-service svg { width: 17px; transition: transform 220ms ease; }
+    .begin-service:hover svg { transform: translateX(5px); }
+    .close-desk {
+      position: absolute;
+      z-index: 4;
+      right: 36px;
+      top: 30px;
+      width: 38px;
+      height: 38px;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+    .close-desk::before,
+    .close-desk::after {
+      position: absolute;
+      left: 8px;
+      top: 18px;
+      width: 22px;
+      height: 1px;
+      content: "";
+      background: var(--ink);
+    }
+    .close-desk::before { transform: rotate(45deg); }
+    .close-desk::after { transform: rotate(-45deg); }
+    .close-desk:hover { transform: rotate(90deg); transition: transform 220ms ease; }
+
+    .service-explorer {
+      position: absolute;
+      z-index: 12;
+      inset: 0;
+      display: grid;
+      grid-template-columns: minmax(450px, 42%) 1fr;
+      visibility: hidden;
+      opacity: 0;
+      background: var(--paper);
+      transition: opacity 500ms ease, visibility 0s linear 500ms;
+    }
+    .exploring .service-explorer {
+      visibility: visible;
+      opacity: 1;
+      transition-delay: 0s;
+    }
+    .dossier-nav {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 9vh 6vw 8vh 7vw;
+      border-right: 1px solid var(--line);
+    }
+    .dossier-nav h2 {
+      max-width: 460px;
+      margin: 0 0 18px;
+      font-family: var(--serif);
+      font-size: 38px;
+      font-weight: 400;
+      line-height: 1.45;
+    }
+    .dossier-intro {
+      max-width: 440px;
+      margin: 0 0 42px;
+      color: var(--graphite);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+    .topic-list { display: grid; gap: 0; }
+    .topic-button {
+      position: relative;
+      display: grid;
+      grid-template-columns: 32px 1fr auto;
+      align-items: center;
+      min-height: 55px;
+      padding: 0 2px;
+      border: 0;
+      border-top: 1px solid var(--line);
+      background: transparent;
+      text-align: left;
+      cursor: pointer;
+    }
+    .topic-button:last-child { border-bottom: 1px solid var(--line); }
+    .topic-button::after {
+      width: 7px;
+      height: 7px;
+      border-top: 1px solid currentColor;
+      border-right: 1px solid currentColor;
+      content: "";
+      transform: rotate(45deg);
+      transition: transform 220ms ease;
+    }
+    .topic-button span:first-child { color: var(--graphite); font-family: var(--serif); font-size: 12px; }
+    .topic-button strong { font-size: 14px; font-weight: 400; }
+    .topic-button:hover::after { transform: translateX(4px) rotate(45deg); }
+    .topic-button[aria-selected="true"] { color: var(--white); background: var(--ink); padding-inline: 14px; }
+    .topic-button[aria-selected="true"] span:first-child { color: #d7dad6; }
+
+    .dossier-stage {
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      padding: 8vh 7vw 8vh 6vw;
+    }
+    .dossier-stage::before {
+      position: absolute;
+      inset: 13% 10% 11% 7%;
+      border: 1px solid var(--line);
+      content: "";
+      transform: rotate(-1.2deg);
+    }
+    .dossier {
+      position: relative;
+      z-index: 2;
+      width: min(660px, 100%);
+      min-height: 590px;
+      padding: 64px 62px 52px;
+      border: 1.5px solid var(--ink);
+      background: var(--paper);
+      box-shadow: 18px 24px 45px rgba(23,26,24,.08);
+      transition: clip-path 460ms cubic-bezier(.16,1,.3,1), transform 460ms cubic-bezier(.16,1,.3,1);
+    }
+    .dossier::before {
+      position: absolute;
+      left: 42px;
+      top: -25px;
+      width: 154px;
+      height: 25px;
+      border: 1.5px solid var(--ink);
+      border-bottom: 0;
+      background: var(--paper);
+      content: "一对一陪伴档案";
+      font-family: var(--serif);
+      font-size: 12px;
+      line-height: 25px;
+      text-align: center;
+    }
+    .dossier.is-changing { clip-path: inset(0 0 100% 0); transform: translateY(-12px); }
+    .dossier-index { color: var(--graphite); font-family: var(--serif); font-size: 13px; }
+    .dossier h3 { margin: 13px 0 38px; font-family: var(--serif); font-size: 34px; font-weight: 400; }
+    .service-row {
+      display: grid;
+      grid-template-columns: 128px 1fr;
+      gap: 24px;
+      padding: 21px 0;
+      border-top: 1px solid var(--line);
+    }
+    .service-row:last-of-type { border-bottom: 1px solid var(--line); }
+    .service-row dt { color: var(--graphite); font-size: 12px; line-height: 1.8; }
+    .service-row dd { margin: 0; font-family: var(--serif); font-size: 17px; line-height: 1.8; }
+    .service-note { margin: 29px 0 0; color: var(--graphite); font-size: 12px; line-height: 1.8; }
+    .close-service {
+      position: absolute;
+      z-index: 4;
+      right: 36px;
+      top: 30px;
+      width: 38px;
+      height: 38px;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+    .close-service::before,
+    .close-service::after {
+      position: absolute;
+      left: 8px;
+      top: 18px;
+      width: 22px;
+      height: 1px;
+      content: "";
+      background: var(--ink);
+    }
+    .close-service::before { transform: rotate(45deg); }
+    .close-service::after { transform: rotate(-45deg); }
+    .close-service:hover { transform: rotate(90deg); transition: transform 220ms ease; }
+
+    .replay-button {
+      position: fixed;
+      z-index: 20;
+      right: 38px;
+      bottom: 30px;
+      padding: 7px 0;
+      border: 0;
+      border-bottom: 1px solid var(--ink);
+      background: transparent;
+      font-size: 12px;
+      opacity: 0;
+      pointer-events: none;
+      cursor: pointer;
+      transition: opacity 300ms ease;
+    }
+    .inside .replay-button { opacity: .72; pointer-events: auto; transition-delay: 3600ms; }
+    .exploring .replay-button { opacity: 0; pointer-events: none; transition-delay: 0s; }
+    .desk-view .replay-button { opacity: 0; pointer-events: none; transition-delay: 0s; }
+    .replay-button:hover { opacity: 1; }
+
+    .progress {
+      position: fixed;
+      z-index: 20;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: transparent;
+      overflow: hidden;
+    }
+    .progress span { display: block; width: 0; height: 100%; background: var(--ink); }
+    .opening .progress span { animation: progress 3800ms linear forwards; }
+
+    @keyframes breathe { 0%,100% { opacity: .5; } 50% { opacity: 1; } }
+    @keyframes progress { to { width: 100%; } }
+    @keyframes drawIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes tableIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes leftChairIn { from { opacity: 0; transform: translate(-70px, 18px) rotate(-4deg); } to { opacity: 1; transform: translate(0,0) rotate(0); } }
+    @keyframes rightChairIn { 0% { opacity: 0; transform: translate(95px, 45px) rotate(7deg); } 72% { opacity: 1; transform: translate(-8px, -4px) rotate(-1deg); } 100% { opacity: 1; transform: translate(0,0) rotate(0); } }
+    @keyframes copyIn { from { opacity: 0; transform: translate(-50%,14px); } to { opacity: 1; transform: translate(-50%,0); } }
+    @keyframes copyInSimple { to { opacity: 1; transform: translateY(0); } }
+    @keyframes serviceButtonIn { to { opacity: 1; transform: translate(-50%,0); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 1ms !important; animation-delay: 0ms !important; transition-duration: 1ms !important; transition-delay: 0ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="experience" id="experience">
+    <div class="brand"><strong>来福</strong><span>婚姻困境辅导</span></div>
+
+    <section class="entry-scene" aria-labelledby="entry-title">
+      <div class="entry-copy">
+        <p class="entry-title" id="entry-title">一扇门之后，<br>只留下与你有关的事。</p>
+        <p>没有旁观者，也没有标准答案。这里是一段专门留给你的谈话时间。</p>
+      </div>
+
+      <div class="door-assembly">
+        <div class="plaque">离婚陪伴服务</div>
+        <div class="door-frame">
+          <div class="room-glimpse" aria-hidden="true"></div>
+        </div>
+        <button class="door-button" id="door-button" type="button" aria-label="打开离婚陪伴服务会议室大门"></button>
+        <div class="door" aria-hidden="true"><span class="door-handle"></span></div>
+        <p class="entry-prompt">点击大门，进入一对一会谈室</p>
+      </div>
+    </section>
+
+    <section class="room-scene" aria-labelledby="room-title" aria-hidden="true" inert>
+      <img class="room-illustration" src="assets/divorce-coaching-room.png" alt="黑白线稿一对一会谈室，两把椅子相向围绕中央桌面">
+
+      <div class="room-vignette" aria-hidden="true"></div>
+      <div class="room-copy">
+        <h1 id="room-title">请坐。接下来的时间，只谈你的处境。</h1>
+        <p>两把椅子，一段完整的时间。你不需要提前想好，应该从哪里说起。</p>
+      </div>
+      <p class="counselor-label">辅导师的座位</p>
+      <p class="seat-label">这把椅子，留给你</p>
+      <button class="table-hotspot" id="table-hotspot" type="button" aria-label="点击桌面，查看空白会谈清单"></button>
+      <button class="open-service" id="open-service" type="button">
+        点击桌面，看看会谈如何开始
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M14 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+      </button>
+    </section>
+
+    <section class="desk-scene" aria-label="滚动展开一对一会谈" aria-hidden="true" tabindex="-1" inert>
+      <div class="desk-surface">
+        <div class="blank-checklist">
+          <ol class="empty-lines" id="session-records" aria-live="polite">
+            <li><i aria-hidden="true"></i><span></span></li>
+            <li><i aria-hidden="true"></i><span></span></li>
+            <li><i aria-hidden="true"></i><span></span></li>
+            <li><i aria-hidden="true"></i><span></span></li>
+            <li><i aria-hidden="true"></i><span></span></li>
+            <li><i aria-hidden="true"></i><span></span></li>
+          </ol>
+        </div>
+      </div>
+      <button class="close-desk" id="close-desk" type="button" aria-label="返回会谈室"></button>
+      <div class="dialogue-bubble counselor-bubble" id="counselor-bubble" aria-live="polite">
+        <small>辅导师</small><p id="counselor-dialogue"></p>
+      </div>
+      <div class="dialogue-bubble visitor-bubble" id="visitor-bubble" aria-live="polite">
+        <small>你</small><p id="visitor-dialogue"></p>
+      </div>
+      <div class="scroll-status"><span id="scroll-hint">向下滚动或点击桌面，开始梳理</span><strong id="scroll-count">0 / 6</strong></div>
+      <button class="begin-service" id="begin-service" type="button" disabled>
+        查看具体陪伴方式
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M14 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+      </button>
+    </section>
+
+    <section class="service-explorer" aria-labelledby="service-title" aria-hidden="true" inert>
+      <div class="dossier-nav">
+        <h2 id="service-title">把混在一起的事，一件一件放到桌面上。</h2>
+        <p class="dossier-intro">一对一不是替你做决定，而是有人持续理解你的处境，陪你厘清问题、准备选择，并把下一步落到现实里。</p>
+        <div class="topic-list" role="tablist" aria-label="离婚陪伴服务内容">
+          <button class="topic-button" type="button" role="tab" aria-selected="true" data-topic="emotion"><span>01</span><strong>情绪与判断</strong></button>
+          <button class="topic-button" type="button" role="tab" aria-selected="false" data-topic="decision"><span>02</span><strong>是否离婚</strong></button>
+          <button class="topic-button" type="button" role="tab" aria-selected="false" data-topic="boundary"><span>03</span><strong>沟通与边界</strong></button>
+          <button class="topic-button" type="button" role="tab" aria-selected="false" data-topic="children"><span>04</span><strong>孩子与家庭安排</strong></button>
+          <button class="topic-button" type="button" role="tab" aria-selected="false" data-topic="life"><span>05</span><strong>财务与生活</strong></button>
+          <button class="topic-button" type="button" role="tab" aria-selected="false" data-topic="legal"><span>06</span><strong>律师咨询准备</strong></button>
+        </div>
+      </div>
+      <div class="dossier-stage">
+        <button class="close-service" id="close-service" type="button" aria-label="返回空白清单"></button>
+        <div class="dossier" id="dossier" role="tabpanel" aria-live="polite">
+          <span class="dossier-index" id="dossier-index">议题 01 / 06</span>
+          <h3 id="dossier-title">情绪与判断</h3>
+          <dl>
+            <div class="service-row"><dt>你可能正在面对</dt><dd id="facing">反复争吵、失眠、愤怒或内疚，让你很难看清真正需要处理的事。</dd></div>
+            <div class="service-row"><dt>我们会一起做</dt><dd id="doing">先稳住当下，把情绪、事实和猜测分开，找出此刻最需要保护的部分。</dd></div>
+            <div class="service-row"><dt>这一步会留下</dt><dd id="outcome">一份清楚的现状梳理，以及接下来几天可以立即执行的行动顺序。</dd></div>
+          </dl>
+          <p class="service-note">不是诊断，也不是替你判断对错。辅导师提供现实导航、情绪支持与专业协作准备。</p>
+        </div>
+      </div>
+    </section>
+
+    <button class="replay-button" id="replay-button" type="button">重新观看</button>
+    <div class="progress" aria-hidden="true"><span></span></div>
+  </main>
+
+  <script>
+    const experience = document.getElementById("experience");
+    const doorButton = document.getElementById("door-button");
+    const replayButton = document.getElementById("replay-button");
+    const entryScene = document.querySelector(".entry-scene");
+    const roomScene = document.querySelector(".room-scene");
+    const openServiceButton = document.getElementById("open-service");
+    const tableHotspot = document.getElementById("table-hotspot");
+    const deskScene = document.querySelector(".desk-scene");
+    const closeDeskButton = document.getElementById("close-desk");
+    const beginServiceButton = document.getElementById("begin-service");
+    const visitorBubble = document.getElementById("visitor-bubble");
+    const counselorBubble = document.getElementById("counselor-bubble");
+    const visitorDialogue = document.getElementById("visitor-dialogue");
+    const counselorDialogue = document.getElementById("counselor-dialogue");
+    const recordRows = [...document.querySelectorAll(".empty-lines li")];
+    const scrollHint = document.getElementById("scroll-hint");
+    const scrollCount = document.getElementById("scroll-count");
+    const closeServiceButton = document.getElementById("close-service");
+    const serviceExplorer = document.querySelector(".service-explorer");
+    const dossier = document.getElementById("dossier");
+    const topicButtons = [...document.querySelectorAll(".topic-button")];
+    let transitionTimer;
+    let dialogueStep = 0;
+    let dialogueAnimating = false;
+    let wheelDistance = 0;
+    let dialogueTimers = [];
+
+    const dialogues = [
+      ["我现在这么乱，还能做出冷静的判断吗？", "先不急着做决定。我们先把情绪、事实和猜测分开。", "情绪与判断：稳定当下，分清事实与感受"],
+      ["我到底该不该离婚？", "答案不由我替你决定。我们会一起看清不同选择的现实影响。", "是否离婚：整理需求、选择与可承受代价"],
+      ["每次一开口就吵起来，我还能怎么沟通？", "先找出冲突发生的模式，再准备边界和可以执行的表达。", "沟通与边界：建立表达、底线与退出机制"],
+      ["孩子怎么办？我怕这件事伤害他。", "从孩子的稳定出发，梳理告知方式与共同养育安排。", "孩子与家庭：准备沟通方式与过渡安排"],
+      ["房子、钱和工作全搅在一起，我从哪里开始？", "先盘点已有资源，再按轻重缓急完成生活准备。", "财务与生活：盘点资源，确定现实行动顺序"],
+      ["见律师之前，我需要准备什么？", "把时间线、材料和问题整理好，让专业咨询更充分。", "律师咨询：整理时间线、材料与问题清单"]
+    ];
+
+    const topics = {
+      emotion: ["议题 01 / 06", "情绪与判断", "反复争吵、失眠、愤怒或内疚，让你很难看清真正需要处理的事。", "先稳住当下，把情绪、事实和猜测分开，找出此刻最需要保护的部分。", "一份清楚的现状梳理，以及接下来几天可以立即执行的行动顺序。"],
+      decision: ["议题 02 / 06", "是否离婚", "你在留下与离开之间反复摇摆，任何人的一句话都可能让判断再次动摇。", "不催促答案，陪你看清关系现状、核心需求、可承受代价与不同选择的现实影响。", "一张属于你的决策地图，让选择不再只由某一刻的情绪推动。"],
+      boundary: ["议题 03 / 06", "沟通与边界", "谈话容易失控，被指责、纠缠或控制时，你很难坚持原本想表达的内容。", "一起辨认高冲突模式，准备沟通重点、底线和退出机制，并演练关键表达。", "一套可使用的沟通脚本与边界方案，帮助你减少消耗、保护自己。"],
+      children: ["议题 04 / 06", "孩子与家庭安排", "你担心孩子受伤，也不知道该如何解释变化、协商照顾安排或面对长辈。", "从孩子的年龄与现实生活出发，梳理告知方式、共同养育议题和家庭支持资源。", "一份以孩子稳定为核心的沟通清单和家庭过渡安排。"],
+      life: ["议题 05 / 06", "财务与生活", "住房、工作、账户和日常开支交织在一起，让离开或留下都显得寸步难行。", "盘点你已经拥有的资源、必须确认的信息和需要优先建立的生活支点。", "一张现实可执行的生活准备清单，知道先确认什么、再处理什么。"],
+      legal: ["议题 06 / 06", "律师咨询准备", "你知道可能需要律师，却不知道该问什么，也担心在有限时间里遗漏重要信息。", "协助整理时间线、事实、材料和问题，让你更有效地与律师或其他专业人士协作。", "一份结构化咨询提纲。辅导不替代法律意见，但让专业咨询更充分。"]
+    };
+
+    function enterRoom() {
+      if (experience.classList.contains("opening")) return;
+      doorButton.disabled = true;
+      experience.classList.add("opening");
+      transitionTimer = window.setTimeout(() => {
+        experience.classList.add("inside");
+        entryScene.setAttribute("aria-hidden", "true");
+        entryScene.inert = true;
+        roomScene.setAttribute("aria-hidden", "false");
+        roomScene.inert = false;
+      }, 520);
+    }
+
+    function replay() {
+      window.clearTimeout(transitionTimer);
+      resetDialogue();
+      experience.classList.remove("opening", "inside", "desk-view", "exploring");
+      entryScene.setAttribute("aria-hidden", "false");
+      entryScene.inert = false;
+      roomScene.setAttribute("aria-hidden", "true");
+      roomScene.inert = true;
+      deskScene.setAttribute("aria-hidden", "true");
+      deskScene.inert = true;
+      serviceExplorer.setAttribute("aria-hidden", "true");
+      serviceExplorer.inert = true;
+      doorButton.disabled = false;
+      void experience.offsetWidth;
+      doorButton.focus();
+    }
+
+    function openDesk() {
+      resetDialogue();
+      window.scrollTo(0, 0);
+      experience.classList.add("desk-view");
+      roomScene.setAttribute("aria-hidden", "true");
+      roomScene.inert = true;
+      deskScene.setAttribute("aria-hidden", "false");
+      deskScene.inert = false;
+      window.setTimeout(() => deskScene.focus(), 1100);
+    }
+
+    function closeDesk() {
+      experience.classList.remove("desk-view");
+      roomScene.setAttribute("aria-hidden", "false");
+      roomScene.inert = false;
+      deskScene.setAttribute("aria-hidden", "true");
+      deskScene.inert = true;
+      tableHotspot.focus();
+    }
+
+    function openService() {
+      experience.classList.remove("desk-view");
+      experience.classList.add("exploring");
+      deskScene.setAttribute("aria-hidden", "true");
+      deskScene.inert = true;
+      serviceExplorer.setAttribute("aria-hidden", "false");
+      serviceExplorer.inert = false;
+      window.setTimeout(() => topicButtons[0].focus(), 520);
+    }
+
+    function closeService() {
+      experience.classList.remove("exploring");
+      experience.classList.add("desk-view");
+      deskScene.setAttribute("aria-hidden", "false");
+      deskScene.inert = false;
+      serviceExplorer.setAttribute("aria-hidden", "true");
+      serviceExplorer.inert = true;
+      beginServiceButton.focus();
+    }
+
+    function clearDialogueTimers() {
+      dialogueTimers.forEach(timer => window.clearTimeout(timer));
+      dialogueTimers = [];
+    }
+
+    function updateDialogueStatus() {
+      scrollCount.textContent = `${dialogueStep} / ${dialogues.length}`;
+      scrollHint.textContent = dialogueStep === dialogues.length
+        ? "六件事，已经逐一写清楚"
+        : dialogueStep === 0
+          ? "向下滚动或点击桌面，开始梳理"
+          : "继续滚动或点击，梳理下一件事";
+      deskScene.classList.toggle("is-complete", dialogueStep === dialogues.length);
+      beginServiceButton.disabled = dialogueStep !== dialogues.length;
+    }
+
+    function resetDialogue() {
+      clearDialogueTimers();
+      dialogueStep = 0;
+      dialogueAnimating = false;
+      wheelDistance = 0;
+      visitorBubble.classList.remove("is-visible");
+      counselorBubble.classList.remove("is-visible");
+      visitorDialogue.textContent = "";
+      counselorDialogue.textContent = "";
+      recordRows.forEach(row => {
+        row.classList.remove("recorded");
+        row.querySelector("span").textContent = "";
+      });
+      updateDialogueStatus();
+    }
+
+    function advanceDialogue() {
+      if (dialogueAnimating || dialogueStep >= dialogues.length) return;
+      dialogueAnimating = true;
+      const index = dialogueStep;
+      const [question, answer, record] = dialogues[index];
+      visitorBubble.classList.remove("is-visible");
+      counselorBubble.classList.remove("is-visible");
+
+      dialogueTimers.push(window.setTimeout(() => {
+        visitorDialogue.textContent = question;
+        counselorDialogue.textContent = answer;
+        visitorBubble.classList.add("is-visible");
+      }, 180));
+      dialogueTimers.push(window.setTimeout(() => counselorBubble.classList.add("is-visible"), 620));
+      dialogueTimers.push(window.setTimeout(() => {
+        recordRows[index].querySelector("span").textContent = record;
+        recordRows[index].classList.add("recorded");
+        dialogueStep = index + 1;
+        updateDialogueStatus();
+      }, 1260));
+      dialogueTimers.push(window.setTimeout(() => { dialogueAnimating = false; }, 1540));
+    }
+
+    function rewindDialogue() {
+      if (dialogueAnimating || dialogueStep === 0) return;
+      dialogueAnimating = true;
+      visitorBubble.classList.remove("is-visible");
+      counselorBubble.classList.remove("is-visible");
+      dialogueStep -= 1;
+      recordRows[dialogueStep].classList.remove("recorded");
+      recordRows[dialogueStep].querySelector("span").textContent = "";
+      updateDialogueStatus();
+
+      dialogueTimers.push(window.setTimeout(() => {
+        if (dialogueStep > 0) {
+          const [question, answer] = dialogues[dialogueStep - 1];
+          visitorDialogue.textContent = question;
+          counselorDialogue.textContent = answer;
+          visitorBubble.classList.add("is-visible");
+          counselorBubble.classList.add("is-visible");
+        } else {
+          visitorDialogue.textContent = "";
+          counselorDialogue.textContent = "";
+        }
+        dialogueAnimating = false;
+      }, 260));
+    }
+
+    function handleDialogueWheel(event) {
+      if (!experience.classList.contains("desk-view")) return;
+      event.preventDefault();
+      wheelDistance += event.deltaY;
+      if (Math.abs(wheelDistance) < 55 || dialogueAnimating) return;
+      const direction = Math.sign(wheelDistance);
+      wheelDistance = 0;
+      direction > 0 ? advanceDialogue() : rewindDialogue();
+    }
+
+    function selectTopic(button) {
+      const content = topics[button.dataset.topic];
+      topicButtons.forEach(item => item.setAttribute("aria-selected", String(item === button)));
+      dossier.classList.add("is-changing");
+      window.setTimeout(() => {
+        document.getElementById("dossier-index").textContent = content[0];
+        document.getElementById("dossier-title").textContent = content[1];
+        document.getElementById("facing").textContent = content[2];
+        document.getElementById("doing").textContent = content[3];
+        document.getElementById("outcome").textContent = content[4];
+        dossier.classList.remove("is-changing");
+      }, 240);
+    }
+
+    doorButton.addEventListener("click", enterRoom);
+    replayButton.addEventListener("click", replay);
+    openServiceButton.addEventListener("click", openDesk);
+    tableHotspot.addEventListener("click", openDesk);
+    closeDeskButton.addEventListener("click", closeDesk);
+    beginServiceButton.addEventListener("click", openService);
+    closeServiceButton.addEventListener("click", closeService);
+    window.addEventListener("wheel", handleDialogueWheel, { passive: false });
+    deskScene.addEventListener("click", event => {
+      if (event.target.closest("button")) return;
+      advanceDialogue();
+    });
+    deskScene.addEventListener("keydown", event => {
+      if (["ArrowDown", "PageDown", " "].includes(event.key)) {
+        event.preventDefault();
+        advanceDialogue();
+      }
+      if (["ArrowUp", "PageUp"].includes(event.key)) {
+        event.preventDefault();
+        rewindDialogue();
+      }
+    });
+    topicButtons.forEach(button => button.addEventListener("click", () => selectTopic(button)));
+  </script>
+</body>
+</html>

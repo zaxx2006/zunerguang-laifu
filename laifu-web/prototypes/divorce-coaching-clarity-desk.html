@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="来福离婚陪伴辅导服务交互原型">
+  <title>离婚陪伴辅导｜来福</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --canvas: #f3f5f1;
+      --paper: #fbfcfa;
+      --surface: #e9efea;
+      --ink: #243d35;
+      --heading: #29372f;
+      --body: #43544a;
+      --muted: #66766c;
+      --primary: #294b3d;
+      --primary-hover: #3b5d4e;
+      --focus: #b96a54;
+      --line: #cbd4c8;
+      --line-dark: rgba(255, 255, 255, 0.28);
+      --white: #fff;
+      --serif: SimSun, "Songti SC", STSong, serif;
+      --sans: "Microsoft YaHei", "PingFang SC", sans-serif;
+      --page: min(1240px, 88vw);
+      --reading: 720px;
+      --header: 80px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--body);
+      background: var(--canvas);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.8;
+      letter-spacing: 0;
+    }
+    body.menu-open { overflow: hidden; }
+    h1, h2, h3, p, ul { margin: 0; }
+    h1, h2, h3 {
+      color: var(--heading);
+      font-family: var(--serif);
+      font-weight: 400;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+    button, a { font: inherit; }
+    button { color: inherit; }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    :focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; }
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 80;
+      height: var(--header);
+      color: var(--white);
+      border-bottom: 1px solid rgba(255,255,255,.22);
+      transition: color 220ms ease, background 220ms ease, border-color 220ms ease;
+    }
+    .site-header.is-solid {
+      color: var(--ink);
+      background: rgba(243,245,241,.95);
+      border-color: var(--line);
+      backdrop-filter: blur(14px);
+    }
+    .header-inner {
+      width: var(--page);
+      height: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+    .brand { display: inline-flex; align-items: baseline; gap: 10px; text-decoration: none; white-space: nowrap; }
+    .brand-name { font-family: var(--serif); font-size: 28px; }
+    .brand-note { font-size: 11px; opacity: .72; }
+    .main-nav { display: flex; align-items: center; gap: 27px; }
+    .main-nav a { font-size: 13px; text-decoration: none; }
+    .main-nav a:hover { text-decoration: underline; text-underline-offset: 5px; }
+    .main-nav .nav-cta { padding: 7px 15px; border: 1px solid currentColor; border-radius: 3px; }
+    .menu-button { display: none; padding: 8px 0; border: 0; color: currentColor; background: transparent; cursor: pointer; }
+
+    .hero {
+      position: relative;
+      min-height: min(880px, 96svh);
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      color: var(--white);
+      background: #2f392f;
+    }
+    .hero-media { position: absolute; inset: 0; }
+    .hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 50%; }
+    .hero-media::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background: linear-gradient(90deg, rgba(18,34,27,.88) 0%, rgba(18,34,27,.6) 46%, rgba(18,34,27,.12) 78%), linear-gradient(0deg, rgba(18,34,27,.64), transparent 56%);
+    }
+    .hero-inner { position: relative; z-index: 1; width: var(--page); margin: 0 auto; padding: calc(var(--header) + 70px) 0 86px; }
+    .hero-service { margin-bottom: 18px; font-size: 14px; }
+    .hero h1 { max-width: 790px; color: var(--white); font-size: 58px; line-height: 1.42; }
+    .hero-lead { max-width: 660px; margin-top: 24px; color: rgba(255,255,255,.84); font-size: 17px; line-height: 1.9; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      border: 1px solid transparent;
+      border-radius: 3px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+    }
+    .button-light { color: var(--ink); background: var(--white); }
+    .button-light:hover { background: #e7eee8; }
+    .button-outline { color: var(--white); border-color: rgba(255,255,255,.62); background: transparent; }
+    .button-outline:hover { background: rgba(255,255,255,.12); }
+    .button-primary { color: var(--white); background: var(--primary); }
+    .button-primary:hover { background: var(--primary-hover); }
+    .hero-proof {
+      position: absolute;
+      right: 6vw;
+      bottom: 46px;
+      z-index: 2;
+      width: 245px;
+      padding-left: 20px;
+      border-left: 1px solid rgba(255,255,255,.42);
+      color: rgba(255,255,255,.72);
+      font-size: 13px;
+    }
+    .hero-proof strong { display: block; margin-bottom: 4px; color: var(--white); font-size: 16px; font-weight: 400; }
+
+    .promise { border-bottom: 1px solid var(--line); background: var(--paper); }
+    .promise-inner { width: var(--page); margin: 0 auto; display: grid; grid-template-columns: .9fr 1.1fr 1.1fr; }
+    .promise-item { min-height: 190px; padding: 42px 34px; border-left: 1px solid var(--line); }
+    .promise-item:first-child { padding-left: 0; border-left: 0; }
+    .promise-item h2, .promise-item h3 { font-size: 24px; line-height: 1.5; }
+    .promise-item p { margin-top: 10px; color: var(--muted); font-size: 14px; }
+
+    .section { padding: 118px 0; }
+    .section-inner { width: var(--page); margin: 0 auto; }
+    .section-head { display: grid; grid-template-columns: .8fr 1.5fr; gap: 8vw; align-items: start; }
+    .section-head h2 { font-size: 43px; line-height: 1.5; }
+    .section-head p { max-width: 680px; color: var(--muted); font-size: 17px; }
+
+    .clarity { background: var(--surface); }
+    .clarity-workspace {
+      margin-top: 68px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(390px, .95fr);
+      border: 1px solid var(--line);
+      background: var(--paper);
+      box-shadow: 0 26px 60px rgba(35,61,52,.1);
+    }
+    .clarity-input { padding: 54px; }
+    .workspace-step + .workspace-step { margin-top: 48px; padding-top: 42px; border-top: 1px solid var(--line); }
+    .step-label { display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: 13px; }
+    .step-label span { width: 28px; height: 28px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; }
+    .workspace-step h3 { margin-top: 13px; font-size: 27px; }
+    .choice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 24px; }
+    .choice {
+      min-height: 68px;
+      padding: 12px 15px;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      background: transparent;
+      text-align: left;
+      cursor: pointer;
+      transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+    .choice:hover { border-color: var(--primary); }
+    .choice[aria-pressed="true"] { color: var(--white); border-color: var(--primary); background: var(--primary); }
+    .choice small { display: block; margin-top: 3px; color: var(--muted); font-size: 12px; }
+    .choice[aria-pressed="true"] small { color: rgba(255,255,255,.7); }
+
+    .consult-note {
+      position: relative;
+      padding: 54px;
+      color: var(--white);
+      background: var(--primary);
+      overflow: hidden;
+    }
+    .consult-note::before {
+      position: absolute;
+      inset: 0;
+      content: "";
+      opacity: .16;
+      background-image: linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+    }
+    .consult-note > * { position: relative; z-index: 1; }
+    .note-meta { display: flex; justify-content: space-between; gap: 20px; color: rgba(255,255,255,.62); font-size: 12px; }
+    .consult-note h3 { margin-top: 30px; color: var(--white); font-size: 34px; line-height: 1.5; }
+    .note-summary { margin-top: 14px; color: rgba(255,255,255,.75); }
+    .note-divider { height: 1px; margin: 30px 0; background: rgba(255,255,255,.24); }
+    .note-title { color: rgba(255,255,255,.62); font-size: 12px; }
+    .note-list { margin: 15px 0 0; padding: 0; list-style: none; counter-reset: note; }
+    .note-list li { position: relative; min-height: 38px; padding-left: 42px; color: rgba(255,255,255,.9); counter-increment: note; }
+    .note-list li + li { margin-top: 12px; }
+    .note-list li::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 27px;
+      height: 27px;
+      display: grid;
+      place-items: center;
+      content: counter(note);
+      border: 1px solid rgba(255,255,255,.38);
+      border-radius: 50%;
+      font-size: 11px;
+    }
+    .module-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .module-tags span { padding: 6px 10px; border: 1px solid rgba(255,255,255,.32); border-radius: 2px; font-size: 12px; }
+    .note-role { margin-top: 26px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.24); color: rgba(255,255,255,.76); font-size: 13px; }
+    .note-action { margin-top: 30px; }
+    .note-action .button { width: 100%; }
+    .privacy-note { margin-top: 16px; color: rgba(255,255,255,.52); font-size: 11px; text-align: center; }
+
+    .modules { background: var(--paper); }
+    .module-browser {
+      margin-top: 72px;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      min-height: 600px;
+      border-block: 1px solid var(--line);
+    }
+    .module-tabs { border-right: 1px solid var(--line); }
+    .module-tab {
+      width: 100%;
+      min-height: 82px;
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 12px;
+      align-items: center;
+      padding: 17px 24px 17px 0;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      background: transparent;
+      text-align: left;
+      cursor: pointer;
+    }
+    .module-tab:last-child { border-bottom: 0; }
+    .module-tab span { color: var(--muted); font-size: 12px; }
+    .module-tab strong { color: var(--heading); font-family: var(--serif); font-size: 19px; font-weight: 400; }
+    .module-tab[aria-selected="true"] { background: var(--surface); }
+    .module-tab[aria-selected="true"] span { color: var(--focus); }
+    .module-panel { display: grid; align-content: center; padding: 68px 8vw; }
+    .module-panel-label { color: var(--focus); font-size: 13px; }
+    .module-panel h3 { max-width: 680px; margin-top: 14px; font-size: 38px; line-height: 1.5; }
+    .module-panel-copy { max-width: var(--reading); margin-top: 22px; color: var(--muted); font-size: 17px; }
+    .module-deliverables { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 40px; background: var(--line); border: 1px solid var(--line); }
+    .module-deliverable { min-height: 150px; padding: 24px; background: var(--paper); }
+    .module-deliverable span { display: block; color: var(--muted); font-size: 11px; }
+    .module-deliverable p { margin-top: 10px; color: var(--heading); line-height: 1.65; }
+    .module-outcome { margin-top: 34px; padding-left: 20px; border-left: 2px solid var(--focus); color: var(--heading); }
+
+    .first-session { background: var(--canvas); }
+    .session-track { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 68px; border: 1px solid var(--line); }
+    .session-time {
+      min-height: 125px;
+      padding: 25px;
+      border: 0;
+      border-right: 1px solid var(--line);
+      background: transparent;
+      text-align: left;
+      cursor: pointer;
+    }
+    .session-time:last-child { border-right: 0; }
+    .session-time span { color: var(--muted); font-size: 12px; }
+    .session-time strong { display: block; margin-top: 8px; color: var(--heading); font-family: var(--serif); font-size: 20px; font-weight: 400; }
+    .session-time[aria-selected="true"] { color: var(--white); background: var(--primary); }
+    .session-time[aria-selected="true"] span, .session-time[aria-selected="true"] strong { color: var(--white); }
+    .session-detail { min-height: 290px; display: grid; grid-template-columns: .75fr 1.25fr; gap: 8vw; align-items: start; padding: 54px 0 0; }
+    .session-detail h3 { font-size: 31px; }
+    .session-detail p { max-width: 700px; color: var(--muted); }
+    .session-detail ul { margin-top: 18px; padding: 0; list-style: none; }
+    .session-detail li { position: relative; padding-left: 20px; }
+    .session-detail li + li { margin-top: 7px; }
+    .session-detail li::before { position: absolute; left: 0; content: "·"; color: var(--focus); }
+
+    .roles { color: var(--white); background: #323735; }
+    .roles .section-head h2 { color: var(--white); }
+    .roles .section-head p { color: rgba(255,255,255,.65); }
+    .role-questions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 55px; }
+    .role-question { padding: 9px 13px; border: 1px solid rgba(255,255,255,.3); border-radius: 999px; color: rgba(255,255,255,.72); background: transparent; cursor: pointer; }
+    .role-question[aria-pressed="true"] { color: var(--ink); border-color: var(--white); background: var(--white); }
+    .role-grid { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 30px; border: 1px solid rgba(255,255,255,.22); }
+    .role-card { min-height: 300px; padding: 36px 30px; border-right: 1px solid rgba(255,255,255,.22); transition: color 180ms ease, background 180ms ease; }
+    .role-card:last-child { border-right: 0; }
+    .role-card h3 { color: var(--white); font-size: 26px; }
+    .role-card p { margin-top: 17px; color: rgba(255,255,255,.62); }
+    .role-card span { display: block; margin-top: 30px; color: rgba(255,255,255,.46); font-size: 12px; }
+    .role-card.is-relevant { color: var(--ink); background: var(--surface); }
+    .role-card.is-relevant h3 { color: var(--heading); }
+    .role-card.is-relevant p { color: var(--body); }
+    .role-card.is-relevant span { color: var(--focus); }
+
+    .boundaries { background: var(--paper); }
+    .boundary-grid { display: grid; grid-template-columns: .78fr 1.22fr; gap: 9vw; }
+    .boundary-grid h2 { font-size: 43px; line-height: 1.5; }
+    .boundary-list { border-top: 1px solid var(--line); }
+    .boundary-item { padding: 25px 0; border-bottom: 1px solid var(--line); }
+    .boundary-item h3 { font-size: 21px; }
+    .boundary-item p { margin-top: 9px; color: var(--muted); }
+
+    .invitation { min-height: 760px; display: grid; place-items: center; padding: 110px 0; color: var(--white); background: var(--primary); text-align: center; }
+    .invitation-inner { width: min(820px, 86vw); }
+    .invitation h2 { color: var(--white); font-size: 50px; line-height: 1.55; }
+    .invitation p { max-width: 620px; margin: 24px auto 0; color: rgba(255,255,255,.72); }
+    .invitation-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+
+    .site-footer { padding: 54px 0; background: var(--surface); }
+    .footer-inner { width: var(--page); margin: 0 auto; display: flex; justify-content: space-between; gap: 32px; }
+    .footer-inner p { max-width: 620px; color: var(--muted); font-size: 12px; }
+
+    @media (max-width: 980px) {
+      :root { --page: min(88vw, 780px); }
+      .main-nav { display: none; }
+      .menu-button { display: block; }
+      .main-nav.is-open {
+        position: fixed;
+        inset: var(--header) 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 26px 6vw;
+        color: var(--ink);
+        background: var(--canvas);
+      }
+      .main-nav.is-open a { width: 100%; padding: 18px 0; border-bottom: 1px solid var(--line); font-size: 17px; }
+      .hero h1 { font-size: 49px; }
+      .hero-proof { display: none; }
+      .promise-inner { grid-template-columns: 1fr; }
+      .promise-item, .promise-item:first-child { min-height: 0; padding: 28px 0; border-left: 0; border-bottom: 1px solid var(--line); }
+      .promise-item:last-child { border-bottom: 0; }
+      .section-head, .boundary-grid { grid-template-columns: 1fr; gap: 30px; }
+      .clarity-workspace { grid-template-columns: 1fr; }
+      .module-browser { grid-template-columns: 270px 1fr; }
+      .module-panel { padding: 54px 6vw; }
+      .module-deliverables { grid-template-columns: 1fr; }
+      .module-deliverable { min-height: 0; }
+      .session-detail { grid-template-columns: 1fr; gap: 20px; }
+    }
+
+    @media (max-width: 680px) {
+      :root { --page: calc(100vw - 40px); --header: 66px; }
+      .brand-note { display: none; }
+      .hero { min-height: 800px; }
+      .hero-media img { object-position: 54% center; }
+      .hero-media::after { background: linear-gradient(0deg, rgba(18,34,27,.94) 0%, rgba(18,34,27,.55) 68%, rgba(18,34,27,.18)); }
+      .hero-inner { padding-bottom: 56px; }
+      .hero h1 { font-size: 39px; }
+      .hero-lead { font-size: 15px; }
+      .hero-actions .button { width: 100%; }
+      .section { padding: 82px 0; }
+      .section-head h2, .boundary-grid h2 { font-size: 34px; }
+      .clarity-workspace { margin-top: 46px; }
+      .clarity-input, .consult-note { padding: 34px 24px; }
+      .choice-grid { grid-template-columns: 1fr; }
+      .consult-note h3 { font-size: 29px; }
+      .module-browser { grid-template-columns: 1fr; min-height: 0; }
+      .module-tabs { display: flex; overflow-x: auto; border-right: 0; border-bottom: 1px solid var(--line); scrollbar-width: thin; }
+      .module-tab { min-width: 185px; min-height: 88px; grid-template-columns: 28px 1fr; padding: 13px 16px; border-right: 1px solid var(--line); border-bottom: 0; }
+      .module-panel { padding: 45px 0; }
+      .module-panel h3 { font-size: 31px; }
+      .module-panel-copy { font-size: 15px; }
+      .session-track { grid-template-columns: repeat(2, 1fr); }
+      .session-time { min-height: 112px; border-bottom: 1px solid var(--line); }
+      .session-time:nth-child(2) { border-right: 0; }
+      .session-time:nth-child(n+3) { border-bottom: 0; }
+      .role-grid { grid-template-columns: 1fr; }
+      .role-card { min-height: 0; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.22); }
+      .role-card:last-child { border-bottom: 0; }
+      .invitation { min-height: 660px; }
+      .invitation h2 { font-size: 39px; }
+      .invitation-actions .button { width: 100%; }
+      .footer-inner { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="来福首页"><span class="brand-name">来福</span><span class="brand-note">婚姻困境辅导</span></a>
+      <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">菜单</button>
+      <nav class="main-nav" id="main-nav" aria-label="页面导航">
+        <a href="#clarity">初始梳理</a>
+        <a href="#modules">服务内容</a>
+        <a href="#session">如何开展</a>
+        <a href="#roles">专业分工</a>
+        <a class="nav-cta" href="#consultation">预约咨询</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-media"><img src="../apps/website/public/home-preview/divorce-coaching-conversation.webp" alt="两人在自然光下围桌交流，记录并梳理资料"></div>
+      <div class="hero-inner">
+        <p class="hero-service">离婚陪伴辅导</p>
+        <h1 id="hero-title">不必先想好所有答案。<br>我们先把问题一件件理清。</h1>
+        <p class="hero-lead">一对一陪你稳定状态、梳理局势与核心诉求，把孩子、财务、沟通和下一步行动，从混在一起变成可以处理的顺序。</p>
+        <div class="hero-actions">
+          <a class="button button-light" href="#clarity">体验一次初始梳理</a>
+          <a class="button button-outline" href="#modules">了解服务内容</a>
+        </div>
+      </div>
+      <p class="hero-proof"><strong>选择始终在你手中</strong>我们不催促决定，也不使用固定方案套用所有人。</p>
+    </section>
+
+    <section class="promise" aria-label="服务价值">
+      <div class="promise-inner">
+        <article class="promise-item"><h2>离婚不只是<br>一个法律程序</h2></article>
+        <article class="promise-item"><h3>先找回判断</h3><p>把情绪、事实、顾虑和目标分开，重要选择不被一时反应推动。</p></article>
+        <article class="promise-item"><h3>再推进现实</h3><p>把孩子、财务、住房、沟通和专业咨询拆成可以开始的下一步。</p></article>
+      </div>
+    </section>
+
+    <section class="section clarity" id="clarity" aria-labelledby="clarity-title">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2 id="clarity-title">先试着理清<br>眼前这一件事</h2>
+          <p>这不是测评，也不会替你判断。选择与你最接近的状态，右侧会生成一份“第一次会谈建议”，让你直接看到离婚陪伴辅导会怎样开展。</p>
+        </div>
+
+        <div class="clarity-workspace">
+          <div class="clarity-input">
+            <section class="workspace-step" aria-labelledby="stage-title">
+              <p class="step-label"><span>1</span> 你现在更接近哪个阶段</p>
+              <h3 id="stage-title">先确定从哪里开始</h3>
+              <div class="choice-grid" id="stage-choices">
+                <button class="choice" type="button" data-stage="undecided" aria-pressed="true">还在反复考虑<small>离还是不离，没有确定答案</small></button>
+                <button class="choice" type="button" data-stage="preparing" aria-pressed="false">准备开始行动<small>想推进，但事情全部挤在一起</small></button>
+                <button class="choice" type="button" data-stage="ongoing" aria-pressed="false">已经进入程序<small>正在协商、调解或处理手续</small></button>
+                <button class="choice" type="button" data-stage="rebuilding" aria-pressed="false">开始重建生活<small>程序结束，生活仍需要重新组织</small></button>
+              </div>
+            </section>
+
+            <section class="workspace-step" aria-labelledby="pressure-title">
+              <p class="step-label"><span>2</span> 目前最想先处理的问题</p>
+              <h3 id="pressure-title">只选最影响你的一个</h3>
+              <div class="choice-grid" id="pressure-choices">
+                <button class="choice" type="button" data-pressure="emotion" aria-pressed="true">情绪与判断<small>反复、焦虑，难以稳定思考</small></button>
+                <button class="choice" type="button" data-pressure="children" aria-pressed="false">孩子与家庭安排<small>照顾、居住、探望和沟通</small></button>
+                <button class="choice" type="button" data-pressure="finance" aria-pressed="false">财务与生活安排<small>账户、住房、工作与生活成本</small></button>
+                <button class="choice" type="button" data-pressure="conflict" aria-pressed="false">高冲突沟通<small>施压、控制或反复争吵</small></button>
+                <button class="choice" type="button" data-pressure="legal" aria-pressed="false">律师咨询准备<small>事实、材料、诉求和问题很多</small></button>
+                <button class="choice" type="button" data-pressure="future" aria-pressed="false">离婚后生活重建<small>独立生活与未来方向不清楚</small></button>
+              </div>
+            </section>
+          </div>
+
+          <aside class="consult-note" aria-live="polite" aria-labelledby="note-heading">
+            <div class="note-meta"><span>来福・初始会谈建议</span><span id="note-stage">反复考虑阶段</span></div>
+            <h3 id="note-heading">先让情绪与决定分开</h3>
+            <p class="note-summary" id="note-summary">此时不需要催促自己马上决定。第一次会谈会先帮助你区分短期情绪、长期问题、现实顾虑与真正想守住的生活。</p>
+            <div class="note-divider"></div>
+            <p class="note-title">第一次会谈可以先完成</p>
+            <ol class="note-list" id="note-list">
+              <li>说清目前最消耗你的具体情境</li>
+              <li>区分情绪反应与需要立即处理的现实风险</li>
+              <li>形成未来一周可以执行的一个小步骤</li>
+            </ol>
+            <div class="note-divider"></div>
+            <p class="note-title">对应的辅导模块</p>
+            <div class="module-tags" id="note-modules"><span>稳定状态</span><span>决策支持</span><span>优先顺序</span></div>
+            <p class="note-role" id="note-role">如存在长期失眠、严重抑郁或创伤反应，我们会建议心理专业支持同步介入。</p>
+            <div class="note-action"><a class="button button-light" href="#consultation">带着这个问题开始咨询</a></div>
+            <p class="privacy-note">页面不会保存你的选择</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section modules" id="modules" aria-labelledby="modules-title">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2 id="modules-title">我们具体<br>怎样帮助你</h2>
+          <p>辅导不是泛泛地“陪你聊聊”。每个模块都对应一类现实任务：把问题说清楚、准备重要沟通、形成材料，或推动一个可以执行的决定。</p>
+        </div>
+
+        <div class="module-browser">
+          <div class="module-tabs" role="tablist" aria-label="服务模块">
+            <button class="module-tab" type="button" role="tab" aria-selected="true" data-module="stability"><span>01</span><strong>稳定状态与判断</strong></button>
+            <button class="module-tab" type="button" role="tab" aria-selected="false" data-module="clarify"><span>02</span><strong>现状与优先顺序</strong></button>
+            <button class="module-tab" type="button" role="tab" aria-selected="false" data-module="legal"><span>03</span><strong>律师咨询准备</strong></button>
+            <button class="module-tab" type="button" role="tab" aria-selected="false" data-module="conflict"><span>04</span><strong>高冲突沟通</strong></button>
+            <button class="module-tab" type="button" role="tab" aria-selected="false" data-module="boundary"><span>05</span><strong>边界与行动力</strong></button>
+            <button class="module-tab" type="button" role="tab" aria-selected="false" data-module="life"><span>06</span><strong>孩子、财务与生活</strong></button>
+            <button class="module-tab" type="button" role="tab" aria-selected="false" data-module="rebuild"><span>07</span><strong>离婚后生活重建</strong></button>
+          </div>
+          <div class="module-panel" role="tabpanel" tabindex="0">
+            <p class="module-panel-label" id="module-label">状态与判断</p>
+            <h3 id="module-title">情绪可以被看见，但不必替你作出影响长远的决定</h3>
+            <p class="module-panel-copy" id="module-copy">我们陪你识别情绪反应与现实风险，在重要沟通、协商或律师咨询前恢复相对稳定，让决定更接近你的长期目标。</p>
+            <div class="module-deliverables" id="module-deliverables">
+              <div class="module-deliverable"><span>一起梳理</span><p>当前触发情境与压力来源</p></div>
+              <div class="module-deliverable"><span>现场练习</span><p>重要沟通前的稳定方法</p></div>
+              <div class="module-deliverable"><span>带走成果</span><p>更清晰的判断条件与下一步</p></div>
+            </div>
+            <p class="module-outcome" id="module-outcome">目标不是消除所有情绪，而是在情绪存在时仍能保有判断。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section first-session" id="session" aria-labelledby="session-title">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2 id="session-title">一次 90 分钟<br>初始咨询会发生什么</h2>
+          <p>第一次不要求解决全部问题。它的价值是建立全貌、找到真正优先的事项，并确认之后是否需要继续辅导或连接其他专业支持。</p>
+        </div>
+        <div class="session-track" role="tablist" aria-label="初始咨询过程">
+          <button class="session-time" type="button" role="tab" aria-selected="true" data-session="0"><span>0–20 分钟</span><strong>听清现在</strong></button>
+          <button class="session-time" type="button" role="tab" aria-selected="false" data-session="1"><span>20–50 分钟</span><strong>拆开问题</strong></button>
+          <button class="session-time" type="button" role="tab" aria-selected="false" data-session="2"><span>50–75 分钟</span><strong>确定优先</strong></button>
+          <button class="session-time" type="button" role="tab" aria-selected="false" data-session="3"><span>75–90 分钟</span><strong>形成下一步</strong></button>
+        </div>
+        <div class="session-detail" role="tabpanel" tabindex="0">
+          <h3 id="session-detail-title">先让你完整说清楚，最近发生了什么</h3>
+          <div><p id="session-detail-copy">我们会了解你所处的阶段、当前压力、已经尝试过的办法，以及此刻最希望发生的改变。你不需要提前整理成一份完美的陈述。</p><ul id="session-detail-list"><li>目前最消耗你的情境</li><li>是否存在紧急安全或法律风险</li><li>你希望这次咨询先帮你解决什么</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section roles" id="roles" aria-labelledby="roles-title">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2 id="roles-title">这个问题<br>应该找谁</h2>
+          <p>离婚陪伴辅导、心理咨询和律师服务彼此不能替代。选择一个问题，看看不同专业角色怎样各自发挥作用。</p>
+        </div>
+        <div class="role-questions" aria-label="选择问题">
+          <button class="role-question" type="button" data-role="coach" aria-pressed="true">不知道下一步先做什么</button>
+          <button class="role-question" type="button" data-role="therapist" aria-pressed="false">长期失眠或创伤反应明显</button>
+          <button class="role-question" type="button" data-role="lawyer" aria-pressed="false">需要判断财产和抚养权</button>
+          <button class="role-question" type="button" data-role="coach-lawyer" aria-pressed="false">既混乱又要进入法律程序</button>
+        </div>
+        <div class="role-grid" aria-live="polite">
+          <article class="role-card" data-role-card="therapist"><h3>心理咨询</h3><p>处理创伤、哀伤、依恋和持续的心理困扰，帮助恢复内在稳定。</p><span>此时可作为补充支持</span></article>
+          <article class="role-card is-relevant" data-role-card="coach"><h3>离婚陪伴辅导</h3><p>理清现状和目标，建立处理顺序，准备沟通并把下一步落到现实中。</p><span>此时建议优先了解</span></article>
+          <article class="role-card" data-role-card="lawyer"><h3>律师服务</h3><p>提供法律判断，处理财产、抚养、协议、证据、谈判与诉讼程序。</p><span>需要正式法律判断时介入</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section boundaries" aria-labelledby="boundary-title">
+      <div class="section-inner boundary-grid">
+        <h2 id="boundary-title">支持有温度，<br>也有清晰边界</h2>
+        <div class="boundary-list">
+          <article class="boundary-item"><h3>不替你作出决定</h3><p>我们帮助你看清选项、理解影响并明确目标，是否离婚以及如何选择，始终由你决定。</p></article>
+          <article class="boundary-item"><h3>不替代心理治疗</h3><p>如存在严重抑郁、创伤反应、自伤风险或精神心理危机，应优先寻求心理、医疗或紧急支持。</p></article>
+          <article class="boundary-item"><h3>不替代法律服务</h3><p>财产分割、子女抚养、协议、证据和诉讼程序等正式法律问题，应由律师独立提供专业判断。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="invitation" id="consultation" aria-labelledby="invitation-title">
+      <div class="invitation-inner">
+        <h2 id="invitation-title">先从一次有方向的对话开始</h2>
+        <p>你不需要准备好全部答案。可以只带着当前最难处理的问题来，我们一起确认处境、顾虑和适合的支持方式。</p>
+        <div class="invitation-actions"><a class="button button-light" href="/book-consultation/#booking-channel">预约初始咨询</a><a class="button button-outline" href="#clarity">重新体验初始梳理</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner"><div><span class="brand-name">来福</span><p>婚姻困境辅导</p></div><p>离婚陪伴辅导不替代心理治疗或正式法律服务。涉及精神心理危机、人身安全或紧急法律风险时，请优先寻求相应专业支持。</p></div>
+  </footer>
+
+  <script>
+    const stageData = {
+      undecided: { label: "反复考虑阶段", title: "先让情绪与决定分开", summary: "此时不需要催促自己马上决定。第一次会谈会先帮助你区分短期情绪、长期问题、现实顾虑与真正想守住的生活。" },
+      preparing: { label: "准备行动阶段", title: "先建立顺序，再开始行动", summary: "孩子、财务、住房和律师咨询同时出现时，我们会先把议题拆开，确认什么最紧急、什么最重要、什么需要更多信息。" },
+      ongoing: { label: "程序进行阶段", title: "在推进事情时保住自己的节奏", summary: "当沟通、协商与程序持续消耗精力，我们会帮助你围绕目标准备表达、材料和下一步，减少被即时冲突带走。" },
+      rebuilding: { label: "生活重建阶段", title: "重新组织生活，也重新看见自己", summary: "手续结束不代表生活已经恢复。我们会从日常秩序、经济能力、支持网络与个人边界开始，让未来逐渐具体。" }
+    };
+
+    const pressureData = {
+      emotion: { list: ["说清目前最消耗你的具体情境", "区分情绪反应与需要立即处理的现实风险", "形成未来一周可以执行的一个小步骤"], modules: ["稳定状态", "决策支持", "优先顺序"], role: "如存在长期失眠、严重抑郁或创伤反应，我们会建议心理专业支持同步介入。" },
+      children: { list: ["梳理孩子目前的照顾与居住安排", "区分孩子需要、双方诉求和需要律师判断的事项", "准备一次以孩子稳定为目标的沟通清单"], modules: ["共同养育", "沟通准备", "生活安排"], role: "涉及抚养权、抚养费和正式协议时，需要律师提供法律判断。" },
+      finance: { list: ["列出目前已知的账户、住房、收支与债务", "明确哪些是事实、担忧和待确认信息", "形成财务或律师咨询的问题清单"], modules: ["信息整理", "生活成本", "专业咨询准备"], role: "我们帮助整理信息与顾虑，具体财务及法律意见由相应专业人士提供。" },
+      conflict: { list: ["识别最常发生的冲突循环与施压方式", "判断哪些问题可沟通、哪些应暂停或保留记录", "准备一次目标导向的回应与清晰边界"], modules: ["高冲突沟通", "边界练习", "风险识别"], role: "如涉及人身安全、家庭暴力或紧急法律风险，应优先联系警方、律师或其他紧急资源。" },
+      legal: { list: ["把事件经过整理为清楚的事实脉络", "归纳财产、孩子、住房与程序问题", "形成诉求、底线和律师咨询问题清单"], modules: ["事实梳理", "材料准备", "律师协作"], role: "陪伴辅导不出具法律意见，但可以让有限的律师时间更聚焦于真正需要判断的问题。" },
+      future: { list: ["识别离婚后最需要恢复的生活部分", "梳理收入、工作、日常和支持网络", "选择一个能够重新建立掌控感的行动"], modules: ["生活重建", "经济独立", "个人边界"], role: "如哀伤、创伤或抑郁持续影响基本生活，可与心理咨询同步进行。" }
+    };
+
+    const moduleData = {
+      stability: { label: "状态与判断", title: "情绪可以被看见，但不必替你作出影响长远的决定", copy: "我们陪你识别情绪反应与现实风险，在重要沟通、协商或律师咨询前恢复相对稳定，让决定更接近你的长期目标。", deliverables: [["一起梳理", "当前触发情境与压力来源"], ["现场练习", "重要沟通前的稳定方法"], ["带走成果", "更清晰的判断条件与下一步"]], outcome: "目标不是消除所有情绪，而是在情绪存在时仍能保有判断。" },
+      clarify: { label: "现状与顺序", title: "把混在一起的问题拆开，先处理真正重要的部分", copy: "我们会区分事实、感受、目标和底线，整理孩子、财务、住房、工作与程序问题，建立清楚的优先顺序。", deliverables: [["一起梳理", "处境、顾虑与现实资源"], ["共同判断", "紧急、重要与待确认事项"], ["带走成果", "有先后顺序的行动清单"]], outcome: "从“一团乱麻”走向“知道下一步做什么”。" },
+      legal: { label: "专业咨询准备", title: "让律师时间用于法律判断，而不是重复整理你的经历", copy: "辅导帮助你在咨询律师前整理事件、材料、问题、诉求与底线，减少重复倾诉和无效咨询。", deliverables: [["一起梳理", "事件经过与客观事实"], ["共同准备", "材料、问题和顾虑清单"], ["带走成果", "可直接使用的咨询提纲"]], outcome: "陪伴辅导不提供法律意见，但能帮助你更有效地获得法律服务。" },
+      conflict: { label: "沟通与边界", title: "重点不是赢下每次争论，而是保住自己的判断和节奏", copy: "面对施压、控制或反复争吵，我们帮助你识别互动模式，判断何时沟通、何时暂停，以及怎样围绕目标表达。", deliverables: [["一起识别", "冲突升级点与控制方式"], ["现场练习", "目标导向的表达与回应"], ["带走成果", "清晰边界和沟通预案"]], outcome: "把即时反击转为对长期目标更有帮助的行动。" },
+      boundary: { label: "边界与行动力", title: "从自我怀疑和反复退让中，逐步恢复行动能力", copy: "长期控制、羞辱、冷暴力或经济压制会削弱人的判断。辅导帮助你辨认循环、建立边界，并把想法转为安全可执行的行动。", deliverables: [["一起辨认", "让你恐惧或自我怀疑的互动"], ["共同判断", "记录、暂停与求助的时机"], ["带走成果", "更安全的边界行动计划"]], outcome: "如存在人身安全风险，会优先建议紧急与专业支持。" },
+      life: { label: "现实生活安排", title: "把孩子、财务、住房与工作放回具体生活中讨论", copy: "我们不替代律师或财务顾问，而是帮助你收集信息、整理顾虑、明确问题，并为后续专业咨询和生活调整做好准备。", deliverables: [["一起盘点", "孩子、住房、账户与收支"], ["共同梳理", "现实顾虑与信息缺口"], ["带走成果", "生活安排与待咨询清单"]], outcome: "让现实问题从模糊的担忧变成可以逐项确认的事项。" },
+      rebuild: { label: "生活重建", title: "从“我们的生活”走向“我的生活”", copy: "我们陪你重新安排日常、工作、收入、支持网络和个人边界，重新看见自己的能力，并建立更可持续的未来规划。", deliverables: [["一起回看", "生活角色与既有能力"], ["共同规划", "日常、工作和支持网络"], ["带走成果", "阶段性重建目标"]], outcome: "重建不是否定过去，而是重新理解自己的价值与可能性。" }
+    };
+
+    const sessionData = [
+      { title: "先让你完整说清楚，最近发生了什么", copy: "我们会了解你所处的阶段、当前压力、已经尝试过的办法，以及此刻最希望发生的改变。你不需要提前整理成一份完美的陈述。", items: ["目前最消耗你的情境", "是否存在紧急安全或法律风险", "你希望这次咨询先帮你解决什么"] },
+      { title: "把情绪、事实与现实议题分别放好", copy: "孩子、财务、沟通和程序常常缠在一起。我们会把它们拆开，找出信息缺口、冲突来源和真正需要专业判断的部分。", items: ["事实、感受、诉求与底线", "已知信息与待确认信息", "可以辅导的问题与需要转介的问题"] },
+      { title: "确定此刻最值得投入精力的事项", copy: "不是所有问题都要同时解决。我们会结合紧急程度、长期影响、现实资源与承受能力，确定当前的优先顺序。", items: ["现在必须处理的事项", "可以暂缓的事项", "需要律师、心理或其他专业支持的事项"] },
+      { title: "把咨询结论变成真正能开始的下一步", copy: "最后会共同确认接下来的行动，以及适合你的支持深度。可以是一次对话，也可以是阶段性或持续陪伴。", items: ["一项近期可执行的行动", "需要准备的材料或沟通", "是否以及如何继续获得支持"] }
+    ];
+
+    const state = { stage: "undecided", pressure: "emotion" };
+    const $ = (selector) => document.querySelector(selector);
+
+    function renderPlan() {
+      const stage = stageData[state.stage];
+      const pressure = pressureData[state.pressure];
+      $("#note-stage").textContent = stage.label;
+      $("#note-heading").textContent = stage.title;
+      $("#note-summary").textContent = stage.summary;
+      $("#note-list").innerHTML = pressure.list.map((item) => `<li>${item}</li>`).join("");
+      $("#note-modules").innerHTML = pressure.modules.map((item) => `<span>${item}</span>`).join("");
+      $("#note-role").textContent = pressure.role;
+    }
+
+    function bindSingleChoice(containerSelector, key) {
+      document.querySelectorAll(`${containerSelector} .choice`).forEach((button) => {
+        button.addEventListener("click", () => {
+          document.querySelectorAll(`${containerSelector} .choice`).forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+          state[key] = button.dataset[key];
+          renderPlan();
+        });
+      });
+    }
+    bindSingleChoice("#stage-choices", "stage");
+    bindSingleChoice("#pressure-choices", "pressure");
+
+    document.querySelectorAll(".module-tab").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".module-tab").forEach((item) => item.setAttribute("aria-selected", String(item === button)));
+        const data = moduleData[button.dataset.module];
+        $("#module-label").textContent = data.label;
+        $("#module-title").textContent = data.title;
+        $("#module-copy").textContent = data.copy;
+        $("#module-deliverables").innerHTML = data.deliverables.map(([label, text]) => `<div class="module-deliverable"><span>${label}</span><p>${text}</p></div>`).join("");
+        $("#module-outcome").textContent = data.outcome;
+      });
+    });
+
+    document.querySelectorAll(".session-time").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".session-time").forEach((item) => item.setAttribute("aria-selected", String(item === button)));
+        const data = sessionData[Number(button.dataset.session)];
+        $("#session-detail-title").textContent = data.title;
+        $("#session-detail-copy").textContent = data.copy;
+        $("#session-detail-list").innerHTML = data.items.map((item) => `<li>${item}</li>`).join("");
+      });
+    });
+
+    document.querySelectorAll(".role-question").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".role-question").forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+        const relevant = button.dataset.role;
+        document.querySelectorAll(".role-card").forEach((card) => {
+          const role = card.dataset.roleCard;
+          card.classList.toggle("is-relevant", relevant === role || (relevant === "coach-lawyer" && (role === "coach" || role === "lawyer")));
+        });
+      });
+    });
+
+    const header = $("#site-header");
+    const setHeader = () => header.classList.toggle("is-solid", window.scrollY > 80);
+    setHeader();
+    window.addEventListener("scroll", setHeader, { passive: true });
+
+    const menuButton = $("#menu-button");
+    const nav = $("#main-nav");
+    function closeMenu() {
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.textContent = "菜单";
+      nav.classList.remove("is-open");
+      document.body.classList.remove("menu-open");
+      setHeader();
+    }
+    menuButton.addEventListener("click", () => {
+      if (menuButton.getAttribute("aria-expanded") === "true") closeMenu();
+      else {
+        menuButton.setAttribute("aria-expanded", "true");
+        menuButton.textContent = "关闭";
+        nav.classList.add("is-open");
+        document.body.classList.add("menu-open");
+        header.classList.add("is-solid");
+      }
+    });
+    nav.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && menuButton.getAttribute("aria-expanded") === "true") {
+        closeMenu();
+        menuButton.focus();
+      }
+    });
+  </script>
+</body>
+</html>

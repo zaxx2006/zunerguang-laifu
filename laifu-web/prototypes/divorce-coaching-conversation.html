@@ -1,0 +1,773 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="来福离婚陪伴辅导服务页面交互原型">
+  <title>离婚陪伴辅导｜来福</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --canvas: #f3f5f1;
+      --surface: #f8f9f7;
+      --support: #e9eee8;
+      --white: #ffffff;
+      --ink: #243d35;
+      --heading: #29372f;
+      --body: #425248;
+      --muted: #68766d;
+      --primary: #294b3d;
+      --primary-hover: #3b5d4e;
+      --focus: #b96a54;
+      --line: #c8d1c7;
+      --line-dark: rgba(255, 255, 255, 0.28);
+      --shadow: 0 20px 60px rgba(22, 41, 33, 0.14);
+      --serif: SimSun, "Songti SC", "STSong", serif;
+      --sans: "Microsoft YaHei", "PingFang SC", sans-serif;
+      --page: min(1180px, 84vw);
+      --header: 76px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--body);
+      background: var(--canvas);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.8;
+      letter-spacing: 0;
+    }
+    body.menu-open { overflow: hidden; }
+    button, a { font: inherit; }
+    button { color: inherit; }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    h1, h2, h3, p { margin: 0; }
+    h1, h2, h3 {
+      color: var(--heading);
+      font-family: var(--serif);
+      font-weight: 400;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+    :focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; }
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 50;
+      height: var(--header);
+      color: var(--white);
+      border-bottom: 1px solid var(--line-dark);
+      transition: color 240ms ease, background 240ms ease, border-color 240ms ease;
+    }
+    .site-header.is-solid {
+      color: var(--ink);
+      background: rgba(243, 245, 241, 0.95);
+      border-color: var(--line);
+      backdrop-filter: blur(12px);
+    }
+    .header-inner {
+      width: var(--page);
+      height: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 10px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .brand-mark { font-family: var(--serif); font-size: 25px; }
+    .brand-sub { font-size: 11px; opacity: 0.72; }
+    .nav { display: flex; align-items: center; gap: 28px; }
+    .nav a { font-size: 13px; text-decoration: none; }
+    .nav a:hover { text-decoration: underline; text-underline-offset: 5px; }
+    .header-cta {
+      min-height: 40px;
+      padding: 7px 16px;
+      border: 1px solid currentColor;
+      border-radius: 3px;
+    }
+    .menu-button { display: none; border: 0; background: transparent; padding: 8px 0; }
+
+    .hero {
+      position: relative;
+      min-height: min(900px, 96svh);
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      color: var(--white);
+      background: #26322c;
+    }
+    .hero-media { position: absolute; inset: 0; }
+    .hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 53%; }
+    .hero-media::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background: linear-gradient(90deg, rgba(14, 28, 22, 0.82) 0%, rgba(14, 28, 22, 0.42) 52%, rgba(14, 28, 22, 0.1) 100%), linear-gradient(0deg, rgba(14, 28, 22, 0.74), transparent 62%);
+    }
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      width: var(--page);
+      margin: 0 auto;
+      padding: calc(var(--header) + 90px) 0 84px;
+    }
+    .hero-kicker { margin-bottom: 20px; font-size: 14px; }
+    .hero h1 {
+      max-width: 850px;
+      color: var(--white);
+      font-size: 58px;
+      line-height: 1.42;
+    }
+    .hero-intro {
+      max-width: 660px;
+      margin-top: 25px;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 17px;
+      line-height: 1.9;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 20px;
+      border: 1px solid transparent;
+      border-radius: 3px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+    }
+    .button-light { color: var(--ink); background: var(--white); }
+    .button-light:hover { background: #e8efe9; }
+    .button-ghost { color: var(--white); border-color: rgba(255, 255, 255, 0.58); background: transparent; }
+    .button-ghost:hover { background: rgba(255, 255, 255, 0.11); }
+    .button-primary { color: var(--white); background: var(--primary); }
+    .button-primary:hover { background: var(--primary-hover); }
+    .hero-hint {
+      position: absolute;
+      right: 8vw;
+      bottom: 32px;
+      z-index: 2;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 12px;
+      writing-mode: vertical-rl;
+    }
+
+    .section { padding: 118px 0; }
+    .section-inner { width: var(--page); margin: 0 auto; }
+    .section-heading { display: grid; grid-template-columns: 0.8fr 1.7fr; gap: 7vw; align-items: start; }
+    .section-heading h2 { font-size: 42px; line-height: 1.55; }
+    .section-heading p { max-width: 680px; color: var(--muted); font-size: 17px; }
+
+    .room { background: var(--surface); }
+    .room-stage {
+      position: relative;
+      margin-top: 70px;
+      min-height: 650px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.65fr) minmax(310px, 0.75fr);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+    .desk {
+      position: relative;
+      min-height: 650px;
+      overflow: hidden;
+      background: #8c633c;
+    }
+    .desk img { width: 100%; height: 100%; object-fit: cover; }
+    .desk::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background: linear-gradient(90deg, transparent 55%, rgba(21, 37, 31, 0.22));
+      pointer-events: none;
+    }
+    .hotspot {
+      position: absolute;
+      z-index: 2;
+      min-height: 40px;
+      padding: 7px 12px;
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: 999px;
+      background: rgba(31, 48, 40, 0.8);
+      box-shadow: 0 7px 24px rgba(0, 0, 0, 0.18);
+      backdrop-filter: blur(6px);
+      cursor: pointer;
+      transform: translate(-50%, -50%);
+      transition: background 180ms ease, transform 180ms ease;
+    }
+    .hotspot:hover, .hotspot[aria-pressed="true"] { background: var(--focus); transform: translate(-50%, -50%) scale(1.04); }
+    .hotspot-notes { left: 33%; top: 63%; }
+    .hotspot-water { left: 59%; top: 49%; }
+    .hotspot-tablet { left: 77%; top: 72%; }
+    .hotspot-phone { left: 52%; top: 80%; }
+    .room-panel { padding: 52px 44px; display: flex; flex-direction: column; justify-content: space-between; }
+    .room-panel-label { color: var(--muted); font-size: 13px; }
+    .room-panel h3 { margin-top: 14px; font-size: 31px; line-height: 1.45; }
+    .room-panel p { margin-top: 20px; }
+    .room-list { margin: 28px 0 0; padding: 24px 0 0; border-top: 1px solid var(--line); list-style: none; }
+    .room-list li { position: relative; padding-left: 20px; }
+    .room-list li + li { margin-top: 11px; }
+    .room-list li::before { position: absolute; left: 0; content: "—"; color: var(--focus); }
+    .room-prompt { margin-top: 36px; color: var(--muted); font-size: 12px; }
+
+    .situations { background: var(--primary); color: var(--white); }
+    .situations h2, .situations h3 { color: var(--white); }
+    .situations .section-heading p { color: rgba(255, 255, 255, 0.72); }
+    .situation-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 68px;
+      border-block: 1px solid var(--line-dark);
+    }
+    .situation-tab {
+      min-height: 112px;
+      padding: 22px;
+      color: rgba(255, 255, 255, 0.65);
+      border: 0;
+      border-right: 1px solid var(--line-dark);
+      background: transparent;
+      text-align: left;
+      cursor: pointer;
+    }
+    .situation-tab:last-child { border-right: 0; }
+    .situation-tab[aria-selected="true"] { color: var(--white); background: rgba(255, 255, 255, 0.08); }
+    .situation-tab strong { display: block; margin-bottom: 6px; font-family: var(--serif); font-size: 21px; font-weight: 400; }
+    .conversation {
+      min-height: 460px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9vw;
+      align-items: center;
+      padding-top: 78px;
+    }
+    .client-voice { font-family: var(--serif); font-size: 34px; line-height: 1.65; }
+    .client-voice::before { content: "“"; display: block; margin-bottom: -20px; color: rgba(255, 255, 255, 0.35); font-size: 90px; line-height: 1; }
+    .response { border-left: 1px solid var(--line-dark); padding-left: 42px; }
+    .response-label { color: rgba(255, 255, 255, 0.6); font-size: 13px; }
+    .response h3 { margin-top: 12px; font-size: 29px; }
+    .response p { margin-top: 18px; color: rgba(255, 255, 255, 0.78); }
+    .response-steps { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+    .response-steps span { padding: 7px 10px; border: 1px solid var(--line-dark); border-radius: 2px; font-size: 13px; }
+
+    .process { background: var(--canvas); }
+    .process-track { margin-top: 70px; border-top: 1px solid var(--line); }
+    .process-step {
+      display: grid;
+      grid-template-columns: 90px 0.75fr 1.25fr 46px;
+      gap: 32px;
+      align-items: start;
+      width: 100%;
+      padding: 27px 0;
+      color: var(--body);
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      background: transparent;
+      text-align: left;
+      cursor: pointer;
+    }
+    .process-step .step-no { color: var(--muted); font-size: 13px; }
+    .process-step h3 { font-size: 23px; }
+    .process-summary { color: var(--muted); }
+    .process-toggle { font-size: 26px; line-height: 1; transition: transform 180ms ease; }
+    .process-detail {
+      display: grid;
+      grid-template-rows: 0fr;
+      border-bottom: 1px solid var(--line);
+      transition: grid-template-rows 260ms ease;
+    }
+    .process-detail > div { overflow: hidden; }
+    .process-detail p { max-width: 740px; margin: 0 0 30px 122px; color: var(--muted); }
+    .process-item.is-open .process-detail { grid-template-rows: 1fr; }
+    .process-item.is-open .process-toggle { transform: rotate(45deg); }
+
+    .service-scope { padding-top: 20px; }
+    .scope-grid {
+      margin-top: 82px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 8vw;
+      border-top: 1px solid var(--line);
+    }
+    .scope-item { padding: 34px 0 38px; border-bottom: 1px solid var(--line); }
+    .scope-item h3 { font-size: 24px; }
+    .scope-item p { margin-top: 13px; color: var(--muted); }
+
+    .roles { background: var(--support); }
+    .role-prompts { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 64px; }
+    .role-prompt {
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: transparent;
+      cursor: pointer;
+    }
+    .role-prompt[aria-pressed="true"] { color: var(--white); border-color: var(--primary); background: var(--primary); }
+    .role-result {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 32px;
+      border-block: 1px solid var(--line);
+    }
+    .role {
+      min-height: 290px;
+      padding: 35px 28px;
+      border-right: 1px solid var(--line);
+      transition: background 220ms ease, color 220ms ease;
+    }
+    .role:last-child { border-right: 0; }
+    .role.is-relevant { color: var(--white); background: var(--primary); }
+    .role h3 { font-size: 25px; }
+    .role.is-relevant h3 { color: var(--white); }
+    .role p { margin-top: 18px; color: var(--muted); }
+    .role.is-relevant p { color: rgba(255, 255, 255, 0.78); }
+    .role-status { display: block; margin-top: 28px; font-size: 13px; }
+
+    .boundary-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 9vw; }
+    .boundary-layout h2 { font-size: 42px; line-height: 1.55; }
+    .boundary-copy { border-top: 1px solid var(--line); }
+    .boundary-row { padding: 25px 0; border-bottom: 1px solid var(--line); }
+    .boundary-row h3 { font-size: 21px; }
+    .boundary-row p { margin-top: 10px; color: var(--muted); }
+
+    .invitation {
+      min-height: 760px;
+      display: grid;
+      place-items: center;
+      padding: 120px 0;
+      color: var(--white);
+      background: var(--heading);
+      text-align: center;
+    }
+    .invitation-inner { width: min(840px, 84vw); }
+    .invitation h2 { color: var(--white); font-size: 50px; line-height: 1.55; }
+    .invitation p { max-width: 610px; margin: 26px auto 0; color: rgba(255, 255, 255, 0.72); }
+    .invitation-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 38px; }
+
+    .site-footer { color: var(--ink); background: var(--support); }
+    .footer-inner {
+      width: var(--page);
+      min-height: 190px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+    .footer-note { max-width: 580px; color: var(--muted); font-size: 12px; }
+
+    @media (max-width: 900px) {
+      :root { --page: min(88vw, 760px); }
+      .nav { display: none; }
+      .menu-button { display: block; color: currentColor; cursor: pointer; }
+      .nav.is-open {
+        position: fixed;
+        inset: var(--header) 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 28px 6vw;
+        color: var(--ink);
+        background: var(--canvas);
+      }
+      .nav.is-open a { width: 100%; padding: 18px 0; border-bottom: 1px solid var(--line); font-size: 18px; }
+      .hero h1 { font-size: 45px; }
+      .section-heading, .conversation, .boundary-layout { grid-template-columns: 1fr; gap: 32px; }
+      .room-stage { grid-template-columns: 1fr; }
+      .desk { min-height: 510px; }
+      .room-panel { min-height: 460px; }
+      .process-step { grid-template-columns: 60px 1fr 40px; }
+      .process-summary { grid-column: 2 / 3; }
+      .process-toggle { grid-column: 3; grid-row: 1; }
+      .process-detail p { margin-left: 92px; }
+    }
+
+    @media (max-width: 640px) {
+      :root { --page: calc(100vw - 40px); --header: 66px; }
+      .brand-sub { display: none; }
+      .hero { min-height: 790px; }
+      .hero-media img { object-position: 53% center; }
+      .hero-media::after { background: linear-gradient(0deg, rgba(14, 28, 22, 0.92) 0%, rgba(14, 28, 22, 0.48) 72%, rgba(14, 28, 22, 0.24)); }
+      .hero-copy { padding-bottom: 58px; }
+      .hero h1 { font-size: 38px; line-height: 1.48; }
+      .hero-intro { font-size: 15px; }
+      .hero-hint { display: none; }
+      .button { width: 100%; }
+      .section { padding: 82px 0; }
+      .section-heading h2, .boundary-layout h2 { font-size: 34px; }
+      .room-stage { margin-top: 46px; }
+      .desk { min-height: 390px; }
+      .hotspot { min-height: 34px; padding: 5px 9px; font-size: 12px; }
+      .room-panel { min-height: 500px; padding: 34px 25px; }
+      .room-panel h3 { font-size: 27px; }
+      .situation-tabs { grid-template-columns: 1fr; }
+      .situation-tab { min-height: 82px; border-right: 0; border-bottom: 1px solid var(--line-dark); }
+      .situation-tab:last-child { border-bottom: 0; }
+      .conversation { min-height: 570px; padding-top: 50px; }
+      .client-voice { font-size: 28px; }
+      .response { padding-left: 24px; }
+      .process-step { grid-template-columns: 44px 1fr 30px; gap: 14px; }
+      .process-step h3 { font-size: 20px; }
+      .process-summary { grid-column: 2 / -1; font-size: 14px; }
+      .process-detail p { margin: 0 0 26px 58px; font-size: 14px; }
+      .scope-grid, .role-result { grid-template-columns: 1fr; }
+      .role { min-height: 0; border-right: 0; border-bottom: 1px solid var(--line); }
+      .role:last-child { border-bottom: 0; }
+      .invitation { min-height: 660px; }
+      .invitation h2 { font-size: 38px; }
+      .footer-inner { min-height: 260px; flex-direction: column; align-items: flex-start; justify-content: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="来福首页">
+        <span class="brand-mark">来福</span>
+        <span class="brand-sub">婚姻困境辅导</span>
+      </a>
+      <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">菜单</button>
+      <nav class="nav" id="main-nav" aria-label="页面导航">
+        <a href="#room">服务内容</a>
+        <a href="#conversation">适合情境</a>
+        <a href="#process">服务方式</a>
+        <a href="#roles">专业边界</a>
+        <a class="header-cta" href="#consultation">预约咨询</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-media" aria-hidden="true">
+        <img src="../apps/website/assets/photos/divorce-coaching-conversation.webp" alt="">
+      </div>
+      <div class="hero-copy">
+        <p class="hero-kicker">离婚陪伴辅导</p>
+        <h1 id="hero-title">你可以先坐下来。<br>不需要现在就把所有事情想清楚。</h1>
+        <p class="hero-intro">我们陪你稳住状态、理清事实和选择，把孩子、财务、沟通与生活安排逐步放回清晰的位置。</p>
+        <div class="hero-actions">
+          <a class="button button-light" href="#room">开始了解这项服务</a>
+          <a class="button button-ghost" href="#consultation">预约初始咨询</a>
+        </div>
+      </div>
+      <span class="hero-hint">向下进入会谈室</span>
+    </section>
+
+    <section class="section room" id="room" aria-labelledby="room-title">
+      <div class="section-inner">
+        <div class="section-heading">
+          <h2 id="room-title">把桌上的事情，<br>一件一件说清楚</h2>
+          <p>离婚带来的压力很少只来自一件事。点击桌上的物件，看看陪伴辅导如何承接情绪与现实之间那些容易被忽略的工作。</p>
+        </div>
+        <div class="room-stage">
+          <div class="desk" aria-label="可探索的会谈桌面">
+            <img src="../apps/website/assets/photos/divorce-coaching-conversation.webp" alt="会谈桌面上放着笔记本、手机、平板和水杯">
+            <button class="hotspot hotspot-notes" type="button" data-service="notes" aria-pressed="true">事实与材料</button>
+            <button class="hotspot hotspot-water" type="button" data-service="state" aria-pressed="false">状态与判断</button>
+            <button class="hotspot hotspot-tablet" type="button" data-service="support" aria-pressed="false">专业协作</button>
+            <button class="hotspot hotspot-phone" type="button" data-service="future" aria-pressed="false">生活重建</button>
+          </div>
+          <div class="room-panel" aria-live="polite">
+            <div>
+              <p class="room-panel-label" id="service-label">从散落的信息开始</p>
+              <h3 id="service-title">把经历、材料和问题整理成可以处理的顺序</h3>
+              <p id="service-copy">当聊天记录、财务信息、孩子安排和待办事项堆在一起，我们陪你分清事实、感受、诉求和底线。</p>
+              <ul class="room-list" id="service-list">
+                <li>梳理关键事件与当前处境</li>
+                <li>整理文件、问题和待办事项</li>
+                <li>准备与律师或其他专业人士沟通</li>
+              </ul>
+            </div>
+            <p class="room-prompt">继续点击桌上其他物件，了解不同支持内容</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section situations" id="conversation" aria-labelledby="situation-title">
+      <div class="section-inner">
+        <div class="section-heading">
+          <h2 id="situation-title">不同处境，<br>需要不同的开始</h2>
+          <p>离婚陪伴辅导不是一套固定答案。选择与你更接近的状态，看看第一次会谈可能从哪里开始。</p>
+        </div>
+        <div class="situation-tabs" role="tablist" aria-label="选择当前处境">
+          <button class="situation-tab" id="tab-undecided" type="button" role="tab" aria-selected="true" aria-controls="situation-panel" data-situation="undecided">
+            <strong>还在反复犹豫</strong>
+            不确定是否要结束婚姻
+          </button>
+          <button class="situation-tab" id="tab-moving" type="button" role="tab" aria-selected="false" aria-controls="situation-panel" data-situation="moving">
+            <strong>已经准备行动</strong>
+            但不知道该从哪里开始
+          </button>
+          <button class="situation-tab" id="tab-rebuilding" type="button" role="tab" aria-selected="false" aria-controls="situation-panel" data-situation="rebuilding">
+            <strong>程序已经结束</strong>
+            生活却还没有重新开始
+          </button>
+        </div>
+        <div class="conversation" id="situation-panel" role="tabpanel" aria-labelledby="tab-undecided" tabindex="0">
+          <p class="client-voice" id="client-voice">我不知道自己是真的想离开，还是只是不想再这样生活。</p>
+          <div class="response">
+            <p class="response-label">第一次会谈可以先做什么</p>
+            <h3 id="response-title">先理解选择，而不是催促决定</h3>
+            <p id="response-copy">我们会陪你区分当下的情绪、长期存在的问题、现实顾虑和真正想守住的生活。选择仍然由你作出。</p>
+            <div class="response-steps" id="response-steps">
+              <span>梳理关系现状</span><span>识别真实顾虑</span><span>比较不同选择</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process" id="process" aria-labelledby="process-title">
+      <div class="section-inner">
+        <div class="section-heading">
+          <h2 id="process-title">一次辅导，<br>怎样把问题向前推进</h2>
+          <p>我们从你当前最难处理的部分开始。每一步都有明确目标，但节奏会根据你的状态、问题复杂度和现实承受力调整。</p>
+        </div>
+        <div class="process-track">
+          <div class="process-item is-open">
+            <button class="process-step" type="button" aria-expanded="true">
+              <span class="step-no">第一步</span><h3>初始深度咨询</h3><span class="process-summary">建立全貌，找到真正需要先处理的问题</span><span class="process-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="process-detail"><div><p>通过一次较完整的沟通，了解你所处的阶段、主要压力、现实资源和期待。目标不是一次解决全部问题，而是先让混乱有清晰的轮廓。</p></div></div>
+          </div>
+          <div class="process-item">
+            <button class="process-step" type="button" aria-expanded="false">
+              <span class="step-no">第二步</span><h3>确定目标与优先顺序</h3><span class="process-summary">分清现在、稍后与必须交给专业人士的事项</span><span class="process-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="process-detail"><div><p>围绕情绪、孩子、财务、住房、沟通和法律准备，确认什么最紧迫、什么最重要，以及哪些决定需要更多信息才能作出。</p></div></div>
+          </div>
+          <div class="process-item">
+            <button class="process-step" type="button" aria-expanded="false">
+              <span class="step-no">第三步</span><h3>分模块推进</h3><span class="process-summary">把目标拆成真正能够执行的行动</span><span class="process-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="process-detail"><div><p>根据需要开展决策支持、材料整理、沟通与边界练习、重要会谈准备、生活安排和离婚后重建。每次会谈都回到现实中的下一步。</p></div></div>
+          </div>
+          <div class="process-item">
+            <button class="process-step" type="button" aria-expanded="false">
+              <span class="step-no">第四步</span><h3>复盘并调整支持方式</h3><span class="process-summary">让支持深度始终与真实需要相匹配</span><span class="process-toggle" aria-hidden="true">+</span>
+            </button>
+            <div class="process-detail"><div><p>你可以选择单次咨询、阶段性辅导、专项支持或更完整的持续陪伴。我们也会判断何时需要律师、心理、育儿或财务专业人士参与。</p></div></div>
+          </div>
+        </div>
+
+        <div class="service-scope">
+          <div class="scope-grid">
+            <article class="scope-item"><h3>稳定状态与恢复判断</h3><p>减少冲动回应和情绪化决定，为重要沟通、协商和专业咨询做好状态准备。</p></article>
+            <article class="scope-item"><h3>高冲突沟通与边界</h3><p>识别施压和控制，判断哪些问题可以协商，哪些需要暂停、记录或寻求专业支持。</p></article>
+            <article class="scope-item"><h3>孩子、财务与生活安排</h3><p>整理共同养育、居住、账户、收支、债务和未来生活成本中的现实顾虑。</p></article>
+            <article class="scope-item"><h3>律师咨询与谈判准备</h3><p>形成事实脉络、问题清单、目标与底线，让法律服务聚焦真正需要律师判断的部分。</p></article>
+            <article class="scope-item"><h3>决定与行动支持</h3><p>比较不同选择的影响，把复杂目标拆成有先后顺序、能够开始执行的步骤。</p></article>
+            <article class="scope-item"><h3>离婚后的生活重建</h3><p>重新建立生活秩序、经济安全感、职业方向、支持网络以及对自己的信任。</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section roles" id="roles" aria-labelledby="roles-title">
+      <div class="section-inner">
+        <div class="section-heading">
+          <h2 id="roles-title">这个问题，<br>应该找谁</h2>
+          <p>陪伴辅导、心理咨询和律师服务彼此不能替代。选择一个问题，看看不同专业角色如何各自发挥作用。</p>
+        </div>
+        <div class="role-prompts" aria-label="选择问题">
+          <button class="role-prompt" type="button" data-role="coach" aria-pressed="true">不知道下一步该做什么</button>
+          <button class="role-prompt" type="button" data-role="therapist" aria-pressed="false">长期失眠或创伤反应明显</button>
+          <button class="role-prompt" type="button" data-role="lawyer" aria-pressed="false">需要判断财产和抚养权</button>
+          <button class="role-prompt" type="button" data-role="coach-lawyer" aria-pressed="false">既混乱又需要进入法律程序</button>
+        </div>
+        <div class="role-result" aria-live="polite">
+          <article class="role" data-role-card="therapist"><h3>心理咨询</h3><p>处理创伤、哀伤、依恋和持续的心理困扰，帮助恢复内在稳定。</p><span class="role-status">此时可作为补充支持</span></article>
+          <article class="role is-relevant" data-role-card="coach"><h3>离婚陪伴辅导</h3><p>理清现状和目标，建立处理顺序，准备沟通并把下一步行动落到现实中。</p><span class="role-status">此时建议优先了解</span></article>
+          <article class="role" data-role-card="lawyer"><h3>律师服务</h3><p>提供法律判断，处理财产、抚养、协议、谈判、证据和诉讼程序。</p><span class="role-status">需要正式法律判断时介入</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="boundary-title">
+      <div class="section-inner boundary-layout">
+        <h2 id="boundary-title">支持有温度，<br>也有清晰边界</h2>
+        <div class="boundary-copy">
+          <div class="boundary-row"><h3>不替你作出决定</h3><p>我们帮助你看清选项、理解影响并明确目标，是否离婚以及如何选择，始终由你决定。</p></div>
+          <div class="boundary-row"><h3>不替代心理治疗</h3><p>如存在严重抑郁、创伤反应、自伤风险或其他精神心理危机，应优先寻求心理、医疗或紧急支持。</p></div>
+          <div class="boundary-row"><h3>不替代法律服务</h3><p>财产分割、子女抚养、协议、证据和诉讼程序等正式法律问题，应由律师独立提供专业判断。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="invitation" id="consultation" aria-labelledby="invitation-title">
+      <div class="invitation-inner">
+        <h2 id="invitation-title">先从一次有方向的对话开始</h2>
+        <p>你不需要现在准备好所有答案。第一次咨询，可以只带着当前最难处理的问题来，我们一起确认处境、顾虑和适合的支持方式。</p>
+        <div class="invitation-actions">
+          <a class="button button-light" href="/book-consultation/#booking-channel">预约初始咨询</a>
+          <a class="button button-ghost" href="#room">重新了解服务内容</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div><span class="brand-mark">来福</span><p>婚姻困境辅导</p></div>
+      <p class="footer-note">本页面为“离婚陪伴辅导”交互设计原型。陪伴辅导不替代心理治疗或正式法律服务。</p>
+    </div>
+  </footer>
+
+  <script>
+    const serviceContent = {
+      notes: {
+        label: "从散落的信息开始",
+        title: "把经历、材料和问题整理成可以处理的顺序",
+        copy: "当聊天记录、财务信息、孩子安排和待办事项堆在一起，我们陪你分清事实、感受、诉求和底线。",
+        items: ["梳理关键事件与当前处境", "整理文件、问题和待办事项", "准备与律师或其他专业人士沟通"]
+      },
+      state: {
+        label: "先让自己回到相对稳定的位置",
+        title: "情绪可以被看见，但不必替你决定",
+        copy: "害怕、愤怒、内疚和反复怀疑都很常见。我们会陪你识别情绪与现实风险，让重要决定不被一时反应推动。",
+        items: ["识别情绪反应与现实风险", "减少冲动回应和情绪化决策", "为重要沟通和协商稳定状态"]
+      },
+      support: {
+        label: "让每个专业角色都在合适的位置",
+        title: "在需要的时候，做好专业协作的准备",
+        copy: "陪伴辅导不替代律师、心理或财务服务。我们帮助你先把问题说清楚，再把需要专业判断的部分交给合适的人。",
+        items: ["准备律师咨询问题清单", "明确专业角色与服务边界", "减少重复倾诉和无效咨询"]
+      },
+      future: {
+        label: "从两个人的生活回到自己的节奏",
+        title: "不只走完程序，也为新的生活做好准备",
+        copy: "离婚会改变居住、收入、工作、家庭角色和自我认同。我们陪你重新建立秩序、能力与对未来的现实规划。",
+        items: ["梳理居住、工作与生活成本", "重建支持网络和个人边界", "恢复独立判断与行动能力"]
+      }
+    };
+
+    const situations = {
+      undecided: {
+        voice: "我不知道自己是真的想离开，还是只是不想再这样生活。",
+        title: "先理解选择，而不是催促决定",
+        copy: "我们会陪你区分当下的情绪、长期存在的问题、现实顾虑和真正想守住的生活。选择仍然由你作出。",
+        steps: ["梳理关系现状", "识别真实顾虑", "比较不同选择"]
+      },
+      moving: {
+        voice: "我知道事情必须推进，可孩子、财务、住处和律师全挤在一起。",
+        title: "先建立顺序，再开始行动",
+        copy: "我们会把不同议题拆开，确认优先事项，整理信息与问题，并为重要沟通和专业咨询做好准备。",
+        steps: ["确定优先事项", "整理事实与材料", "形成行动清单"]
+      },
+      rebuilding: {
+        voice: "手续已经结束了，可我好像还停在原来的生活里。",
+        title: "重新组织生活，也重新认识自己",
+        copy: "我们会陪你面对角色、经济、工作和日常秩序的变化，逐渐建立更稳定、更可持续的新生活。",
+        steps: ["恢复生活节奏", "重建个人边界", "规划未来支持"]
+      }
+    };
+
+    document.querySelectorAll(".hotspot").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".hotspot").forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+        const data = serviceContent[button.dataset.service];
+        document.getElementById("service-label").textContent = data.label;
+        document.getElementById("service-title").textContent = data.title;
+        document.getElementById("service-copy").textContent = data.copy;
+        document.getElementById("service-list").innerHTML = data.items.map((item) => `<li>${item}</li>`).join("");
+      });
+    });
+
+    document.querySelectorAll(".situation-tab").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".situation-tab").forEach((item) => item.setAttribute("aria-selected", String(item === button)));
+        const data = situations[button.dataset.situation];
+        const panel = document.getElementById("situation-panel");
+        panel.setAttribute("aria-labelledby", button.id);
+        document.getElementById("client-voice").textContent = data.voice;
+        document.getElementById("response-title").textContent = data.title;
+        document.getElementById("response-copy").textContent = data.copy;
+        document.getElementById("response-steps").innerHTML = data.steps.map((step) => `<span>${step}</span>`).join("");
+      });
+    });
+
+    document.querySelectorAll(".process-step").forEach((button) => {
+      button.addEventListener("click", () => {
+        const item = button.closest(".process-item");
+        const open = !item.classList.contains("is-open");
+        document.querySelectorAll(".process-item").forEach((row) => {
+          row.classList.remove("is-open");
+          row.querySelector(".process-step").setAttribute("aria-expanded", "false");
+        });
+        if (open) {
+          item.classList.add("is-open");
+          button.setAttribute("aria-expanded", "true");
+        }
+      });
+    });
+
+    const rolePrompts = document.querySelectorAll(".role-prompt");
+    rolePrompts.forEach((button) => {
+      button.addEventListener("click", () => {
+        rolePrompts.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+        const relevant = button.dataset.role;
+        document.querySelectorAll(".role").forEach((card) => {
+          const role = card.dataset.roleCard;
+          card.classList.toggle("is-relevant", relevant === role || (relevant === "coach-lawyer" && (role === "coach" || role === "lawyer")));
+        });
+      });
+    });
+
+    const header = document.getElementById("site-header");
+    const setHeader = () => header.classList.toggle("is-solid", window.scrollY > 80);
+    setHeader();
+    window.addEventListener("scroll", setHeader, { passive: true });
+
+    const menuButton = document.getElementById("menu-button");
+    const nav = document.getElementById("main-nav");
+    const closeMenu = () => {
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.textContent = "菜单";
+      nav.classList.remove("is-open");
+      document.body.classList.remove("menu-open");
+      setHeader();
+    };
+    menuButton.addEventListener("click", () => {
+      const open = menuButton.getAttribute("aria-expanded") === "true";
+      if (open) {
+        closeMenu();
+      } else {
+        menuButton.setAttribute("aria-expanded", "true");
+        menuButton.textContent = "关闭";
+        nav.classList.add("is-open");
+        document.body.classList.add("menu-open");
+        header.classList.add("is-solid");
+      }
+    });
+    nav.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && menuButton.getAttribute("aria-expanded") === "true") {
+        closeMenu();
+        menuButton.focus();
+      }
+    });
+  </script>
+</body>
+</html>

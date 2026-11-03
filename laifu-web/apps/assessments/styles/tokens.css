@@ -1,0 +1,40 @@
+@layer tokens {
+:root {
+  --color-primary: #294b3d;
+  --color-primary-dark: #1e3a2e;
+  --color-primary-ink: #243d35;
+  --color-on-primary: #f3f5f1;
+  --color-on-primary-hover: #ffffff;
+  --color-action: #294b3d;
+  --color-action-hover: #1e3a2e;
+  --color-secondary: #526453;
+  --color-secondary-dark: #294b3d;
+  --color-ink: #243d35;
+  --color-body: #354a40;
+  --color-mute: #526453;
+  --color-stone: #68766a;
+  --color-ash: #788577;
+  --color-canvas: #f3f5f1;
+  --color-surface-soft: #edf1e9;
+  --color-surface-dark: #e7ede3;
+  --color-surface-elevated: #ffffff;
+  --color-hairline: #cbd4c8;
+  --color-hairline-strong: #b5c2b1;
+  --color-on-dark: #f3f5f1;
+  --color-on-dark-mute: #cbd4c8;
+  --color-link-blue: #294b3d;
+  --color-blue-700: #294b3d;
+  --color-success-deep: #294b3d;
+  --color-accent-yellow-pale: #eeeade;
+  --color-accent-purple-pale: #eceee7;
+  --color-accent-green-pale: #e7ede3;
+  --color-accent-sky-pale: #edf1e9;
+  --font-heading: var(--font-noto-sans-sc), sans-serif;
+  --motion-ease: var(--motion-ease-standard);
+  --color-success: var(--color-ink);
+  --radius: var(--radius-sm);
+  --container: 1280px;
+  --questionnaire-content-gutter: 48px;
+}
+@media (max-width: 900px) { :root { --questionnaire-content-gutter: 32px; } }
+}

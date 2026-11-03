@@ -1,0 +1,248 @@
+.home-preview, html:has(.home-preview) {
+  --home-color-canvas: #f3f5f1;
+  --home-color-surface: #f6f7f5;
+  --home-color-support: #edf0e9;
+  --home-color-white: #fff;
+  --home-color-ink: #243d35;
+  --home-color-heading: #29372f;
+  --home-color-muted: #526453;
+  --home-color-card-muted: #596757;
+  --home-color-primary: #294b3d;
+  --home-color-primary-hover: #3b5d4e;
+  --home-color-focus: #b96a54;
+  --home-color-border: #cbd4c8;
+  --home-color-media-border: #d4dbd2;
+  --home-color-media: #e5e9e4;
+  --home-color-button-ink: #121212;
+  --home-color-selection: #c4d4bd;
+  --home-color-selection-ink: #18291f;
+  --home-font-body: "notoSans", sans-serif;
+  --home-font-heading: "notoSans", sans-serif;
+  --home-font-interface: "notoSans", sans-serif;
+  --home-font-brand: "notoSans", sans-serif;
+  --home-font-invitation: "notoSans", sans-serif;
+  --home-type-caption: 10px;
+  --home-type-note: 11px;
+  --home-type-small: 12px;
+  --home-type-ui: 13px;
+  --home-type-body-small: 14px;
+  --home-type-input: 15px;
+  --home-type-body: 16px;
+  --home-type-card-title: 21px;
+  --home-type-placeholder: 22px;
+  --home-type-brand: 29px;
+  --home-type-section-title: 30px;
+  --home-type-paper-title: 34px;
+  --home-type-opening-title: 35px;
+  --home-type-faq-title: 36px;
+  --home-type-support-title: 40px;
+  --home-type-journey-title: 43px;
+  --home-type-invitation-title: 52px;
+  --home-type-hero-title: 54px;
+  --home-space-xs: 8px;
+  --home-space-sm: 12px;
+  --home-space-md: 20px;
+  --home-space-lg: 32px;
+  --home-space-xl: 60px;
+  --home-space-section-gap: 100px;
+  --home-page-gutter: 6%;
+  --home-content-width: 1268px;
+  --home-hero-copy-width: 920px;
+  --home-search-width: 640px;
+  --home-navigation-height: 82px;
+  --home-breadcrumb-height: 0px;
+  --home-header-height: calc(var(--home-navigation-height) + var(--home-breadcrumb-height));
+  --home-anchor-offset: 90px;
+  --home-radius-control: 4px;
+  --home-radius-search: 8px;
+  --home-search-field-height: 68px;
+  --home-search-button-size: 42px;
+  --home-service-media-ratio: 4/3;
+  --home-motion-fast: .2s;
+  --home-motion-base: .3s;
+  --home-motion-emphasis: .4s;
+  --home-ease-emphasis: cubic-bezier(.22,1,.36,1);
+  --home-color-header-glass: #f3f5f1ed;
+  --home-color-header-border: #243d3518;
+  --home-color-header-dark-ink: #eee;
+  --home-color-header-dark: #323435ed;
+  --home-color-border-white-subtle: #ffffff18;
+  --home-color-hero: #263427;
+  --home-color-hero-overlay: rgba(8,18,13,.42);
+  --home-color-hero-fade: rgba(50,52,53,.45);
+  --home-color-shadow-results: #00000024;
+  --home-color-search-glass: rgba(22,26,24,.42);
+  --home-color-border-white: #ffffff45;
+  --home-color-shadow-search: #00000016;
+  --home-color-search-field: #151b17e6;
+  --home-color-caret: #d6e9cf;
+  --home-color-input-focus: #c8dcc3;
+  --home-color-search-button: #e9eee5;
+  --home-color-hero-button-ink: #263d30;
+  --home-color-hero-button-hover: #e6eddf;
+  --home-color-white-line: #ffffff80;
+  --home-color-black: #323435;
+  --home-color-opening-muted: #969e98;
+  --home-color-scene-muted: #d0d6d2;
+  --home-color-scene-step: #a5b9aa;
+  --home-color-border-white-faint: #ffffff25;
+  --home-color-document-ink: #dfe6df;
+  --home-color-document-border: #ffffff16;
+  --home-color-document-step: #87a990;
+  --home-color-document-meta: #88968c;
+  --home-color-caption: #65756a;
+  --home-color-meter: #7f8d84;
+  --home-color-track: #333;
+  --home-color-progress: #d5dfd7;
+  --home-color-branch: #354239;
+  --home-color-media-two: #e9ece8;
+  --home-color-media-three: #e1e7e4;
+  --home-color-media-four: #e7ebe5;
+  --home-color-media-five: #e6e9e6;
+  --home-color-service-action: #52634f;
+  --home-color-media-hover: #dce4dc;
+  --home-color-media-border-hover: #8c9d86;
+  --home-color-branch-caption: #64735f;
+  --home-color-link-border: #889987;
+  --home-color-footer-hover: #f6f7f5;
+  --home-color-footer-muted: #cbd9d2;
+  --home-color-footer-border: #f6f7f533;
+  --home-color-hero-link-hover: #e1eddc;
+  --home-color-nav-button-ink: #294637;
+  --home-leading-body: 2;
+  --home-leading-copy: 2.1;
+  --home-leading-small: 1.8;
+  --home-leading-hero: 1.4;
+  --home-leading-section: 1.7;
+  --home-leading-display: 1.65;
+  --home-leading-support: 1.6;
+  --home-leading-intro: 1.9;
+  --home-leading-input: 1.7;
+  --home-weight-regular: 400;
+  --home-weight-action: 600;
+  --home-shadow-results: 0 12px 32px var(--home-color-shadow-results);
+  --home-shadow-search: 0 12px 32px var(--home-color-shadow-search);
+  --home-hero-fade: linear-gradient(to bottom,rgba(50,52,53,0),var(--home-color-hero-fade) 45%,var(--home-color-black) 100%);
+  --home-service-grid-columns: 5;
+  --home-service-grid-gap: 26px;
+  --home-footer-grid-columns: .7fr 1.35fr 1.1fr 1fr 1.25fr 1fr;
+  --home-space-section-support: 130px;
+  --home-space-section-faq: 120px;
+  --home-space-section-invitation: 224px;
+  --home-content-gutter: 10%;
+  --home-color-assessment: #e7ede3;
+  --home-color-paper-emotions-bg: #dce8de;
+  --home-color-paper-emotions-body: #f5f8f4;
+  --home-color-paper-emotions-accent: #76917e;
+  --home-color-paper-living-bg: #dce7ed;
+  --home-color-paper-living-body: #f4f7f9;
+  --home-color-paper-living-ink: #334b5a;
+  --home-color-paper-living-accent: #718b9a;
+  --home-color-paper-family-bg: #eaded8;
+  --home-color-paper-family-body: #faf5f2;
+  --home-color-paper-family-ink: #67483d;
+  --home-color-paper-family-accent: #a27768;
+  --home-color-paper-hover: rgba(255,255,255,.16);
+  --home-color-paper-active: rgba(255,255,255,.22);
+  --home-color-paper-choice: rgba(255,255,255,.72);
+  --home-color-paper-border: rgba(41,75,61,.12);
+  --home-color-paper-choice-border: rgba(41,75,61,.13);
+  --home-color-paper-status-border: rgba(41,75,61,.18);
+  --home-color-paper-choice-hover: rgba(41,75,61,.3);
+  --home-shadow-paper: 0 20px 44px rgba(40,61,52,.17);
+  --home-shadow-paper-hover: 0 24px 50px rgba(40,61,52,.2);
+  --home-color-paper-tab-border: rgba(41,75,61,.2);
+  --home-shadow-paper-reference: 0 22px 48px rgba(40,61,52,.2);
+  --home-shadow-paper-reference-hover: 0 28px 56px rgba(40,61,52,.24);
+  --home-shadow-paper-action: 0 10px 24px rgba(40,61,52,.13);
+  --home-color-paper-choice-reference: rgba(255,255,255,.58);
+  --home-color-paper-choice-reference-hover: rgba(255,255,255,.86);
+  --home-color-faq-topic: #3f574b;
+  --home-color-faq-copy: #42594e;
+  --home-color-faq-topic-hover: #e9efec55;
+  --home-shadow-faq-context: 0 2px 5px #243d350c;
+  --home-color-guide-one: #dce7e1;
+  --home-color-guide-two: #e9dcd6;
+  --home-color-guide-two-ink: #5b4038;
+  --home-color-guide-three: #dce5eb;
+  --home-color-guide-three-ink: #334b5a;
+  --home-color-guide-line: #243d3520;
+  --home-color-guide-close: #ffffff99;
+  --home-color-guide-page-edge-left: #d8dfd74d;
+  --home-color-guide-page-edge-right: #c6cec54d;
+  --home-color-guide-control-border: #243d3533;
+  --home-shadow-guide: 6px 12px 22px #283d3419;
+  --home-shadow-guide-book: #243d3524;
+  --home-shadow-guide-opening: 0 28px 60px #243d3533;
+  --home-guide-page-gradient: linear-gradient(90deg,var(--home-color-guide-page-edge-left),transparent 5%,transparent 95%,var(--home-color-guide-page-edge-right));
+  --home-paper-x: 0px;
+  --home-paper-y: 92px;
+  --home-paper-angle: 0deg;
+  --home-paper-bg: var(--home-color-paper-emotions-bg);
+  --home-paper-body: var(--home-color-paper-emotions-body);
+  --home-guide-reader-height: 700px;
+  --home-guide-tint: var(--home-color-guide-one);
+}
+
+@media (max-width: 560px) {
+  .home-preview, html:has(.home-preview) {
+    --home-navigation-height: 64px;
+  }
+}
+
+html:has(header[data-has-breadcrumbs]),
+html:has(header[data-has-breadcrumbs]) .home-preview {
+  --home-breadcrumb-height: 44px;
+}
+
+@media (max-width: 560px) {
+  html:has(header[data-has-breadcrumbs]),
+  html:has(header[data-has-breadcrumbs]) .home-preview {
+    --home-breadcrumb-height: 40px;
+  }
+}
+
+.home-preview .scene {
+  --scene-ink: var(--home-color-white);
+  --scene-muted: var(--home-color-scene-muted);
+  --scene-border: rgba(255,255,255,.22);
+}
+
+.home-preview .paper-sheet[data-theme="emotions"] {
+  --home-paper-surface: 241,245,239;
+  --home-paper-ink: #27372f;
+  --home-paper-accent: #597054;
+  --home-paper-photo: url("/home-preview/bright/sunlit-room.webp");
+  --home-paper-photo-position: center 58%;
+  --home-paper-wash: linear-gradient(90deg,rgba(241,245,239,.99) 0%,rgba(241,245,239,.96) 58%,rgba(241,245,239,.75) 100%);
+  --home-paper-tab-bg: rgba(241,245,239,.92);
+  --home-paper-tab-dot: rgba(241,245,239,.96);
+  --home-paper-tab-hover: rgba(241,245,239,.98);
+  --home-paper-tab-active: rgba(241,245,239,.95);
+}
+
+.home-preview .paper-sheet[data-theme="living"] {
+  --home-paper-surface: 240,245,249;
+  --home-paper-ink: #2e4355;
+  --home-paper-accent: #526d86;
+  --home-paper-photo: url("/home-preview/bright/assessment-living-reference.webp");
+  --home-paper-photo-position: right center;
+  --home-paper-wash: linear-gradient(90deg,rgba(240,245,249,.99) 0%,rgba(240,245,249,.94) 58%,rgba(240,245,249,.16) 100%);
+  --home-paper-tab-bg: rgba(240,245,249,.92);
+  --home-paper-tab-dot: rgba(240,245,249,.96);
+  --home-paper-tab-hover: rgba(240,245,249,.98);
+  --home-paper-tab-active: rgba(240,245,249,.95);
+}
+
+.home-preview .paper-sheet[data-theme="family"] {
+  --home-paper-surface: 249,243,238;
+  --home-paper-ink: #573a2e;
+  --home-paper-accent: #81503c;
+  --home-paper-photo: url("/home-preview/bright/assessment-family-beach.webp");
+  --home-paper-photo-position: right center;
+  --home-paper-wash: linear-gradient(90deg,#faf7f2 0%,rgba(250,247,242,.98) 53%,rgba(250,247,242,.78) 73%,rgba(250,247,242,.18) 100%);
+  --home-paper-tab-bg: rgba(249,243,238,.92);
+  --home-paper-tab-dot: rgba(249,243,238,.96);
+  --home-paper-tab-hover: rgba(249,243,238,.98);
+  --home-paper-tab-active: rgba(249,243,238,.95);
+}

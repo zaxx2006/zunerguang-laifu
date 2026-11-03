@@ -1,0 +1,1822 @@
+{
+  "about": {
+    "sourceSectionCount": 7,
+    "sectionCount": 6,
+    "sections": [
+      {
+        "id": "Q06",
+        "sourceIds": [
+          "Q06"
+        ],
+        "role": "story",
+        "columns": 1,
+        "tone": "canvas",
+        "density": "feature",
+        "mediaRationale": "真实的独处照片对应品牌对具体处境的倾听，承担页面开篇叙事。",
+        "media": {
+          "asset": "aboutWindow",
+          "placement": "portrait",
+          "alt": "一位女性安静地望向窗外"
+        },
+        "visualDecision": "photo"
+      },
+      {
+        "id": "Q08",
+        "sourceIds": [
+          "Q08"
+        ],
+        "role": "principles",
+        "columns": 2,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q23",
+        "sourceIds": [
+          "Q23"
+        ],
+        "role": "cards",
+        "columns": 3,
+        "tone": "canvas",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q35",
+        "sourceIds": [
+          "Q35"
+        ],
+        "role": "principles",
+        "columns": 2,
+        "tone": "stone",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q41",
+        "sourceIds": [
+          "Q41"
+        ],
+        "role": "cards",
+        "columns": 2,
+        "tone": "canvas",
+        "density": "feature",
+        "mediaRationale": "真实居住空间对应稳定生活与专业支持的落点，避免团队介绍连续堆叠。",
+        "media": {
+          "asset": "aboutHome",
+          "placement": "banner",
+          "alt": "光线柔和、摆有家庭照片的居家空间"
+        },
+        "visualDecision": "photo"
+      },
+      {
+        "id": "Q56",
+        "sourceIds": [
+          "Q56",
+          "Q59"
+        ],
+        "role": "directory",
+        "columns": 2,
+        "tone": "sand",
+        "density": "compact",
+        "title": "下一步与合作入口",
+        "visualDecision": "none"
+      }
+    ]
+  },
+  "founder": {
+    "sourceSectionCount": 7,
+    "sectionCount": 5,
+    "sections": [
+      {
+        "id": "Q04",
+        "sourceIds": [
+          "Q04",
+          "Q06"
+        ],
+        "role": "metrics",
+        "columns": 2,
+        "tone": "canvas",
+        "density": "feature",
+        "title": "专业背景与实践",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q08",
+        "sourceIds": [
+          "Q08"
+        ],
+        "role": "principles",
+        "columns": 2,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q13",
+        "sourceIds": [
+          "Q13",
+          "Q15"
+        ],
+        "role": "cards",
+        "columns": 2,
+        "tone": "canvas",
+        "density": "regular",
+        "title": "研究与专业工具",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q17",
+        "sourceIds": [
+          "Q17"
+        ],
+        "role": "directory",
+        "columns": 2,
+        "tone": "stone",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q19",
+        "sourceIds": [
+          "Q19"
+        ],
+        "role": "feature",
+        "columns": 1,
+        "tone": "sand",
+        "density": "compact",
+        "visualDecision": "none"
+      }
+    ]
+  },
+  "divorceCoaching": {
+    "sourceSectionCount": 8,
+    "sectionCount": 6,
+    "sections": [
+      {
+        "id": "Q03",
+        "sourceIds": [
+          "Q03",
+          "Q05"
+        ],
+        "role": "story",
+        "columns": 2,
+        "tone": "canvas",
+        "density": "feature",
+        "title": "这项陪伴是否适合你",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q07",
+        "sourceIds": [
+          "Q07"
+        ],
+        "role": "cards",
+        "columns": 4,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q25",
+        "sourceIds": [
+          "Q25"
+        ],
+        "role": "steps",
+        "columns": 3,
+        "tone": "canvas",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q30",
+        "sourceIds": [
+          "Q30"
+        ],
+        "role": "comparison",
+        "columns": 1,
+        "tone": "canvas",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q33",
+        "sourceIds": [
+          "Q33",
+          "Q35"
+        ],
+        "role": "principles",
+        "columns": 2,
+        "tone": "stone",
+        "density": "regular",
+        "title": "你可能获得的改变与服务边界",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q37",
+        "sourceIds": [
+          "Q37"
+        ],
+        "role": "feature",
+        "columns": 1,
+        "tone": "sand",
+        "density": "compact",
+        "visualDecision": "none"
+      }
+    ]
+  },
+  "coParenting": {
+    "sourceSectionCount": 15,
+    "sectionCount": 8,
+    "sections": [
+      {
+        "id": "Q06",
+        "sourceIds": [
+          "Q06",
+          "Q16"
+        ],
+        "role": "story",
+        "columns": 2,
+        "tone": "canvas",
+        "density": "feature",
+        "title": "分开以后，怎样继续保护孩子",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q22",
+        "sourceIds": [
+          "Q22"
+        ],
+        "role": "tool",
+        "columns": 1,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q30",
+        "sourceIds": [
+          "Q30"
+        ],
+        "role": "cards",
+        "columns": 3,
+        "tone": "canvas",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q38",
+        "sourceIds": [
+          "Q38"
+        ],
+        "role": "steps",
+        "columns": 4,
+        "tone": "stone",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q43",
+        "sourceIds": [
+          "Q43"
+        ],
+        "role": "cards",
+        "columns": 2,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q57",
+        "sourceIds": [
+          "Q57",
+          "Q59",
+          "Q63"
+        ],
+        "role": "directory",
+        "columns": 3,
+        "tone": "canvas",
+        "density": "regular",
+        "title": "工具、观察与沟通方法",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q67",
+        "sourceIds": [
+          "Q67",
+          "Q69",
+          "Q71",
+          "Q73",
+          "Q75"
+        ],
+        "role": "principles",
+        "columns": 3,
+        "tone": "stone",
+        "density": "regular",
+        "title": "协同支持、安全与服务边界",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q78",
+        "sourceIds": [
+          "Q78"
+        ],
+        "role": "faq",
+        "columns": 3,
+        "tone": "canvas",
+        "density": "regular",
+        "visualDecision": "none"
+      }
+    ]
+  },
+  "mediation": {
+    "sourceSectionCount": 7,
+    "sectionCount": 4,
+    "sections": [
+      {
+        "id": "Q05",
+        "sourceIds": [
+          "Q05",
+          "Q07",
+          "Q09"
+        ],
+        "role": "principles",
+        "columns": 3,
+        "tone": "canvas",
+        "density": "feature",
+        "title": "为什么谈判前需要系统准备",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q11",
+        "sourceIds": [
+          "Q11"
+        ],
+        "role": "cards",
+        "columns": 3,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q27",
+        "sourceIds": [
+          "Q27",
+          "Q32"
+        ],
+        "role": "steps",
+        "columns": 2,
+        "tone": "stone",
+        "density": "regular",
+        "title": "服务流程与适用情况",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q37",
+        "sourceIds": [
+          "Q37"
+        ],
+        "role": "feature",
+        "columns": 1,
+        "tone": "sand",
+        "density": "compact",
+        "visualDecision": "none"
+      }
+    ]
+  },
+  "recovery": {
+    "sourceSectionCount": 6,
+    "sectionCount": 4,
+    "sections": [
+      {
+        "id": "Q05",
+        "sourceIds": [
+          "Q05",
+          "Q06"
+        ],
+        "role": "story",
+        "columns": 2,
+        "tone": "canvas",
+        "density": "feature",
+        "title": "离婚结束后，重建才刚刚开始",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q16",
+        "sourceIds": [
+          "Q16",
+          "Q21"
+        ],
+        "role": "cards",
+        "columns": 2,
+        "tone": "sand",
+        "density": "regular",
+        "title": "三层重建支持体系",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q32",
+        "sourceIds": [
+          "Q32"
+        ],
+        "role": "steps",
+        "columns": 3,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q34",
+        "sourceIds": [
+          "Q34"
+        ],
+        "role": "steps",
+        "columns": 2,
+        "tone": "canvas",
+        "density": "regular",
+        "visualDecision": "none"
+      }
+    ]
+  },
+  "collaboration": {
+    "sourceSectionCount": 13,
+    "sectionCount": 7,
+    "sections": [
+      {
+        "id": "Q05",
+        "sourceIds": [
+          "Q05",
+          "Q11"
+        ],
+        "role": "story",
+        "columns": 2,
+        "tone": "canvas",
+        "density": "feature",
+        "title": "家事协同支持是什么",
+        "mediaRationale": "真实交流照片对应多专业角色协作，连接概念说明与实际服务情境。",
+        "media": {
+          "asset": "collaborationCafe",
+          "placement": "portrait",
+          "alt": "两个人在桌边整理并交换资料"
+        },
+        "visualDecision": "photo"
+      },
+      {
+        "id": "Q17",
+        "sourceIds": [
+          "Q17",
+          "Q24"
+        ],
+        "role": "comparison",
+        "columns": 2,
+        "tone": "canvas",
+        "density": "regular",
+        "title": "支持方式与辅导师角色",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q26",
+        "sourceIds": [
+          "Q26",
+          "Q28"
+        ],
+        "role": "principles",
+        "columns": 2,
+        "tone": "stone",
+        "density": "regular",
+        "title": "什么时候适合进入协同支持",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q30",
+        "sourceIds": [
+          "Q30"
+        ],
+        "role": "cards",
+        "columns": 2,
+        "tone": "canvas",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q35",
+        "sourceIds": [
+          "Q35"
+        ],
+        "role": "comparison",
+        "columns": 1,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q41",
+        "sourceIds": [
+          "Q41",
+          "Q43",
+          "Q45"
+        ],
+        "role": "steps",
+        "columns": 3,
+        "tone": "canvas",
+        "density": "regular",
+        "title": "授权、推进与决定节奏",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q47",
+        "sourceIds": [
+          "Q47",
+          "58"
+        ],
+        "role": "directory",
+        "columns": 2,
+        "tone": "sand",
+        "density": "regular",
+        "title": "问题入口与服务结束",
+        "visualDecision": "none"
+      }
+    ]
+  },
+  "highConflict": {
+    "sourceSectionCount": 12,
+    "sectionCount": 7,
+    "sections": [
+      {
+        "id": "Q04",
+        "sourceIds": [
+          "Q04",
+          "11",
+          "Q09"
+        ],
+        "role": "story",
+        "columns": 3,
+        "tone": "canvas",
+        "density": "feature",
+        "title": "先识别这是不是高冲突关系",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q19",
+        "sourceIds": [
+          "Q19",
+          "Q21"
+        ],
+        "role": "principles",
+        "columns": 2,
+        "tone": "sand",
+        "density": "regular",
+        "title": "我们如何评估高冲突",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q23",
+        "sourceIds": [
+          "Q23"
+        ],
+        "role": "cards",
+        "columns": 4,
+        "tone": "canvas",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q39",
+        "sourceIds": [
+          "Q39"
+        ],
+        "role": "steps",
+        "columns": 4,
+        "tone": "stone",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q49",
+        "sourceIds": [
+          "Q49",
+          "Q51"
+        ],
+        "role": "feature",
+        "columns": 2,
+        "tone": "canvas",
+        "density": "regular",
+        "title": "可能获得的改变与服务方式",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q53",
+        "sourceIds": [
+          "Q53",
+          "Q55"
+        ],
+        "role": "principles",
+        "columns": 2,
+        "tone": "sand",
+        "density": "regular",
+        "title": "边界与安全风险提示",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q57",
+        "sourceIds": [
+          "Q57"
+        ],
+        "role": "feature",
+        "columns": 1,
+        "tone": "sand",
+        "density": "compact",
+        "visualDecision": "none"
+      }
+    ]
+  },
+  "highNetWorth": {
+    "sourceSectionCount": 9,
+    "sectionCount": 6,
+    "sections": [
+      {
+        "id": "Q05",
+        "sourceIds": [
+          "Q05",
+          "Q09"
+        ],
+        "role": "story",
+        "columns": 2,
+        "tone": "canvas",
+        "density": "feature",
+        "title": "为什么高净值家庭需要全局规划",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q19",
+        "sourceIds": [
+          "Q19"
+        ],
+        "role": "feature",
+        "columns": 1,
+        "tone": "stone",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q24",
+        "sourceIds": [
+          "Q24"
+        ],
+        "role": "cards",
+        "columns": 3,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q32",
+        "sourceIds": [
+          "Q32",
+          "Q34"
+        ],
+        "role": "steps",
+        "columns": 2,
+        "tone": "canvas",
+        "density": "regular",
+        "title": "典型场景与定制流程",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q36",
+        "sourceIds": [
+          "Q36",
+          "Q38"
+        ],
+        "role": "principles",
+        "columns": 2,
+        "tone": "sand",
+        "density": "regular",
+        "title": "保密机制与服务边界",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q40",
+        "sourceIds": [
+          "Q40"
+        ],
+        "role": "feature",
+        "columns": 1,
+        "tone": "sand",
+        "density": "compact",
+        "visualDecision": "none"
+      }
+    ]
+  },
+  "academy": {
+    "sourceSectionCount": 8,
+    "sectionCount": 5,
+    "sections": [
+      {
+        "id": "Q05",
+        "sourceIds": [
+          "Q05",
+          "Q08"
+        ],
+        "role": "story",
+        "columns": 2,
+        "tone": "canvas",
+        "density": "feature",
+        "title": "家事服务正在进入协作时代",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q12",
+        "sourceIds": [
+          "Q12"
+        ],
+        "role": "feature",
+        "columns": 1,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q14",
+        "sourceIds": [
+          "Q14"
+        ],
+        "role": "cards",
+        "columns": 3,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q21",
+        "sourceIds": [
+          "Q21",
+          "Q23"
+        ],
+        "role": "steps",
+        "columns": 2,
+        "tone": "canvas",
+        "density": "regular",
+        "title": "学习流程与机构服务",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q25",
+        "sourceIds": [
+          "Q25",
+          "Q27"
+        ],
+        "role": "principles",
+        "columns": 2,
+        "tone": "stone",
+        "density": "regular",
+        "title": "服务边界与坚持的原则",
+        "visualDecision": "none"
+      }
+    ]
+  },
+  "courses": {
+    "sourceSectionCount": 7,
+    "sectionCount": 7,
+    "sections": [
+      {
+        "id": "availability",
+        "sourceIds": [
+          "availability"
+        ],
+        "role": "notice",
+        "columns": 1,
+        "tone": "sand",
+        "density": "compact",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q05",
+        "sourceIds": [
+          "Q05"
+        ],
+        "role": "cards",
+        "columns": 3,
+        "tone": "canvas",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q14",
+        "sourceIds": [
+          "Q14"
+        ],
+        "role": "cards",
+        "columns": 4,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q19",
+        "sourceIds": [
+          "Q19"
+        ],
+        "role": "cards",
+        "columns": 3,
+        "tone": "canvas",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q24",
+        "sourceIds": [
+          "Q24"
+        ],
+        "role": "cards",
+        "columns": 2,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q28",
+        "sourceIds": [
+          "Q28"
+        ],
+        "role": "steps",
+        "columns": 3,
+        "tone": "stone",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "remarriage",
+        "sourceIds": [
+          "remarriage"
+        ],
+        "role": "feature",
+        "columns": 1,
+        "tone": "sand",
+        "density": "compact",
+        "visualDecision": "none"
+      }
+    ]
+  },
+  "community": {
+    "sourceSectionCount": 8,
+    "sectionCount": 5,
+    "sections": [
+      {
+        "id": "availability",
+        "sourceIds": [
+          "availability"
+        ],
+        "role": "notice",
+        "columns": 1,
+        "tone": "sand",
+        "density": "compact",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q05",
+        "sourceIds": [
+          "Q05",
+          "Q08"
+        ],
+        "role": "story",
+        "columns": 2,
+        "tone": "canvas",
+        "density": "feature",
+        "title": "为什么需要线下活动与社群陪伴",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q12",
+        "sourceIds": [
+          "Q12"
+        ],
+        "role": "steps",
+        "columns": 2,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q17",
+        "sourceIds": [
+          "Q17"
+        ],
+        "role": "cards",
+        "columns": 3,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q28",
+        "sourceIds": [
+          "Q28",
+          "Q30",
+          "Q32"
+        ],
+        "role": "steps",
+        "columns": 3,
+        "tone": "stone",
+        "density": "regular",
+        "title": "参与流程、安全与专业边界",
+        "visualDecision": "none"
+      }
+    ]
+  },
+  "resources": {
+    "sourceSectionCount": 13,
+    "sectionCount": 8,
+    "sections": [
+      {
+        "id": "availability",
+        "sourceIds": [
+          "availability"
+        ],
+        "role": "notice",
+        "columns": 1,
+        "tone": "sand",
+        "density": "compact",
+        "visualDecision": "none"
+      },
+      {
+        "id": "catalog",
+        "sourceIds": [
+          "catalog"
+        ],
+        "role": "tool",
+        "columns": 3,
+        "tone": "canvas",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "safety",
+        "sourceIds": [
+          "safety"
+        ],
+        "role": "notice",
+        "columns": 1,
+        "tone": "sand",
+        "density": "compact",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q02",
+        "sourceIds": [
+          "Q02"
+        ],
+        "role": "story",
+        "columns": 1,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q06",
+        "sourceIds": [
+          "Q06",
+          "Q14",
+          "Q16",
+          "Q18",
+          "Q20",
+          "Q22"
+        ],
+        "role": "directory",
+        "columns": 3,
+        "tone": "canvas",
+        "density": "feature",
+        "title": "按资源类型查找",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q27",
+        "sourceIds": [
+          "Q27"
+        ],
+        "role": "steps",
+        "columns": 3,
+        "tone": "sand",
+        "density": "regular",
+        "mediaRationale": "真实使用工具的照片对应按阶段继续寻找支持的行动，用于资源目录后的视觉转场。",
+        "media": {
+          "asset": "resourceNotes",
+          "placement": "portrait",
+          "alt": "一位女性在咖啡桌旁使用电脑"
+        },
+        "visualDecision": "photo"
+      },
+      {
+        "id": "Q29",
+        "sourceIds": [
+          "Q29"
+        ],
+        "role": "feature",
+        "columns": 1,
+        "tone": "stone",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q31",
+        "sourceIds": [
+          "Q31"
+        ],
+        "role": "feature",
+        "columns": 1,
+        "tone": "sand",
+        "density": "compact",
+        "visualDecision": "none"
+      }
+    ]
+  },
+  "articles": {
+    "sourceSectionCount": 7,
+    "sectionCount": 6,
+    "sections": [
+      {
+        "id": "availability",
+        "sourceIds": [
+          "availability"
+        ],
+        "role": "notice",
+        "columns": 1,
+        "tone": "sand",
+        "density": "compact",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q04",
+        "sourceIds": [
+          "Q04"
+        ],
+        "role": "cards",
+        "columns": 3,
+        "tone": "canvas",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q07",
+        "sourceIds": [
+          "Q07"
+        ],
+        "role": "cards",
+        "columns": 3,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q09",
+        "sourceIds": [
+          "Q09"
+        ],
+        "role": "cards",
+        "columns": 2,
+        "tone": "canvas",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q23",
+        "sourceIds": [
+          "Q23"
+        ],
+        "role": "directory",
+        "columns": 3,
+        "tone": "sand",
+        "density": "regular",
+        "mediaRationale": "真实阅读照片对应专题内容入口，用于文章目录后的节奏转换。",
+        "media": {
+          "asset": "articleReading",
+          "placement": "banner",
+          "alt": "手指翻动一本打开的书"
+        },
+        "visualDecision": "photo"
+      },
+      {
+        "id": "Q30",
+        "sourceIds": [
+          "Q30",
+          "Q32"
+        ],
+        "role": "feature",
+        "columns": 2,
+        "tone": "sand",
+        "density": "compact",
+        "title": "继续阅读之前",
+        "visualDecision": "none"
+      }
+    ]
+  },
+  "topic0": {
+    "sourceSectionCount": 1,
+    "sectionCount": 1,
+    "sections": [
+      {
+        "id": "overview",
+        "sourceIds": [
+          "overview"
+        ],
+        "role": "story",
+        "columns": 1,
+        "tone": "canvas",
+        "density": "feature",
+        "visualDecision": "none"
+      }
+    ]
+  },
+  "topic1": {
+    "sourceSectionCount": 1,
+    "sectionCount": 1,
+    "sections": [
+      {
+        "id": "overview",
+        "sourceIds": [
+          "overview"
+        ],
+        "role": "story",
+        "columns": 1,
+        "tone": "canvas",
+        "density": "feature",
+        "visualDecision": "none"
+      }
+    ]
+  },
+  "topic2": {
+    "sourceSectionCount": 1,
+    "sectionCount": 1,
+    "sections": [
+      {
+        "id": "overview",
+        "sourceIds": [
+          "overview"
+        ],
+        "role": "story",
+        "columns": 1,
+        "tone": "canvas",
+        "density": "feature",
+        "visualDecision": "none"
+      }
+    ]
+  },
+  "topic3": {
+    "sourceSectionCount": 1,
+    "sectionCount": 1,
+    "sections": [
+      {
+        "id": "overview",
+        "sourceIds": [
+          "overview"
+        ],
+        "role": "story",
+        "columns": 1,
+        "tone": "canvas",
+        "density": "feature",
+        "visualDecision": "none"
+      }
+    ]
+  },
+  "topic4": {
+    "sourceSectionCount": 1,
+    "sectionCount": 1,
+    "sections": [
+      {
+        "id": "overview",
+        "sourceIds": [
+          "overview"
+        ],
+        "role": "story",
+        "columns": 1,
+        "tone": "canvas",
+        "density": "feature",
+        "visualDecision": "none"
+      }
+    ]
+  },
+  "topic5": {
+    "sourceSectionCount": 1,
+    "sectionCount": 1,
+    "sections": [
+      {
+        "id": "overview",
+        "sourceIds": [
+          "overview"
+        ],
+        "role": "story",
+        "columns": 1,
+        "tone": "canvas",
+        "density": "feature",
+        "visualDecision": "none"
+      }
+    ]
+  },
+  "media": {
+    "sourceSectionCount": 9,
+    "sectionCount": 9,
+    "sections": [
+      {
+        "id": "availability",
+        "sourceIds": [
+          "availability"
+        ],
+        "role": "notice",
+        "columns": 1,
+        "tone": "sand",
+        "density": "compact",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q05",
+        "sourceIds": [
+          "Q05"
+        ],
+        "role": "media",
+        "columns": 3,
+        "tone": "canvas",
+        "density": "regular",
+        "mediaRationale": "真实录音设备照片直接对应对谈栏目，帮助区分媒体内容类型。",
+        "media": {
+          "asset": "mediaRecording",
+          "placement": "banner",
+          "alt": "录音空间中的麦克风"
+        },
+        "visualDecision": "photo"
+      },
+      {
+        "id": "Q09",
+        "sourceIds": [
+          "Q09"
+        ],
+        "role": "media",
+        "columns": 2,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q13",
+        "sourceIds": [
+          "Q13"
+        ],
+        "role": "media",
+        "columns": 2,
+        "tone": "canvas",
+        "density": "regular",
+        "mediaRationale": "真实人物照片对应故事中的理解过程，帮助区分内容语气。",
+        "media": {
+          "asset": "mediaReflection",
+          "placement": "portrait",
+          "alt": "一位女性独处并安静思考"
+        },
+        "visualDecision": "photo"
+      },
+      {
+        "id": "Q16",
+        "sourceIds": [
+          "Q16"
+        ],
+        "role": "media",
+        "columns": 2,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q22",
+        "sourceIds": [
+          "Q22"
+        ],
+        "role": "testimonials",
+        "columns": 3,
+        "tone": "canvas",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q24",
+        "sourceIds": [
+          "Q24"
+        ],
+        "role": "principles",
+        "columns": 1,
+        "tone": "stone",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q26",
+        "sourceIds": [
+          "Q26"
+        ],
+        "role": "feature",
+        "columns": 1,
+        "tone": "canvas",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q28",
+        "sourceIds": [
+          "Q28"
+        ],
+        "role": "feature",
+        "columns": 1,
+        "tone": "sand",
+        "density": "compact",
+        "visualDecision": "none"
+      }
+    ]
+  },
+  "faq": {
+    "sourceSectionCount": 7,
+    "sectionCount": 7,
+    "sections": [
+      {
+        "id": "Q02",
+        "sourceIds": [
+          "Q02"
+        ],
+        "role": "faq",
+        "columns": 3,
+        "tone": "canvas",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q11",
+        "sourceIds": [
+          "Q11"
+        ],
+        "role": "faq",
+        "columns": 3,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q26",
+        "sourceIds": [
+          "Q26"
+        ],
+        "role": "faq",
+        "columns": 3,
+        "tone": "canvas",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q47",
+        "sourceIds": [
+          "Q47"
+        ],
+        "role": "faq",
+        "columns": 3,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q60",
+        "sourceIds": [
+          "Q60"
+        ],
+        "role": "faq",
+        "columns": 3,
+        "tone": "canvas",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q72",
+        "sourceIds": [
+          "Q72"
+        ],
+        "role": "faq",
+        "columns": 3,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q83",
+        "sourceIds": [
+          "Q83"
+        ],
+        "role": "feature",
+        "columns": 1,
+        "tone": "sand",
+        "density": "compact",
+        "visualDecision": "none"
+      }
+    ]
+  },
+  "booking": {
+    "sourceSectionCount": 5,
+    "sectionCount": 5,
+    "sections": [
+      {
+        "id": "Q02",
+        "sourceIds": [
+          "Q02"
+        ],
+        "role": "story",
+        "columns": 1,
+        "tone": "canvas",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q11",
+        "sourceIds": [
+          "Q11"
+        ],
+        "role": "cards",
+        "columns": 1,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q15",
+        "sourceIds": [
+          "Q15"
+        ],
+        "role": "cards",
+        "columns": 1,
+        "tone": "canvas",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "channel",
+        "sourceIds": [
+          "channel"
+        ],
+        "role": "tool",
+        "columns": 1,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q23",
+        "sourceIds": [
+          "Q23"
+        ],
+        "role": "story",
+        "columns": 1,
+        "tone": "canvas",
+        "density": "regular",
+        "visualDecision": "none"
+      }
+    ]
+  },
+  "remarriage": {
+    "sourceSectionCount": 12,
+    "sectionCount": 9,
+    "sections": [
+      {
+        "id": "Q07",
+        "sourceIds": [
+          "Q07",
+          "Q09"
+        ],
+        "role": "story",
+        "columns": 2,
+        "tone": "canvas",
+        "density": "feature",
+        "title": "为什么再婚前要先谈清边界",
+        "mediaRationale": "真实婚戒照片对应再婚前需要谈清的承诺与边界，承担专题开篇叙事。",
+        "media": {
+          "asset": "remarriageRings",
+          "placement": "portrait",
+          "alt": "新娘手中拿着两枚婚戒"
+        },
+        "visualDecision": "photo"
+      },
+      {
+        "id": "Q11",
+        "sourceIds": [
+          "Q11"
+        ],
+        "role": "tool",
+        "columns": 1,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q15",
+        "sourceIds": [
+          "Q15"
+        ],
+        "role": "cards",
+        "columns": 4,
+        "tone": "canvas",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q20",
+        "sourceIds": [
+          "Q20"
+        ],
+        "role": "cards",
+        "columns": 3,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q26",
+        "sourceIds": [
+          "Q26"
+        ],
+        "role": "steps",
+        "columns": 3,
+        "tone": "stone",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q28",
+        "sourceIds": [
+          "Q28"
+        ],
+        "role": "cards",
+        "columns": 3,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q34",
+        "sourceIds": [
+          "Q34",
+          "Q36",
+          "Q38"
+        ],
+        "role": "principles",
+        "columns": 3,
+        "tone": "stone",
+        "density": "regular",
+        "title": "交付成果、风险提示与专业边界",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q41",
+        "sourceIds": [
+          "Q41"
+        ],
+        "role": "faq",
+        "columns": 3,
+        "tone": "canvas",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q43",
+        "sourceIds": [
+          "Q43"
+        ],
+        "role": "feature",
+        "columns": 1,
+        "tone": "sand",
+        "density": "compact",
+        "visualDecision": "none"
+      }
+    ]
+  },
+  "home": {
+    "sourceSectionCount": 4,
+    "sectionCount": 4,
+    "sections": [
+      {
+        "id": "assessment",
+        "sourceIds": [
+          "assessment"
+        ],
+        "role": "tool",
+        "columns": 1,
+        "tone": "sand",
+        "density": "feature",
+        "media": {
+          "asset": "reflection",
+          "placement": "rail",
+          "alt": "在自然光下用笔记录和梳理想法"
+        },
+        "mediaRationale": "自我整理照片解释评估工具的使用情境，是首页首个功能入口的必要视觉说明。",
+        "visualDecision": "photo"
+      },
+      {
+        "id": "services",
+        "sourceIds": [
+          "services"
+        ],
+        "role": "directory",
+        "columns": 2,
+        "tone": "canvas",
+        "density": "feature",
+        "media": {
+          "asset": "room",
+          "placement": "rail",
+          "alt": "阳光照进摆有木桌与座椅的安静房间"
+        },
+        "mediaRationale": "会谈空间照片让服务目录落到真实支持场景，并与纯文字目录形成节奏变化。",
+        "visualDecision": "photo"
+      },
+      {
+        "id": "approach",
+        "sourceIds": [
+          "approach"
+        ],
+        "role": "steps",
+        "columns": 1,
+        "tone": "stone",
+        "density": "feature",
+        "media": {
+          "asset": "path",
+          "placement": "rail",
+          "alt": "林间道路通向前方"
+        },
+        "mediaRationale": "路径照片对应分阶段推进的方法，用于把三个步骤串成连续行动。",
+        "visualDecision": "photo"
+      },
+      {
+        "id": "learn",
+        "sourceIds": [
+          "learn"
+        ],
+        "role": "cards",
+        "columns": 1,
+        "tone": "canvas",
+        "density": "feature",
+        "media": {
+          "asset": "journal",
+          "placement": "rail",
+          "alt": "打开的笔记本与书写工具"
+        },
+        "mediaRationale": "笔记照片对应阅读与学习入口，用于识别内容资源板块。",
+        "visualDecision": "photo"
+      }
+    ]
+  },
+  "services": {
+    "sourceSectionCount": 11,
+    "sectionCount": 9,
+    "sections": [
+      {
+        "id": "Q90",
+        "sourceIds": [
+          "Q90"
+        ],
+        "role": "steps",
+        "columns": 3,
+        "tone": "canvas",
+        "density": "feature",
+        "mediaRationale": "真实道路照片对应从当前处境到服务选择的多条路径，承担服务总览的开篇导向。",
+        "media": {
+          "asset": "servicesRoad",
+          "placement": "banner",
+          "alt": "上海延安东路立交的多层道路"
+        },
+        "visualDecision": "photo"
+      },
+      {
+        "id": "Q93",
+        "sourceIds": [
+          "Q93"
+        ],
+        "role": "directory",
+        "columns": 2,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q122",
+        "sourceIds": [
+          "Q122"
+        ],
+        "role": "steps",
+        "columns": 3,
+        "tone": "canvas",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q133",
+        "sourceIds": [
+          "Q133"
+        ],
+        "role": "feature",
+        "columns": 1,
+        "tone": "canvas",
+        "density": "feature",
+        "mediaRationale": "真实办公场景对应获得清晰判断与行动方案的产出，使核心价值章节具象化。",
+        "media": {
+          "asset": "servicesOffice",
+          "placement": "portrait",
+          "alt": "大窗前整洁安静的办公桌"
+        },
+        "visualDecision": "photo"
+      },
+      {
+        "id": "Q135",
+        "sourceIds": [
+          "Q135"
+        ],
+        "role": "cards",
+        "columns": 3,
+        "tone": "sand",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q160",
+        "sourceIds": [
+          "Q160"
+        ],
+        "role": "directory",
+        "columns": 2,
+        "tone": "canvas",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q196",
+        "sourceIds": [
+          "Q196"
+        ],
+        "role": "steps",
+        "columns": 3,
+        "tone": "stone",
+        "density": "regular",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q198",
+        "sourceIds": [
+          "Q198",
+          "Q202"
+        ],
+        "role": "directory",
+        "columns": 2,
+        "tone": "sand",
+        "density": "regular",
+        "title": "学习、咨询与开始方式",
+        "visualDecision": "none"
+      },
+      {
+        "id": "Q206",
+        "sourceIds": [
+          "Q206",
+          "Q209"
+        ],
+        "role": "principles",
+        "columns": 2,
+        "tone": "sand",
+        "density": "compact",
+        "title": "品牌原则与隐私说明",
+        "visualDecision": "none"
+      }
+    ]
+  },
+  "decisionAlias": {
+    "sourceSectionCount": 1,
+    "sectionCount": 1,
+    "sections": [
+      {
+        "id": "updated",
+        "sourceIds": [
+          "updated"
+        ],
+        "role": "feature",
+        "columns": 1,
+        "tone": "sand",
+        "density": "compact",
+        "visualDecision": "none"
+      }
+    ]
+  },
+  "fullCycleAlias": {
+    "sourceSectionCount": 1,
+    "sectionCount": 1,
+    "sections": [
+      {
+        "id": "updated",
+        "sourceIds": [
+          "updated"
+        ],
+        "role": "feature",
+        "columns": 1,
+        "tone": "sand",
+        "density": "compact",
+        "visualDecision": "none"
+      }
+    ]
+  }
+}

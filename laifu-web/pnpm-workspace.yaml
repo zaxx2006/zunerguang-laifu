@@ -1,0 +1,19 @@
+packages:
+  - "apps/*"
+  - "workers/*"
+
+allowBuilds:
+  core-js: true
+  esbuild: true
+  sharp: true
+  unrs-resolver: true
+  workerd: true
+
+minimumReleaseAgeExclude:
+  - postcss@8.5.28
+
+overrides:
+  dompurify: 3.4.14
+  postcss: 8.5.28
+  sharp: 0.35.4
+  yaml: 2.9.0

@@ -1,0 +1,497 @@
+[
+  {
+    "id": "P01",
+    "page": "首页：离婚陪伴服务入口",
+    "theme": "交谈中的记录",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png"
+    ],
+    "status": "已确认；保留原提示词，无需重生",
+    "prompt_file": "逐张提示词/P01.txt"
+  },
+  {
+    "id": "P02",
+    "page": "首页：高冲突支持入口",
+    "theme": "重新获得个人空间",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R02-户外自然光.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P02.txt"
+  },
+  {
+    "id": "P03",
+    "page": "首页：课程与工作坊入口",
+    "theme": "正在进行的学习",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R05-人物局部.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P03.txt"
+  },
+  {
+    "id": "P04",
+    "page": "首页：线下活动入口",
+    "theme": "小组中的倾听",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R04-空间层次.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P04.txt"
+  },
+  {
+    "id": "P05",
+    "page": "首页：来福学院入口",
+    "theme": "专业案例研讨",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R04-空间层次.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P05.txt"
+  },
+  {
+    "id": "P06",
+    "page": "首页：分居初期生存指南背景",
+    "theme": "有序照顾一天",
+    "ratio": "4:3",
+    "references": [
+      "R01-P01已确认效果.png"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P06.txt"
+  },
+  {
+    "id": "P07",
+    "page": "首页：高冲突第一反应清单背景",
+    "theme": "为自己留出缓冲",
+    "ratio": "4:3",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R03-静物明暗.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P07.txt"
+  },
+  {
+    "id": "P08",
+    "page": "首页：律师／调解前准备指南背景",
+    "theme": "清楚的准备顺序",
+    "ratio": "4:3",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R03-静物明暗.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P08.txt"
+  },
+  {
+    "id": "P09",
+    "page": "关于来福：理念切换第 1 张",
+    "theme": "被认真倾听",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P09.txt"
+  },
+  {
+    "id": "P10",
+    "page": "关于来福：理念切换第 2 张",
+    "theme": "尊重个人判断",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R05-人物局部.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P10.txt"
+  },
+  {
+    "id": "P11",
+    "page": "关于来福：理念切换第 3 张",
+    "theme": "清晰而开放的边界",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R04-空间层次.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P11.txt"
+  },
+  {
+    "id": "P12",
+    "page": "关于来福：理念切换第 4 张",
+    "theme": "支持网络的衔接",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P12.txt"
+  },
+  {
+    "id": "P13",
+    "page": "关于来福：专业团队区配图",
+    "theme": "共同工作的片刻",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R03-静物明暗.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P13.txt"
+  },
+  {
+    "id": "P14",
+    "page": "服务总览：正文陪伴配图",
+    "theme": "多种选择的整理",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R05-人物局部.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P14.txt"
+  },
+  {
+    "id": "P15",
+    "page": "离婚陪伴：首屏",
+    "theme": "站稳自己的位置",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R02-户外自然光.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P15.txt"
+  },
+  {
+    "id": "P16",
+    "page": "离婚陪伴：财务／现实准备配图",
+    "theme": "整理生活的现实安排",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R03-静物明暗.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P16.txt"
+  },
+  {
+    "id": "P17",
+    "page": "离婚陪伴：后段生活重建配图",
+    "theme": "恢复具体的生活行动",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P17.txt"
+  },
+  {
+    "id": "P18",
+    "page": "孩子养育：观察孩子区配图",
+    "theme": "安稳的日常节奏",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P18.txt"
+  },
+  {
+    "id": "P19",
+    "page": "孩子养育：父母沟通配图",
+    "theme": "平静完成孩子交接",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R02-户外自然光.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P19.txt"
+  },
+  {
+    "id": "P20",
+    "page": "孩子养育：学习与陪伴配图",
+    "theme": "共同完成一件小事",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P20.txt"
+  },
+  {
+    "id": "P21",
+    "page": "谈判与调解准备：正文配图",
+    "theme": "协商前的准备演练",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R05-人物局部.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P21.txt"
+  },
+  {
+    "id": "P22",
+    "page": "家事协同支持：正文协作配图",
+    "theme": "分工明确的协作",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R04-空间层次.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P22.txt"
+  },
+  {
+    "id": "P23",
+    "page": "家事协同支持：会议配图",
+    "theme": "不同专业的信息衔接",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R03-静物明暗.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P23.txt"
+  },
+  {
+    "id": "P24",
+    "page": "高冲突婚姻：首屏",
+    "theme": "可自主选择的距离",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R02-户外自然光.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P24.txt"
+  },
+  {
+    "id": "P25",
+    "page": "高冲突婚姻：正文沟通配图",
+    "theme": "按自己的节奏回应",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R05-人物局部.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P25.txt"
+  },
+  {
+    "id": "P26",
+    "page": "复杂资产：正文财务模块",
+    "theme": "家庭与事业的脉络",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R03-静物明暗.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P26.txt"
+  },
+  {
+    "id": "P27",
+    "page": "复杂资产：正文工作台模块",
+    "theme": "多层事务的梳理",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R04-空间层次.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P27.txt"
+  },
+  {
+    "id": "P28",
+    "page": "复杂资产：正文协同模块",
+    "theme": "私密而审慎的讨论",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R04-空间层次.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P28.txt"
+  },
+  {
+    "id": "P29",
+    "page": "复杂资产：正文资料模块",
+    "theme": "跨地区生活与资产准备",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R03-静物明暗.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P29.txt"
+  },
+  {
+    "id": "P30",
+    "page": "线下活动：主题工作坊配图",
+    "theme": "亲手参与的工作坊",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R04-空间层次.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P30.txt"
+  },
+  {
+    "id": "P31",
+    "page": "线下活动：成长小组配图",
+    "theme": "小范围稳定倾听",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R04-空间层次.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P31.txt"
+  },
+  {
+    "id": "P32",
+    "page": "线下活动：重复的自然环境配图",
+    "theme": "户外停留与交流",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R02-户外自然光.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P32.txt"
+  },
+  {
+    "id": "P33",
+    "page": "课程页：支持营／疗愈营配图",
+    "theme": "自然中的自主活动",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R02-户外自然光.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P33.txt"
+  },
+  {
+    "id": "P34",
+    "page": "学院：家事律师职业路径",
+    "theme": "案例材料与实务训练",
+    "ratio": "3:1",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R03-静物明暗.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P34.txt"
+  },
+  {
+    "id": "P35",
+    "page": "学院：财富管理职业路径",
+    "theme": "跨专业财务学习",
+    "ratio": "3:1",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R03-静物明暗.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P35.txt"
+  },
+  {
+    "id": "P36",
+    "page": "学院：亲子教育职业路径",
+    "theme": "亲子教育实务材料",
+    "ratio": "3:1",
+    "references": [
+      "R01-P01已确认效果.png"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P36.txt"
+  },
+  {
+    "id": "P37",
+    "page": "学院：实务工具／学习场景配图",
+    "theme": "可直接使用的训练工具",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R05-人物局部.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P37.txt"
+  },
+  {
+    "id": "P38",
+    "page": "学院：跨专业协作配图",
+    "theme": "平等交换专业视角",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R04-空间层次.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P38.txt"
+  },
+  {
+    "id": "P39",
+    "page": "学院：机构服务配图",
+    "theme": "面向机构的教学支持",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R04-空间层次.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P39.txt"
+  },
+  {
+    "id": "P40",
+    "page": "媒体动态：活动示意配图",
+    "theme": "小型公开对谈场景",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R04-空间层次.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P40.txt"
+  },
+  {
+    "id": "P41",
+    "page": "创始人：背景与研究区配图",
+    "theme": "法律与心理研究桌面",
+    "ratio": "16:9",
+    "references": [
+      "R01-P01已确认效果.png",
+      "R03-静物明暗.jpg"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P41.txt"
+  },
+  {
+    "id": "P42",
+    "page": "再婚准备：财务边界配图",
+    "theme": "共同生活的提前规划",
+    "ratio": "3:2",
+    "references": [
+      "R01-P01已确认效果.png"
+    ],
+    "status": "V2 已重写；待生成确认",
+    "prompt_file": "逐张提示词/P42.txt"
+  }
+]

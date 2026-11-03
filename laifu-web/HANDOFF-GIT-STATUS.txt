@@ -1,0 +1,173 @@
+Original checkout status at packaging time
+Base: ea68f05d7d8b9a77283f96c5bed7cbe8e157bf2a
+
+ M .gitignore
+ M README.md
+ M apps/admin/app/globals.css
+ M apps/admin/components/AdminDimensionRadarChart.js
+ M apps/admin/components/LeadReportPage.js
+ M apps/admin/components/narcissism-risk/NarcissismRiskReportPage.js
+ M apps/admin/package.json
+ M apps/assessments/app/globals.css
+ M apps/assessments/app/layout.js
+ M apps/assessments/components/DimensionRadarChart.js
+ M apps/assessments/components/QuestionnaireChrome.js
+ M apps/assessments/components/ResultScreen.js
+ M apps/assessments/components/narcissism-risk/NarcissismRiskRadarChart.js
+ M apps/assessments/components/narcissism-risk/NarcissismRiskResultScreen.js
+ M apps/assessments/components/narcissism-risk/narcissismRisk.module.css
+ M apps/assessments/package.json
+ D apps/website/assets/illustration/undraw_around-the-world_1p8h.svg
+ D apps/website/assets/illustration/undraw_book-lover_m9n3.svg
+ D apps/website/assets/illustration/undraw_calculator_os9t.svg
+ D apps/website/assets/illustration/undraw_group-project_kow1.svg
+ M apps/website/assets/illustration/undraw_key-points_iiic.svg
+ D apps/website/assets/illustration/undraw_legal-counsel_kdnh.svg
+ D apps/website/assets/illustration/undraw_meditation_k4oa.svg
+ D apps/website/assets/illustration/undraw_meet-the-team_fau8.svg
+ D apps/website/assets/illustration/undraw_multiple-choice_9n00.svg
+ D apps/website/assets/illustration/undraw_multitasking_i2bv.svg
+ D apps/website/assets/illustration/undraw_my-current-location_tudq.svg
+ D apps/website/assets/illustration/undraw_my-universe_qqch.svg
+ D apps/website/assets/illustration/undraw_peekaboo_5o8i.svg
+ D apps/website/assets/illustration/undraw_saving-notes_wp71.svg
+ D apps/website/assets/illustration/undraw_terms_sx63.svg
+ D apps/website/assets/illustration/undraw_toy-car_on9j.svg
+ D apps/website/assets/illustration/undraw_true-friends_1h3v.svg
+ D apps/website/assets/illustration/undraw_with-love_rs1k.svg
+ M apps/website/assets/images/logo.svg
+ M apps/website/next.config.ts
+ M apps/website/package.json
+ M apps/website/public/_headers
+ M apps/website/scripts/check-content.mjs
+ M apps/website/scripts/check-design.mjs
+ M apps/website/scripts/check-output.mjs
+ M apps/website/scripts/check-performance.mjs
+ M apps/website/scripts/check-structure.mjs
+ M apps/website/scripts/generate-design-tokens.mjs
+ M apps/website/scripts/lib/assets.mjs
+ M apps/website/scripts/lib/design.mjs
+ M apps/website/scripts/strip-next-runtime.mjs
+ M apps/website/src/app/globals.css
+ M apps/website/src/app/layout.tsx
+ M apps/website/src/components/content/MdxComponents.tsx
+ M apps/website/src/components/site/Footer.tsx
+ M apps/website/src/components/site/Header.tsx
+ M apps/website/src/components/site/PageView.tsx
+ M apps/website/src/content/published/about.mdx
+ M apps/website/src/content/published/academy.mdx
+ M apps/website/src/content/published/blog.mdx
+ M apps/website/src/content/published/book-consultation.mdx
+ M apps/website/src/content/published/co-parenting.mdx
+ M apps/website/src/content/published/collaborative-law.mdx
+ M apps/website/src/content/published/courses-workshops.mdx
+ M apps/website/src/content/published/decision-support.mdx
+ M apps/website/src/content/published/divorce-coaching.mdx
+ M apps/website/src/content/published/faq.mdx
+ M apps/website/src/content/published/for-lawyers.mdx
+ M apps/website/src/content/published/high-conflict-divorce.mdx
+ M apps/website/src/content/published/home.mdx
+ M apps/website/src/content/published/media.mdx
+ M apps/website/src/content/published/mediation-preparation.mdx
+ M apps/website/src/content/published/nuptial-agreements.mdx
+ M apps/website/src/content/published/pre-legal-clarity.mdx
+ M apps/website/src/content/published/resources.mdx
+ M apps/website/src/content/published/retreats-workshops.mdx
+ M apps/website/src/content/published/services.mdx
+ M apps/website/src/content/published/signature-program.mdx
+ M apps/website/src/lib/bilingual.ts
+ M apps/website/src/lib/content-update.test.ts
+ M apps/website/src/lib/content.tsx
+ M apps/website/src/lib/page-registry.test.ts
+ M apps/website/src/lib/page-registry.ts
+ M apps/website/src/lib/page-schema.ts
+ M apps/website/src/lib/seo.ts
+ M apps/website/tsconfig.json
+ M docs/architecture.md
+ M docs/design/compliance.md
+ M docs/design/system.md
+ M package.json
+ M playwright.config.ts
+ M pnpm-lock.yaml
+ M pnpm-workspace.yaml
+ M scripts/check-docs.mjs
+ M tests/e2e/assessments.spec.ts
+ M tests/e2e/site.spec.ts
+ M workers/assessment-api/package.json
+?? apps/admin/app/leads/[id]/report/layout.js
+?? apps/admin/styles/
+?? apps/assessments/assets/
+?? apps/assessments/public/_headers
+?? apps/assessments/scripts/
+?? apps/assessments/styles/
+?? apps/website/AGENTS.md
+?? apps/website/CLAUDE.md
+?? apps/website/assets/font-subsets.json
+?? apps/website/assets/illustration/undraw_faq_pgxi.svg
+?? apps/website/assets/illustration/undraw_team_mmq0.svg
+?? apps/website/assets/photos/
+?? apps/website/public/fonts/
+?? apps/website/scripts/check-section-design.mjs
+?? apps/website/scripts/lib/style-contract.mjs
+?? apps/website/scripts/prepare-fonts.py
+?? apps/website/scripts/prepare-photos.mjs
+?? apps/website/scripts/style-contract.test.mjs
+?? apps/website/src/app/fonts.css
+?? apps/website/src/app/fonts/
+?? apps/website/src/components/content/ContentBlock.tsx
+?? apps/website/src/components/content/ContentPrimitives.tsx
+?? apps/website/src/components/content/EditorialSpread.tsx
+?? apps/website/src/components/content/ResourceCatalog.tsx
+?? apps/website/src/components/content/ResourceCategories.tsx
+?? apps/website/src/components/content/RichText.tsx
+?? apps/website/src/components/content/StructuredContent.tsx
+?? apps/website/src/components/content/Testimonials.test.ts
+?? apps/website/src/components/content/Testimonials.tsx
+?? apps/website/src/components/content/content-types.ts
+?? apps/website/src/content/font-preloads.json
+?? apps/website/src/content/photo-manifest.json
+?? apps/website/src/content/published/founder.mdx
+?? apps/website/src/content/published/post-divorce-recovery.mdx
+?? apps/website/src/content/published/remarriage.mdx
+?? apps/website/src/content/published/topic0.mdx
+?? apps/website/src/content/published/topic1.mdx
+?? apps/website/src/content/published/topic2.mdx
+?? apps/website/src/content/published/topic3.mdx
+?? apps/website/src/content/published/topic4.mdx
+?? apps/website/src/content/published/topic5.mdx
+?? apps/website/src/content/section-design.json
+?? apps/website/src/content/structured-pages.json
+?? apps/website/src/lib/content-layout.test.ts
+?? apps/website/src/lib/content-layout.ts
+?? apps/website/src/lib/editorial-composition.test.ts
+?? apps/website/src/lib/editorial-composition.ts
+?? apps/website/src/lib/editorial-lists.test.ts
+?? apps/website/src/lib/editorial-text.test.ts
+?? apps/website/src/lib/editorial-text.ts
+?? apps/website/src/lib/navigation.ts
+?? apps/website/src/lib/page-composition.test.ts
+?? apps/website/src/lib/page-composition.ts
+?? apps/website/src/lib/page-introduction.test.ts
+?? apps/website/src/lib/page-introduction.ts
+?? apps/website/src/lib/photo.ts
+?? apps/website/src/lib/section-design.test.ts
+?? apps/website/src/lib/section-design.ts
+?? apps/website/src/styles/
+?? docs/design/section-plan.md
+?? docs/requirements/
+?? scripts/audit-workbook-output.py
+?? scripts/build-production.mjs
+?? scripts/check-css.mjs
+?? scripts/extract-requirements.py
+?? scripts/sync-requirements.mjs
+?? styles/
+?? tests/e2e/admin.spec.ts
+?? tests/e2e/color-contrast.spec.ts
+?? tests/e2e/content-modules.spec.ts
+?? tests/e2e/content-refinement.spec.ts
+?? tests/e2e/directory-alignment.spec.ts
+?? tests/e2e/editorial-lists.spec.ts
+?? tests/e2e/footer-design.spec.ts
+?? tests/e2e/home-navigation.spec.ts
+?? tests/e2e/subpage-opening.spec.ts
+?? tests/helpers/

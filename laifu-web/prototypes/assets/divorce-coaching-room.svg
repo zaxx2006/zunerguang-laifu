@@ -1,0 +1,394 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1672" height="941"
+     viewBox="0 0 1672 941">
+  <title>一对一会谈室黑白线稿</title>
+
+  <defs>
+    <style>
+      .main {
+        fill: white;
+        stroke: black;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .line {
+        fill: none;
+        stroke: black;
+        stroke-width: 1.4;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .fine {
+        fill: none;
+        stroke: black;
+        stroke-width: 1;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+    </style>
+
+    <clipPath id="window-clip">
+      <rect x="100" y="0" width="668" height="354"/>
+    </clipPath>
+
+    <!-- 叶片与枝条直接组成同一组，避免嵌套 use 缩放后的偏移 -->
+    <g id="sprig" class="fine">
+      <path d="M0 0 C3 -18 9 -39 17 -58"/>
+      <path d="M4 -15 C-6 -16 -12 -22 -10 -29 C0 -28 6 -23 4 -15 Z"/>
+      <path d="M8 -27 C16 -33 24 -31 28 -25 C21 -18 12 -19 8 -27 Z"/>
+      <path d="M12 -40 C2 -42 -3 -49 0 -56 C10 -54 16 -49 12 -40 Z"/>
+      <path d="M16 -53 C24 -60 32 -59 36 -53 C29 -46 21 -46 16 -53 Z"/>
+    </g>
+
+    <!-- 两把椅子共用同一轮廓，右椅镜像 -->
+    <g id="chair">
+      <!-- 椅腿，先画在椅身后方 -->
+      <path class="main"
+        d="M212 679 L191 757
+           Q190 763 198 762
+           L226 687 Z"/>
+      <path class="main"
+        d="M339 700 L338 810
+           Q338 818 345 816
+           L354 704 Z"/>
+      <path class="main"
+        d="M382 699 L380 724
+           Q380 729 387 727
+           L393 699 Z"/>
+      <path class="main"
+        d="M544 673 L566 754
+           Q569 760 576 757
+           L559 668 Z"/>
+
+      <!-- 椅身：圆润靠背、扶手和底座 -->
+      <path class="main"
+        d="M169 465
+           C173 431 193 421 231 418
+           C286 412 343 419 378 436
+           C407 451 428 479 454 490
+           C480 502 522 503 549 515
+           C579 528 590 548 591 581
+           C593 613 587 649 574 672
+           C557 696 521 702 479 705
+           L352 711
+           C304 713 258 706 224 696
+           C197 689 185 669 181 641
+           C175 603 165 505 169 465 Z"/>
+
+      <!-- 靠背内缘 -->
+      <path class="line"
+        d="M179 451
+           C171 482 183 506 210 519
+           C225 526 241 530 258 537"/>
+      <path class="fine"
+        d="M432 490 C425 516 425 547 431 572"/>
+
+      <!-- 靠枕 -->
+      <path class="main"
+        d="M239 478
+           C275 477 306 482 332 477
+           L367 471
+           Q375 469 378 478
+           L412 561
+           Q418 573 405 575
+           L326 585
+           C309 558 280 539 251 530
+           L235 489
+           Q231 478 239 478 Z"/>
+      <path class="fine"
+        d="M240 485 L255 524"/>
+
+      <!-- 坐垫 -->
+      <path class="main"
+        d="M308 587
+           C354 573 405 569 450 574
+           C494 578 538 585 557 599
+           C574 612 575 631 568 649
+           C563 660 552 666 534 669
+           L369 686
+           C349 688 335 678 330 661
+           Z"/>
+      <path class="fine"
+        d="M335 625
+           C392 631 496 616 563 606"/>
+
+      <!-- 前侧弧形扶手覆盖坐垫左边 -->
+      <path class="main"
+        d="M208 521
+           C238 525 278 538 297 557
+           C314 574 321 596 326 624
+           L336 668
+           C339 685 349 697 367 704
+           C326 714 268 705 229 696
+           C205 690 193 674 188 650
+           C181 616 175 571 175 543
+           C174 526 185 515 208 521 Z"/>
+
+      <!-- 扶手内侧与前缘 -->
+      <path class="line"
+        d="M209 527
+           C249 539 280 550 297 576
+           C309 595 313 621 318 648
+           C323 675 332 692 348 701"/>
+      <path class="fine"
+        d="M369 694 C427 691 514 686 548 676"/>
+    </g>
+  </defs>
+
+  <!-- 无纹理的纯白背景 -->
+  <rect width="1672" height="941" fill="white"/>
+
+  <!-- 房间边界：仅保留原图主要结构 -->
+  <g id="room" class="fine">
+    <path d="M74 386 V623"/>
+    <path d="M0 637 L74 608 H176"/>
+    <path d="M0 658 L74 623 H176"/>
+    <path d="M596 608 H658"/>
+    <path d="M597 623 H656"/>
+    <path d="M1006 608 H1066"/>
+    <path d="M1008 623 H1065"/>
+    <path d="M1591 615 L1672 645"/>
+    <path d="M1590 631 L1672 663"/>
+    <path d="M1528 0 V164"/>
+  </g>
+
+  <!-- 窗外景物 -->
+  <g id="window-scenery" clip-path="url(#window-clip)">
+    <g class="fine">
+      <!-- 云 -->
+      <path d="M525 119
+               C526 110 535 105 546 108
+               C551 95 564 89 578 94
+               C582 71 602 58 622 60
+               C644 60 660 76 663 96
+               C680 91 696 98 702 111
+               C717 107 730 113 734 123
+               H768"/>
+      <path d="M410 174
+               C413 164 423 159 435 163
+               C440 149 454 143 467 147
+               C476 149 482 155 485 163
+               C496 159 508 164 513 173
+               C524 171 532 175 535 181
+               H410"/>
+
+      <!-- 远山与屋顶 -->
+      <path d="M266 282
+               L303 272 L337 277
+               L364 271 L405 286
+               L432 284 L472 300"/>
+      <path d="M580 308 L652 266 L722 306"/>
+      <path d="M596 311 L652 277 L706 308"/>
+      <path d="M613 303 V331"/>
+      <path d="M690 298 V326"/>
+
+      <!-- 主树树干及分枝 -->
+      <path d="M130 355
+               C137 315 146 273 165 236
+               C186 198 213 168 244 140
+               C278 110 312 88 350 67"/>
+      <path d="M143 355
+               C151 314 159 275 177 242
+               C197 207 222 177 252 150
+               C287 120 324 94 362 75"/>
+      <path d="M150 282
+               C144 250 140 217 143 188
+               C146 158 145 134 139 110"/>
+      <path d="M158 262
+               C155 229 153 205 156 182
+               C158 153 154 128 148 108"/>
+      <path d="M167 235
+               C184 214 205 198 230 187
+               C265 171 305 168 342 171"/>
+      <path d="M178 236
+               C204 211 233 198 261 190
+               C290 182 316 180 344 181"/>
+      <path d="M217 169
+               C220 142 219 114 225 88
+               C231 63 244 41 261 24"/>
+      <path d="M225 160
+               C230 130 229 109 235 86
+               C241 66 253 48 269 32"/>
+      <path d="M264 126
+               C294 130 319 130 346 120
+               C377 109 406 90 430 75"/>
+      <path d="M275 119
+               C301 123 323 122 346 113"/>
+      <path d="M312 97
+               C312 74 320 54 333 36"/>
+    </g>
+
+    <!-- 树冠：减少重叠，让每组叶片保持清楚的枝叶关系 -->
+    <g>
+      <use href="#sprig" transform="translate(139 117) rotate(-35)"/>
+      <use href="#sprig" transform="translate(146 155) rotate(30)"/>
+      <use href="#sprig" transform="translate(151 234) rotate(-60)"/>
+      <use href="#sprig" transform="translate(170 213) rotate(18)"/>
+      <use href="#sprig" transform="translate(199 193) rotate(-10)"/>
+      <use href="#sprig" transform="translate(224 166) rotate(-35)"/>
+      <use href="#sprig" transform="translate(235 88) rotate(24)"/>
+      <use href="#sprig" transform="translate(262 43) rotate(-40)"/>
+      <use href="#sprig" transform="translate(276 117) rotate(45)"/>
+      <use href="#sprig" transform="translate(301 100) rotate(-20)"/>
+      <use href="#sprig" transform="translate(343 49) rotate(-15)"/>
+      <use href="#sprig" transform="translate(347 76) rotate(57)"/>
+      <use href="#sprig" transform="translate(389 98) rotate(69)"/>
+      <use href="#sprig" transform="translate(420 83) rotate(49)"/>
+      <use href="#sprig" transform="translate(271 184) rotate(72)"/>
+      <use href="#sprig" transform="translate(330 177) rotate(72)"/>
+      <use href="#sprig" transform="translate(367 176) rotate(48)"/>
+
+      <!-- 窗底灌木 -->
+      <use href="#sprig" transform="translate(107 355) rotate(-12)"/>
+      <use href="#sprig" transform="translate(177 355) rotate(-30)"/>
+      <use href="#sprig" transform="translate(220 352) rotate(-24) scale(1.1)"/>
+      <use href="#sprig" transform="translate(254 354) rotate(17)"/>
+      <use href="#sprig" transform="translate(269 354) rotate(40)"/>
+      <use href="#sprig" transform="translate(308 355) rotate(-16)"/>
+      <use href="#sprig" transform="translate(343 355) rotate(-24)"/>
+      <use href="#sprig" transform="translate(389 355) rotate(-15)"/>
+      <use href="#sprig" transform="translate(430 355) rotate(24)"/>
+      <use href="#sprig" transform="translate(470 355) rotate(-18)"/>
+      <use href="#sprig" transform="translate(488 355) rotate(-16)"/>
+      <use href="#sprig" transform="translate(530 355) rotate(20)"/>
+      <use href="#sprig" transform="translate(570 355) rotate(-20) scale(1.1)"/>
+      <use href="#sprig" transform="translate(607 355) rotate(26)"/>
+      <use href="#sprig" transform="translate(653 355) rotate(15)"/>
+      <use href="#sprig" transform="translate(696 355) rotate(-15) scale(1.1)"/>
+      <use href="#sprig" transform="translate(738 355) rotate(10) scale(1.2)"/>
+    </g>
+  </g>
+
+  <!-- 窗框 -->
+  <g id="window-frame" class="line">
+    <path d="M75 0 V371 H794 V0"/>
+    <path d="M87 0 V363 H782 V0"/>
+    <path d="M100 0 V354 H768 V0"/>
+    <path d="M75 371 L100 354"/>
+    <path d="M768 354 L794 371"/>
+  </g>
+
+  <!-- 右侧盆栽，在椅子后面 -->
+  <g id="plant">
+    <!-- 花盆 -->
+    <path class="main"
+      d="M1488 518
+         C1504 508 1564 506 1590 517
+         C1598 550 1600 593 1586 624
+         C1579 641 1566 648 1542 649
+         C1516 650 1497 643 1490 626
+         C1479 599 1480 553 1488 518 Z"/>
+    <path class="line"
+      d="M1488 518 C1510 527 1567 529 1590 517"/>
+
+    <!-- 枝茎 -->
+    <g class="line">
+      <path d="M1513 519 C1508 446 1497 366 1472 294"/>
+      <path d="M1523 520 C1521 423 1516 325 1519 246"/>
+      <path d="M1535 520 C1536 425 1545 325 1557 232"/>
+      <path d="M1544 519 C1554 431 1580 349 1613 300"/>
+      <path d="M1551 518 C1564 455 1589 405 1621 379"/>
+      <path d="M1507 519 C1498 468 1488 425 1467 387"/>
+      <path d="M1530 520 C1526 469 1520 437 1501 410"/>
+      <path d="M1540 519 C1546 476 1564 443 1589 427"/>
+    </g>
+
+    <!-- 阔叶轮廓 -->
+    <g class="main">
+      <path d="M1519 291
+               C1477 278 1436 231 1404 170
+               C1450 162 1525 217 1519 291 Z"/>
+      <path d="M1545 257
+               C1530 209 1569 150 1635 134
+               C1612 169 1582 221 1545 257 Z"/>
+      <path d="M1490 310
+               C1447 280 1395 267 1328 327
+               C1330 270 1405 226 1469 279
+               C1479 288 1485 299 1490 310 Z"/>
+      <path d="M1551 326
+               C1562 275 1614 236 1671 254
+               L1671 272
+               C1621 276 1590 305 1551 326 Z"/>
+      <path d="M1497 382
+               C1454 344 1413 340 1370 389
+               C1368 343 1421 314 1464 344
+               C1478 354 1489 368 1497 382 Z"/>
+      <path d="M1557 381
+               C1581 326 1638 307 1670 338
+               L1671 369
+               C1634 341 1594 363 1557 381 Z"/>
+      <path d="M1511 436
+               C1488 411 1469 407 1449 409
+               C1473 382 1510 394 1511 436 Z"/>
+      <path d="M1566 444
+               C1589 402 1625 411 1653 497
+               C1620 470 1600 448 1566 444 Z"/>
+      <path d="M1561 418
+               C1584 386 1627 383 1652 421
+               C1616 410 1590 411 1561 418 Z"/>
+    </g>
+
+    <!-- 仅保留与叶片尖端和根部严格对齐的主叶脉 -->
+    <g class="fine">
+      <path d="M1519 291 C1485 248 1449 204 1404 170"/>
+      <path d="M1545 257 C1570 207 1603 167 1635 134"/>
+      <path d="M1490 310 C1432 266 1385 281 1328 327"/>
+      <path d="M1551 326 C1590 286 1630 264 1671 264"/>
+      <path d="M1497 382 C1451 336 1409 347 1370 389"/>
+      <path d="M1557 381 C1603 344 1636 333 1670 352"/>
+      <path d="M1511 436 C1492 416 1472 409 1449 409"/>
+      <path d="M1566 444 C1600 435 1627 456 1653 497"/>
+      <path d="M1561 418 C1594 399 1625 402 1652 421"/>
+    </g>
+  </g>
+
+  <!-- 两把椅子 -->
+  <g id="left-chair">
+    <use href="#chair"/>
+  </g>
+  <g id="right-chair">
+    <use href="#chair" transform="translate(1660 0) scale(-1 1)"/>
+  </g>
+
+  <!-- 中央桌子 -->
+  <g id="table">
+    <!-- 桌腿 -->
+    <path class="main"
+      d="M665 604 L646 799
+         Q645 806 654 805
+         L684 605 Z"/>
+    <path class="main"
+      d="M678 607 L679 734
+         Q679 741 686 739
+         L696 607 Z"/>
+    <path class="main"
+      d="M952 607 L973 735
+         Q974 741 981 739
+         L971 605 Z"/>
+    <path class="main"
+      d="M974 605 L1005 801
+         Q1006 807 1014 804
+         L993 603 Z"/>
+
+    <!-- 桌面侧沿 -->
+    <path class="main"
+      d="M641 590
+         C640 601 645 607 659 608
+         H997
+         C1011 607 1019 602 1018 591
+         L1007 583 H653 Z"/>
+
+    <!-- 圆角桌面 -->
+    <path class="main"
+      d="M696 551
+         H963
+         C975 551 982 554 990 562
+         L1015 585
+         C1023 593 1016 598 1003 598
+         H658
+         C642 598 636 593 645 584
+         L673 561
+         C680 554 686 551 696 551 Z"/>
+  </g>
+</svg>

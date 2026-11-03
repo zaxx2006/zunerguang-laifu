@@ -1,0 +1,22 @@
+{
+  "name": "@laifu/assessments",
+  "version": "1.0.0",
+  "description": "焕屿原创婚姻评估工具。",
+  "private": true,
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "dev": "next dev --webpack",
+    "audit:structure": "node scripts/check-structure.mjs",
+    "prebuild": "pnpm audit:structure",
+    "build": "next build --webpack"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "html-to-image": "1.11.13",
+    "next": "16.3.4",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  }
+}

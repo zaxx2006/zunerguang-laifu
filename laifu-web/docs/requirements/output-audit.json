@@ -1,0 +1,37 @@
+{
+  "sourceSha256": "ef5c8a1d411e96f612cb0e2d84fc69ca1076570c1b1257292833a41ce4ee35d7",
+  "checkedTextLines": 3652,
+  "missingText": [],
+  "deletedTextRemainders": [],
+  "brokenLinks": [],
+  "sheetDecisions": [
+    {
+      "sheet": "工作表1",
+      "reason": "图片参考；文本导航要求优先"
+    },
+    {
+      "sheet": "【服务2】孩子养育方案定制",
+      "reason": "由更新版第7表覆盖"
+    },
+    {
+      "sheet": "【服务5】离婚全周期辅导服务",
+      "reason": "由更新版第11表覆盖"
+    },
+    {
+      "sheet": "顶部导航栏",
+      "reason": "导航交互单独验收"
+    },
+    {
+      "sheet": "页脚品牌文案",
+      "reason": "页脚单独验收"
+    },
+    {
+      "sheet": "【新增】",
+      "reason": "媒体栏目重复页头"
+    },
+    {
+      "sheet": "【删除部分】【服务2】离婚启动期辅导",
+      "reason": "明确删除的独立服务"
+    }
+  ]
+}

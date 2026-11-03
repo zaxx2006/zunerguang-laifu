@@ -1,0 +1,49 @@
+@layer components {
+  .button { display: inline-flex; justify-content: center; align-items: center; gap: var(--space-sm); min-height: var(--size-control); max-width: 100%; padding: var(--space-md) var(--space-xl); border: var(--stroke-hairline) solid transparent; border-radius: var(--radius-sm); text-align: center; text-decoration: none; font-size: var(--type-button-md-size); font-weight: var(--type-button-md-weight); line-height: var(--type-body-strong-line); transition: background-color var(--motion-fast) var(--motion-ease-standard), color var(--motion-fast) var(--motion-ease-standard), border-color var(--motion-fast) var(--motion-ease-standard); }
+  .button--primary { color: var(--color-on-primary); background: var(--color-action); border-color: var(--color-primary-dark); transition: border-color var(--motion-fast) var(--motion-ease-standard); font-size: var(--type-button-primary-size); font-weight: var(--type-button-primary-weight); line-height: var(--type-button-primary-line); }
+  .button--primary:is(:hover, :focus-visible) { background: var(--color-action-hover); color: var(--color-on-primary-hover); border-color: var(--color-action-hover); text-decoration: none; }
+  .button--outline { border-color: var(--color-hairline-strong); color: var(--color-ink); background: transparent; }
+  .button--outline:is(:hover, :focus-visible) { background: transparent; border-color: var(--color-ink); color: var(--color-primary-ink); text-decoration: none; }
+  .button--hero { justify-self: start; min-height: var(--size-control-large); }
+  .button:disabled { cursor: not-allowed; background: var(--color-surface-elevated); color: var(--color-mute); border-color: var(--color-hairline); }
+  .structured-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; gap: var(--space-md); min-width: 0; }
+  .structured-actions > .button { width: 100%; min-width: 0; justify-content: space-between; }
+  .structured-actions:has(> .button:nth-child(odd):last-child) > .button:first-child { grid-column: 1 / -1; }
+  .action-links { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-md); min-width: 0; }
+  .action-links > a { display: inline-flex; align-items: center; min-height: var(--size-control); color: var(--color-primary-ink); }
+  .assessment-link { margin-top: var(--space-xl); }
+  .skip-link { position: fixed; top: var(--space-lg); left: var(--layout-gutter); z-index: var(--layer-skip-link); padding: var(--space-md) var(--space-xl); background: var(--color-canvas); border: var(--stroke-emphasis) solid var(--color-primary-ink); transform: translateY(calc(-100% - var(--space-xxl))); }
+  .skip-link:focus { transform: none; }
+  .back-to-top { position: fixed; right: max(var(--space-xl), env(safe-area-inset-right)); bottom: max(var(--space-xl), env(safe-area-inset-bottom)); z-index: var(--layer-subnavigation); display: grid; place-items: center; width: var(--size-control-large); height: var(--size-control-large); padding: 0; border: 0; border-radius: var(--radius-full); color: var(--color-back-to-top-ink); background: transparent; }
+  .back-to-top > svg { width: 100%; height: 100%; overflow: visible; }
+  .back-to-top__shadow { fill: currentColor; opacity: 0; }
+  .back-to-top__face { fill: var(--color-back-to-top-surface); stroke: currentColor; }
+  .back-to-top:is(:hover, :focus-visible) .back-to-top__shadow { opacity: 1; }
+  .back-to-top:focus-visible { outline-color: var(--color-back-to-top-ink); }
+  [data-typography="editorial"] .structured-actions { gap: var(--space-lg) var(--space-xl); }
+  [data-typography="editorial"] .structured-actions > .button--outline { font-size: var(--type-link-md-size); font-weight: var(--type-body-md-weight); }
+  [data-typography="editorial"] :is(.card-grid, .structured-subsection, .structured-disclosure) .structured-actions > .button { justify-content: space-between; gap: var(--space-xl); padding-inline: var(--space-lg); font-size: var(--type-link-md-size); font-weight: var(--type-body-md-weight); }
+  [data-typography="editorial"] :is(.card-grid, .steps, .structured-subsection, .structured-disclosure) .structured-actions > .button:not(:disabled) { border-color: var(--color-hairline-strong); background: transparent; color: var(--color-ink); }
+  [data-typography="editorial"] .content-card__footer > .structured-actions { align-items: stretch; }
+  [data-typography="editorial"] .content-card__footer > .structured-actions > .button { flex: 1; }
+  [data-typography="editorial"] .structured-actions > .button--outline:is(:hover, :focus-visible) { background: transparent; color: var(--color-primary-ink); border-color: var(--color-ink); text-decoration: none; }
+  [data-typography="editorial"] :is(.card-grid, .steps, .structured-subsection, .structured-disclosure) .structured-actions > .button:not(:disabled):is(:hover, :focus-visible) { background: transparent; border-color: var(--color-ink); color: var(--color-primary-ink); }
+  [data-typography="editorial"].cta-strip .structured-actions { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-xs); align-content: start; }
+  [data-typography="editorial"].cta-strip .structured-actions > .button { width: 100%; min-height: var(--size-control-large); justify-content: space-between; gap: var(--space-xl); padding-inline: var(--space-xl); text-align: left; }
+  [data-typography="editorial"].cta-strip .structured-actions > .button--primary { margin-bottom: var(--space-md); }
+  [data-typography="editorial"].cta-strip .structured-actions > .button--primary:only-child { margin-bottom: 0; }
+  [data-typography="editorial"].cta-strip .structured-actions > .button--outline { min-height: var(--size-control); border-color: var(--color-on-dark); color: var(--color-on-dark); font-size: var(--type-body-md-size); }
+  [data-typography="editorial"].cta-strip .structured-actions > .button--primary:is(:hover, :focus-visible) { background: var(--color-action-hover); color: var(--color-on-primary-hover); border-color: var(--color-action-hover); text-decoration: none; }
+  [data-typography="editorial"].cta-strip .structured-actions > .button--outline:is(:hover, :focus-visible) { background: transparent; color: var(--color-on-dark); border-color: var(--color-on-dark); text-decoration: none; }
+  @media (prefers-reduced-motion: no-preference) {
+    .button > svg, .action-links > a > svg { transition: transform var(--motion-base) var(--motion-ease-standard); }
+    .button:is(:hover, :focus-visible) > svg, .action-links > a:is(:hover, :focus-visible) > svg { transform: translateX(var(--space-xs)); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .button { transition: none; }
+  }
+  @media (max-width: 600px) {
+    .back-to-top { width: var(--size-control); height: var(--size-control); }
+    .structured-actions { grid-template-columns: minmax(0, 1fr); }
+  }
+}

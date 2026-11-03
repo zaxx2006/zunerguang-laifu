@@ -1,0 +1,49 @@
+{
+  "name": "@laifu/website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "tokens:generate": "node scripts/generate-design-tokens.mjs",
+    "sections:document": "node scripts/check-section-design.mjs --write",
+    "assets:prepare": "node scripts/prepare-assets.mjs && node scripts/prepare-photos.mjs && node scripts/prepare-home-images.mjs && node scripts/prepare-reader-assets.mjs",
+    "prepare": "pnpm tokens:generate && pnpm assets:prepare",
+    "predev": "pnpm prepare",
+    "dev": "next dev --webpack",
+    "prebuild": "pnpm prepare && pnpm audit:content && pnpm audit:design && pnpm audit:structure && pnpm audit:sections",
+    "build": "next build --webpack",
+    "preview": "next start -p 4173",
+    "lint": "oxlint src scripts",
+    "typecheck": "next typegen && tsc --noEmit",
+    "test": "vitest run && node --test scripts/style-contract.test.mjs",
+    "audit:content": "node scripts/check-content.mjs",
+    "audit:design": "node scripts/check-design.mjs",
+    "audit:structure": "node scripts/check-structure.mjs",
+    "audit:sections": "node scripts/check-section-design.mjs",
+    "audit:output": "node scripts/check-output.mjs",
+    "audit:performance": "node scripts/check-performance.mjs"
+  },
+  "dependencies": {
+    "dompurify": "3.4.14",
+    "fflate": "^0.8.3",
+    "lucide-react": "1.41.0",
+    "mammoth": "^1.13.0",
+    "next": "16.3.4",
+    "next-mdx-remote": "6.0.0",
+    "pdfjs-dist": "^6.4.299",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "server-only": "0.0.1",
+    "yaml": "2.9.0",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "26.4.1",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.7",
+    "postcss": "8.5.28",
+    "sharp": "0.35.4",
+    "typescript": "7.0.2",
+    "vitest": "5.0.0"
+  }
+}
