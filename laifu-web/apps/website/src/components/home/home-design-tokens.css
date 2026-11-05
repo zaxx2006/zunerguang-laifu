@@ -234,6 +234,14 @@ html:has(header[data-has-breadcrumbs]) .home-preview {
   --home-paper-tab-active: rgba(240,245,249,.95);
 }
 
+.home-preview .faq-section {
+  --home-color-heading: var(--home-color-ink);
+  --home-color-primary: var(--home-color-ink);
+  --home-color-faq-topic: var(--home-color-ink);
+  --home-color-faq-copy: var(--home-color-ink);
+  --home-color-assessment: var(--home-color-ink);
+}
+
 .home-preview .paper-sheet[data-theme="family"] {
   --home-paper-surface: 249,243,238;
   --home-paper-ink: #573a2e;

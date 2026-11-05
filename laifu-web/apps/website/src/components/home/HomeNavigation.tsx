@@ -40,8 +40,8 @@ export function HomeFooter({ columns = homeFooterColumns, statement = "焕屿专
       <h2>{title}</h2><div>{links.map(([href, label]) => <SiteLink href={href} target={openInNewTab ? "_blank" : undefined} rel={openInNewTab ? "noopener noreferrer" : undefined} key={href}>{label}</SiteLink>)}</div>
     </div>)}</nav>
     <div className="footer-brand" data-grid="12"><div className="footer-brand__identity">
-      <SiteLink aria-label="焕屿首页" className="brand" href="/" target={openInNewTab ? "_blank" : undefined} rel={openInNewTab ? "noopener noreferrer" : undefined}><span className="brand__mark"><img alt="" decoding="async" height="48" loading="lazy" src="/brand/Logo-light.svg" width="48" /></span><span>焕屿<small>困境辅导 · LAIFU</small></span></SiteLink>
-      <span className="footer-copyright">{content?.copyright ?? "焕屿 · LAIFU © 2026"}</span>
+      <SiteLink aria-label="焕屿首页" className="brand" href="/" target={openInNewTab ? "_blank" : undefined} rel={openInNewTab ? "noopener noreferrer" : undefined}><span className="brand__mark"><img alt="" decoding="async" height="48" loading="lazy" src="/brand/Logo-light.svg" width="48" /></span><span>焕屿<small>困境辅导 · HUANYU</small></span></SiteLink>
+      <span className="footer-copyright">{(content?.copyright ?? "焕屿 · HUANYU © 2026").replace(/\blaifu\b/gi, "HUANYU")}</span>
     </div><div className="footer-brand__statement"><p>{content?.footerStatement ?? statement}</p><span className="footer-disclaimer">{content?.footerDisclaimer ?? "本网站内容不构成法律意见、心理治疗或医疗建议。"}</span></div></div>
   </div></footer>;
 }

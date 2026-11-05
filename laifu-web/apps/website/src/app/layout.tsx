@@ -7,7 +7,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: siteConfig.siteUrl ? new URL(siteConfig.siteUrl) : undefined,
   title: {
-    default: "焕屿困境辅导 | LAIFU",
+    default: "焕屿困境辅导 | HUANYU",
     template: "%s | 焕屿困境辅导",
   },
   description: "以离婚辅导为核心，为婚姻危机、分居、离婚与离婚后重建提供清晰、有边界的支持。",

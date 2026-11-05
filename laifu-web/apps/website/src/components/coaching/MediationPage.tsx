@@ -40,8 +40,6 @@ export async function MediationPage() {
   const overview = sections.get("Q05"), difficulties = sections.get("Q07"), approach = sections.get("Q09"), support = sections.get("Q11"), process = sections.get("Q27"), fit = sections.get("Q32"), boundaries = sections.get("Q37");
   const modules = support?.blocks.filter(block => block.kind === "subsection") ?? [];
   const steps = copyParts(process?.blocks ?? []).filter(part => part.title);
-  const fitParts = copyParts(fit?.blocks ?? []);
-  const boundaryParts = copyParts(boundaries?.blocks ?? []);
   const anchor = (id: string) => id.includes("-") ? id : `${content.anchorPrefix}-${id.toLowerCase()}`;
   const known = new Set(["Q05", "Q07", "Q09", "Q11", "Q27", "Q32", "Q37"]);
   const nav = [[support, "准备内容"], [difficulties, "常见卡点"], [approach, "准备方法"], [process, "服务流程"], [fit, "适用情况"], [boundaries, "服务边界"]] as const;
@@ -51,10 +49,43 @@ export async function MediationPage() {
     <nav className="coaching-rail" aria-label="本页内容"><div className="coaching-wrap">{nav.map(([section, label]) => section ? <SiteLink href={`#${anchor(section.id)}`} data-section-link={anchor(section.id)} key={section.id}>{label}</SiteLink> : null)}<SiteLink href="/book-consultation/" className="mediation-rail-booking">预约咨询<ArrowUpRight /></SiteLink></div></nav>
     {content.content.intro.length ? <section data-grid-section="12" className="coaching-section"><div className="coaching-wrap"><SectionBody blocks={content.content.intro} columns={2} /></div></section> : null}
     {support ? <section data-grid-section="12" className="coaching-section mediation-support" id={anchor(support.id)}><div className="coaching-wrap"><div className="coaching-heading"><h2>{support.title}</h2><p>点击模块切换，看看一次准备具体会梳理什么。</p></div><div className="mediation-workbench" data-tabs="mediation-support"><div className="mediation-module-tabs" role="tablist" aria-label="切换准备模块" aria-orientation="vertical">{modules.map((module, index) => { const Icon = moduleIcons[index % moduleIcons.length]; return <button type="button" role="tab" id={`mediation-support-tab-${index}`} aria-controls={`mediation-support-panel-${index}`} aria-selected={index === 0} tabIndex={index === 0 ? 0 : -1} data-tab={index} key={module.id ?? index}><Icon aria-hidden="true" /><span>{cleanTitle(module.title)}<small>点击查看准备内容</small></span><ChevronRight aria-hidden="true" /></button>; })}<p>先梳理，再演练。<br />让每一步推进都有准备。</p></div><div className="mediation-module-panels">{modules.map((module, index) => <div role="tabpanel" id={`mediation-support-panel-${index}`} aria-labelledby={`mediation-support-tab-${index}`} hidden={index !== 0} tabIndex={0} key={module.id ?? index}><article id={module.id}><h3>{cleanTitle(module.title)}</h3><PreparationContent blocks={module.blocks} /></article></div>)}</div></div><SectionBody blocks={support.blocks.filter(block => block.kind !== "subsection")} columns={1} /></div></section> : null}
-    {difficulties || approach ? <section data-grid-section="12" className="coaching-section mediation-context"><div className="coaching-wrap mediation-context-grid">{difficulties ? <div id={anchor(difficulties.id)}><h2>{cleanTitle(difficulties.title)}</h2>{copyParts(difficulties.blocks).map((part, index) => part.title ? <Disclosure title={part.title} key={index}><RichText text={part.text} /></Disclosure> : <RichText text={part.text} key={index} />)}<SectionBody blocks={difficulties.blocks.filter(block => block.kind !== "copy")} columns={1} /></div> : null}{approach ? <div id={anchor(approach.id)}><figure className="mediation-conversation"><img src="/images/editorial/p21-mediation-rehearsal.webp" alt="一位女性拿着提纲在座椅旁进行交流演练" width={1280} height={854} loading="lazy" decoding="async" {...photoProps("/images/editorial/p21-mediation-rehearsal.webp", "(max-width: 720px) 90vw, 38vw")} /></figure><h2>{cleanTitle(approach.title)}</h2>{copyParts(approach.blocks).map((part, index) => part.title ? <Disclosure title={part.title} key={index}><RichText text={part.text} /></Disclosure> : <RichText text={part.text} key={index} />)}<SectionBody blocks={approach.blocks.filter(block => block.kind !== "copy")} columns={1} /></div> : null}</div></section> : null}
+    {difficulties || approach ? <section data-grid-section="12" className="coaching-section mediation-context"><div className="coaching-wrap mediation-context-grid"><div className="mediation-context-disclosures">
+      {difficulties ? <Disclosure title="01 谈判中常见的被动情形" id={anchor(difficulties.id)}>
+        <ul>
+          <li>对财产、抚养权等缺乏判断，难以合理主张或让步；</li>
+          <li>被指责、哭穷等情绪牵引，偏离核心议题；</li>
+          <li>有判断但缺少事实依据支撑有效回应；</li>
+          <li>对方反复拖延、条件多变，消耗后被迫妥协；</li>
+          <li>未预设让步规则，底线持续后退。</li>
+        </ul>
+        <p><strong className="mediation-context-emphasis">准备关键：</strong>明确争取什么、守住什么、如何表达、何时暂停或转换路径。</p>
+      </Disclosure> : null}
+      {difficulties ? <Disclosure title="02 实务导向的谈判准备方法">
+        <p>结合资深家事律师经验，兼顾法律逻辑、沟通策略与情绪管理，提供：</p>
+        <ul>
+          <li>事实梳理与条件评估；</li>
+          <li>诉求分级与底线设定；</li>
+          <li>对方策略预判；</li>
+          <li>推进、让步与止损框架；</li>
+          <li>模拟演练提升临场稳定。</li>
+        </ul>
+      </Disclosure> : null}
+    </div>{approach ? <div id={anchor(approach.id)}><figure className="mediation-conversation"><img src="/images/editorial/p21-mediation-rehearsal.webp" alt="一位女性拿着提纲在座椅旁进行交流演练" width={1280} height={854} loading="lazy" decoding="async" {...photoProps("/images/editorial/p21-mediation-rehearsal.webp", "(max-width: 720px) 90vw, 38vw")} /></figure><h2>{cleanTitle(approach.title)}</h2>{copyParts(approach.blocks).map((part, index) => part.title ? <Disclosure title={part.title} key={index}><RichText text={part.text} /></Disclosure> : <RichText text={part.text} key={index} />)}<SectionBody blocks={approach.blocks.filter(block => block.kind !== "copy")} columns={1} /></div> : null}</div></section> : null}
     {process ? <section data-grid-section="12" className="coaching-section mediation-process" id={anchor(process.id)}><div className="coaching-wrap"><div className="coaching-heading"><h2>{process.title}</h2><p>选择一个步骤，了解从第一次沟通到谈判后复盘的安排。</p></div><div data-tabs="mediation-process"><div className="mediation-process-tabs" role="tablist" aria-label="查看服务步骤">{steps.map((step, index) => <button type="button" role="tab" id={`mediation-process-tab-${index}`} aria-controls={`mediation-process-panel-${index}`} aria-selected={index === 0} tabIndex={index === 0 ? 0 : -1} data-tab={index} key={index}><span className="mediation-step-number">{index + 1}</span><span>{step.title}</span><ChevronRight aria-hidden="true" /></button>)}</div>{steps.map((step, index) => <div className="mediation-process-panel" role="tabpanel" id={`mediation-process-panel-${index}`} aria-labelledby={`mediation-process-tab-${index}`} hidden={index !== 0} tabIndex={0} key={index}><h3>{step.title}</h3><RichText text={step.text} /><SiteLink className="coaching-text-link" href="/book-consultation/">咨询具体安排<ArrowUpRight /></SiteLink></div>)}</div>{copyParts(process.blocks).filter(part => !part.title).map((part, index) => <RichText text={part.text} key={index} />)}<SectionBody blocks={process.blocks.filter(block => block.kind !== "copy")} columns={1} /></div></section> : null}
-    {fit ? <section data-grid-section="12" className="coaching-section mediation-fit" id={anchor(fit.id)}><div className="coaching-wrap mediation-fit-grid"><div><h2>{fit.title}</h2>{fitParts.slice(0, 1).map((part, index) => <RichText text={part.title ? `${part.title}\n${part.text}` : part.text} key={index} />)}</div><aside><h3>如果协商正在变成消耗</h3>{fitParts.slice(1).map((part, index) => <RichText text={part.title ? `${part.title}\n${part.text}` : part.text} key={index} />)}<SiteLink className="coaching-text-link" href="/services/high-conflict-divorce/">了解高冲突婚姻专项辅导<ArrowUpRight /></SiteLink></aside><SectionBody blocks={fit.blocks.filter(block => block.kind !== "copy")} columns={1} /></div></section> : null}
-    {boundaries ? <section data-grid-section="12" className="coaching-section mediation-boundaries" id={anchor(boundaries.id)}><div className="coaching-wrap"><h2>{boundaries.title}</h2>{boundaryParts.slice(0, 1).map((part, index) => <RichText text={part.title ? `${part.title}\n${part.text}` : part.text} key={index} />)}<Disclosure title="查看法律服务边界与重要说明">{boundaryParts.slice(1).map((part, index) => <RichText text={part.title ? `${part.title}\n${part.text}` : part.text} key={index} />)}<SectionBody blocks={boundaries.blocks.filter(block => block.kind !== "copy")} columns={1} /></Disclosure></div></section> : null}
+    {fit ? <section data-grid-section="12" className="coaching-section mediation-fit" id={anchor(fit.id)}><div className="coaching-wrap mediation-fit-grid">
+      <div><h2>适合情况</h2><ul className="mediation-fit-list">
+        <li>双方具有基本协商意愿；</li>
+        <li>希望通过私下协商、律师协商或调解解决分歧；</li>
+        <li>已有初步诉求，但缺乏清晰策略；</li>
+        <li>担心情绪影响表达与判断；</li>
+        <li>希望在正式谈判前进行系统准备或模拟演练。</li>
+      </ul></div>
+      <aside><h2>不适用情况</h2><p>若对方长期恶意对抗、反复威胁控制、故意消耗，或完全无协商诚意，普通谈判准备可能不适用。经评估后，建议转入高冲突离婚专项支持，或及时寻求执业律师帮助。</p></aside>
+    </div></section> : null}
+    {boundaries ? <section data-grid-section="12" className="coaching-section mediation-boundaries" id={anchor(boundaries.id)}><div className="coaching-wrap"><h2>服务边界与重要说明</h2><div className="mediation-boundaries-copy">
+      <p>本服务属于离婚谈判与调解的准备辅导，重点在于信息梳理、目标澄清、沟通准备、策略规划与模拟演练，不构成法律意见，也不替代执业律师服务。涉及法律权利义务、协议条款及法律效力的问题，建议由执业律师提供专业意见。</p>
+      <p>若对方长期恶意对抗、存在威胁控制或完全无协商诚意，普通谈判准备未必适用，建议及时寻求高冲突专项支持或律师帮助。</p>
+    </div></div></section> : null}
     {content.content.sections.filter(section => !known.has(section.id)).map(section => <section data-grid-section="12" className="coaching-section" id={anchor(section.id)} key={section.id}><div className="coaching-wrap"><h2>{section.title}</h2><SectionBody blocks={section.blocks} columns={2} /></div></section>)}
     {content.content.cta ? <section data-grid-section="12" className="coaching-section mediation-start"><div className="coaching-wrap mediation-start-grid"><h2>{content.content.cta.title}</h2><div><RichText text={content.content.cta.body} /><div className="mediation-start-actions">{content.content.cta.actions.map((action, index) => <HomeButton variant={action.href.startsWith("/book-consultation/") ? "primary" : "text"} className={action.href.startsWith("/book-consultation/") ? "coaching-hero-button" : "coaching-text-link"} href={action.href === route ? `#${anchor(support?.id ?? "Q11")}` : action.href} key={index}>{action.label}{action.href.endsWith("#resources-availability") ? "（暂未开放）" : ""}{action.href === route ? <ArrowDown /> : <ArrowUpRight />}</HomeButton>)}</div></div></div></section> : null}
     <HomeDesignSystem><HomeInvitation content={invitation} openInNewTab /></HomeDesignSystem>

@@ -3,7 +3,7 @@ import { readableResources, readerIdFromHref, type ReaderResource } from "@/cont
 import { projectSitePage } from "./cms-site-pages";
 
 export async function publishedReaderResources(payload: Payload): Promise<ReaderResource[]> {
-  const pages = await payload.find({ collection: "site-pages", where: { and: [{ route: { equals: "/resources/" } }, { _status: { equals: "published" } }] }, draft: false, depth: 0, limit: 1, overrideAccess: true });
+  const pages = await payload.find({ collection: "site-pages", where: { and: [{ route: { equals: "/resources/" } }, { _status: { equals: "published" } }] }, draft: false, depth: 1, limit: 1, overrideAccess: true });
   if (!pages.docs[0]) return [];
   const page = await projectSitePage(pages.docs[0], payload);
   return readableResources(page.content);

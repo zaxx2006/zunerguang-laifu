@@ -19,7 +19,7 @@ export default async function HomePage() {
   if (!page) throw new Error("首页未注册");
   const [content, navigation] = await Promise.all([getHomePresentation(), getNavigationPresentation()]);
   return <><HomeDesignSystem><div id="main-content" data-page="home">
-    <HomeHeader onHero content={navigation ?? undefined} /><HomeHero content={content?.hero} /><HomeJourney content={content?.journey} /><HomeServices content={content?.services} />
+    <HomeHeader onHero content={navigation ?? undefined} /><HomeHero content={content?.hero} assessmentAction={navigation?.assessmentAction} /><HomeJourney content={content?.journey} /><HomeServices content={content?.services} />
     <HomeAssessment content={content?.assessment} />
     <HomeFAQ items={content?.faqs} headingLines={content?.faqHeadingLines} indexAction={content?.faqIndexAction} contactAction={content?.faqContactAction} />
     <HomeGuides content={content?.guides} /><HomeInvitation content={content?.invitation} /><HomeFooter content={navigation ?? undefined} />

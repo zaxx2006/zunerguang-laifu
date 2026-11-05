@@ -17,7 +17,7 @@ const siteConfigSchema = z.object({
 
 export const siteConfig = siteConfigSchema.parse({
   nameZh: "焕屿困境辅导",
-  nameEn: "LAIFU",
+  nameEn: "HUANYU",
   siteUrl: siteUrlValue || undefined,
   booking: {
     mode: "form",

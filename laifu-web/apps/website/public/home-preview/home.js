@@ -204,11 +204,9 @@ element.animate(frames,{duration:kind==='paper'?750:650,delay:index*stagger,easi
 }
 const entranceGroups=new Map();
 function enterOnce(selector,callback){const element=document.querySelector(selector);if(element)entranceGroups.set(element,callback)}
-const faqTopicsForReveal=[...document.querySelectorAll('.faq-topic')],faqBodyForReveal=document.querySelector('.faq-answer-body');
 enterOnce('.service-branches',()=>revealElements([document.querySelector('.branch-heading')]));
 enterOnce('.branch-grid',()=>{revealElements([...document.querySelectorAll('.branch-card .image-placeholder')],'image');branchCards.forEach((card,i)=>revealElements([...card.querySelectorAll('h3,p,.service-arrow')],'rise',70+i*10))});
 enterOnce('.assessment-section',()=>{revealElements([...document.querySelector('.assessment-intro').children]);revealElements([...document.querySelectorAll('.paper-sheet')],'paper',110)});
-enterOnce('.faq-section',()=>{revealElements([document.querySelector('.faq-heading')]);revealElements(faqTopicsForReveal,'rise',65);revealElements([faqBodyForReveal],'rise',0)});
 enterOnce('.guides-section',()=>{revealElements([guideSection.querySelector('.band-heading')]);revealElements([...document.querySelectorAll('.guide-item')],'book',100)});
 enterOnce('.closing-invitation',()=>revealElements([...document.querySelector('.closing-invitation .shell').children],'rise',110));
 enterOnce('.site-footer',()=>revealElements([...document.querySelectorAll('.footer-column')],'rise',60));

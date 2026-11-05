@@ -51,9 +51,12 @@ colors:
   accent-green-pale: "#F6F2EB"
   accent-sky-pale: "#F9F8F6"
   accent-coral: "#F6F2EB"
-  # Back-to-top control, matching the supplied New Valley Labs reference.
-  back-to-top-surface: "#46A19E"
-  back-to-top-ink: "#4F291E"
+  # Back-to-top control, matching the GrowthMan reference.
+  back-to-top-surface: "#FFFFFF"
+  back-to-top-ink: "#999999"
+  back-to-top-hover: "#243D35"
+  back-to-top-hover-ink: "#FFFFFF"
+  back-to-top-shadow: "rgba(0, 0, 0, 0.06)"
 
 leading:
   heading: 1.2
@@ -361,6 +364,9 @@ responsive:
     layout-anchor-offset: 92px
 
 motion:
+  back-to-top-color: 400ms
+  back-to-top-fill: 600ms
+  back-to-top-ease: "cubic-bezier(0.785, 0.135, 0.15, 0.86)"
   fast: 200ms
   base: 300ms
   slow: 500ms

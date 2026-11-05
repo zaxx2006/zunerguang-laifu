@@ -20,17 +20,17 @@ export const servicePresentationFields: Field[] = [
   { name: "internalTitle", label: "内部名称", type: "text", required: true },
   { name: "key", label: "服务页面", type: "select", required: true, unique: true, index: true, options: [{ label: "离婚陪伴辅导", value: "divorce-coaching" }, { label: "高冲突婚姻专项支持", value: "high-conflict-divorce" }], admin: { position: "sidebar", description: "页面路径由官网 Route Registry 决定。" }, access: { update: () => false } },
   { name: "hero", label: "首屏", type: "group", fields: [
-    textList("statementLines", "主张", 2, 3, "主张行"),
-    { name: "audience", label: "适用人群摘要", type: "textarea", required: true },
-    { name: "context", label: "服务介绍", type: "textarea", required: true },
+    textList("statementLines", "主张", 1, 3, "主张行"),
+    { name: "audience", label: "引导语", type: "textarea", required: true },
+    { name: "context", label: "陪伴说明", type: "textarea", required: true },
     mediaField("image", "首屏图片"),
-    { name: "caption", label: "图片说明", type: "text", required: true },
+    { name: "caption", label: "图片说明", type: "text", required: true, admin: { hidden: true } },
     { name: "primaryAction", label: "主要行动", type: "group", fields: actionFields() },
     { name: "secondaryAction", label: "次要行动", type: "group", fields: actionFields() },
   ] },
   { name: "fit", label: "适合谁", type: "group", fields: [
-    { name: "title", label: "标题", type: "text", required: true },
-    textList("introLines", "说明", 1, 2, "说明行"),
+    { name: "title", label: "标题", type: "text", required: true, admin: { hidden: true } },
+    { ...textList("introLines", "说明", 1, 2, "说明行"), admin: { hidden: true } },
     textList("overview", "典型困境", 1, 10),
     { name: "note", label: "阶段选择提示", type: "textarea", required: true },
     { name: "stages", label: "四个阶段", type: "array", required: true, minRows: 4, maxRows: 4, admin: { initCollapsed: true }, fields: [
@@ -57,7 +57,7 @@ export const servicePresentationFields: Field[] = [
       { name: "title", label: "标题", type: "text", required: true },
       { name: "description", label: "说明", type: "textarea", required: true },
       mediaField("image", "图片"),
-      { name: "caption", label: "图片说明", type: "text", required: true },
+      { name: "caption", label: "图片说明", type: "text", required: true, admin: { hidden: true } },
       { name: "topics", label: "支持主题", type: "array", required: true, minRows: 1, maxRows: 3, fields: [
         { name: "key", label: "主题标识", type: "text", required: true },
         { name: "title", label: "标题", type: "text", required: true },
@@ -88,7 +88,7 @@ export const servicePresentationFields: Field[] = [
     { name: "note", label: "流程说明", type: "textarea", required: true },
   ] },
   { name: "options", label: "支持方式", type: "group", fields: [
-    { name: "title", label: "标题", type: "text", required: true }, { name: "intro", label: "说明", type: "textarea", required: true }, textList("choices", "可选方式", 1, 8), textList("closingLines", "结尾说明", 1, 3, "段落"), { name: "action", label: "行动", type: "group", fields: actionFields() },
+    { name: "title", label: "标题", type: "text", required: true }, { name: "intro", label: "说明", type: "textarea", required: true, admin: { hidden: true } }, { ...textList("choices", "可选方式", 1, 8), admin: { hidden: true } }, textList("closingLines", "正文", 1, 3, "段落"), { name: "action", label: "行动", type: "group", admin: { hidden: true }, fields: actionFields() },
   ] },
   { name: "comparison", label: "专业分工", type: "group", fields: [
     { name: "title", label: "标题", type: "text", required: true }, { name: "intro", label: "说明", type: "textarea", required: true }, { name: "caption", label: "表格说明", type: "text", required: true }, textList("headers", "表头", 4, 4),
@@ -97,17 +97,17 @@ export const servicePresentationFields: Field[] = [
   { name: "outcomes", label: "可能获得的改变", type: "group", fields: [
     { name: "title", label: "标题", type: "text", required: true }, { name: "intro", label: "说明", type: "textarea", required: true }, textList("items", "改变列表", 1, 10), { name: "closing", label: "结尾说明", type: "textarea", required: true },
   ] },
-  { name: "boundaries", label: "服务边界", type: "group", fields: [
+  { name: "boundaries", label: "服务边界", type: "group", admin: { hidden: true }, fields: [
     { name: "title", label: "标题", type: "text", required: true }, { name: "intro", label: "说明", type: "textarea", required: true },
     { name: "items", label: "三项边界", type: "array", required: true, minRows: 3, maxRows: 3, fields: [{ name: "title", label: "标题", type: "text", required: true }, { name: "body", label: "说明", type: "textarea", required: true }] },
     { name: "closing", label: "结尾说明", type: "textarea", required: true },
   ] },
-  { name: "finalCta", label: "页尾邀请", type: "group", fields: [
-    { name: "title", label: "标题", type: "text", required: true }, textList("descriptionLines", "说明", 1, 2, "说明行"), { name: "actions", label: "行动入口", type: "array", required: true, minRows: 3, maxRows: 3, fields: actionFields() }, { name: "assessmentNote", label: "测评说明", type: "text", required: true },
+  { name: "finalCta", label: "页尾邀请", type: "group", admin: { description: "此页面单独设置邀请标题；正文、按钮和测评说明沿用首页的统一页尾。" }, fields: [
+    { name: "title", label: "标题", type: "text", required: true }, { ...textList("descriptionLines", "说明", 1, 2, "说明行"), admin: { hidden: true } }, { name: "actions", label: "行动入口", type: "array", required: true, minRows: 3, maxRows: 3, admin: { hidden: true }, fields: actionFields() }, { name: "assessmentNote", label: "测评说明", type: "text", required: true, admin: { hidden: true } },
   ] },
 ];
 
 export const allServicePresentationFields: Field[] = [...servicePresentationFields.map(field => {
   if ("name" in field && !["key", "internalTitle"].includes(field.name)) field.admin = { ...field.admin, condition: data => data.key === "divorce-coaching" };
   return field;
-}), highConflictFields()];
+}), highConflictFields(), { name: "sharedInvitation", type: "ui", admin: { components: { Field: "@/admin/components/SharedInvitation#SharedInvitation" } } }];

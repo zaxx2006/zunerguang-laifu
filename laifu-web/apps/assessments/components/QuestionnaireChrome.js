@@ -54,9 +54,9 @@ export function QuestionnaireFooter() {
           <div>
             <a className="questionnaire-footer-identity" href={`${MAIN_SITE_URL}/`} target="_blank" rel="noopener noreferrer" aria-label="焕屿困境辅导首页">
               <img src={`${BASE_PATH}/brand/Logo-light.svg`} width="48" height="48" alt="" />
-              <span><strong>焕屿</strong><small>困境辅导 · LAIFU</small></span>
+              <span><strong>焕屿</strong><small>困境辅导 · HUANYU</small></span>
             </a>
-            <small className="questionnaire-copyright">焕屿 · LAIFU © {new Date().getFullYear()}</small>
+            <small className="questionnaire-copyright">焕屿 · HUANYU © {new Date().getFullYear()}</small>
           </div>
           <div className="questionnaire-footer-statement">
             <p>焕屿以离婚陪伴辅导为核心，在需要时协同合作律师及其他专业人士，帮助客户更清晰、更稳定地走过离婚。</p>

@@ -17,7 +17,10 @@ const homePrimitives = fs.readFileSync(path.join(root, "src/components/home/Home
 for (const file of ["home.css", "home-design-tokens.css"]) if (!homePrimitives.includes(`import "./${file}";`)) failures.push(`首页样式未接入：${file}`);
 const styleDirectory = path.join(root, "src/styles");
 const sheets = Object.fromEntries(fs.readdirSync(styleDirectory).filter((file) => file.endsWith(".css")).map((file) => [file, fs.readFileSync(path.join(styleDirectory, file), "utf8")]));
-failures.push(...auditStyles({ sheets, tokens: fs.readFileSync(generatedPath, "utf8"), breakpoints: Object.values(design.breakpoints) }));
+// The requested GrowthMan control is the sole exception to the no-shadow rule.
+const withoutBackToTopShadow = (source) => source.replace(/(\.back-to-top\s*\{[^}]*?)box-shadow: 0 0 var\(--space-sm\) var\(--color-back-to-top-shadow\);/, "$1");
+const auditSheets = { ...sheets, "controls.css": withoutBackToTopShadow(sheets["controls.css"]) };
+failures.push(...auditStyles({ sheets: auditSheets, tokens: fs.readFileSync(generatedPath, "utf8"), breakpoints: Object.values(design.breakpoints) }));
 const sectionPhotoRule = sheets["layout.css"].match(/\.section-illustration--photo img\s*\{([^}]*)\}/)?.[1] ?? "";
 if (!/height:\s*auto\s*;/.test(sectionPhotoRule) || !/object-fit:\s*contain\s*;/.test(sectionPhotoRule)) failures.push("未指定构图的照片应保留原始比例，裁切须由具体构图规则控制");
 for (const file of Object.keys(sheets)) if (!globalCss.includes(`@import "../styles/${file}";`)) failures.push(`未接入的样式模块：${file}`);
@@ -35,7 +38,11 @@ function collectShadowFiles(directory) {
     const target = path.join(directory, entry.name);
     if (path.relative(root, target).split(path.sep).join("/") === homeStyles) continue;
     if (entry.isDirectory()) collectShadowFiles(target);
-    if (entry.isFile() && /\.(?:css|html|tsx?|jsx?)$/.test(entry.name) && /\b(?:box-shadow|text-shadow)\s*:|drop-shadow\s*\(/i.test(fs.readFileSync(target, "utf8"))) shadowFiles.push(path.relative(root, target));
+    if (entry.isFile() && /\.(?:css|html|tsx?|jsx?)$/.test(entry.name)) {
+      const source = fs.readFileSync(target, "utf8");
+      const checked = target === path.join(styleDirectory, "controls.css") ? withoutBackToTopShadow(source) : source;
+      if (/\b(?:box-shadow|text-shadow)\s*:|drop-shadow\s*\(/i.test(checked)) shadowFiles.push(path.relative(root, target));
+    }
   }
 }
 

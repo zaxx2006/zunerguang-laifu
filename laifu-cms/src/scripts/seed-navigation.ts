@@ -15,7 +15,7 @@ const data = {
     { title: "学习与专业成长", links: [action("文章专栏", "/blog/"), action("资源中心", "/resources/"), action("媒体动态", "/media/"), action("常见问题", "/faq/"), action("焕屿学院", "/academy/")] },
   ],
   footerStatement: "焕屿专注离婚全周期陪伴辅导，协同合作律师及其他领域专家，陪你平稳度过人生转折，重掌生活主动权。",
-  footerDisclaimer: "本网站内容不构成法律意见、心理治疗或医疗建议。", copyright: "焕屿 · LAIFU © 2026", _status: "published" as const,
+  footerDisclaimer: "本网站内容不构成法律意见、心理治疗或医疗建议。", copyright: "焕屿 · HUANYU © 2026", _status: "published" as const,
 };
 const payload = await getPayload({ config });
 const existing = await payload.find({ collection: "navigation", limit: 1, overrideAccess: true, pagination: false, where: { key: { equals: "primary" } } });

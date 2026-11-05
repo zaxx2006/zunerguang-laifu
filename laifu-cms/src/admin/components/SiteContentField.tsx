@@ -26,9 +26,9 @@ function Editor({ value, path, label, onChange }: { value: Value; path: (string 
   })}</div>;
   return <div>{Object.entries(value).filter(([key]) => !fixedKeys.has(key)).map(([key, item]) => <div key={key}>{typeof item === "object" && item !== null ? <h4 style={{ margin: "20px 0 12px" }}>{labels[key] ?? key}</h4> : null}<Editor value={item} path={[...path, key]} label={labels[key] ?? key} onChange={onChange} /></div>)}</div>;
 }
-export const SiteContentField: JSONFieldClientComponent = ({ path }) => {
+export const SiteContentField: JSONFieldClientComponent = ({ path, field }) => {
   const { value, setValue, errorMessage } = useField<Value>({ path });
   const current = useRef(value);
   current.current = value;
-  return <div className="field-type"><h3>页面正文</h3><p>展开章节修改文案、表格和链接。章节结构沿用官网模板；保存草稿后可预览桌面与手机效果。</p>{value ? <Editor value={value} path={[]} label="正文" onChange={(keys, next) => setValue(replace(current.current, keys, next))} /> : <p>请先导入页面初始内容。</p>}{errorMessage ? <p role="alert">{errorMessage}</p> : null}</div>;
+  return <div className="field-type"><h3>页面正文</h3><p>展开章节修改文案、表格和链接。章节结构沿用官网模板；保存草稿后可预览桌面与手机效果。</p>{typeof field.admin?.description === "string" ? <p>{field.admin.description}</p> : null}{value ? <Editor value={value} path={[]} label="正文" onChange={(keys, next) => setValue(replace(current.current, keys, next))} /> : <p>请先导入页面初始内容。</p>}{errorMessage ? <p role="alert">{errorMessage}</p> : null}</div>;
 };

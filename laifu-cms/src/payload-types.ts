@@ -526,7 +526,7 @@ export interface Faq {
   _status?: ('draft' | 'published') | null;
 }
 /**
- * 管理服务详情页的固定内容区、图片与行动入口。
+ * 编辑当前官网正在使用的服务文案、图片与入口。旧版未展示字段已隐藏，已有数据保留；公共页尾请前往首页呈现修改。
  *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "service-presentations".
@@ -717,6 +717,9 @@ export interface ServicePresentation {
     }[];
     closing: string;
   };
+  /**
+   * 此页面单独设置邀请标题；正文、按钮和测评说明沿用首页的统一页尾。
+   */
   finalCta?: {
     title: string;
     descriptionLines: {
@@ -731,6 +734,9 @@ export interface ServicePresentation {
     }[];
     assessmentNote: string;
   };
+  /**
+   * 对应当前官网：首屏、七项专项支持、孩子保护、支持流程、专业分工与服务边界。接送事件对比和孩子安排演示由官网固定维护，可通过实时预览查看；页尾邀请在首页呈现中统一管理。
+   */
   highConflict?: {
     hero: {
       title: string;
@@ -816,17 +822,6 @@ export interface ServicePresentation {
         id?: string | null;
       }[];
     };
-    process: {
-      title: string;
-      intro: string;
-      steps: {
-        title: string;
-        discussion: string;
-        result: string;
-        next: string;
-        id?: string | null;
-      }[];
-    };
     children: {
       title: string;
       intro: string;
@@ -837,6 +832,17 @@ export interface ServicePresentation {
         id?: string | null;
       }[];
       note: string;
+    };
+    process: {
+      title: string;
+      intro: string;
+      steps: {
+        title: string;
+        discussion: string;
+        result: string;
+        next: string;
+        id?: string | null;
+      }[];
     };
     comparison: {
       title: string;
@@ -906,7 +912,7 @@ export interface ServicePresentation {
   _status?: ('draft' | 'published') | null;
 }
 /**
- * 编辑全部通用页面，并预览桌面、平板和手机效果。
+ * 编辑页面正文、标题与适用的首屏图片，并预览当前官网效果。创始人页采用文字首屏；各页公共页尾在首页呈现中统一管理。
  *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "site-pages".
@@ -931,6 +937,9 @@ export interface SitePage {
     | number
     | boolean
     | null;
+  /**
+   * 首屏图片字段仅在使用图片首屏的页面显示；创始人页采用文字首屏，正文研究配图由官网维护。全站页尾邀请在首页呈现中统一管理。
+   */
   content:
     | {
         [k: string]: unknown;
@@ -2034,21 +2043,6 @@ export interface ServicePresentationsSelect<T extends boolean = true> {
                     id?: T;
                   };
             };
-        process?:
-          | T
-          | {
-              title?: T;
-              intro?: T;
-              steps?:
-                | T
-                | {
-                    title?: T;
-                    discussion?: T;
-                    result?: T;
-                    next?: T;
-                    id?: T;
-                  };
-            };
         children?:
           | T
           | {
@@ -2063,6 +2057,21 @@ export interface ServicePresentationsSelect<T extends boolean = true> {
                     id?: T;
                   };
               note?: T;
+            };
+        process?:
+          | T
+          | {
+              title?: T;
+              intro?: T;
+              steps?:
+                | T
+                | {
+                    title?: T;
+                    discussion?: T;
+                    result?: T;
+                    next?: T;
+                    id?: T;
+                  };
             };
         comparison?:
           | T

@@ -10,7 +10,7 @@ const keyedCopy = z.object({ key: nonEmpty, label: nonEmpty, text: nonEmpty });
 
 export const divorceCoachingPresentationSchema = z.object({
   key: z.literal("divorce-coaching"),
-  hero: z.object({ statementLines: lines(2, 3), audience: nonEmpty, context: nonEmpty, image: cmsMediaSchema, caption: nonEmpty, primaryAction: cmsActionSchema, secondaryAction: cmsActionSchema }),
+  hero: z.object({ statementLines: lines(1, 3), audience: nonEmpty, context: nonEmpty, image: cmsMediaSchema, caption: nonEmpty, primaryAction: cmsActionSchema, secondaryAction: cmsActionSchema }),
   fit: z.object({
     title: nonEmpty,
     introLines: lines(1, 2),

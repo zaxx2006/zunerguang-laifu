@@ -30,7 +30,23 @@ export function highConflictFields(): Field {
   }
   const schema = z.toJSONSchema(highConflictPresentationSchema, { unrepresentable: "any" }) as Node;
   const result = field("highConflict", schema);
-  result.admin = { condition: data => data.key === "high-conflict-divorce" };
+  const unused = new Set(["situations", "cycle", "priorities", "finalCta", "hero.caption", "hero.secondaryAction", "children.caption", "children.items", "comparison.intro", "outcomes.title", "outcomes.items", "ui.navigation", "ui.situationLabel", "ui.goalLabel", "ui.workLabel", "ui.discussionLabel", "ui.resultLabel", "ui.nextLabel", "ui.selectedLabel"]);
+  function align(fields: Field[], parent = ""): void {
+    for (const item of fields) {
+      if (!("name" in item)) continue;
+      const path = parent ? `${parent}.${item.name}` : item.name;
+      if (unused.has(path)) item.admin = { ...item.admin, hidden: true };
+      if (path === "outcomes") item.label = "服务边界说明";
+      if ("fields" in item) align(item.fields, path);
+    }
+  }
+  if ("fields" in result) {
+    align(result.fields);
+    const order = ["hero", "situations", "cycle", "support", "priorities", "children", "process", "comparison", "outcomes", "boundaries", "finalCta", "ui"];
+    result.fields.sort((left, right) => order.indexOf("name" in left ? left.name : "") - order.indexOf("name" in right ? right.name : ""));
+  }
+  if (result.type === "group") result.label = "高冲突婚姻专项支持";
+  result.admin = { condition: data => data.key === "high-conflict-divorce", description: "对应当前官网：首屏、七项专项支持、孩子保护、支持流程、专业分工与服务边界。接送事件对比和孩子安排演示由官网固定维护，可通过实时预览查看；页尾邀请在首页呈现中统一管理。" };
   return result;
 }
 

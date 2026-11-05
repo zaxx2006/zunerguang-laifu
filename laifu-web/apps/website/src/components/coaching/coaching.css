@@ -49,6 +49,7 @@
 .coaching-page .coaching-section { padding: 76px 0 }
 .coaching-page .coaching-heading { display: flex; align-items: start; justify-content: space-between; gap: 50px; margin-bottom: 36px }
 .coaching-page .coaching-heading > p { color: var(--muted); max-width: 420px; font-size: 14px; padding-top: 8px }
+.coaching-page .support-introduction { margin-bottom: 36px; color: var(--muted); font-size: 15px; line-height: 2.1 }
 .coaching-page .coaching-button { display: inline-flex; align-items: center; justify-content: center; gap: 24px; background: var(--green); color: var(--white); border: 1px solid var(--green); border-radius: 30px; padding: 11px 24px; min-height: 48px; font-size: 14px; text-decoration: none; white-space: nowrap }
 .coaching-page .coaching-button:hover { background: #3d604b; border-color: #3d604b }
 .coaching-page .coaching-button svg, .coaching-page .coaching-text-link svg { transition: transform 220ms var(--ease) }
@@ -57,6 +58,8 @@
 .coaching-page .coaching-hero { display: grid; grid-template-columns: 1.04fr 1fr; gap: 6%; align-items: center; padding: 48px 0 44px }
 .coaching-page .coaching-hero h1 { font: 16px/1.6 var(--sans); margin-bottom: 22px }
 .coaching-page .hero-statement { font: clamp(35px, 3.7vw, 51px)/1.5 var(--serif); letter-spacing: -.02em }
+.coaching-page .coaching-statement-line { display: block }
+.coaching-page .coaching-statement-phrase { display: inline-block }
 .coaching-page .hero-description { font-size: 14px; color: var(--muted); margin-top: 23px }
 .coaching-page .hero-actions { display: flex; align-items: center; gap: 25px; margin-top: 28px }
 .coaching-page .coaching-hero-button { display: inline-flex; align-items: center; justify-content: center; gap: 18px; border: 1px solid var(--home-color-primary); border-radius: var(--home-radius-control); padding: 12px 22px; color: var(--home-color-white); background: var(--home-color-primary); font-size: 14px; line-height: 1.9; text-decoration: none; min-height: 48px; white-space: normal; text-align: center; transition: color 180ms, background-color 180ms, border-color 180ms }
@@ -133,7 +136,7 @@
 .coaching-page .stage-tabs button[aria-selected=true] .stage-node { background: var(--green); border-color: var(--green); transform: scale(1.12) }
 .coaching-page .stage-tabs button[aria-selected=true] .stage-node::after { background: var(--paper) }
 .coaching-page .stage-concerns { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 18px 0 0 }
-.coaching-page .stage-concerns li { font-size: 11px; padding: 3px 10px; border: 1px solid #b3c2ad; border-radius: 20px; color: var(--muted) }
+.coaching-page .stage-concerns li { margin: 0; font-size: 11px; padding: 3px 10px; border: 1px solid #b3c2ad; border-radius: 20px; color: var(--muted) }
 .coaching-page .support-visual { min-width: 0 }
 .coaching-page .support-visual .support-photo img { height: auto; aspect-ratio: 3 / 2; object-fit: cover; object-position: center }
 .coaching-page .reflection-workspace { margin-top: 19px }
@@ -179,10 +182,6 @@
 .coaching-page .situation-overview li::before { content: ""; position: absolute; left: 1px; top: 28px; width: 6px; height: 6px; border: 1px solid #748b6b; border-radius: 50% }
 .coaching-page .situation-note { margin-top: 24px; color: var(--muted); font-size: 14px }
 .coaching-page .coaching-fit [data-tabs=stage] { margin-top: 24px; padding-top: 0 }
-.coaching-page .why-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 10%; align-items: start }
-.coaching-page .why-layout h2 { max-width: 400px }
-.coaching-page .why-statement { font: 25px/1.7 var(--serif); margin-top: 30px }
-.coaching-page .why-copy { color: var(--muted); font-size: 15px; line-height: 2.1 }
 .coaching-page #support { border-top: 1px solid var(--line) }
 .coaching-page .support-panel { min-height: 560px }
 .coaching-page .process-tabs button small { display: block; max-width: 250px; font: 13px/1.9 var(--sans); margin-top: 3px }
@@ -196,8 +195,10 @@
 .coaching-page .process-modules > p { font-size: 13px; color: var(--muted) }
 .coaching-page .support-choices { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 38px }
 .coaching-page .support-choices li { padding: 28px 0; border-top: 1px solid var(--line); font: 24px/1.7 var(--serif) }
-.coaching-page .options-closing { border-top: 1px solid var(--line); padding-top: 28px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; gap: 50px }
-.coaching-page .options-closing p { font-size: 14px; color: var(--muted) }
+.coaching-page .options-closing { border-top: 1px solid var(--line); padding-top: 28px; margin-top: 10px; max-width: 56rem }
+.coaching-page .options-closing p { font-size: 16px; line-height: 2; color: var(--muted) }
+.coaching-page .options-closing p + p { margin-top: 28px; font-size: clamp(20px, 2vw, 26px); font-weight: 500; line-height: 1.85; color: var(--ink) }
+.coaching-page .options-closing strong { color: var(--ink); font-weight: 600 }
 .coaching-page #comparison { background: var(--soft) }
 .coaching-page .comparison-scroll caption { text-align: left; font: 24px/1.7 var(--serif); margin-bottom: 26px }
 .coaching-page .comparison-scroll table { font-size: 14px }
@@ -349,6 +350,10 @@
   .template-page .structured-subsection h3 { font-size: 23px; }
 }
 
+.resources-page .coaching-rail .coaching-wrap { overflow: visible; flex-wrap: wrap; justify-content: flex-start; gap: 0 32px; }
+.resources-page .coaching-rail a { max-width: none; overflow: visible; font-size: 14px; }
+.resources-page .coaching-rail a::after { display: none; }
+.resources-page .coaching-rail a[aria-current] { color: var(--green); font-weight: 600; }
 .courses-page .hero-copy { min-width: 0; }
 .courses-page .hero-statement { font-size: clamp(35px, 3.35vw, 48px); }
 .courses-page .hero-description { max-width: 420px; }
@@ -675,17 +680,44 @@
 .about-page .about-service-data strong { font: 46px/1.5 var(--serif); font-variant-numeric: tabular-nums; }
 .about-page .about-service-data p > span:last-child { font-size: 12px; color: var(--muted); }
 .about-page .about-interaction-hint { font-size: 13px; color: var(--muted); margin-top: 34px; }
-.about-page .about-interaction-hint + [data-tabs] > .about-tabs { margin-top: 18px; }
-.about-page .about-team-reading h3 { font-size: 28px; margin-bottom: 18px; }
-.about-page .about-team-reading > .structured-section-body > .structured-rich-text { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 44px; }
-.about-page .about-team-reading > .structured-section-body > .structured-rich-text > * { margin: 0; }
-.about-page .about-team-reading > .structured-section-body > .structured-rich-text > :first-child { grid-column: 1 / -1; }
-.about-page .about-team-reading .rich-point-list { padding: 0; margin: 10px 0; list-style: none; }
-.about-page .about-team-reading .rich-point-list li { padding: 10px 0; border-bottom: 1px solid #b4c2af; margin: 0; }
-.about-page .about-working-method ol { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 15px; padding: 25px 0; margin: 10px 0 20px; list-style: none; border-bottom: 1px solid #b4c2af; }
-.about-page .about-working-method li { display: flex; align-items: center; justify-content: space-between; gap: 8px; font: 17px/1.8 var(--serif); }
-.about-page .about-working-method li > svg { width: 14px; height: 14px; color: var(--muted); }
-.about-page .about-working-method > .structured-rich-text + .structured-rich-text { margin-top: 18px; }
+.about-page .team-explorer { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 36px; margin-top: 22px; align-items: start; scroll-margin-top: 110px; }
+.about-page .team-topic-nav { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.about-page .team-topic-nav button { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; min-height: 72px; padding: 18px 16px; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: transparent; color: var(--green); text-align: left; font-size: 16px; line-height: 1.6; cursor: pointer; transition: background 180ms, color 180ms; }
+.about-page .team-topic-nav button:hover { background: var(--paper); }
+.about-page .team-topic-nav button[aria-selected=true] { background: var(--green); color: var(--white); font-weight: 600; }
+.about-page .team-topic-nav svg { width: 18px; height: 18px; flex: none; }
+.about-page .team-topic-panel { min-width: 0; padding: 28px 32px; background: var(--paper); border: 1px solid var(--line); border-radius: 4px; }
+.about-page .team-topic-panel:focus-visible { outline: 2px solid var(--green); outline-offset: 5px; }
+.about-page .team-topic-content { scroll-margin-top: 110px; }
+.about-page .team-topic-content h3 { margin: 0 0 18px; font: 600 27px/1.4 var(--sans); color: var(--green); overflow-wrap: anywhere; }
+.about-page .team-topic-summary { margin: 0; font-size: 16px; line-height: 1.85; color: var(--ink); white-space: pre-line; }
+.about-page .team-topic-points-intro { margin: 16px 0 0; font-size: 15px; line-height: 1.8; color: var(--muted); }
+.about-page .team-topic-points { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px; margin: 20px 0 0; padding: 0; list-style: none; }
+.about-page .team-topic-points li { margin: 0; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 15px; line-height: 1.7; overflow-wrap: anywhere; }
+.about-page .team-topic-flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 22px; margin: 20px 0 0; padding: 0; list-style: none; counter-reset: team-step; }
+.about-page .team-topic-flow li { display: flex; align-items: center; gap: 10px; margin: 0; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 16px; line-height: 1.6; counter-increment: team-step; }
+.about-page .team-topic-flow li::before { content: counter(team-step); display: grid; place-items: center; width: 26px; height: 26px; flex: none; border: 1px solid var(--line); border-radius: 50%; font-size: 13px; color: var(--green); }
+.about-page .team-topic-details { margin-top: 22px; border-top: 1px solid var(--line); }
+.about-page .team-topic-details > summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 16px 0 0; list-style: none; color: var(--green); cursor: pointer; font-size: 15px; line-height: 1.6; }
+.about-page .team-topic-details > summary::-webkit-details-marker { display: none; }
+.about-page .team-topic-details > summary svg { width: 18px; height: 18px; flex: none; transition: transform 180ms; }
+.about-page .team-topic-details[open] > summary svg { transform: rotate(180deg); }
+.about-page .team-topic-details-body { padding: 18px 0 0; }
+.about-page .team-topic-details-body .structured-rich-text { display: block; font-size: 16px; line-height: 1.85; }
+@media (max-width: 960px) {
+  .about-page .team-explorer { grid-template-columns: 200px minmax(0, 1fr); gap: 24px; }
+  .about-page .team-topic-panel { padding: 24px; }
+  .about-page .team-topic-points, .about-page .team-topic-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  .about-page .team-explorer { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .about-page .team-topic-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid var(--line); }
+  .about-page .team-topic-nav button { min-height: 66px; padding: 12px; font-size: 15px; }
+  .about-page .team-topic-nav button:nth-child(odd) { border-right: 1px solid var(--line); }
+  .about-page .team-topic-panel { padding: 22px 20px; }
+  .about-page .team-topic-content h3 { font-size: 24px; }
+  .about-page .team-topic-points { grid-template-columns: minmax(0, 1fr); }
+}
 .about-page .about-boundary-layout { display: grid; grid-template-columns: 4fr 7fr; gap: 8%; }
 .about-page .about-boundary-layout h2 { font-size: 31px; }
 .about-page .about-boundary-statement { font: 28px/1.8 var(--serif); margin-top: 28px; }
@@ -714,8 +746,6 @@
   .about-page .about-philosophy-layout h3 { font-size: 24px; }
   .about-page .about-service-data { gap: 18px; }
   .about-page .about-service-data strong { font-size: 36px; }
-  .about-page .about-working-method ol { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
-  .about-page .about-working-method li { font-size: 15px; }
 }
 @media (max-width: 720px) {
   .about-page .coaching-hero { grid-template-columns: minmax(0, 1fr); padding-top: 30px; padding-bottom: 32px; gap: 28px; }
@@ -745,9 +775,6 @@
   .about-page .about-service-data { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 30px; padding: 24px 0; }
   .about-page .about-service-data p > span:first-child { min-height: 42px; }
   .about-page .about-service-data strong { font-size: 40px; }
-  .about-page .about-team-reading h3 { font-size: 25px; }
-  .about-page .about-team-reading > .structured-section-body > .structured-rich-text { grid-template-columns: minmax(0, 1fr); gap: 20px; }
-  .about-page .about-working-method ol { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 24px; }
   .about-page .about-boundary-statement { font-size: 25px; margin-top: 20px; }
   .about-page .about-office { grid-template-columns: minmax(0, 1fr); gap: 18px; margin-top: 32px; }
   .about-page .about-next .coaching-wrap { width: 90%; }
@@ -918,6 +945,8 @@
 .mediation-page .mediation-notes > article:last-child { padding-bottom: 0; }
 .mediation-page .mediation-notes h4 { margin-bottom: 8px; font-size: 17px; }
 .mediation-page .mediation-notes .rich-point-list { margin-top: 12px; }
+.mediation-page .mediation-context-disclosures > .mediation-disclosure > summary > span:first-child { font-size: clamp(18px, 2vw, 24px); font-weight: 700; }
+.mediation-page .mediation-context-emphasis { font-size: 17px; font-weight: 700; color: var(--green); }
 .mediation-page .mediation-context-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 9%; align-items: start; }
 .mediation-page .mediation-context-grid h2 { font-size: 30px; margin-bottom: 24px; }
 .mediation-page .mediation-context-grid > div > .structured-rich-text { font-size: 14px; color: var(--muted); margin: 20px 0; }
@@ -940,16 +969,15 @@
 .mediation-page .mediation-process-panel .structured-rich-text { color: var(--muted); font-size: 15px; }
 .mediation-page .mediation-process-panel > a { grid-column: 2; margin-top: 10px; }
 .mediation-page .mediation-fit-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 7%; align-items: start; }
-.mediation-page .mediation-fit-grid h2 { margin-bottom: 24px; }
-.mediation-page .mediation-fit-grid .structured-rich-text { color: var(--muted); font-size: 14px; }
+.mediation-page .mediation-fit-grid h2 { margin-bottom: 24px; font-size: clamp(24px, 2.5vw, 32px); }
+.mediation-page .mediation-fit-list { display: grid; gap: 12px; margin: 0; padding-left: 20px; color: var(--muted); font-size: 15px; }
+.mediation-page .mediation-fit-list li { margin: 0; padding-left: 4px; }
 .mediation-page .mediation-fit-grid aside { padding: 32px; background: var(--soft); }
-.mediation-page .mediation-fit-grid aside h3 { font-size: 25px; margin-bottom: 18px; }
-.mediation-page .mediation-fit-grid aside a { margin-top: 22px; }
+.mediation-page .mediation-fit-grid aside p { color: var(--muted); font-size: 15px; line-height: 2; }
 .mediation-page .mediation-boundaries { padding-top: 0; padding-bottom: 48px; }
 .mediation-page .mediation-boundaries h2 { font-size: 27px; margin-bottom: 18px; }
-.mediation-page .mediation-boundaries > .coaching-wrap > .structured-rich-text { max-width: 64em; color: var(--muted); font-size: 14px; }
-.mediation-page .mediation-boundaries .mediation-disclosure { margin-top: 20px; }
-.mediation-page .mediation-boundaries .coaching-detail-body { max-width: 64em; }
+.mediation-page .mediation-boundaries-copy { max-width: 64em; color: var(--muted); font-size: 15px; line-height: 2; }
+.mediation-page .mediation-boundaries-copy p + p { margin-top: 20px; }
 .mediation-page .mediation-start { background: var(--soft); }
 .mediation-page .mediation-start-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 8%; }
 .mediation-page .mediation-start .structured-rich-text { font-size: 15px; color: var(--muted); }

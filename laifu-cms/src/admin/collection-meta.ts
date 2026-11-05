@@ -4,10 +4,10 @@ import { withPreview } from "./preview";
 type CollectionMeta = { description: string; group: string; labels?: { singular: string; plural: string } };
 
 const collectionMeta: Record<string, CollectionMeta> = {
-  "site-pages": { group: "官网内容", labels: { singular: "官网页面", plural: "官网页面" }, description: "编辑全部通用页面，并预览桌面、平板和手机效果。" },
+  "site-pages": { group: "官网内容", labels: { singular: "官网页面", plural: "官网页面" }, description: "编辑页面正文、标题与适用的首屏图片，并预览当前官网效果。创始人页采用文字首屏；各页公共页尾在首页呈现中统一管理。" },
   "consultation-requests": { group: "官网内容", labels: { singular: "预约申请", plural: "预约申请" }, description: "查看官网预约申请与记录联系进度。" },
   "home-presentations": { group: "官网内容", labels: { singular: "首页呈现", plural: "首页呈现" }, description: "管理首页十个内容区与多设备预览。" },
-  "service-presentations": { group: "官网内容", labels: { singular: "服务页面", plural: "服务页面" }, description: "管理服务详情页的固定内容区、图片与行动入口。" },
+  "service-presentations": { group: "官网内容", labels: { singular: "服务页面", plural: "服务页面" }, description: "编辑当前官网正在使用的服务文案、图片与入口。旧版未展示字段已隐藏，已有数据保留；公共页尾请前往首页呈现修改。" },
   faqs: { group: "官网内容", labels: { singular: "常见问题", plural: "常见问题" }, description: "管理首页常见问题及追问内容。" },
   navigation: { group: "官网内容", labels: { singular: "导航配置", plural: "导航配置" }, description: "管理公告、菜单、页头和页脚。" },
   media: { group: "官网内容", labels: { singular: "媒体资源", plural: "媒体资源" }, description: "上传图片、文档、表格、音视频和 ZIP 资源包，管理文件来源与使用授权。" },

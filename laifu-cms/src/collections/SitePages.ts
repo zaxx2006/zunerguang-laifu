@@ -13,9 +13,9 @@ export const SitePages: CollectionConfig = withPresentationPolicy({
     { name: "anchorPrefix", label: "章节前缀", type: "text", required: true, access: { update: () => false }, admin: { readOnly: true, position: "sidebar" } },
     { name: "title", label: "首屏标题", type: "textarea", required: true },
     { name: "description", label: "首屏介绍", type: "textarea", required: true },
-    { name: "image", label: "更换首屏图片", type: "relationship", relationTo: "media", filterOptions: { and: [{ publicApproved: { equals: true } }, { mimeType: { contains: "image/" } }] } },
+    { name: "image", label: "更换首屏图片", type: "relationship", relationTo: "media", admin: { condition: data => data.route !== "/about/founder/" }, filterOptions: { and: [{ publicApproved: { equals: true } }, { mimeType: { contains: "image/" } }] } },
     { name: "originalImage", label: "现有首屏图片", type: "json", required: true, admin: { hidden: true } },
-    { name: "content", label: "页面正文", type: "json", required: true, admin: { components: { Field: "@/admin/components/SiteContentField#SiteContentField" } }, validate: value => pageContentSchema.safeParse(value).success || "章节内容不完整，或链接／表格格式不正确。" },
+    { name: "content", label: "页面正文", type: "json", required: true, admin: { description: "首屏图片字段仅在使用图片首屏的页面显示；创始人页采用文字首屏，正文研究配图由官网维护。全站页尾邀请在首页呈现中统一管理。", components: { Field: "@/admin/components/SiteContentField#SiteContentField" } }, validate: value => pageContentSchema.safeParse(value).success || "章节内容不完整，或链接／表格格式不正确。" },
     { name: "booking", label: "预约联系方式", type: "group", admin: { condition: data => data.route === "/book-consultation/" }, fields: [
       { name: "phone", label: "联系电话", type: "text" }, { name: "wechat", label: "微信说明", type: "text" }, { name: "questionnaire", label: "外部预约问卷链接（可选）", type: "text" },
     ] },

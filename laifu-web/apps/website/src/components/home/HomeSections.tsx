@@ -5,7 +5,7 @@ import { Fragment, type CSSProperties } from "react";
 import { X } from "lucide-react";
 import { HomeButton, HomeIcon, ServiceCard } from "./HomePrimitives";
 import { homeServices } from "./home-content";
-import type { HomePresentation } from "@/contracts/cms-home";
+import type { HomePresentation, NavigationPresentation } from "@/contracts/cms-home";
 
 const assessmentPapers = [
   {
@@ -37,7 +37,8 @@ const assessmentAnswers = [
 
 type HomeCSSProperties = CSSProperties & Record<`--home-${string}`, string>;
 
-export function HomeHero({ content }: { content?: HomePresentation["hero"] }) {
+export function HomeHero({ content, assessmentAction }: { content?: HomePresentation["hero"]; assessmentAction?: NavigationPresentation["assessmentAction"] }) {
+  const assessment = assessmentAction ?? { href: assessmentUrl, label: "开始测评", openInNewTab: true };
   const titleLines = content?.titleLines ?? ["当你站在婚姻的十字路口", "焕屿帮你找到通往幸福的路"];
   const introLines = content?.introLines ?? ["焕屿是专注婚姻全周期困境帮扶与辅导的专业平台。", "陪你走出情绪低谷、理清混乱局势，按需联动家事律师及心理、亲子、财税专家。"];
   return <section className="hero" data-home-section="hero" id="home" aria-labelledby="hero-title">
@@ -45,7 +46,7 @@ export function HomeHero({ content }: { content?: HomePresentation["hero"] }) {
     <div className="hero-copy"><h1 id="hero-title">{titleLines.map((line, index) => <Fragment key={line}>{index ? <br /> : null}{line}</Fragment>)}</h1>
       <p className="hero-intro">{introLines.map((line, index) => <Fragment key={line}>{index ? <br /> : null}{line}</Fragment>)}</p>
       <ConcernSearch placeholder={content?.searchPlaceholder} />
-      <div className="hero-actions"><HomeButton href={content?.primaryAction.href ?? "/book-consultation/"} target={content?.primaryAction.openInNewTab ? "_blank" : undefined} rel={content?.primaryAction.openInNewTab ? "noopener" : undefined}>{content?.primaryAction.label ?? "预约咨询"}</HomeButton><HomeButton variant="text" href={content?.secondaryAction.href ?? "#services"}>{content?.secondaryAction.label ?? "了解服务体系"}</HomeButton></div>
+      <div className="hero-actions"><HomeButton href={assessment.href} target={assessment.openInNewTab ? "_blank" : undefined} rel={assessment.openInNewTab ? "noopener noreferrer" : undefined}>{assessment.label}</HomeButton><HomeButton href={content?.primaryAction.href ?? "/book-consultation/"} target={content?.primaryAction.openInNewTab ? "_blank" : undefined} rel={content?.primaryAction.openInNewTab ? "noopener" : undefined}>{content?.primaryAction.label ?? "预约咨询"}</HomeButton><HomeButton variant="text" href={content?.secondaryAction.href ?? "#services"}>{content?.secondaryAction.label ?? "了解服务体系"}</HomeButton></div>
     </div>
     <div className="hero-bottom"><SiteLink href="#journey">{content?.journeyLinkLabel ?? "从稳住自己，到看清下一步"}<HomeIcon name="arrow-down" /></SiteLink><span>{content?.journeySummary ?? "分居过渡 · 离婚推进 · 离婚后重建"}</span></div>
   </section>;
@@ -65,7 +66,7 @@ export function HomeServices({ content }: { content?: HomePresentation["services
     <h2 className="branch-heading">{(content?.titleLines ?? ["从你当下的需要出发，", "找到适合的支持入口"]).map((line, index) => <Fragment key={line}>{index ? <br /> : null}{line}</Fragment>)}</h2>
     <svg className="branch-lines" aria-hidden="true"><path className="trunk" />{services.map(({ href }) => <path className="branch" pathLength="1" key={href} />)}</svg>
     <div className="branch-grid">{services.map((service, index) => <ServiceCard key={service.href} id={`core-service-${index}`} href={service.href} description={service.description} image={service.image} action={"actionLabel" in service ? service.actionLabel : service.action}
-      title={("titleLines" in service ? service.titleLines : service.title).map((line, i) => <Fragment key={line}>{i > 0 ? <br /> : null}{line}</Fragment>)} />)}</div>
+      title={("titleLines" in service ? service.titleLines : service.title).join("")} />)}</div>
     <div className="branch-caption"><span>{content?.captionLeft ?? "稳住状态 · 看清全局 · 有序行动"}</span><span>{content?.captionRight ?? "焕屿 · 陪你慢慢理清"}</span></div>
   </div></section>;
 }

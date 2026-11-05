@@ -45,7 +45,10 @@ export function CoachingInteractions() {
       if (!(event.target instanceof Element)) return;
       const tab = event.target.closest<HTMLButtonElement>('[role="tab"]');
       const group = tab?.closest<HTMLElement>("[data-tabs]");
-      if (tab && group && tab.getAttribute("aria-selected") !== "true") selectTab(group, tab.dataset.tab ?? "0");
+      if (tab && group && tab.getAttribute("aria-selected") !== "true") {
+        selectTab(group, tab.dataset.tab ?? "0");
+        if (group.dataset.tabs === "about-team") group.scrollIntoView({ behavior: motion.matches ? "instant" : "smooth", block: "start" });
+      }
       const supportLink = event.target.closest<HTMLElement>("[data-support-target]");
       const support = root.querySelector<HTMLElement>('[data-tabs="support"]');
       if (supportLink && support) selectTab(support, supportLink.dataset.supportTarget ?? "0");

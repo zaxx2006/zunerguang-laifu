@@ -62,7 +62,7 @@ function Tabs({ name, labels }: { name: string; labels: string[] }) {
 
 function Fit({ content }: { content: ServicePresentation }) {
   return <section className="coaching-section coaching-fit" id="fit" data-grid-section="12"><div className="coaching-wrap">
-    <span className="coaching-anchor" id="divorceCoaching-q03" /><div className="coaching-heading"><h2>{content.fit.title}</h2><p><Lines values={content.fit.introLines} /></p></div>
+    <span className="coaching-anchor" id="divorceCoaching-q03" />
     <ul className="situation-overview">{content.fit.overview.map(text => <li key={text}>{text}</li>)}</ul>
     <p className="situation-note">{content.fit.note}</p>
     <div data-tabs="stage"><Tabs name="stage" labels={content.fit.stages.map(stage => stage.label)} />
@@ -72,10 +72,6 @@ function Fit({ content }: { content: ServicePresentation }) {
       })}
     </div>
   </div></section>;
-}
-
-function WhyCoaching({ content }: { content: ServicePresentation }) {
-  return <section className="coaching-section coaching-why" id="why" data-grid-section="12"><div className="coaching-wrap why-layout"><div><span className="coaching-anchor" id="divorceCoaching-q05" /><h2>{content.why.title}</h2><p className="why-statement">{content.why.statement}</p></div><div className="why-copy">{content.why.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div></div></section>;
 }
 
 function SupportVisual({ content, index }: { content: ServicePresentation; index: number }) {
@@ -91,6 +87,7 @@ function Support({ content }: { content: ServicePresentation }) {
   let topicNumber = 0;
   return <section className="coaching-section" id="support" data-grid-section="12"><div className="coaching-wrap">
     <span className="coaching-anchor" id="divorceCoaching-q07" /><div className="coaching-heading"><h2>{content.support.title}</h2><p><Lines values={content.support.introLines} /></p></div>
+    <p className="support-introduction">在离婚这场重大的人生变局中，很多人都迫于压力陷入两个极端：因为愤怒仓促行动，或因为恐惧不断退让。<br />离婚陪伴辅导能帮助你做到：</p>
     <div data-tabs="support"><Tabs name="support" labels={content.support.directions.map(direction => direction.label)} />
       {content.support.directions.map((direction, index) => <div className="support-panel" id={`support-panel-${index}`} role="tabpanel" aria-labelledby={`support-tab-${index}`} hidden={index !== 0} key={direction.key}>
         <SupportVisual content={content} index={index} />
@@ -114,7 +111,7 @@ function Process({ content }: { content: ServicePresentation }) {
 }
 
 function SupportOptions({ content }: { content: ServicePresentation }) {
-  return <section className="coaching-section coaching-options" id="options" data-grid-section="12"><div className="coaching-wrap"><div className="coaching-heading"><h2>{content.options.title}</h2><p>{content.options.intro}</p></div><ul className="support-choices">{content.options.choices.map(text => <li key={text}>{text}</li>)}</ul><div className="options-closing"><div>{content.options.closingLines.map(line => <p key={line}>{line}</p>)}</div><ActionLink action={content.options.action} className="coaching-text-link" /></div></div></section>;
+  return <section className="coaching-section coaching-options" id="options" data-grid-section="12"><div className="coaching-wrap"><div className="coaching-heading"><h2>{content.options.title}</h2></div><div className="options-closing"><div>{content.options.closingLines.map(line => <p key={line}>{line.split(/(获得同意|独立性和自主权)/).map((part, index) => index % 2 ? <strong key={index}>{part}</strong> : part)}</p>)}</div></div></div></section>;
 }
 
 function Comparison({ content }: { content: ServicePresentation }) {
@@ -125,10 +122,10 @@ function Comparison({ content }: { content: ServicePresentation }) {
 }
 
 function Outcomes({ content }: { content: ServicePresentation }) {
-  return <section className="coaching-section coaching-changes" id="changes" data-grid-section="12"><div className="coaching-wrap"><span className="coaching-anchor" id="divorceCoaching-q33" /><div className="coaching-heading"><h2>{content.outcomes.title}</h2><p>{content.outcomes.intro}</p></div><ul className="outcome-overview">{content.outcomes.items.map(text => <li key={text}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6" /></svg>{text}</li>)}</ul><p className="outcome-closing">{content.outcomes.closing}</p><div className="coaching-boundaries" id="boundaries"><div><span className="coaching-anchor" id="divorceCoaching-q35" /><h3>{content.boundaries.title}</h3><p>{content.boundaries.intro}</p></div><div>{content.boundaries.items.map(item => <div className="boundary-copy" key={item.title}><h4>{item.title}</h4><p>{item.body}</p></div>)}<div className="boundary-closing"><Copy text={content.boundaries.closing} /></div></div></div></div></section>;
+  return <section className="coaching-section coaching-changes" id="changes" data-grid-section="12"><div className="coaching-wrap"><span className="coaching-anchor" id="divorceCoaching-q33" /><div className="coaching-heading"><h2>{content.outcomes.title}</h2><p>{content.outcomes.intro}</p></div><ul className="outcome-overview">{content.outcomes.items.map(text => <li key={text}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6" /></svg>{text}</li>)}</ul><p className="outcome-closing">{content.outcomes.closing}</p></div></section>;
 }
 
-const navigation = [["fit", "适合谁"], ["support", "怎样帮助"], ["process", "辅导流程"], ["options", "支持方式"], ["comparison", "专业分工"], ["changes", "收获与边界"]] as const;
+const navigation = [["fit", "适合谁"], ["support", "怎样帮助"], ["process", "辅导流程"], ["options", "支持方式"], ["comparison", "专业分工"], ["changes", "可能的收获"]] as const;
 
 export async function DivorceCoachingPage({ page }: { page: PageMeta }) {
   const [navigationContent, cmsContent, home] = await Promise.all([getNavigationPresentation({ preview: false }), getServicePresentation("divorce-coaching", { preview: true }), getHomePresentation({ preview: false })]);
@@ -136,9 +133,9 @@ export async function DivorceCoachingPage({ page }: { page: PageMeta }) {
   const pageUrl = siteConfig.siteUrl ? `${siteConfig.siteUrl}/services/divorce-coaching/` : undefined;
   const jsonLd = pageUrl ? { "@context": "https://schema.org", "@type": "Service", name: page.titleZh, description: page.description, url: pageUrl, provider: { "@type": "Organization", name: siteConfig.nameZh, url: siteConfig.siteUrl } } : null;
   return <div className="coaching-page" id="coaching-top"><HomeDesignSystem><HomeHeader breadcrumbSlug={page.slug} content={navigationContent ?? undefined} homeHref="/" openInNewTab /></HomeDesignSystem>
-    <main id="main-content" data-page="divorce-coaching"><section className="coaching-hero coaching-wrap" aria-labelledby="page-title" data-grid-section="12"><div className="hero-copy"><h1 id="page-title">{page.titleZh}</h1><p className="hero-statement"><Lines values={content.hero.statementLines} /></p><p className="hero-description">{content.hero.audience}</p><p className="hero-context">{content.hero.context}</p><div className="hero-actions"><HomeButton variant="primary" className="coaching-hero-button" href={content.hero.primaryAction.href} target={content.hero.primaryAction.openInNewTab ? "_blank" : undefined} rel={content.hero.primaryAction.openInNewTab ? "noopener noreferrer" : undefined}>{content.hero.primaryAction.label}</HomeButton><ActionLink action={content.hero.secondaryAction} className="coaching-text-link" /></div></div><figure className="hero-photo"><img src={content.hero.image.src} alt={content.hero.image.alt} width={content.hero.image.width} height={content.hero.image.height} fetchPriority="high" {...photoProps(content.hero.image.src, "(max-width: 720px) 90vw, 45vw")} /></figure></section>
+    <main id="main-content" data-page="divorce-coaching"><section className="coaching-hero coaching-wrap" aria-labelledby="page-title" data-grid-section="12"><div className="hero-copy"><h1 id="page-title">{page.titleZh}</h1><p className="hero-description">{content.hero.audience}</p><p className="hero-statement">{content.hero.statementLines.map(line => <span className="coaching-statement-line" key={line}>{line.match(/[^，]+，?/g)?.map(phrase => <span className="coaching-statement-phrase" key={phrase}>{phrase}</span>)}</span>)}</p><p className="hero-context">{content.hero.context}</p><div className="hero-actions"><HomeButton variant="primary" className="coaching-hero-button" href={content.hero.primaryAction.href} target={content.hero.primaryAction.openInNewTab ? "_blank" : undefined} rel={content.hero.primaryAction.openInNewTab ? "noopener noreferrer" : undefined}>{content.hero.primaryAction.label}</HomeButton><ActionLink action={content.hero.secondaryAction} className="coaching-text-link" /></div></div><figure className="hero-photo"><img src={content.hero.image.src} alt={content.hero.image.alt} width={content.hero.image.width} height={content.hero.image.height} fetchPriority="high" {...photoProps(content.hero.image.src, "(max-width: 720px) 90vw, 45vw")} /></figure></section>
       <nav className="coaching-rail" aria-label="本页内容"><div className="coaching-wrap">{navigation.map(([id, label]) => <SiteLink href={`#${id}`} data-section-link={id} key={id}>{label}</SiteLink>)}<ActionLink action={content.hero.primaryAction} className="rail-booking" /></div></nav>
-      <Fit content={content} /><WhyCoaching content={content} /><Support content={content} /><Process content={content} /><SupportOptions content={content} /><Comparison content={content} /><Outcomes content={content} /><div id="consultation"><span className="coaching-anchor" id="divorceCoaching-q37" /><HomeDesignSystem><HomeInvitation content={home?.invitation} openInNewTab /></HomeDesignSystem></div>
+      <Fit content={content} /><Support content={content} /><Process content={content} /><SupportOptions content={content} /><Comparison content={content} /><Outcomes content={content} /><div id="consultation"><span className="coaching-anchor" id="divorceCoaching-q37" /><HomeDesignSystem><HomeInvitation content={{ ...(home?.invitation ?? content.finalCta), title: content.finalCta.title }} openInNewTab /></HomeDesignSystem></div>
     </main><HomeDesignSystem><HomeFooter content={navigationContent ?? undefined} openInNewTab /></HomeDesignSystem>
     {jsonLd ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} /> : null}<CoachingInteractions />
   </div>;

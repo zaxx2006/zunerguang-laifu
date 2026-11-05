@@ -1,0 +1,10 @@
+.section { display: grid; gap: 12px; min-width: 0; font-family: var(--font-body); font-size: 14px; line-height: 1.6; color: var(--theme-text); }
+.section h3, .section h4, .section p, .section ul { margin: 0; }
+.section h3 { font-size: 18px; font-weight: 600; }
+.section h4 { margin-bottom: 12px; font-size: 16px; font-weight: 600; }
+.section ul { padding-left: 20px; }
+.section a, .section li { overflow-wrap: anywhere; }
+.section button { width: fit-content; min-height: 40px; padding: 8px 16px; border: 1px solid var(--theme-elevation-300); border-radius: 4px; background: var(--theme-elevation-100); color: var(--theme-text); font: inherit; cursor: pointer; }
+.section button:hover { background: var(--theme-elevation-200); }
+.section a:focus-visible, .section button:focus-visible { outline: 2px solid var(--theme-text); outline-offset: 3px; }
+.section [role="alert"] { color: var(--theme-error-600); }

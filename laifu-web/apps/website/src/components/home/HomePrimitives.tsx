@@ -32,7 +32,7 @@ export function ServiceCard({ id, href, title, description, image, action }: {
 }) {
   return <SiteLink className="branch-card" id={id} href={href} target="_blank" rel="noopener">
     <div className="image-placeholder"><img src={image.src} alt={image.alt} width={image.width} height={image.height} loading="lazy" decoding="async" {...photoProps(image.src, "(max-width: 680px) 90vw, (max-width: 1100px) 45vw, 20vw")} /></div>
-    <h3>{title}</h3><p>{description}</p>
+    <h3>{title}</h3><p><span>{description}</span></p>
     <span className="service-arrow">{action}<HomeIcon name="arrow-up-right" /></span>
   </SiteLink>;
 }

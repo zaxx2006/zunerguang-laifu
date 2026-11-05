@@ -4,6 +4,7 @@ import { ShadcnCheckboxField as ShadcnCheckboxField_c427e5180672ac7e166e76ddbb18
 import { CollectionListView as CollectionListView_bbcc6d561dd16c8b9e015cab9ad17655 } from '@/admin/views/CollectionListView'
 import { ShadcnSelectField as ShadcnSelectField_c427e5180672ac7e166e76ddbb183575 } from '@/admin/components/ShadcnFields'
 import { HomeResourceField as HomeResourceField_4b7a3a93dc99da8fef24ef108757e918 } from '@/admin/components/HomeResourceField'
+import { SharedInvitation as SharedInvitation_e14b18f860b478fb7ceaffc55a9e32c8 } from '@/admin/components/SharedInvitation'
 import { SiteContentField as SiteContentField_074a21523a309f4a92700db23aa157e2 } from '@/admin/components/SiteContentField'
 import { FolderTableCell as FolderTableCell_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
 import { FolderField as FolderField_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
@@ -24,6 +25,7 @@ export const importMap = {
   "@/admin/views/CollectionListView#CollectionListView": CollectionListView_bbcc6d561dd16c8b9e015cab9ad17655,
   "@/admin/components/ShadcnFields#ShadcnSelectField": ShadcnSelectField_c427e5180672ac7e166e76ddbb183575,
   "@/admin/components/HomeResourceField#HomeResourceField": HomeResourceField_4b7a3a93dc99da8fef24ef108757e918,
+  "@/admin/components/SharedInvitation#SharedInvitation": SharedInvitation_e14b18f860b478fb7ceaffc55a9e32c8,
   "@/admin/components/SiteContentField#SiteContentField": SiteContentField_074a21523a309f4a92700db23aa157e2,
   "@payloadcms/next/rsc#FolderTableCell": FolderTableCell_f9c02e79a4aed9a3924487c0cd4cafb1,
   "@payloadcms/next/rsc#FolderField": FolderField_f9c02e79a4aed9a3924487c0cd4cafb1,
