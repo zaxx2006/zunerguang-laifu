@@ -3,7 +3,8 @@ import { assessmentUrl } from "@/lib/site-links";
 import { photoProps } from "@/lib/photo";
 import { Fragment, type CSSProperties } from "react";
 import { X } from "lucide-react";
-import { HomeButton, HomeIcon, ServiceCard } from "./HomePrimitives";
+import { HomeButton, HomeIcon } from "./HomePrimitives";
+import { HomeServicesCarousel } from "./HomeServicesCarousel";
 import { homeServices } from "./home-content";
 import type { HomePresentation, NavigationPresentation } from "@/contracts/cms-home";
 
@@ -61,14 +62,11 @@ export function ConcernSearch({ placeholder = "我还没决定要不要离婚，
 }
 
 export function HomeServices({ content }: { content?: HomePresentation["services"] }) {
-  const services = content?.items ?? homeServices;
-  return <section className="service-branches" data-home-section="services" id="services" aria-label="焕屿的五类支持入口"><div className="branch-scene">
-    <h2 className="branch-heading">{(content?.titleLines ?? ["从你当下的需要出发，", "找到适合的支持入口"]).map((line, index) => <Fragment key={line}>{index ? <br /> : null}{line}</Fragment>)}</h2>
-    <svg className="branch-lines" aria-hidden="true"><path className="trunk" />{services.map(({ href }) => <path className="branch" pathLength="1" key={href} />)}</svg>
-    <div className="branch-grid">{services.map((service, index) => <ServiceCard key={service.href} id={`core-service-${index}`} href={service.href} description={service.description} image={service.image} action={"actionLabel" in service ? service.actionLabel : service.action}
-      title={("titleLines" in service ? service.titleLines : service.title).join("")} />)}</div>
-    <div className="branch-caption"><span>{content?.captionLeft ?? "稳住状态 · 看清全局 · 有序行动"}</span><span>{content?.captionRight ?? "焕屿 · 陪你慢慢理清"}</span></div>
-  </div></section>;
+  const services = homeServices.map(service => {
+    const configured = content?.items.find(item => item.href === service.href);
+    return configured ? { ...service, description: configured.description, image: configured.image } : service;
+  });
+  return <HomeServicesCarousel services={services} headingLines={content?.titleLines ?? ["从你当下的需要出发，", "找到适合的支持入口"]} captionLeft={content?.captionLeft ?? "稳住状态 · 看清全局 · 有序行动"} captionRight={content?.captionRight ?? "焕屿 · 陪你慢慢理清"} />;
 }
 
 export function HomeAssessment({ content }: { content?: HomePresentation["assessment"] }) {

@@ -53,7 +53,7 @@ const faqItems: readonly FAQItem[] = [
   },
 ];
 
-export function HomeFAQ({ items: suppliedItems, headingLines = ["开始之前，", "你可能还想知道"], indexAction = { label: "查看全部常见问题", href: "/faq/", openInNewTab: true }, contactAction = { label: "我还有具体情况想聊", href: "/book-consultation/", openInNewTab: true } }: {
+export function HomeFAQ({ items: suppliedItems, headingLines = ["开始之前，", "你可能还想知道"], indexAction = { label: "查看预约常见问题", href: "/book-consultation/#booking-faq", openInNewTab: true }, contactAction = { label: "我还有具体情况想聊", href: "/book-consultation/", openInNewTab: true } }: {
   items?: HomePresentation["faqs"];
   headingLines?: string[];
   indexAction?: CmsAction;
@@ -94,7 +94,7 @@ export function HomeFAQ({ items: suppliedItems, headingLines = ["开始之前，
   }
 
   return <section className="faq-section" data-home-section="faq" aria-labelledby="faq-title"><div className="faq-inner">
-    <div className="faq-heading"><h2 id="faq-title">{headingLines[0]}<br />{headingLines[1]}</h2><SiteLink className="band-link" href={indexAction.href} target={indexAction.openInNewTab ? "_blank" : undefined} rel={indexAction.openInNewTab ? "noopener" : undefined}>{indexAction.label}<HomeIcon name="arrow-up-right" /></SiteLink></div>
+    <div className="faq-heading"><h2 id="faq-title">{headingLines[0]}<br />{headingLines[1]}</h2><SiteLink className="band-link" href={indexAction.href} target={indexAction.openInNewTab ? "_blank" : undefined} rel={indexAction.openInNewTab ? "noopener" : undefined}>{indexAction.href === "/faq/" ? "查看预约常见问题" : indexAction.label}<HomeIcon name="arrow-up-right" /></SiteLink></div>
     <div className="faq-dialogue"><div className="faq-topics" role="tablist" aria-label="咨询前的问题" aria-orientation="vertical">
       <div className="faq-topic-highlight" aria-hidden="true" data-index={current} />
       {items.map((faq, index) => <button className="faq-topic" id={`faq-topic-${index}`} role="tab" aria-selected={current === index} aria-controls="faq-answer" tabIndex={current === index ? 0 : -1} type="button" key={faq.question} onClick={() => { setVisited(new Set(visited).add(current)); showFAQ(index); }} onKeyDown={(event) => handleTopicKey(event, index)}><span>{faq.question}</span></button>)}

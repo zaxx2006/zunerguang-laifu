@@ -440,20 +440,19 @@
     ]
   },
   "collaboration": {
-    "sourceSectionCount": 13,
+    "sourceSectionCount": 12,
     "sectionCount": 7,
     "sections": [
       {
         "id": "Q05",
         "sourceIds": [
-          "Q05",
           "Q11"
         ],
         "role": "story",
         "columns": 2,
         "tone": "canvas",
         "density": "feature",
-        "title": "家事协同支持是什么",
+        "title": "跨专业协同综合辅导是什么",
         "mediaRationale": "真实交流照片对应多专业角色协作，连接概念说明与实际服务情境。",
         "media": {
           "asset": "collaborationCafe",
@@ -777,8 +776,8 @@
     ]
   },
   "courses": {
-    "sourceSectionCount": 7,
-    "sectionCount": 7,
+    "sourceSectionCount": 3,
+    "sectionCount": 3,
     "sections": [
       {
         "id": "availability",
@@ -797,52 +796,8 @@
           "Q05"
         ],
         "role": "cards",
-        "columns": 3,
+        "columns": 1,
         "tone": "canvas",
-        "density": "regular",
-        "visualDecision": "none"
-      },
-      {
-        "id": "Q14",
-        "sourceIds": [
-          "Q14"
-        ],
-        "role": "cards",
-        "columns": 4,
-        "tone": "sand",
-        "density": "regular",
-        "visualDecision": "none"
-      },
-      {
-        "id": "Q19",
-        "sourceIds": [
-          "Q19"
-        ],
-        "role": "cards",
-        "columns": 3,
-        "tone": "canvas",
-        "density": "regular",
-        "visualDecision": "none"
-      },
-      {
-        "id": "Q24",
-        "sourceIds": [
-          "Q24"
-        ],
-        "role": "cards",
-        "columns": 2,
-        "tone": "sand",
-        "density": "regular",
-        "visualDecision": "none"
-      },
-      {
-        "id": "Q28",
-        "sourceIds": [
-          "Q28"
-        ],
-        "role": "steps",
-        "columns": 3,
-        "tone": "stone",
         "density": "regular",
         "visualDecision": "none"
       },
@@ -1414,31 +1369,9 @@
     ]
   },
   "booking": {
-    "sourceSectionCount": 5,
-    "sectionCount": 5,
+    "sourceSectionCount": 3,
+    "sectionCount": 3,
     "sections": [
-      {
-        "id": "Q02",
-        "sourceIds": [
-          "Q02"
-        ],
-        "role": "story",
-        "columns": 1,
-        "tone": "canvas",
-        "density": "regular",
-        "visualDecision": "none"
-      },
-      {
-        "id": "Q11",
-        "sourceIds": [
-          "Q11"
-        ],
-        "role": "cards",
-        "columns": 1,
-        "tone": "sand",
-        "density": "regular",
-        "visualDecision": "none"
-      },
       {
         "id": "Q15",
         "sourceIds": [
@@ -1462,11 +1395,11 @@
         "visualDecision": "none"
       },
       {
-        "id": "Q23",
+        "id": "faq",
         "sourceIds": [
-          "Q23"
+          "faq"
         ],
-        "role": "story",
+        "role": "faq",
         "columns": 1,
         "tone": "canvas",
         "density": "regular",

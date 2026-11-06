@@ -1,0 +1,21 @@
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import config from "@payload-config";
+import { getPayload } from "payload";
+import type { SitePage } from "../payload-types";
+import { pageContentSchema } from "@/contracts/cms-site-page";
+
+const seeds = JSON.parse(await readFile(new URL("../../seed-data/site-pages.json", import.meta.url), "utf8")) as SitePage[];
+const source = seeds.find(page => page.route === "/book-consultation/");
+if (!source) throw new Error("Booking seed missing");
+const content = pageContentSchema.parse(source.content);
+const payload = await getPayload({ config });
+const query = { collection: "site-pages" as const, where: { route: { equals: source.route } }, depth: 0, limit: 1, overrideAccess: true };
+const published = (await payload.find({ ...query, draft: false })).docs[0];
+const latest = (await payload.find({ ...query, draft: true })).docs[0];
+if (!published || !latest || latest._status !== "published") throw new Error("Published booking page required; preserve any pending draft");
+const backup = new URL(`../../../artifacts/booking-faq-${Date.now()}/`, import.meta.url);
+await mkdir(backup, { recursive: true });
+await writeFile(new URL("booking-before.json", backup), JSON.stringify({ published, latest }, null, 2), { flag: "wx" });
+await payload.update({ collection: "site-pages", id: published.id, overrideAccess: true, draft: false, context: { skipSystemEvents: true }, data: { content, _status: "published" } });
+console.log(JSON.stringify({ route: source.route, sections: content.sections.map(section => section.id), backup: backup.pathname }));
+process.exit(0);

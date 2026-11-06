@@ -43,11 +43,9 @@ export async function FamilyCollaborationPage() {
   const [navigation, content, home] = await Promise.all([getNavigationPresentation({ preview: false }), getSitePagePresentation(route), getHomePresentation({ preview: false })]);
   const invitation = home?.invitation;
   const sections = new Map(content.content.sections.map(section => [section.id, section]));
-  const overview = sections.get("Q05"), definition = sections.get("Q11"), models = sections.get("Q17"), coach = sections.get("Q24"), fit = sections.get("Q26"), risks = sections.get("Q28"), support = sections.get("Q30"), roles = sections.get("Q35"), privacy = sections.get("Q41"), process = sections.get("Q43"), meeting = sections.get("Q45"), related = sections.get("Q47"), handoff = sections.get("58");
+  const overview = sections.get("Q05"), models = sections.get("Q17"), coach = sections.get("Q24"), fit = sections.get("Q26"), risks = sections.get("Q28"), support = sections.get("Q30"), roles = sections.get("Q35"), privacy = sections.get("Q41"), process = sections.get("Q43"), meeting = sections.get("Q45"), related = sections.get("Q47"), handoff = sections.get("58");
   const overviewCopy = overview?.blocks.find(block => block.kind === "copy");
-  const heroActions = overview?.blocks.flatMap(block => block.kind === "actions" ? block.actions : []) ?? [];
-  const definitionCopy = definition?.blocks.find(block => block.kind === "copy");
-  const definitionParts = definitionCopy?.text.split(/\n{2,}/) ?? [];
+  const heroActions = (overview?.blocks ?? content.content.intro).flatMap(block => block.kind === "actions" ? block.actions : []);
   const uses = support?.blocks.find(block => block.kind === "grid");
   const roleTable = roles?.blocks.find(block => block.kind === "table");
   const modelTable = models?.blocks.find(block => block.kind === "table");
@@ -74,15 +72,11 @@ export async function FamilyCollaborationPage() {
           <p className="hero-description">{content.description}</p>
           <ActionLinks actions={heroActions} primary />
           {overview ? <Disclosure title={overview.title} id={anchor(overview.id)}><Body blocks={overview.blocks.filter(block => block !== overviewCopy && block.kind !== "actions")} /></Disclosure> : null}
-          {definition ? <Disclosure title={definition.title} id={anchor(definition.id)}>
-            {definitionParts.filter((_, index) => index !== 1).map((text, index) => <RichText text={text} presentation="editorial" key={index} />)}
-            <Body blocks={definition.blocks.filter(block => block !== definitionCopy)} />
-          </Disclosure> : null}
         </div>
         <figure className="hero-photo"><img src={content.image.src} alt={content.image.alt} width={content.image.width} height={content.image.height} fetchPriority="high" {...photoProps(content.image.src, "(max-width: 720px) 90vw, 42vw")} /></figure>
       </section>
       <nav className="coaching-rail" aria-label="本页内容"><div className="coaching-wrap">{nav.map(([section, label]) => section ? <SiteLink href={`#${anchor(section.id)}`} data-section-link={anchor(section.id)} key={section.id}>{label}</SiteLink> : null)}<SiteLink className="family-rail-booking" href="/book-consultation/">预约咨询<ArrowUpRight aria-hidden="true" /></SiteLink></div></nav>
-      {content.content.intro.length ? <section data-grid-section="12" className="coaching-section"><div className="coaching-wrap"><Body blocks={content.content.intro} /></div></section> : null}
+      {content.content.intro.length ? <section data-grid-section="12" className="coaching-section"><div className="coaching-wrap"><Body blocks={content.content.intro.filter(block => block.kind !== "actions")} /></div></section> : null}
 
       {support ? <section data-grid-section="12" className="coaching-section family-support" id={anchor(support.id)}><div className="coaching-wrap">
         <div className="coaching-heading"><h2>{support.title}</h2><p>点击支持方式，了解谁会参与、怎样准备和推进。</p></div>

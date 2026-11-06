@@ -3,6 +3,9 @@ export const assessmentUrl = process.env.NODE_ENV === "development"
   : "https://laifu-assessments.pages.dev/";
 
 export function normalizeSiteHref(href: string | undefined) {
+  if (href && /^\/faq\/?(?:[?#].*)?$/.test(href)) return "/book-consultation/#booking-faq";
+  if (href === "/blog" || href === "/blog/") return "/resources/#resources-articles";
+  if (href?.startsWith("/blog/#")) return `/resources/${href.slice("/blog/".length)}`;
   if (href && /^(?:\/?#(?:assessment|home-assessment)|\/assessments?\/?(?:[?#].*)?)$/.test(href)) return assessmentUrl;
   const assessmentLink = href?.match(/^https?:\/\/laifu-assessments\.pages\.dev(?:\/(.*)|([?#].*))?$/i);
   if (assessmentLink) return `${assessmentUrl}${assessmentLink[1] ?? assessmentLink[2] ?? ""}`;

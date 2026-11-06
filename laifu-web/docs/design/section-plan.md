@@ -2,9 +2,9 @@
 
 此清单由 `section-design.json` 生成。每个页面先确认来源章节数量，再完成语义归类；栏数表示该 section 的内容并列数，底层均换算到 12 栏。连续正文保持单栏，目录、服务和步骤按内容关系分组，不通过字数阈值决定版式。每个 section 必须先将 visualDecision 登记为 none、photo 或 illustration；真实照片承担主要视觉叙事，插图只允许用于抽象工具、问答、目录或提示。
 
-结构化页面合计：28 页，183 个来源章节归为 135 个设计 section，其中 14 个 section 使用照片、0 个 section 使用插图。另有 2 个人工 MDX 页面，各 3 个设计 section。
+结构化页面合计：28 页，178 个来源章节归为 131 个设计 section，其中 14 个 section 使用照片、0 个 section 使用插图。另有 2 个人工 MDX 页面，各 3 个设计 section。
 
-## 关于来福（about）
+## 关于焕屿（about）
 
 来源 7 节 → 设计 6 节；页面导语：单栏导语，保持连续阅读
 
@@ -81,11 +81,11 @@
 
 ## 【服务5】离婚全周期辅导服务(更新)——家事协同支持（collaboration）
 
-来源 13 节 → 设计 7 节；页面导语：单栏导语，保持连续阅读
+来源 12 节 → 设计 7 节；页面导语：单栏导语，保持连续阅读
 
 | Section | 来源归类 | 内容角色 | 栏数 | 正文编排 | 色调 | 密度 | 图片判断 |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
-| Q05 · 家事协同支持是什么 | Q05 + Q11 | story | 2 | 正文单栏，集合按内容结构 | canvas | feature | photo · collaborationCafe；真实交流照片对应多专业角色协作，连接概念说明与实际服务情境。 |
+| Q05 · 跨专业协同综合辅导是什么 | Q11 | story | 2 | 正文单栏，集合按内容结构 | canvas | feature | photo · collaborationCafe；真实交流照片对应多专业角色协作，连接概念说明与实际服务情境。 |
 | Q17 · 支持方式与辅导师角色 | Q17 + Q24 | comparison | 2 | 正文单栏，集合按内容结构 | canvas | regular | none · 内容结构本身足以表达 |
 | Q26 · 什么时候适合进入协同支持 | Q26 + Q28 | principles | 2 | 正文单栏，集合按内容结构 | stone | regular | none · 内容结构本身足以表达 |
 | Q30 | Q30 | cards | 2 | 正文单栏，集合按内容结构 | canvas | regular | none · 内容结构本身足以表达 |
@@ -120,7 +120,7 @@
 | Q36 · 保密机制与服务边界 | Q36 + Q38 | principles | 2 | 正文单栏，集合按内容结构 | sand | regular | none · 内容结构本身足以表达 |
 | Q40 | Q40 | feature | 1 | 正文单栏，集合按内容结构 | sand | compact | none · 内容结构本身足以表达 |
 
-## 【服务8】来福学院（academy）
+## 【服务8】焕屿学院（academy）
 
 来源 8 节 → 设计 5 节；页面导语：单栏导语，保持连续阅读
 
@@ -134,16 +134,12 @@
 
 ## 课程、工作坊、疗愈营（courses）
 
-来源 7 节 → 设计 7 节；页面导语：单栏导语，保持连续阅读
+来源 3 节 → 设计 3 节；页面导语：单栏导语，保持连续阅读
 
 | Section | 来源归类 | 内容角色 | 栏数 | 正文编排 | 色调 | 密度 | 图片判断 |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
 | availability | availability | notice | 1 | 正文单栏，集合按内容结构 | sand | compact | none · 内容结构本身足以表达 |
-| Q05 | Q05 | cards | 3 | 正文单栏，集合按内容结构 | canvas | regular | none · 内容结构本身足以表达 |
-| Q14 | Q14 | cards | 4 | 正文单栏，集合按内容结构 | sand | regular | none · 内容结构本身足以表达 |
-| Q19 | Q19 | cards | 3 | 正文单栏，集合按内容结构 | canvas | regular | none · 内容结构本身足以表达 |
-| Q24 | Q24 | cards | 2 | 正文单栏，集合按内容结构 | sand | regular | none · 内容结构本身足以表达 |
-| Q28 | Q28 | steps | 3 | 正文单栏，集合按内容结构 | stone | regular | none · 内容结构本身足以表达 |
+| Q05 | Q05 | cards | 1 | 正文单栏，集合按内容结构 | canvas | regular | none · 内容结构本身足以表达 |
 | remarriage | remarriage | feature | 1 | 正文单栏，集合按内容结构 | sand | compact | none · 内容结构本身足以表达 |
 
 ## 线下活动（community）
@@ -266,15 +262,13 @@
 
 ## 预约咨询（booking）
 
-来源 5 节 → 设计 5 节；页面导语：单栏导语，保持连续阅读
+来源 3 节 → 设计 3 节；保留咨询类型、预约表单与 7 个默认折叠的常见问题，移除重复介绍和结尾引导。
 
 | Section | 来源归类 | 内容角色 | 栏数 | 正文编排 | 色调 | 密度 | 图片判断 |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
-| Q02 | Q02 | story | 1 | 正文单栏，集合按内容结构 | canvas | regular | none · 内容结构本身足以表达 |
-| Q11 | Q11 | cards | 1 | 正文单栏，集合按内容结构 | sand | regular | none · 内容结构本身足以表达 |
 | Q15 | Q15 | cards | 1 | 正文单栏，集合按内容结构 | canvas | regular | none · 内容结构本身足以表达 |
 | channel | channel | tool | 1 | 正文单栏，集合按内容结构 | sand | regular | none · 内容结构本身足以表达 |
-| Q23 | Q23 | story | 1 | 正文单栏，集合按内容结构 | canvas | regular | none · 内容结构本身足以表达 |
+| faq | faq | faq | 1 | 问题单栏折叠，按需展开 | canvas | regular | none · 内容结构本身足以表达 |
 
 ## 【新增】再婚女性婚前协议与财务边界培训（remarriage）
 

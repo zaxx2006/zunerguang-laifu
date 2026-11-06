@@ -22,7 +22,9 @@ function DisclosureSummary({ title, reserveNumber = false }: { title: string; re
 }
 
 export function ActionButtons({ actions }: { actions: Action[] }) {
-  return <div className="structured-actions">{actions.map((action, index) => <SiteLink className={index ? "button button--outline" : "button button--primary"} href={action.href} data-consultation-type={action.label.includes("预约轻量") ? "轻量咨询" : action.label.includes("预约深度") ? "深度咨询" : undefined} key={`${action.label}-${index}`}>{action.label.replace(/\s*→$/, "")}{/领取|下载|获取/.test(action.label) && action.href.endsWith("resources-availability") ? "（暂未开放）" : ""}<ArrowRight aria-hidden="true" size={17} /></SiteLink>)}</div>;
+  const visibleActions = actions.filter(action => !/^\/media(?:\/|[?#]|$)/.test(action.href));
+  if (!visibleActions.length) return null;
+  return <div className="structured-actions">{visibleActions.map((action, index) => <SiteLink className={index ? "button button--outline" : "button button--primary"} href={action.href} data-consultation-type={action.label.includes("预约轻量") ? "轻量咨询" : action.label.includes("预约深度") ? "深度咨询" : undefined} key={`${action.label}-${index}`}>{action.label.replace(/\s*→$/, "")}{/领取|下载|获取/.test(action.label) && action.href.endsWith("resources-availability") ? "（暂未开放）" : ""}<ArrowRight aria-hidden="true" size={17} /></SiteLink>)}</div>;
 }
 
 function ComparisonTable({ block }: { block: TableBlock }) {

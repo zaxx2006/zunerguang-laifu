@@ -2,39 +2,43 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { SiteLink } from "@/components/site/SiteLink";
 import type { ReactNode } from "react";
 import { Menu, X } from "lucide-react";
+import { ServicesMenu } from "./ServicesMenu";
+import { serviceLinks } from "@/lib/navigation";
 import { HomeButton } from "./HomePrimitives";
-import { homeFooterColumns, type FooterColumn } from "./home-content";
+import { homeFooterColumns, arrangeFooterColumns, type FooterColumn } from "./home-content";
 import type { NavigationPresentation } from "@/contracts/cms-home";
 
 const primaryLinks = [
-  ["/about/", "关于焕屿"],
-  ["/resources/", "资源中心"],
-  ["/blog/", "文章专栏"],
-  ["/faq/", "常见问题"],
-  ["/media/", "媒体动态"],
+  ["/", "首页"],
+  ["/services/", "服务"],
   ["/academy/", "焕屿学院"],
+  ["/resources/", "资源中心"],
+  ["/retreats-workshops/", "线下活动"],
+  ["/about/", "关于焕屿"],
 ] as const;
 
-export function HomeHeader({ homeHref = "#home", assessmentHref = "https://laifu-assessments.pages.dev/", content, breadcrumbSlug, onHero = false, openInNewTab = false }: {
-  homeHref?: string; assessmentHref?: string; content?: NavigationPresentation; breadcrumbSlug?: string; onHero?: boolean; openInNewTab?: boolean;
+export function HomeHeader({ homeHref = "#home", content, breadcrumbSlug, onHero = false, openInNewTab = false }: {
+  homeHref?: string; content?: NavigationPresentation; breadcrumbSlug?: string; onHero?: boolean; openInNewTab?: boolean;
 }) {
-  const links = [{ href: "/", label: "首页", openInNewTab: false }, ...(content?.primaryLinks ?? primaryLinks.map(([href, label]) => ({ href, label, openInNewTab: false })))];
-  const assessment = content?.assessmentAction ?? { href: assessmentHref, label: "开始测评", openInNewTab: true };
   homeHref = content?.homeHref ?? homeHref;
   const pageHref = (href: string) => openInNewTab && href.startsWith("#") ? `/${href}` : href;
+  const linkProps = { target: openInNewTab ? "_blank" : undefined, rel: openInNewTab ? "noopener noreferrer" : undefined };
+  const navigationLinks = primaryLinks.map(([href, label]) => href === "/services/" ? <ServicesMenu label={label} key={href}>
+    <div className="services-menu__links">{serviceLinks.map(([serviceHref, serviceLabel]) => <SiteLink href={serviceHref} {...linkProps} key={serviceHref}>{serviceLabel}</SiteLink>)}</div>
+  </ServicesMenu> : <SiteLink href={href} {...linkProps} key={href}>{label}</SiteLink>);
   return <header id="header" className={onHero ? "on-hero" : undefined} data-has-breadcrumbs={breadcrumbSlug ? true : undefined}><SiteLink className="logo" href={pageHref(homeHref)} target={openInNewTab ? "_blank" : undefined} rel={openInNewTab ? "noopener noreferrer" : undefined} aria-label="焕屿首页"><img alt="" height="19" src="/generated/logo/original.svg" width="30" /><span>焕屿</span><small>陪你慢慢理清</small></SiteLink>
-    <nav aria-label="主导航">{links.map(({ href, label }) => <SiteLink href={pageHref(href)} target={openInNewTab ? "_blank" : undefined} rel={openInNewTab ? "noopener noreferrer" : undefined} key={href}>{label}</SiteLink>)}<HomeButton variant="navigation" href={pageHref(assessment.href)} target={openInNewTab || assessment.openInNewTab ? "_blank" : undefined} rel={openInNewTab || assessment.openInNewTab ? "noopener noreferrer" : undefined}>{assessment.label}</HomeButton></nav>
+    <nav aria-label="主导航">{navigationLinks}<HomeButton variant="navigation" href="/book-consultation/" {...linkProps}>预约咨询</HomeButton></nav>
     <details className="mobile-menu"><summary aria-label="打开导航" title="导航"><Menu aria-hidden="true" className="mobile-menu__open" /><X aria-hidden="true" className="mobile-menu__close" /></summary>
-      <nav aria-label="移动端主导航">{links.map(({ href, label }) => <SiteLink href={pageHref(href)} target={openInNewTab ? "_blank" : undefined} rel={openInNewTab ? "noopener noreferrer" : undefined} key={href}>{label}</SiteLink>)}<HomeButton variant="navigation" href={pageHref(assessment.href)} target={openInNewTab || assessment.openInNewTab ? "_blank" : undefined} rel={openInNewTab || assessment.openInNewTab ? "noopener noreferrer" : undefined}>{assessment.label}</HomeButton></nav>
+      <nav aria-label="移动端主导航">{navigationLinks}<HomeButton variant="navigation" href="/book-consultation/" {...linkProps}>预约咨询</HomeButton></nav>
     </details>
     {breadcrumbSlug ? <div className="header-breadcrumbs"><Breadcrumbs slug={breadcrumbSlug} /></div> : null}
   </header>;
 }
 
-export function HomeFooter({ columns = homeFooterColumns, statement = "焕屿专注离婚全周期陪伴辅导，协同合作律师及其他领域专家，陪你平稳度过人生转折，重掌生活主动权。", content, openInNewTab = false }: {
+export function HomeFooter({ columns = homeFooterColumns, statement = "焕屿以客户福祉为中心，致力于打造有温度、有边界、可落地的婚姻困境辅导体系。陪你平稳度过人生转折，重掌生活主动权。", content, openInNewTab = false }: {
   columns?: readonly FooterColumn[]; statement?: ReactNode; content?: NavigationPresentation; openInNewTab?: boolean;
 }) {
-  const visibleColumns = content?.footerColumns.map(column => ({ title: column.title, links: column.links.map(link => [link.href, link.label] as const) })) ?? columns;
+  const visibleColumns = arrangeFooterColumns((content?.footerColumns.map(column => ({ title: column.title, links: column.links.filter(link => !["/blog/", "/faq/"].includes(link.href)).map(link => [link.href, link.href === "/retreats-workshops/" && link.label === "线下活动" ? "其他活动" : link.label] as const) })) ?? columns).map(column => ({ ...column, links: column.links.filter(([href]) => !/^\/media(?:\/|[?#]|$)/.test(href)) })));
   return <footer className="site-footer" id="site-footer"><div className="container">
     <nav aria-label="页脚导航" className="footer-grid" data-grid="12">{visibleColumns.map(({ title, links }) => <div className="footer-column" key={title}>
       <h2>{title}</h2><div>{links.map(([href, label]) => <SiteLink href={href} target={openInNewTab ? "_blank" : undefined} rel={openInNewTab ? "noopener noreferrer" : undefined} key={href}>{label}</SiteLink>)}</div>

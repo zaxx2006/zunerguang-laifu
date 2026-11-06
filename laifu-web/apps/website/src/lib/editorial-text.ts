@@ -2,7 +2,7 @@ export type EditorialListLayout = "index" | "prompts" | "statements";
 export type EditorialRun = { kind: "paragraph" | "heading" | "label" | "note" | "list" | "reading" | "media" | "entries" | "recommendations"; lines: string[]; layout?: EditorialListLayout; sourceBullets?: number };
 
 const bulletPattern = /^[·•🔹]\s*/u;
-const labelPattern = /^(?:适合你，如果|推荐内容|核心表格|精选文章|推荐指南|近期主题|推荐课程)[：:]?$/u;
+const labelPattern = /^(?:适合你，如果|推荐内容|核心表格|精选文章|推荐指南|近期主题|推荐课程|主题包括|适用对象|内容包含|覆盖内容|常见主题|活动形式|主要内容|服务特点|常见小组方向|小组特点)[：:]?$/u;
 const notePattern = /^(?:摘要预览|查看最新文章|更多深度对谈|自测结果仅供|本工具用于)/u;
 export const recommendationLabelPattern = /^(?:推荐指南|近期主题|推荐课程)[：:]?$/u;
 const scheduleNotePattern = /^线上及线下场次以/u;

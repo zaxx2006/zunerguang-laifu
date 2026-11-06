@@ -108,26 +108,6 @@ const entries=matches.length?matches.map(index=>concernRoutes[index]):[{text:'äº
 entries.forEach(entry=>{const link=document.createElement('a');link.href=entry.href;link.target='_self';link.textContent=entry.text;const icon=document.createElement('img');icon.src='/home-preview/arrow-up-right.svg';icon.alt='';link.append(icon);searchResults.append(link)});
 searchResults.hidden=false;concernInput.setAttribute('aria-expanded','true');
 });
-const branchSection=document.getElementById('services'),branchSvg=document.querySelector('.branch-lines');
-const branchPaths=[...document.querySelectorAll('.branch')],branchCards=[...document.querySelectorAll('.branch-card')];
-function layoutBranches(){
-branchSvg.setAttribute('viewBox','0 0 '+innerWidth+' 320');
-const center=innerWidth/2;
-document.querySelector('.trunk').setAttribute('d','M'+center+' 0 L'+center+' 140');
-branchPaths.forEach((path,i)=>{const box=branchCards[i].getBoundingClientRect(),end=box.left+box.width/2;path.setAttribute('d','M'+center+' 140 C'+center+' 220 '+end+' 200 '+end+' 320')});
-drawBranches();
-}
-function drawBranches(){
-const rect=branchSection.getBoundingClientRect(),reveal=clamp((innerHeight*.9-rect.top)/(innerHeight*.9));
-branchPaths.forEach((path,i)=>{
-const amount=reduceMotion?1:smooth((reveal-.1-i*.035)/.55);
-path.style.strokeDashoffset=1-amount;
-branchCards[i].style.opacity=reduceMotion?1:.12+.88*smooth((amount-.5)/.5);
-});
-window.branchState={progress:reveal,branches:branchPaths.length};
-}
-addEventListener('scroll',drawBranches,{passive:true});addEventListener('resize',layoutBranches);layoutBranches();
-
 const paperTabs=[...document.querySelectorAll('.paper-tab')];
 document.querySelector('.concern-papers').addEventListener('change',event=>{
 if(!event.target.matches('.paper-choice input'))return;
@@ -204,8 +184,7 @@ element.animate(frames,{duration:kind==='paper'?750:650,delay:index*stagger,easi
 }
 const entranceGroups=new Map();
 function enterOnce(selector,callback){const element=document.querySelector(selector);if(element)entranceGroups.set(element,callback)}
-enterOnce('.service-branches',()=>revealElements([document.querySelector('.branch-heading')]));
-enterOnce('.branch-grid',()=>{revealElements([...document.querySelectorAll('.branch-card .image-placeholder')],'image');branchCards.forEach((card,i)=>revealElements([...card.querySelectorAll('h3,p,.service-arrow')],'rise',70+i*10))});
+enterOnce('.home-services',()=>revealElements([document.querySelector('.home-services__heading')]));
 enterOnce('.assessment-section',()=>{revealElements([...document.querySelector('.assessment-intro').children]);revealElements([...document.querySelectorAll('.paper-sheet')],'paper',110)});
 enterOnce('.guides-section',()=>{revealElements([guideSection.querySelector('.band-heading')]);revealElements([...document.querySelectorAll('.guide-item')],'book',100)});
 enterOnce('.closing-invitation',()=>revealElements([...document.querySelector('.closing-invitation .shell').children],'rise',110));

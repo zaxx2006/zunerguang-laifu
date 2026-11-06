@@ -115,9 +115,10 @@ describe("global editorial typography", () => {
     expect(html).toContain('<span class="content-card__number">01</span><h3>想清楚：理清困惑 梳理思路</h3>');
     expect(html).not.toContain("1.想清楚");
   });
-  it("separates source chapter labels inside clustered section headings", () => {
+  it("keeps the revised participation heading and numbered process steps", () => {
     const html = renderToStaticMarkup(createElement(StructuredContent, { pageKey: "community" }));
-    expect(html).toContain('<span aria-hidden="true" class="section-cluster__number">04</span><span class="section-cluster__title">参与流程</span>');
+    expect(html).toContain('<span class="section-cluster__title">参与流程</span>');
+    expect(html).toContain("需求咨询：简述所处阶段、困扰、时间与预算");
     expect(html).not.toContain(">04参与流程<");
   });
   it("keeps each numbered flow label in a dedicated title track", () => {

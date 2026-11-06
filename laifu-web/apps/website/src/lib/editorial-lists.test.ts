@@ -19,8 +19,8 @@ function bulletTexts(value: unknown, path = ""): { path: string; text: string }[
 describe("site-wide editorial lists", () => {
   it("accounts for every source bullet, including nested headings and resource descriptions", () => {
     const sources = bulletTexts(pages);
-    expect(sources.length).toBe(148);
-    expect(sources.reduce((total, source) => total + bulletCount(source.text), 0)).toBe(1180);
+    expect(sources.length).toBe(140);
+    expect(sources.reduce((total, source) => total + bulletCount(source.text), 0)).toBe(1113);
     for (const source of sources) {
       const runs = parseEditorialRuns(source.text);
       expect(runs.reduce((total, run) => total + (run.sourceBullets ?? 0), 0), source.path).toBe(bulletCount(source.text));
@@ -40,7 +40,7 @@ describe("site-wide editorial lists", () => {
       expect(html, pageKey).not.toMatch(/<ul(?![^>]*data-list-design=)/u);
       rendered += renderedBulletCount(html);
     }
-    expect(rendered).toBe(1180);
+    expect(rendered).toBe(1113);
   });
   it("keeps question prompts, compact points and full statements distinct", () => {
     expect(editorialListLayout(["情绪与身心稳定", "律师咨询准备"])).toBe("index");

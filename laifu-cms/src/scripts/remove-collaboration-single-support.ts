@@ -1,0 +1,22 @@
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import config from "@payload-config";
+import { getPayload } from "payload";
+import { pageContentSchema } from "@/contracts/cms-site-page";
+
+const seeds = JSON.parse(await readFile(new URL("../../seed-data/site-pages.json", import.meta.url), "utf8"));
+const source = seeds.find((page: { route: string }) => page.route === "/collaborative-law/");
+const replacement = pageContentSchema.parse(source.content).sections.find(section => section.id === "Q30");
+if (!replacement) throw new Error("Support section missing");
+const payload = await getPayload({ config });
+const query = { collection: "site-pages" as const, where: { route: { equals: "/collaborative-law/" } }, depth: 0, limit: 1, overrideAccess: true };
+const published = (await payload.find({ ...query, draft: false })).docs[0];
+const latest = (await payload.find({ ...query, draft: true })).docs[0];
+if (!published || !latest || latest._status !== "published") throw new Error("Published page required; preserve any pending draft");
+const content = pageContentSchema.parse(published.content);
+if (!content.sections.some(section => section.id === "Q30")) throw new Error("Published support section missing");
+const backup = new URL(`../../../artifacts/collaboration-support-${Date.now()}/`, import.meta.url);
+await mkdir(backup, { recursive: true });
+await writeFile(new URL("page-before.json", backup), JSON.stringify({ published, latest }, null, 2), { flag: "wx" });
+await payload.update({ collection: "site-pages", id: published.id, overrideAccess: true, draft: false, context: { skipSystemEvents: true }, data: { content: { ...content, sections: content.sections.map(section => section.id === "Q30" ? replacement : section) }, _status: "published" } });
+console.log(JSON.stringify({ route: published.route, section: replacement.id, backup: backup.pathname }));
+process.exit(0);

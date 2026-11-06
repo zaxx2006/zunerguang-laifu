@@ -6,6 +6,17 @@ import type { CatalogBlock } from "@/contracts/page-content";
 
 const item: CatalogBlock["items"][number] = { title: "资源验收", summary: "说明", kind: "guide", stage: "decision", href: "/resources/#resources-q06", duration: null };
 describe("资源文件入口", () => {
+  it("资源列表每页只展示八条，并显示总页数和翻页按钮", () => {
+    const items = Array.from({ length: 17 }, (_, index) => ({ ...item, title: `分页资源-${index + 1}` }));
+    const html = renderToStaticMarkup(createElement(ResourceCatalog, { block: { kind: "catalog", items } }));
+    expect(html.match(/class="resource-card"/g)).toHaveLength(8);
+    expect(html).toContain("分页资源-8");
+    expect(html).not.toContain("分页资源-9");
+    expect(html).toContain("第 1 / 3 页");
+    expect(html).toMatch(/<button[^>]*disabled=""[^>]*>上一页<\/button>/);
+    expect(html).toContain("下一页");
+  });
+
   it("已上传文件使用真实文件地址，未上传时保留目录入口", () => {
     const html = renderToStaticMarkup(createElement(ResourceCatalog, { block: { kind: "catalog", items: [item, { ...item, title: "已上传指南", file: { url: "https://cms.example.com/api/media/file/guide.pdf", filename: "guide.pdf", mimeType: "application/pdf" } }] } }));
     expect(html).toContain('href="/resources/#resources-q06"');

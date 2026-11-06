@@ -4,7 +4,6 @@ import { SiteLink } from "./SiteLink";
 import "./breadcrumbs.css";
 
 const labels: Record<string, string> = {
-  services: "服务体系",
   academy: "焕屿学院",
   faq: "常见问题",
   "about/founder": "创始人简介",
