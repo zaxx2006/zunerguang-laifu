@@ -17,7 +17,7 @@ import "./coaching.css";
 const cleanTitle = (title: string) => title.replace(/^0\d\s*/, "");
 const subtopics = (blocks: Block[]) => blocks.filter((block): block is SubsectionBlock => block.kind === "subsection");
 const copyOf = (blocks: Block[]) => blocks.flatMap(block => block.kind === "copy" ? [block.text] : []).join("\n\n");
-const philosophyImages = [{ src: "/images/editorial/p09-about-listening.webp", alt: "两位女性在窗边布椅上交谈与倾听" }, { src: "/images/editorial/p10-about-choice.webp", alt: "一位男性坐在阅读角翻看膝上的资料" }, { src: "/images/editorial/p11-about-boundaries.webp", alt: "半开的木框玻璃门与门内的布椅" }, { src: "/images/editorial/p12-about-network.webp", alt: "两位成年人在侧柜旁交接一份资料" }];
+const philosophyImage = { src: "/images/editorial/p09-about-listening.webp", alt: "两位女性在窗边布椅上交谈与倾听" };
 
 function Actions({ actions, primary = false }: { actions: Action[]; primary?: boolean }) {
   return <div className="about-actions">{actions.map((action, index) => <HomeButton variant={primary && index === 0 ? "primary" : "text"} className={primary && index === 0 ? "coaching-hero-button" : "coaching-text-link"} href={action.href} target="_blank" rel="noopener noreferrer" key={index}>{action.label}{primary && index === 0 ? null : <ArrowUpRight />}</HomeButton>)}</div>;
@@ -45,7 +45,7 @@ export async function AboutPage() {
   const teamTopics = subtopics(team?.blocks ?? []).filter(block => block !== metricsSection);
   const metrics = metricsSection?.blocks.flatMap(block => block.kind === "metrics" ? block.items : []) ?? [];
   const introCopy = copyOf(content.content.intro);
-  const heroStatement = introCopy.split(/\n/).filter(Boolean).at(-1) ?? content.description;
+  const heroStatement = (introCopy.split(/\n/).filter(Boolean).at(-1) ?? content.description).replace(/^焕屿不替你决定人生[，,\s]*而是/, "");
   const contactTopics = subtopics(contact?.blocks ?? []);
   const handled = new Set(["Q06", "Q08", "Q23", "Q35", "Q41", "Q56", "Q59"]);
   const anchor = (id: string) => id.includes("-") ? id : `${content.anchorPrefix}-${id.toLowerCase()}`;
@@ -61,7 +61,7 @@ export async function AboutPage() {
       <section data-grid-section="12" className="coaching-section about-introduction" id="about-introduction"><div className="coaching-wrap about-introduction-layout"><h2>看见情绪，<br />也回应现实</h2><div><SectionBody blocks={content.content.intro.filter(block => block.kind !== "actions")} columns={1} />{content.content.intro.filter(block => block.kind === "actions").map((block, index) => block.kind === "actions" ? <Actions actions={block.actions} key={index} /> : null)}</div></div></section>
 
 
-      {philosophy ? <section data-grid-section="12" className="coaching-section coaching-fit" id={anchor(philosophy.id)}><div className="coaching-wrap"><div className="coaching-heading"><h2>{philosophy.title}</h2><p>点击理念，了解它如何体现在我们的服务中。</p></div><div className="about-section-intro"><SectionBody blocks={philosophy.blocks.filter(block => block.kind !== "subsection")} columns={1} /></div>{subtopics(philosophy.blocks).map((entry, index) => { const photo = philosophyImages[index % philosophyImages.length]; return <Disclosure title={entry.title} id={entry.id} key={entry.id ?? index}><div className="about-philosophy-layout"><figure><img src={photo.src} alt={photo.alt} width={1280} height={854} loading="lazy" decoding="async" {...photoProps(photo.src, "(max-width: 720px) 90vw, 36vw")} /></figure><div><SectionBody blocks={entry.blocks} columns={1} /></div></div></Disclosure>; })}</div></section> : null}
+      {philosophy ? <section data-grid-section="12" className="coaching-section coaching-fit" id={anchor(philosophy.id)}><div className="coaching-wrap"><div className="coaching-heading"><h2>{philosophy.title}</h2></div><div className="about-section-intro"><SectionBody blocks={philosophy.blocks.filter(block => block.kind !== "subsection")} columns={1} /></div><div className="about-philosophy-layout"><figure><img src={philosophyImage.src} alt={philosophyImage.alt} width={1280} height={854} loading="lazy" decoding="async" {...photoProps(philosophyImage.src, "(max-width: 720px) 90vw, 36vw")} /></figure><div>{subtopics(philosophy.blocks).map((entry, index) => <article className="about-philosophy-entry" id={entry.id} key={entry.id ?? index}><h3>{cleanTitle(entry.title)}</h3><SectionBody blocks={entry.blocks} columns={1} /></article>)}</div></div></div></section> : null}
 
       {values ? <section data-grid-section="12" className="coaching-section about-values" id={anchor(values.id)}><div className="coaching-wrap"><div className="about-introduction-layout"><h2>{values.title}</h2><div><SectionBody blocks={values.blocks.filter(block => block.kind !== "subsection")} columns={1} /></div></div><div className="about-value-principles">{subtopics(values.blocks).map((entry, index) => <Disclosure title={entry.title} id={entry.id} key={entry.id ?? index}><SectionBody blocks={entry.blocks} columns={1} /></Disclosure>)}</div></div></section> : null}
 

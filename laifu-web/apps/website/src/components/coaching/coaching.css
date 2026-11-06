@@ -497,6 +497,9 @@
 .workshops-page .workshop-safety { background: var(--soft); }
 .workshops-page .workshop-safety-layout { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8%; }
 .workshops-page .workshop-guidelines { min-width: 0; }
+.workshops-page .workshop-guideline-entry { padding: 24px 0; border-bottom: 1px solid var(--line); }
+.workshops-page .workshop-guideline-entry h3 { font: 16px/1.6 var(--sans); margin-bottom: 20px; }
+.workshops-page .workshop-guideline-entry .structured-rich-text { font-size: 14px; color: var(--muted); }
 .workshops-page .workshop-guidelines h2 { font-size: 29px; margin-bottom: 26px; }
 .workshops-page .workshop-disclosure-action { display: inline-flex; align-items: center; gap: 14px; color: var(--muted); font-size: 11px; }
 .workshops-page .workshop-guidelines > .structured-rich-text { margin-top: 26px; font-size: 13px; color: var(--muted); }
@@ -666,6 +669,9 @@
 .about-page .about-tabs svg { width: 16px; height: 16px; }
 .about-page .about-tab-panel:focus-visible { outline: 2px solid var(--green); outline-offset: 6px; }
 .about-page .about-topic-anchor { scroll-margin-top: calc(var(--home-header-height, 85px) + 100px); }
+.about-page .about-philosophy-entry { padding: 32px 0; border-bottom: 1px solid var(--line); }
+.about-page .about-philosophy-entry:first-child { padding-top: 0; }
+.about-page .about-philosophy-entry > h3 { font-size: 24px; margin-bottom: 24px; }
 .about-page .about-philosophy-layout { display: grid; grid-template-columns: 5fr 6fr; gap: 8%; align-items: start; }
 .about-page .about-philosophy-layout figure img { height: 350px; }
 .about-page .about-philosophy-layout h3 { font-size: 28px; margin-bottom: 20px; }
@@ -1088,7 +1094,8 @@
 .co-parenting-page .parenting-family-roles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5%; margin-top: 30px; }
 .co-parenting-page .parenting-family-roles article { border-top: 1px solid var(--line); padding-top: 24px; }
 .co-parenting-page .parenting-family-roles article > svg { width: 30px; height: 30px; margin-bottom: 22px; color: var(--green); stroke-width: 1.4; }
-.co-parenting-page .parenting-family-roles h3 { font-size: 23px; }
+.co-parenting-page .parenting-family-roles h3 { font-size: 24px; }
+.co-parenting-page .parenting-family-roles .structured-rich-text { font-size: 16px; }
 .co-parenting-page .parenting-q69 { padding-top: 18px; }
 .co-parenting-page .parenting-family-needs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7%; align-items: start; }
 .co-parenting-page .parenting-special-needs { padding: 28px 32px; background: var(--soft); }
@@ -1191,10 +1198,10 @@
 .recovery-page .recovery-topics .template-tabs button:last-child:nth-child(odd) { grid-column: 1 / -1; }
 .recovery-page .recovery-topics .template-tab-panel { min-height: 168px; padding: 22px 0 0; }
 .recovery-page .recovery-topics .template-tab-panel h3 { font-size: 23px; }
-.recovery-page .recovery-related-links { display: flex; flex-wrap: wrap; gap: 16px; }
-.recovery-page .recovery-related-links a { font-size: 14px; }
-.recovery-page .recovery-room-photo { margin: 28px 0 0; }
-.recovery-page .recovery-room-photo img { display: block; width: 100%; aspect-ratio: 16 / 7; height: auto; object-fit: cover; border-radius: 3px; }
+.recovery-page .recovery-remarriage-copy { max-width: 720px; }
+.recovery-page .recovery-remarriage-copy h2 { font-size: 34px; margin-bottom: 24px; }
+.recovery-page .recovery-remarriage-copy > p { font-size: 14px; color: var(--muted); }
+.recovery-page .recovery-remarriage-copy > .recovery-remarriage-lead { font-size: 18px; color: var(--green); margin-bottom: 24px; }
 .recovery-page .recovery-process { background: var(--soft); }
 .recovery-page .recovery-process .template-switcher-hint { margin-top: 18px; }
 .recovery-page .recovery-mobile-hint { display: none; }
@@ -1240,7 +1247,7 @@
   .recovery-page .recovery-support-notes { grid-template-columns: minmax(0, 1fr); }
   .recovery-page .recovery-context-grid h2, .recovery-page .recovery-principles h2 { font-size: 27px; }
   .recovery-page .recovery-topics .template-tab-panel { min-height: 0; }
-  .recovery-page .recovery-room-photo img { aspect-ratio: 16 / 9; }
+  .recovery-page .recovery-remarriage-copy h2 { font-size: 28px; }
   .recovery-page .recovery-mobile-hint { display: block; font: 13px/1.7 var(--sans); color: var(--muted); margin: 18px 0 12px; }
   .recovery-page .recovery-process .template-switcher-hint { display: none; }
   .recovery-page .recovery-process .template-tabs button { flex-basis: 170px; min-height: 82px; }
@@ -1487,7 +1494,7 @@
 .family-page .family-support .template-tab-panel { min-height: 328px; }
 .family-page .family-models article { padding: 18px 0; border-bottom: 1px solid var(--line); }
 .family-page .family-models article:last-child { border-bottom: 0; }
-.family-page .family-models h4 { font-size: 17px; margin-bottom: 14px; }
+.family-page .family-models h3 { font-size: 17px; margin-bottom: 14px; }
 .family-page .family-models dl { margin: 0; }
 .family-page .family-models dl > div + div { margin-top: 14px; }
 .family-page .family-models dt { font-size: 13px; color: var(--ink); margin-bottom: 5px; }
@@ -1747,3 +1754,8 @@
 }
 
 .academy-page .academy-role-photo[data-wide] img { height: auto; aspect-ratio: 3 / 1; }
+
+.coaching-page main .coaching-hero h1 { font-size: 48px; }
+.coaching-page main[data-page] .coaching-hero .hero-statement { font-size: 36px; }
+.founder-page .founder-hero .founder-masthead h1 { font-size: 36px; }
+.founder-page .founder-hero .founder-name { font-size: 48px; }

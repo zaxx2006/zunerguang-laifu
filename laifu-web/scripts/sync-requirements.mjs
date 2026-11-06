@@ -171,7 +171,13 @@ section(pages.recovery, "Q16").blocks = [...blocks(get(8, "Q19")), actions([get(
 pageFrom(10, "collaboration", ["Q05", "Q11", "Q17", "Q24", "Q26", "Q28", "Q30", "Q35", "Q41", "Q43", "Q45", "Q47", 58], { skip: ["Q01", "Q02", "Q03", "Q04"] });
 const labeledTable = (index, ids, labels) => ({ kind: "table", headers: labels, rows: ids.map((id) => { const text = get(index, id); return labels.map((label, i) => text.split(`${label}：`)[1]?.split(i < labels.length - 1 ? `${labels[i + 1]}：` : "\u0000")[0].trim() || ""); }) });
 section(pages.collaboration, "Q17").blocks = [labeledTable(10, ["Q18", "Q19", "Q20"], ["支持方式", "谁参加、怎样参加", "需先说明的规则与承诺"])];
-section(pages.collaboration, "Q35").blocks = [labeledTable(10, ["Q36", "Q37", "Q38", "Q39", "Q40"], ["角色", "主要负责", "不负责"])];
+section(pages.collaboration, "Q35").blocks = [{ kind: "table", headers: ["角色", "主要负责", "不负责"], rows: [
+  ["资深辅导师", "状态稳定、局势梳理、材料准备、行动跟进、资源协调", "法律意见、调解主持、心理治疗"],
+  ["家事律师", "法律意见、协议、谈判代理、诉讼和法律风险", "心理治疗和辅导统筹"],
+  ["心理咨询师", "情绪支持、心理困扰梳理与心理咨询", "法律意见、医疗诊断和药物治疗"],
+  ["财富管理从业者", "家庭财务梳理、资产与负债分析、财富安排支持", "法律效力判断和收益保证"],
+  ["亲子教育从业者", "孩子适应、亲子关系和养育支持", "抚养权法律判断和心理治疗"]
+] }];
 section(pages.collaboration, "Q30").blocks = [grid(["Q31", "Q32", "Q33", "Q34"].map((id) => cardText(get(10, id))))];
 const relatedTargets = ["/services/high-conflict-divorce/", "/services/mediation-preparation/", "/services/co-parenting/", "/services/nuptial-agreements/", anchor("highNetWorth", "Q32"), anchor("coParenting", "Q55"), anchor("collaboration", "Q30"), "/services/remarriage-preparation/"];
 section(pages.collaboration, "Q47").blocks = [grid(Array.from({ length: 8 }, (_, index) => {
@@ -252,6 +258,23 @@ section(pages.remarriage, "Q28").blocks = [grid(["Q29", "Q30", "Q31", "Q32", "Q3
 section(pages.remarriage, "Q41").blocks = faqBlocks(get(23, "Q42"));
 section(pages.remarriage, "Q43").title = "为下一段婚姻做好准备";
 for (const [index, key] of [[7, "mediation"], [8, "recovery"], [13, "academy"], [14, "courses"], [15, "community"]]) appendix(index, key);
+function updateCommunityActivities(page) {
+  const catalogue = page.sections.find(item => item.id === "Q17");
+  catalogue.title = "四种活动，匹配不同阶段的需要";
+  const workshop = catalogue.blocks.find(item => item.kind === "subsection");
+  const original = workshop.blocks.find(item => item.kind === "copy").text;
+  const themes = original.split("常见主题\n")[1].split("\n\n活动形式")[0];
+  workshop.title = "01 主题工作坊";
+  workshop.blocks = [{ kind: "copy", text: `适合希望通过互动练习掌握实用方法的人群。\n聚焦婚姻危机、离婚实务，重实操练习，拒绝空泛说教。\n\n常见主题\n${themes}\n\n活动形式\n·线下小班工作坊：讲解 + 互动练习 + 集中答疑\n·配套工具：对应主题清单、练习表、行动指引\n\n每场围绕单一核心议题，帮你看懂问题，明确下一步行动。` }];
+  const lecture = { kind: "subsection", title: "02 讲座", id: "community-lecture", collapsible: true, blocks: [{ kind: "copy", text: `适合想快速了解议题、建立初步认知的人群。\n围绕一个具体议题，了解核心方法与行动要点。\n\n常见主题\n${themes}\n\n活动形式\n·线上主题讲座：入门便捷，适合初步认知\n\n每场围绕单一核心议题，帮你看懂问题，明确下一步行动。` }] };
+  const position = catalogue.blocks.indexOf(workshop);
+  catalogue.blocks.splice(position + 1, 0, lecture);
+  const remaining = catalogue.blocks.filter(item => item.kind === "subsection").slice(2);
+  remaining.forEach((item, index) => { item.title = `${String(index + 3).padStart(2, "0")} ${item.title.replace(/^\d+\s+/, "")}`; });
+  const approach = page.sections.find(item => item.id === "Q12");
+  for (const block of approach.blocks) if (block.kind === "copy") block.text = block.text.replace("（1）主题工作坊与讲座\n围绕一个具体议题展开，帮助参与者在较短时间内了解核心方法与行动要点，适合希望低门槛学习实用内容的人群。", "（1）主题工作坊\n围绕具体议题，通过讲解、互动练习与集中答疑，帮助参与者掌握实用方法。\n\n（2）讲座\n围绕具体议题介绍核心方法与行动要点，适合希望低门槛建立初步认知的人群。").replace("（2）沉浸式支持营", "（3）沉浸式支持营").replace("（3）封闭式成长小组", "（4）封闭式成长小组").replace("（4）企业及机构定制活动", "（5）企业及机构定制活动");
+}
+updateCommunityActivities(pages.community);
 currentKey = "media";
 const mediaCta = get(18, 32, "A").split("\n").filter(Boolean);
 pages.media.cta = { title: mediaCta[1], body: "音视频、报道与手册尚待发布；可以先浏览栏目规划、支持路径与隐私说明。", actions: mediaCta.slice(2).filter((label) => !["主要按钮", "服务入口"].includes(label)).map((label, index) => ({ label, href: [anchor("media", "Q05"), anchor("media", "Q09"), "/resources/#resources-availability", "/book-consultation/#booking-channel", "/services/", anchor("media", "Q24")][index] })) };

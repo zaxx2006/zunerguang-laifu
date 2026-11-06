@@ -27,7 +27,7 @@ function Disclosure({ title, children, id }: { title: string; children: ReactNod
 }
 
 function ActionLinks({ actions, primary = false }: { actions: Action[]; primary?: boolean }) {
-  return <div className="family-actions">{actions.map((action, index) => {
+  return <div className="family-actions">{actions.filter(action => action.href !== `${route}#collaboration-q26` && action.href !== "#collaboration-q26").map((action, index) => {
     const local = action.href.startsWith(`${route}#`);
     const href = local ? action.href.slice(route.length) : action.href;
     const booking = primary && href.startsWith("/book-consultation/");
@@ -43,22 +43,20 @@ export async function FamilyCollaborationPage() {
   const [navigation, content, home] = await Promise.all([getNavigationPresentation({ preview: false }), getSitePagePresentation(route), getHomePresentation({ preview: false })]);
   const invitation = home?.invitation;
   const sections = new Map(content.content.sections.map(section => [section.id, section]));
-  const overview = sections.get("Q05"), models = sections.get("Q17"), coach = sections.get("Q24"), fit = sections.get("Q26"), risks = sections.get("Q28"), support = sections.get("Q30"), roles = sections.get("Q35"), privacy = sections.get("Q41"), process = sections.get("Q43"), meeting = sections.get("Q45"), related = sections.get("Q47"), handoff = sections.get("58");
+  const overview = sections.get("Q05"), models = sections.get("Q17"), support = sections.get("Q30"), roles = sections.get("Q35"), privacy = sections.get("Q41"), process = sections.get("Q43"), meeting = sections.get("Q45"), related = sections.get("Q47");
   const overviewCopy = overview?.blocks.find(block => block.kind === "copy");
   const heroActions = (overview?.blocks ?? content.content.intro).flatMap(block => block.kind === "actions" ? block.actions : []);
   const uses = support?.blocks.find(block => block.kind === "grid");
   const roleTable = roles?.blocks.find(block => block.kind === "table");
   const modelTable = models?.blocks.find(block => block.kind === "table");
-  const coachParts = copyText(coach?.blocks ?? []).split(/\n{2,}/);
   const processLines = copyText(process?.blocks ?? []).split("\n").filter(Boolean);
   const steps = processLines.flatMap(line => { const match = line.match(/^(\d+)\.([^：]+)：(.+)$/); return match ? [{ number: Number(match[1]), title: match[2], text: match[3] }] : []; });
   const meetingParts = copyText(meeting?.blocks ?? []).split(/\n{2,}/);
   const privacyParts = copyText(privacy?.blocks ?? []).split(/\n{2,}/);
   const privacyLines = privacyParts.slice(1).join("\n").split("\n").filter(Boolean);
   const relatedItems = related?.blocks.find(block => block.kind === "grid");
-  const handoffParts = copyText(handoff?.blocks ?? []).split(/\n{2,}/);
   const anchor = (id: string) => id.includes("-") ? id : `${content.anchorPrefix}-${id.toLowerCase()}`;
-  const nav = [[support, "支持方式"], [roles, "角色分工"], [fit, "适用与风险"], [process, "服务流程"], [meeting, "会前会后"], [privacy, "书面授权"]] as const;
+  const nav = [[support, "支持方式"], [roles, "角色分工"], [process, "服务流程"], [meeting, "会前会后"], [privacy, "书面授权"]] as const;
   const known = new Set(["Q05", "Q11", "Q17", "Q24", "Q26", "Q28", "Q30", "Q35", "Q41", "Q43", "Q45", "Q47", "58"]);
   const jsonLd = siteConfig.siteUrl ? { "@context": "https://schema.org", "@type": "Service", name: content.title, description: content.description, url: `${siteConfig.siteUrl}${route}`, provider: { "@type": "Organization", name: siteConfig.nameZh, url: siteConfig.siteUrl } } : null;
 
@@ -79,32 +77,28 @@ export async function FamilyCollaborationPage() {
       {content.content.intro.length ? <section data-grid-section="12" className="coaching-section"><div className="coaching-wrap"><Body blocks={content.content.intro.filter(block => block.kind !== "actions")} /></div></section> : null}
 
       {support ? <section data-grid-section="12" className="coaching-section family-support" id={anchor(support.id)}><div className="coaching-wrap">
-        <div className="coaching-heading"><h2>{support.title}</h2><p>点击支持方式，了解谁会参与、怎样准备和推进。</p></div>
+        <div className="coaching-heading"><h2>{support.title.replace("三种方式", "")}</h2><p>点击支持方式，了解谁会参与、怎样准备和推进。</p></div>
         <div className="family-support-grid">
           <div className="family-support-overview">
             <figure><img src="/images/editorial/p22-family-teamwork.webp" alt="三位成年人在同一工作空间各自整理资料" width={1280} height={854} loading="lazy" decoding="async" {...photoProps("/images/editorial/p22-family-teamwork.webp", "(max-width: 720px) 90vw, 34vw")} /></figure>
-            {coach ? <><Disclosure title={coach.title} id={anchor(coach.id)}>{coachParts.slice(0, -1).map((text, index) => <RichText text={text} presentation="editorial" key={index} />)}<Body blocks={coach.blocks.filter(block => block.kind !== "copy")} /></Disclosure>{coachParts.at(-1) ? <p className="family-coach-boundary">{coachParts.at(-1)}</p> : null}</> : null}
           </div>
           <div>
             {uses ? <TemplateTabs labels={uses.items.map(item => cleanTitle(item.title))} hint="点击下方入口，查看具体支持内容">{uses.items.map((item, index) => <article id={item.id ?? `collaboration-use-${index}`} key={index}><h3>{cleanTitle(item.title)}</h3><Body blocks={item.blocks} />{item.href ? <SiteLink className="coaching-text-link" href={item.href}>了解这项支持<ArrowUpRight aria-hidden="true" /></SiteLink> : null}</article>)}</TemplateTabs> : null}
             <Body blocks={support.blocks.filter(block => block.kind !== "grid")} />
-            {models ? <Disclosure title={models.title} id={anchor(models.id)}>
-              {modelTable ? <div className="family-models">{modelTable.rows.map((row, index) => <article key={index}><h4>{row[0]}</h4><dl>{modelTable.headers.slice(1).map((header, cellIndex) => <div key={header}><dt>{header}</dt><dd>{row[cellIndex + 1]}</dd></div>)}</dl></article>)}</div> : null}
-              <Body blocks={models.blocks.filter(block => block.kind !== "table")} />
-            </Disclosure> : null}
           </div>
         </div>
+      </div></section> : null}
+
+      {models ? <section data-grid-section="12" className="coaching-section" id={anchor(models.id)}><div className="coaching-wrap">
+        <h2>{models.title}</h2>
+        {modelTable ? <div className="family-models">{modelTable.rows.map((row, index) => <article key={index}><h3>{row[0]}</h3><dl>{modelTable.headers.slice(1).map((header, cellIndex) => <div key={header}><dt>{header}</dt><dd>{row[cellIndex + 1]}</dd></div>)}</dl></article>)}</div> : null}
+        <Body blocks={models.blocks.filter(block => block.kind !== "table")} />
       </div></section> : null}
 
       {roles ? <section data-grid-section="12" className="coaching-section family-roles" id={anchor(roles.id)}><div className="coaching-wrap">
         <h2>{roles.title}</h2>
         {roleTable ? <TemplateTabs labels={roleTable.rows.map(row => row[0])} hint="点击角色，查看职责和专业边界">{roleTable.rows.map((row, index) => <article key={index}><h3>{row[0]}</h3><div className="family-role-columns">{roleTable.headers.slice(1).map((header, cellIndex) => <div key={header}><h4>{header}</h4><RichText text={row[cellIndex + 1]} presentation="editorial" /></div>)}</div></article>)}</TemplateTabs> : null}
         <Body blocks={roles.blocks.filter(block => block.kind !== "table")} />
-      </div></section> : null}
-
-      {fit || risks ? <section data-grid-section="12" className="coaching-section family-fit"><div className="coaching-wrap family-fit-grid">
-        {fit ? <div id={anchor(fit.id)}><h2>{fit.title}</h2><Body blocks={fit.blocks} /></div> : null}
-        {risks ? <div className="family-risk" id={anchor(risks.id)}><h2>{risks.title}</h2><Body blocks={risks.blocks} /></div> : null}
       </div></section> : null}
 
       {process ? <section data-grid-section="12" className="coaching-section family-process" id={anchor(process.id)}><div className="coaching-wrap">
@@ -125,7 +119,6 @@ export async function FamilyCollaborationPage() {
       {related ? <section data-grid-section="12" className="coaching-section family-related" id={anchor(related.id)}><div className="coaching-wrap"><h2>{related.title}</h2><div className="family-related-list">{relatedItems?.items.map((item, index) => <article key={index} id={item.id}><h3>{item.title}</h3><Body blocks={item.blocks.map(block => block.kind === "actions" ? { ...block, actions: block.actions.map(action => action.href === `${route}#collaboration-q30` ? { ...action, href: "#collaboration-use-3" } : action) } : block)} /></article>)}</div><Body blocks={related.blocks.filter(block => block.kind !== "grid")} /></div></section> : null}
 
       {content.content.sections.filter(section => !known.has(section.id)).map(section => <section data-grid-section="12" className="coaching-section" id={anchor(section.id)} key={section.id}><div className="coaching-wrap"><h2>{section.title}</h2><Body blocks={section.blocks} /></div></section>)}
-      {handoff ? <section data-grid-section="12" className="coaching-section family-handoff" id={anchor(handoff.id)}><div className="coaching-wrap family-handoff-grid"><h2>{handoff.title}</h2><div><Disclosure title="查看交接资料与后续事项">{handoffParts.slice(0, 1).map((text, index) => <RichText text={text} presentation="editorial" key={index} />)}</Disclosure>{handoffParts.slice(1).map((text, index) => <RichText text={text} presentation="editorial" key={index} />)}<Body blocks={handoff.blocks.filter(block => block.kind !== "copy" && block.kind !== "actions")} />{handoff.blocks.flatMap(block => block.kind === "actions" ? [<ActionLinks actions={block.actions} primary key="actions" />] : [])}</div></div></section> : null}
       {content.content.cta ? <section data-grid-section="12" className="coaching-section family-handoff"><div className="coaching-wrap"><h2>{content.content.cta.title}</h2><RichText text={content.content.cta.body} presentation="editorial" /><ActionLinks actions={content.content.cta.actions} primary /></div></section> : null}
       <HomeDesignSystem><HomeInvitation content={invitation} openInNewTab /></HomeDesignSystem>
     </main>
